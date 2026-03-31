@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./contact.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="./contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+
+ <!-- Background -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <main>
+
+    <!-- ===== SECTION 1: HERO ===== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-blobs">
+        <div class="hblob hblob-1"></div>
+        <div class="hblob hblob-2"></div>
+      </div>
+      <!-- Floating particles -->
+      <canvas id="heroParticles"></canvas>
+
+      <div class="container hero-content">
+        <p class="breadcrumb fade-down"><a href="index.html">Home</a> <span>/</span> Contact</p>
+        <h1 class="fade-up">Get In <span class="highlight">Touch</span></h1>
+        <p class="hero-sub fade-up delay-1">We’d love to hear from you. Reach out for custom orders, workshop bookings, collaborations, or simply to say hello.</p>
+        <div class="hero-stats fade-up delay-2">
+          <div class="stat">
+            <strong>24h</strong><span>Response Time</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>5★</strong><span>Client Rating</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <strong>500+</strong><span>Happy Customers</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: CONTACT INFO CARDS ===== -->
+    <section class="info-section reveal" id="contactInfo">
+      <div class="section-blobs">
+        <div class="sblob sblob-a"></div>
+        <div class="sblob sblob-b"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-tag">Reach Us</span>
+          <h2>Contact <span class="highlight">Information</span></h2>
+          <p>Multiple ways to connect with the ResinLux studio team.</p>
+        </div>
+        <div class="info-cards">
+          <div class="info-card fade-left delay-0">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <h3>Studio Address</h3>
+            <p>14 Artisan Lane, Creative Quarter<br>London, EC2A 4BX<br>United Kingdom</p>
+            <a href="https://maps.google.com" target="_blank" class="info-link">Get Directions &rarr;</a>
+          </div>
+          <div class="info-card fade-up delay-1">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.18 2.92 2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.16a16 16 0 006.93 6.93l1.53-1.53a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+              </svg>
+            </div>
+            <h3>Phone & WhatsApp</h3>
+            <p>+44 (0) 20 7946 0958<br>+44 (0) 7700 900 123<br>Mon–Fri, 9am–6pm</p>
+            <a href="tel:+442079460958" class="info-link">Call Now &rarr;</a>
+          </div>
+          <div class="info-card fade-up delay-2">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <h3>Email Us</h3>
+            <p>hello@resinlux.co.uk<br>orders@resinlux.co.uk<br>press@resinlux.co.uk</p>
+            <a href="mailto:hello@resinlux.co.uk" class="info-link">Send Email &rarr;</a>
+          </div>
+          <div class="info-card fade-right delay-3">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <h3>Opening Hours</h3>
+            <p>Mon – Fri: 9:00am – 6:00pm<br>Saturday: 10:00am – 4:00pm<br>Sunday: Closed</p>
+            <a href="#bookVisit" class="info-link">Book a Visit &rarr;</a>
+          </div>
+        </div>
+        <!-- Social Row -->
+        <div class="social-strip fade-up delay-3">
+          <span>Follow Us</span>
+          <div class="social-icons">
+            <a href="#" class="soc-icon" style="--c:#1877f2" title="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="soc-icon" style="--c:#e1306c" title="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="soc-icon" style="--c:#e60023" title="Pinterest">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+            </a>
+            <a href="#" class="soc-icon" style="--c:#ff0000" title="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg>
+            </a>
+            <a href="#" class="soc-icon" style="--c:#25D366" title="WhatsApp">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: MAP + CONTACT FORM ===== -->
+    <section class="map-form-section reveal" id="mapForm">
+      <div class="map-bg"></div>
+      <div class="map-overlay"></div>
+      <div class="container map-form-grid">
+        <!-- Map -->
+        <div class="map-side fade-left">
+          <div class="map-header">
+            <h2>Find <span class="highlight">Our Studio</span></h2>
+            <p>We’re located in the heart of London’s Creative Quarter.</p>
+          </div>
+          <div class="map-embed">
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-0.0927%2C51.5217%2C-0.0727%2C51.5317&layer=mapnik&marker=51.5267%2C-0.0827"
+              allowfullscreen
+              loading="lazy"
+              title="ResinLux Studio Location">
+            </iframe>
+            <div class="map-pin-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              14 Artisan Lane, London EC2A 4BX
+            </div>
+          </div>
+          <!-- Transport info -->
+          <div class="transport-cards">
+            <div class="transport-card">
+              <div class="t-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+              </div>
+              <div>
+                <strong>Tube</strong>
+                <span>Shoreditch High St — 5 min walk</span>
+              </div>
+            </div>
+            <div class="transport-card">
+              <div class="t-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+              <div>
+                <strong>Bus</strong>
+                <span>Routes 8, 26, 388</span>
+              </div>
+            </div>
+            <div class="transport-card">
+              <div class="t-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <div>
+                <strong>Parking</strong>
+                <span>NCP Shoreditch — 3 min walk</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="form-side fade-right">
+          <div class="form-card">
+            <div class="form-card-header">
+              <div class="form-icon-wrap">
+                <svg viewBox="0 0 40 40" width="40" height="40">
+                  <circle cx="20" cy="20" r="20" fill="#9333ea" opacity=".12"/>
+                  <path d="M10 14h20v14H10z" fill="none" stroke="#9333ea" stroke-width="1.5" rx="2"/>
+                  <polyline points="10,14 20,22 30,14" fill="none" stroke="#9333ea" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Send Us a Message</h3>
+                <p>We’ll get back to you within 24 hours.</p>
+              </div>
+            </div>
+            <form id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cfName">Full Name <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="fi">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </span>
+                    <input type="text" id="cfName" class="cf-input" placeholder="Jane Smith">
+                  </div>
+                  <span class="ferr" id="cfNameErr"></span>
+                </div>
+                <div class="form-group">
+                  <label for="cfEmail">Email Address <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="fi">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </span>
+                    <input type="email" id="cfEmail" class="cf-input" placeholder="jane@example.com">
+                  </div>
+                  <span class="ferr" id="cfEmailErr"></span>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cfPhone">Phone Number</label>
+                  <div class="input-wrap">
+                    <span class="fi">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.18 2.92 2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.16a16 16 0 006.93 6.93l1.53-1.53a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    </span>
+                    <input type="tel" id="cfPhone" class="cf-input" placeholder="+44 7700 900 123">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cfSubject">Subject <span class="req">*</span></label>
+                  <div class="input-wrap">
+                    <span class="fi">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                    </span>
+                    <select id="cfSubject" class="cf-input cf-select">
+                      <option value="">Select a topic</option>
+                      <option>Custom Order Enquiry</option>
+                      <option>Workshop Booking</option>
+                      <option>Wholesale / Trade</option>
+                      <option>Press &amp; Collaboration</option>
+                      <option>General Question</option>
+                    </select>
+                  </div>
+                  <span class="ferr" id="cfSubjectErr"></span>
+                </div>
+              </div>
+              <div class="form-group full">
+                <label for="cfMessage">Message <span class="req">*</span></label>
+                <div class="input-wrap textarea-wrap">
+                  <span class="fi fi-top">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                  </span>
+                  <textarea id="cfMessage" class="cf-input cf-textarea" rows="4" placeholder="Tell us about your project, question or enquiry..."></textarea>
+                </div>
+                <span class="ferr" id="cfMessageErr"></span>
+              </div>
+              <div class="form-group full">
+                <label class="check-label">
+                  <input type="checkbox" id="cfAgree"> I agree to the <a href="#" class="link-text">Privacy Policy</a> and consent to being contacted.
+                </label>
+                <span class="ferr" id="cfAgreeErr"></span>
+              </div>
+              <button type="submit" class="cf-submit">Send Message</button>
+              <div class="form-success" id="formSuccess">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2" width="32" height="32"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <p>Message sent! We’ll be in touch within 24 hours.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4: FAQ + EXTRA DETAILS ===== -->
+    <section class="faq-section reveal" id="faq">
+      <div class="section-blobs">
+        <div class="sblob sblob-c"></div>
+        <div class="sblob sblob-d"></div>
+      </div>
+      <div class="container faq-grid">
+        <!-- FAQ -->
+        <div class="faq-col fade-left">
+          <div class="section-header text-left">
+            <span class="section-tag">FAQ</span>
+            <h2>Common <span class="highlight">Questions</span></h2>
+            <p>Quick answers before you reach out.</p>
+          </div>
+          <div class="accordion" id="accordion">
+            <div class="acc-item">
+              <button class="acc-btn">How long does a custom order take?
+                <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="acc-body">Most custom resin pieces take 5–7 business days to cure and complete. Larger commissions such as river tables or wall art may take 2–3 weeks. We always confirm lead times before you order.</div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-btn">Do you ship internationally?
+                <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="acc-body">Yes! We ship to over 40 countries. All items are individually bubble-wrapped and boxed. International delivery typically takes 7–14 working days via tracked courier.</div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-btn">Can I visit the studio?
+                <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="acc-body">Absolutely. Studio visits are by appointment. You can use the contact form above to book a slot, or call us directly. Visits are available Tuesday through Saturday.</div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-btn">What information do you need for a custom order?
+                <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="acc-body">Please include the item type (tray, coaster, jewellery, etc.), dimensions, colour palette, any embedded botanicals or inclusions, and your required-by date. Reference photos are always welcome.</div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-btn">Do you offer wholesale pricing?
+                <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="acc-body">Yes. We work with boutiques, gift shops, and interior designers. Select “Wholesale / Trade” in the contact form subject line and we will send you our trade pack and minimum order details.</div>
+            </div>
+            <div class="acc-item">
+              <button class="acc-btn">How do I book a workshop?
+                <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="acc-body">Workshop bookings are made via our Workshops page or by selecting “Workshop Booking” in the contact form. We run beginner, intermediate, and private group sessions weekly.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Studio Details Card -->
+        <div class="details-col fade-right">
+          <div class="details-card">
+            <!-- Studio SVG illustration -->
+            <div class="studio-illustration">
+              <svg viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
+                <!-- building -->
+                <rect x="40" y="60" width="200" height="110" rx="4" fill="#9333ea" opacity=".08"/>
+                <rect x="40" y="60" width="200" height="110" rx="4" fill="none" stroke="#9333ea" stroke-width="1.5" opacity=".3"/>
+                <!-- roof -->
+                <polygon points="30,60 140,10 250,60" fill="#9333ea" opacity=".12"/>
+                <polygon points="30,60 140,10 250,60" fill="none" stroke="#9333ea" stroke-width="1.5" opacity=".4"/>
+                <!-- windows -->
+                <rect x="65" y="80" width="40" height="35" rx="3" fill="#0891b2" opacity=".25"/>
+                <rect x="65" y="80" width="40" height="35" rx="3" fill="none" stroke="#0891b2" stroke-width="1" opacity=".5"/>
+                <line x1="85" y1="80" x2="85" y2="115" stroke="#0891b2" stroke-width="1" opacity=".5"/>
+                <line x1="65" y1="97" x2="105" y2="97" stroke="#0891b2" stroke-width="1" opacity=".5"/>
+                <rect x="120" y="80" width="40" height="35" rx="3" fill="#0891b2" opacity=".25"/>
+                <rect x="120" y="80" width="40" height="35" rx="3" fill="none" stroke="#0891b2" stroke-width="1" opacity=".5"/>
+                <line x1="140" y1="80" x2="140" y2="115" stroke="#0891b2" stroke-width="1" opacity=".5"/>
+                <line x1="120" y1="97" x2="160" y2="97" stroke="#0891b2" stroke-width="1" opacity=".5"/>
+                <!-- door -->
+                <rect x="155" y="110" width="36" height="60" rx="3" fill="#9333ea" opacity=".18"/>
+                <rect x="155" y="110" width="36" height="60" rx="3" fill="none" stroke="#9333ea" stroke-width="1.5" opacity=".5"/>
+                <circle cx="185" cy="140" r="3" fill="#9333ea" opacity=".5"/>
+                <!-- sign -->
+                <rect x="95" y="35" width="90" height="18" rx="3" fill="#d97706" opacity=".15"/>
+                <text x="140" y="48" font-family="Poppins,sans-serif" font-size="8" font-weight="700" fill="#d97706" text-anchor="middle" opacity=".8">RESINLUX STUDIO</text>
+                <!-- resin drops -->
+                <ellipse cx="220" cy="45" rx="8" ry="12" fill="#9333ea" opacity=".25"/>
+                <ellipse cx="220" cy="52" rx="5" ry="5" fill="#9333ea" opacity=".4"/>
+                <ellipse cx="55" cy="42" rx="6" ry="9" fill="#0891b2" opacity=".25"/>
+                <ellipse cx="55" cy="47" rx="4" ry="4" fill="#0891b2" opacity=".4"/>
+                <!-- ground -->
+                <line x1="20" y1="170" x2="260" y2="170" stroke="#9333ea" stroke-width="1" opacity=".2"/>
+                <!-- orbit rings -->
+                <ellipse cx="140" cy="95" rx="120" ry="30" fill="none" stroke="#9333ea" stroke-width="0.8" stroke-dasharray="4 4" opacity=".15"/>
+              </svg>
+            </div>
+            <h3>ResinLux Studio</h3>
+            <ul class="detail-list">
+              <li>
+                <span class="dl-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </span>
+                <span>14 Artisan Lane, London EC2A 4BX</span>
+              </li>
+              <li>
+                <span class="dl-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5"/><path d="M1 1l22 22"/></svg>
+                </span>
+                <span>+44 (0) 20 7946 0958</span>
+              </li>
+              <li>
+                <span class="dl-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <span>hello@resinlux.co.uk</span>
+              </li>
+              <li>
+                <span class="dl-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </span>
+                <span>Mon–Fri 9am–6pm &bull; Sat 10am–4pm</span>
+              </li>
+            </ul>
+            <div class="detail-badges">
+              <span class="badge">Secure Payments</span>
+              <span class="badge">Free UK Returns</span>
+              <span class="badge">Handmade</span>
+              <span class="badge">Eco Resins</span>
+            </div>
+            <a href="#mapForm" class="btn-primary-outline">Book a Studio Visit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5: GUARANTEE STRIP ===== -->
+    <section class="guarantee-section reveal" id="guarantee">
+      <div class="guarantee-bg"></div>
+      <div class="guarantee-overlay"></div>
+      <div class="container guarantee-inner">
+        <div class="g-item fade-up delay-0">
+          <div class="g-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Secure & Private</h4>
+          <p>Your data is never shared. All payments encrypted.</p>
+        </div>
+        <div class="g-item fade-up delay-1">
+          <div class="g-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h4>Fast Response</h4>
+          <p>All enquiries answered within 24 hours on weekdays.</p>
+        </div>
+        <div class="g-item fade-up delay-2">
+          <div class="g-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h4>Customer First</h4>
+          <p>Over 500 five-star reviews from happy customers.</p>
+        </div>
+        <div class="g-item fade-up delay-3">
+          <div class="g-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h4>Tracked Delivery</h4>
+          <p>Every order ships with full tracking information.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./contact.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</body>
+</html>

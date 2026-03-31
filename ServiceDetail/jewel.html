@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./jewel.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="./jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+
+ <main id="mainContent">
+
+    <!-- ══ SECTION 1: HERO ══ -->
+    <section class="s-hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="./Images/jewel-hero.jpg" alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-particles" aria-hidden="true">
+        <span class="fp fp1"></span><span class="fp fp2"></span>
+        <span class="fp fp3"></span><span class="fp fp4"></span>
+        <span class="fp fp5"></span><span class="fp fp6"></span>
+      </div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-breadcrumb fade-down" data-delay="0">
+            <a href="index2.html">Home</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <a href="services.html">Services</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <span>Jewellery Design</span>
+          </div>
+          <h1 class="fade-up" data-delay="100">
+            Handcrafted Resin<br>
+            <em>Jewellery &amp; Wearable Art</em>
+          </h1>
+          <p class="hero-sub fade-up" data-delay="200">Wear your story. Every piece of ResinLux jewellery is individually cast, set, and finished by hand — blending premium epoxy resin with botanicals, pigments, and precious metal settings to create wearable art that is entirely unique to you.</p>
+          <div class="hero-actions fade-up" data-delay="300">
+            <a href="#order" class="btn-primary">Order Custom Jewellery</a>
+            <a href="#collection" class="btn-ghost-light">Browse Collection</a>
+          </div>
+          <div class="hero-stats fade-up" data-delay="400">
+            <div class="hs-item"><strong>1,200+</strong><span>Pieces Created</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>100%</strong><span>Handcrafted</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>Sterling &amp; Gold</strong><span>Metal Settings</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>Gift-Boxed</strong><span>Every Order</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 2: WHAT IS RESIN JEWELLERY ══ -->
+    <section class="s-about" id="about">
+      <div class="about-bg-anim" aria-hidden="true">
+        <div class="aba aba1"></div>
+        <div class="aba aba2"></div>
+        <div class="aba aba3"></div>
+      </div>
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-left fade-left">
+            <span class="section-tag">About Our Jewellery</span>
+            <h2>Art You Can<br>Wear Every Day</h2>
+            <p>Resin jewellery at ResinLux Studio goes far beyond craft. Each piece is designed with the eye of a jeweller and the soul of an artist — using high-clarity epoxy resin combined with real dried botanicals, mica pigments, 24-carat gold leaf, and gemstone inclusions set into sterling silver or gold-fill bezels.</p>
+            <p>Every item is made to order, allowing you to specify your exact colour palette, inclusions, metal tone, and finish. The result is a wearable artwork that no-one else in the world has — perfectly and permanently yours.</p>
+            <ul class="about-points">
+              <li><div class="ap-dot"></div><span>Earrings, pendants, rings, bracelets &amp; cuffs</span></li>
+              <li><div class="ap-dot"></div><span>Real botanical, floral &amp; crystal inclusions</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Sterling silver, gold-fill &amp; rose gold settings</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Hypoallergenic materials throughout</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>Personalised gift box &amp; care card included</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>Bridal, occasion &amp; memorial collections</span></li>
+            </ul>
+            <a href="#order" class="btn-primary">Design Your Piece</a>
+          </div>
+          <div class="about-right fade-right">
+            <div class="about-model">
+              <div class="am-frame">
+                <div class="am-canvas">
+                  <!-- Jewellery SVG model: ring + gem + earrings -->
+                  <svg viewBox="0 0 280 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="canvas-svg">
+                    <!-- Background -->
+                    <rect x="8" y="8" width="264" height="324" rx="12" fill="var(--bg-card)" stroke="var(--border)" stroke-width="2"/>
+                    <!-- Ring band -->
+                    <circle cx="140" cy="185" r="60" stroke="var(--primary)" stroke-width="8" fill="none"/>
+                    <circle cx="140" cy="185" r="60" stroke="var(--primary)" stroke-width="8" fill="none" stroke-dasharray="20 8" opacity="0.3"/>
+                    <!-- Gem on ring top -->
+                    <polygon points="140,108 155,122 148,138 132,138 125,122" fill="var(--primary)" opacity="0.9"/>
+                    <polygon points="140,108 155,122 148,138" fill="var(--secondary)" opacity="0.6"/>
+                    <polygon points="140,108 125,122 132,138" fill="var(--primary)" opacity="0.7"/>
+                    <polygon points="132,138 148,138 144,145 136,145" fill="var(--primary)" opacity="0.55"/>
+                    <!-- Gem shine -->
+                    <circle cx="150" cy="114" r="4" fill="white" opacity="0.45"/>
+                    <!-- Left earring drop -->
+                    <circle cx="62" cy="90" r="10" stroke="var(--secondary)" stroke-width="3" fill="none"/>
+                    <line x1="62" y1="68" x2="62" y2="80" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round"/>
+                    <ellipse cx="62" cy="118" rx="10" ry="14" fill="var(--secondary)" opacity="0.8"/>
+                    <circle cx="66" cy="112" r="4" fill="white" opacity="0.28"/>
+                    <!-- Right earring stud -->
+                    <circle cx="218" cy="80" r="16" fill="var(--amber)" opacity="0.85"/>
+                    <circle cx="224" cy="74" r="5" fill="white" opacity="0.3"/>
+                    <circle cx="218" cy="80" r="8" fill="var(--amber)" opacity="0.4"/>
+                    <!-- Pendant chain -->
+                    <path d="M140 225 Q120 230 115 248 Q110 264 140 268 Q170 264 165 248 Q160 230 140 225" stroke="var(--amber)" stroke-width="2" fill="none" stroke-dasharray="4 3"/>
+                    <ellipse cx="140" cy="268" rx="22" ry="18" fill="var(--amber)" opacity="0.8"/>
+                    <circle cx="147" cy="262" r="6" fill="white" opacity="0.3"/>
+                    <!-- Botanical flecks -->
+                    <circle cx="95"  cy="185" r="4" fill="var(--primary)"   opacity="0.4"/>
+                    <circle cx="185" cy="185" r="4" fill="var(--secondary)" opacity="0.4"/>
+                    <circle cx="140" cy="248" r="3" fill="var(--primary)"   opacity="0.3"/>
+                    <!-- sparkles -->
+                    <circle cx="40"  cy="160" r="3" fill="var(--amber)"     opacity="0.5"/>
+                    <circle cx="245" cy="130" r="2.5" fill="var(--primary)" opacity="0.4"/>
+                    <circle cx="220" cy="220" r="2"   fill="var(--secondary)" opacity="0.4"/>
+                  </svg>
+                </div>
+                <div class="am-badge fade-in" data-delay="500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+                    <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
+                  </svg>
+                  <span>Gift-Boxed<br>&amp; Certified</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 3: COLLECTION CAROUSEL ══ -->
+    <section class="s-carousel" id="collection">
+      <div class="carousel-section-bg" aria-hidden="true">
+        <img src="./Images/carou-hero.jpg" alt="" />
+        <div class="csb-overlay"></div>
+        <div class="csb-ring ring-a"></div>
+        <div class="csb-ring ring-b"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Our Collections</span>
+          <h2>Jewellery for Every Occasion</h2>
+          <p>Six signature jewellery lines — each fully customisable to your chosen colours, inclusions, and metal settings.</p>
+        </div>
+        <div class="carousel-wrap">
+          <button class="carousel-btn c-prev" id="cPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-track-outer">
+            <div class="carousel-track" id="carouselTrack">
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/earings.jpg" alt="Floral resin earrings" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Best Seller</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Botanical Earrings</h3>
+                  <p>Real pressed flowers and foliage suspended in crystal-clear resin. Available as studs, drops, or hoops in sterling silver or gold-fill. Custom colours and botanicals welcome.</p>
+                  <div class="c-slide-meta"><span>Sterling silver &bull; Any botanical</span><span class="csm-price">From £38</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/necklace.jpg" alt="Resin pendant necklace" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Popular</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Pendant Necklaces</h3>
+                  <p>Statement pendants in geometric, freeform, and teardrop shapes. Mica pigments, gold leaf, and crystal inclusions set in sterling silver bezels on 18” chains.</p>
+                  <div class="c-slide-meta"><span>Sterling silver &bull; 18” chain</span><span class="csm-price">From £52</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/rings.jpg" alt="Resin ring" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Bespoke</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Resin &amp; Metal Rings</h3>
+                  <p>Band rings and statement cocktail rings with resin inlays in any colour. Available in sterling silver, gold-fill, or rose gold. Sized to your finger exactly.</p>
+                  <div class="c-slide-meta"><span>All sizes &bull; Multiple metals</span><span class="csm-price">From £62</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/bridal.jpg" alt="Bridal jewellery set" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag cso-tag--amber">Bridal</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Bridal Sets</h3>
+                  <p>Complete bridal jewellery sets — earrings, pendant, and bracelet using flowers from your bouquet or chosen botanicals. A permanent keepsake of your wedding day.</p>
+                  <div class="c-slide-meta"><span>Matching set &bull; Bouquet flowers</span><span class="csm-price">From £185</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/memorial.jpg" alt="Memorial resin jewellery" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Memorial</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Memorial Keepsake Pieces</h3>
+                  <p>Tender pieces created with flowers from a funeral, pet fur, hair, ashes, or meaningful inclusions. A beautiful, lasting tribute you can carry with you always.</p>
+                  <div class="c-slide-meta"><span>Deeply personal &bull; Handled with care</span><span class="csm-price">From £72</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/cuffs.jpg" alt="Resin bracelet" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Everyday</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Bracelets &amp; Cuffs</h3>
+                  <p>Resin bangles and cuffs in marbled, floral, or abstract styles. Lightweight and durable for everyday wear. Available in adjustable and fixed sizes.</p>
+                  <div class="c-slide-meta"><span>Lightweight &bull; Adjustable sizes</span><span class="csm-price">From £44</span></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <button class="carousel-btn c-next" id="cNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 4: CRAFTING PROCESS ══ -->
+    <section class="s-process" id="process">
+      <div class="process-bg-anim" aria-hidden="true">
+        <div class="pba pba1"></div>
+        <div class="pba pba2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Our Craft</span>
+          <h2>How Every Piece<br>Is Made By Hand</h2>
+          <p>Jewellery making at ResinLux is a slow, intentional process. No shortcuts — every step matters to the final result.</p>
+        </div>
+        <div class="process-timeline">
+
+          <div class="pt-item fade-left" data-delay="0">
+            <div class="pt-node"><div class="pt-num">01</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <h3>Design Consultation</h3>
+              <p>We start with a personal conversation about your vision — occasion, colour palette, inclusions (botanicals, crystals, ashes, gold leaf), preferred metal tone, and whether the piece is for you or a gift. For bridal and memorial commissions, we have a dedicated private consultation process.</p>
+              <span class="pt-time">Day 1</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="80">
+            <div class="pt-node"><div class="pt-num pt-num--teal">02</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="10" r="6"/><path d="M4 26c0-6 5.4-10 12-10s12 4 12 10"/></svg>
+              </div>
+              <h3>Inclusion Sourcing &amp; Preparation</h3>
+              <p>Botanical inclusions are pressed and dried for a minimum of 2 weeks before use to preserve natural colour and shape. For customer-provided flowers or botanicals (e.g. wedding bouquets), we guide you on how to prepare and send them. Gemstones, gold leaf, and crystal shards are sourced from verified ethical suppliers.</p>
+              <span class="pt-time">Day 2–3</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="160">
+            <div class="pt-node"><div class="pt-num pt-num--amber">03</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 4 C10 10 4 14 4 22 C4 27 9.4 30 16 30 C22.6 30 28 27 28 22 C28 14 22 10 16 4Z"/></svg>
+              </div>
+              <h3>Resin Mixing &amp; Pigment Blending</h3>
+              <p>High-quality, jewellery-grade epoxy resin is measured to exacting ratios and blended with your chosen pigments. Jewellery resin is a specific formulation — harder, clearer, and more scratch-resistant than art resin. Colour depth is built layer by layer for maximum vibrancy and translucency.</p>
+              <span class="pt-time">Day 3–4</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="240">
+            <div class="pt-node"><div class="pt-num">04</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="4" width="20" height="24" rx="4"/><line x1="10" y1="12" x2="22" y2="12"/><line x1="10" y1="17" x2="18" y2="17"/></svg>
+              </div>
+              <h3>Moulding, Pouring &amp; Setting Inclusions</h3>
+              <p>Resin is carefully poured into precision silicone moulds or directly into metal bezels. Inclusions are placed by hand with jeweller’s tweezers at precise depths to ensure they float beautifully at the right position. Multiple thin pours are used to build depth without trapping air bubbles.</p>
+              <span class="pt-time">Day 4–6</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="320">
+            <div class="pt-node"><div class="pt-num pt-num--teal">05</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="16" r="12"/><path d="M10 16l4 4 8-8"/></svg>
+              </div>
+              <h3>Sanding, Polishing &amp; Finishing</h3>
+              <p>After full cure, each piece is wet-sanded through 6 grit stages (220 to 5000) until optically clear. A UV-resistant resin topcoat or jewellery polish is applied for glass-like clarity and scratch resistance. Metal components are cleaned, polished, and assembled by hand in our jewellery studio.</p>
+              <span class="pt-time">Day 6–8</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="400">
+            <div class="pt-node"><div class="pt-num pt-num--amber">06</div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              </div>
+              <h3>Gifting, Packaging &amp; Delivery</h3>
+              <p>Your jewellery is nestled on a velvet cushion inside a magnetic-close luxury gift box, with a care card, a certificate of authenticity, and a handwritten note if requested. Sent via tracked delivery with full insurance. Estimated 8–12 working days from order to doorstep.</p>
+              <span class="pt-time">Day 8–12</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 5: MATERIALS & FINISHES ══ -->
+    <section class="s-materials" id="materials">
+      <div class="mat-bg" aria-hidden="true">
+        <img src="./Images/material.jpg" alt="" />
+        <div class="mat-overlay"></div>
+        <div class="mat-blob mb1"></div>
+        <div class="mat-blob mb2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Premium Materials</span>
+          <h2>What Goes Into Every Piece</h2>
+          <p>Only jewellery-grade, hypoallergenic materials are used — chosen for clarity, durability, and lasting beauty.</p>
+        </div>
+        <div class="mat-grid">
+          <div class="mat-card fade-up" data-delay="0">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="14" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M20 10 C15 14 10 17 10 23 C10 28 14.5 32 20 32 C25.5 32 30 28 30 23 C30 17 25 14 20 10Z" fill="var(--primary)" opacity="0.8"/>
+                <circle cx="25" cy="19" r="4" fill="white" opacity="0.28"/>
+              </svg>
+            </div>
+            <h3>Jewellery-Grade Resin</h3>
+            <p>Crystal-clear, UV-stable, ultra-hard epoxy resin formulated specifically for jewellery. Scratch-resistant, waterproof, and rated for daily wear. BPA-free and hypoallergenic.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="100">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="16" stroke="var(--amber)" stroke-width="3" fill="none"/>
+                <circle cx="20" cy="20" r="8"  fill="var(--amber)" opacity="0.25"/>
+                <polygon points="20,10 23,17 31,17 25,22 27,30 20,25 13,30 15,22 9,17 17,17" fill="var(--amber)" opacity="0.9"/>
+              </svg>
+            </div>
+            <h3>24-Carat Gold Leaf</h3>
+            <p>Genuine 24-carat gold and 99.9% silver leaf applied within the resin layers. Adds luxurious warmth, sparkle, and depth that catches light beautifully at every angle.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="200">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <ellipse cx="14" cy="20" rx="8" ry="12" fill="var(--secondary)" opacity="0.7" transform="rotate(-20 14 20)"/>
+                <ellipse cx="26" cy="20" rx="8" ry="12" fill="var(--primary)" opacity="0.6" transform="rotate(20 26 20)"/>
+                <circle cx="20" cy="16" r="5" fill="var(--amber)" opacity="0.8"/>
+                <circle cx="22" cy="14" r="2" fill="white" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Real Botanicals &amp; Florals</h3>
+            <p>Pressed and dried florals, leaves, ferns, and petals from your own bouquet or our curated studio collection. Preserved permanently inside the resin with full colour retention.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="300">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <polygon points="20,4 24,14 36,14 27,21 30,32 20,25 10,32 13,21 4,14 16,14" fill="none" stroke="var(--secondary)" stroke-width="2"/>
+                <polygon points="20,8 23,15 32,15 26,20 28,28 20,23 12,28 14,20 8,15 17,15" fill="var(--secondary)" opacity="0.3"/>
+                <circle cx="20" cy="18" r="4" fill="var(--secondary)" opacity="0.7"/>
+              </svg>
+            </div>
+            <h3>Crystal &amp; Gemstone Inclusions</h3>
+            <p>Crushed amethyst, rose quartz, turquoise powder, and other semi-precious stone fragments available as inclusions — adding natural colour, sparkle, and meaning to each piece.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="400">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="14" stroke="var(--amber)" stroke-width="2.5" fill="none"/>
+                <path d="M12 28 Q20 14 28 28" stroke="var(--amber)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <circle cx="20" cy="20" r="5" fill="var(--amber)" opacity="0.6"/>
+              </svg>
+            </div>
+            <h3>Sterling Silver &amp; Gold-Fill</h3>
+            <p>All metal findings, bezels, hooks, and chains are sterling silver (925), 14k gold-fill, or rose gold-fill. Nickel-free and hypoallergenic — safe for sensitive skin and daily wear.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="500">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="8" y="12" width="24" height="20" rx="4" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M8 19h24" stroke="var(--primary)" stroke-width="1.5" opacity="0.4"/>
+                <rect x="14" y="6" width="12" height="10" rx="3" stroke="var(--primary)" stroke-width="2"/>
+                <rect x="16" y="26" width="8" height="4" rx="2" fill="var(--primary)" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Luxury Gift Packaging</h3>
+            <p>Every piece is presented on a velvet cushion in a magnetic-close gift box with tissue paper, a ribbon, a handwritten note option, and a care &amp; storage guide card included as standard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 6: PRICING ══ -->
+    <section class="s-pricing" id="pricing">
+      <div class="pricing-bg-anim" aria-hidden="true">
+        <div class="pric-blob pb1"></div>
+        <div class="pric-blob pb2"></div>
+        <div class="pric-blob pb3"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Pricing</span>
+          <h2>Jewellery Collections &amp; Pricing</h2>
+          <p>All pieces are made to order. Prices include design consultation, all materials, luxury gift packaging, and tracked delivery.</p>
+        </div>
+        <div class="pricing-grid">
+
+          <div class="price-card fade-left" data-delay="0">
+            <div class="pc-header">
+              <span class="pc-tier">Everyday</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£38</strong></div>
+              <p>Single everyday jewellery pieces — earrings, studs, or a pendant. Perfect for gifting or a personal treat.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 1 jewellery piece</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Your choice of 2 colours</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 1 botanical or crystal inclusion</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Sterling silver or gold-fill</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Luxury gift box</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Customer-provided botanicals</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Certificate of authenticity</li>
+            </ul>
+            <a href="#order" class="btn-secondary">Order Everyday</a>
+          </div>
+
+          <div class="price-card price-card--featured fade-up" data-delay="100">
+            <div class="pc-popular">Most Popular</div>
+            <div class="pc-header">
+              <span class="pc-tier">Signature</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£85</strong></div>
+              <p>Our most requested tier — fully bespoke, multi-inclusion pieces with unlimited colour choices. Ideal for gifts and special occasions.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 1 or 2 matching pieces</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Unlimited colour combinations</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Multiple inclusions (botanical, crystal, gold leaf)</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Customer-provided botanicals accepted</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Design preview before production</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Luxury gift box &amp; velvet pouch</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Certificate of authenticity</li>
+            </ul>
+            <a href="#order" class="btn-primary">Order Signature</a>
+          </div>
+
+          <div class="price-card fade-right" data-delay="200">
+            <div class="pc-header">
+              <span class="pc-tier">Bridal &amp; Collection</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£185</strong></div>
+              <p>Complete jewellery sets for weddings, memorial commissions, and gifts that span multiple pieces.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 3–6 matching pieces</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Bouquet flowers or ashes used</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Premium metal settings</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Private consultation call</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Full bridal gift box suite</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Expedited production for weddings</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Lifetime care guarantee</li>
+            </ul>
+            <a href="#order" class="btn-secondary">Enquire Bridal</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 7: CLIENT STORIES ══ -->
+    <section class="s-stories" id="stories">
+      <div class="stories-bg" aria-hidden="true">
+        <img src="./Images/story.jpg" alt="" />
+        <div class="sb-overlay"></div>
+        <div class="sb-anim sa1"></div>
+        <div class="sb-anim sa2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Customer Stories</span>
+          <h2>Worn with Love</h2>
+          <p>Every piece carries a story. Here are some of the people who wear ResinLux jewellery every day.</p>
+        </div>
+        <div class="stories-grid">
+          <div class="story-card story-card--large fade-left" data-delay="0">
+            <div class="stc-img">
+              <img src="./Images/bouquet.jpg" alt="Bridal jewellery" loading="lazy" />
+            </div>
+            <div class="stc-body">
+              <div class="stc-stars">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+              <blockquote>&ldquo;I sent ResinLux flowers from my bridal bouquet and they created the most exquisite set of earrings, a pendant, and a bracelet. I wore them on my wedding day and I cry every time I put them on now. They have my actual bouquet inside them forever. Nothing will ever top this gift I gave myself.&rdquo;</blockquote>
+              <div class="stc-author">
+                <div class="stca-avatar" style="background:rgba(147,51,234,.15);color:var(--primary)">OT</div>
+                <div><strong>Olivia Thompson</strong><span>Bridal Set — Bath</span></div>
+                <span class="stca-pkg">Bridal</span>
+              </div>
+            </div>
+          </div>
+          <div class="story-card fade-up" data-delay="100">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;I ordered a memorial pendant with some of my mum’s garden roses after she passed. The care and sensitivity of the team was extraordinary. Every time I wear it I feel her with me. It’s the most precious thing I own.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(8,145,178,.15);color:var(--secondary)">CM</div>
+              <div><strong>Claire Moore</strong><span>Memorial Pendant — York</span></div>
+              <span class="stca-pkg stca-pkg--teal">Memorial</span>
+            </div>
+          </div>
+          <div class="story-card fade-right" data-delay="200">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;I bought a signature set of earrings as a 30th birthday gift for my best friend. She screamed when she opened the box — the colours were perfect and the gold leaf inside was like nothing she’d ever seen. She hasn’t taken them off in three months.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(217,119,6,.15);color:var(--amber)">GR</div>
+              <div><strong>Georgia Reed</strong><span>Signature Earrings — London</span></div>
+              <span class="stca-pkg stca-pkg--amber">Signature</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 8: CUSTOM ORDER FORM ══ -->
+    <section class="s-order" id="order">
+      <div class="order-bg-anim" aria-hidden="true">
+        <div class="oba oba1"></div>
+        <div class="oba oba2"></div>
+        <div class="oba oba3"></div>
+      </div>
+      <div class="container">
+        <div class="order-inner">
+          <div class="order-left fade-left">
+            <span class="section-tag">Custom Order</span>
+            <h2>Design Your<br>Perfect Piece</h2>
+            <p>Every piece begins with your vision. Fill in the form and we’ll be in touch within 24 hours with a design proposal, price confirmation, and production timeline.</p>
+            <div class="order-reassurances">
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Free design consultation, no obligation
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Digital preview before production begins
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Ready in 8–12 working days
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Tracked, insured delivery &amp; luxury packaging
+              </div>
+            </div>
+            <!-- Jewellery model -->
+            <div class="order-model" aria-hidden="true">
+              <svg viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="70">
+                <!-- Ring -->
+                <circle cx="28" cy="35" r="22" stroke="var(--primary)" stroke-width="5" fill="none"/>
+                <polygon points="28,8 34,18 28,22 22,18" fill="var(--primary)" opacity="0.9"/>
+                <!-- Pendant -->
+                <ellipse cx="70" cy="38" rx="16" ry="20" fill="var(--secondary)" opacity="0.8"/>
+                <line x1="70" y1="18" x2="70" y2="18" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M60 10 Q70 5 80 10" stroke="var(--secondary)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <circle cx="76" cy="31" r="5" fill="white" opacity="0.28"/>
+                <!-- Earring -->
+                <circle cx="115" cy="22" r="12" fill="var(--amber)" opacity="0.85"/>
+                <circle cx="120" cy="17" r="4" fill="white" opacity="0.3"/>
+                <ellipse cx="115" cy="50" rx="8" ry="12" fill="var(--amber)" opacity="0.6"/>
+                <line x1="115" y1="34" x2="115" y2="38" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="order-right fade-right">
+            <div class="order-form-card">
+              <h3>Jewellery Order Enquiry</h3>
+              <form id="jewForm" novalidate>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="jf-name">Full Name <span class="req">*</span></label>
+                    <input type="text" id="jf-name" placeholder="e.g. Olivia Thompson" autocomplete="name" />
+                    <span class="field-error" id="jf-name-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="jf-email">Email Address <span class="req">*</span></label>
+                    <input type="email" id="jf-email" placeholder="you@example.com" autocomplete="email" />
+                    <span class="field-error" id="jf-email-err"></span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="jf-phone">Phone Number</label>
+                    <input type="tel" id="jf-phone" placeholder="+44 7700 000000" autocomplete="tel" />
+                  </div>
+                  <div class="form-group">
+                    <label for="jf-type">Jewellery Type <span class="req">*</span></label>
+                    <select id="jf-type">
+                      <option value="">Select type</option>
+                      <option>Earrings — Studs</option>
+                      <option>Earrings — Drops / Dangles</option>
+                      <option>Pendant Necklace</option>
+                      <option>Ring</option>
+                      <option>Bracelet or Cuff</option>
+                      <option>Bridal Set (multiple pieces)</option>
+                      <option>Memorial Keepsake</option>
+                      <option>Not sure — advise me</option>
+                    </select>
+                    <span class="field-error" id="jf-type-err"></span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="jf-metal">Metal Preference <span class="req">*</span></label>
+                    <select id="jf-metal">
+                      <option value="">Select metal</option>
+                      <option>Sterling Silver (925)</option>
+                      <option>14k Gold-Fill</option>
+                      <option>Rose Gold-Fill</option>
+                      <option>I’m not sure</option>
+                    </select>
+                    <span class="field-error" id="jf-metal-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="jf-occasion">Occasion</label>
+                    <select id="jf-occasion">
+                      <option value="">Select occasion</option>
+                      <option>Gift for someone</option>
+                      <option>Treating myself</option>
+                      <option>Wedding / Bridal</option>
+                      <option>Memorial</option>
+                      <option>Anniversary</option>
+                      <option>Birthday</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="jf-colours">Colour &amp; Inclusion Preferences <span class="req">*</span></label>
+                  <textarea id="jf-colours" rows="3" placeholder="e.g. Purple and teal with real lavender flowers, or ocean blue with gold leaf. Describe your preferred look..."></textarea>
+                  <span class="field-error" id="jf-colours-err"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="jf-notes">Additional Notes or Special Requirements</label>
+                  <textarea id="jf-notes" rows="3" placeholder="e.g. ring size, allergies, deadline, personalisation, whether you’re sending your own flowers, ashes, etc."></textarea>
+                </div>
+
+                <div class="form-check">
+                  <input type="checkbox" id="jf-agree" />
+                  <label for="jf-agree">I agree to ResinLux Studio contacting me about this order. <span class="req">*</span></label>
+                </div>
+                <span class="field-error" id="jf-agree-err"></span>
+
+                <button type="submit" class="btn-primary btn-full">Submit Jewellery Enquiry</button>
+                <p class="form-note">We respond within 24 hours. Free consultation, no obligation to proceed.</p>
+              </form>
+
+              <div class="order-success" id="jewSuccess" hidden>
+                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
+                <strong>Enquiry Received!</strong>
+                <p>Thank you! Our jewellery designer will send your personalised design proposal within 24 hours.</p>
+                <a href="services.html" class="btn-secondary">Explore Other Services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./jewel.js"></script>
+</body>
+</html>

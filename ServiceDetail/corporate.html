@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./corporate.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="./corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+
+ <main id="mainContent">
+
+    <!-- ══ SECTION 1: HERO ══ -->
+    <section class="s-hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="./Images/corporate-hero.jpg" alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-particles" aria-hidden="true">
+        <span class="fp fp1"></span><span class="fp fp2"></span>
+        <span class="fp fp3"></span><span class="fp fp4"></span>
+        <span class="fp fp5"></span><span class="fp fp6"></span>
+      </div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-breadcrumb fade-down" data-delay="0">
+            <a href="index2.html">Home</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <a href="services.html">Services</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <span>Corporate Gifting</span>
+          </div>
+          <h1 class="fade-up" data-delay="100">
+            Premium Corporate<br>
+            <em>Resin Gifts &amp; Branded Sets</em>
+          </h1>
+          <p class="hero-sub fade-up" data-delay="200">Elevate your brand with handcrafted resin gifts that leave a lasting impression. From branded coaster sets to bespoke gift boxes — every piece is artisan-made, beautifully packaged, and unforgettable.</p>
+          <div class="hero-actions fade-up" data-delay="300">
+            <a href="#enquire" class="btn-primary">Request a Quote</a>
+            <a href="#collection" class="btn-ghost-light">View Gift Collection</a>
+          </div>
+          <div class="hero-stats fade-up" data-delay="400">
+            <div class="hs-item"><strong>300+</strong><span>Corporate Clients</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>Min 10</strong><span>Unit Orders</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>100%</strong><span>Custom Branding</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>48-Hour</strong><span>Sample Turnaround</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 2: WHAT IS CORPORATE GIFTING ══ -->
+    <section class="s-about" id="about">
+      <div class="about-bg-anim" aria-hidden="true">
+        <div class="aba aba1"></div>
+        <div class="aba aba2"></div>
+        <div class="aba aba3"></div>
+      </div>
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-left fade-left">
+            <span class="section-tag">Why Corporate Resin Gifts?</span>
+            <h2>Gifts That Make Your<br>Brand Unforgettable</h2>
+            <p>Generic corporate gifts end up in drawers or bins. A handcrafted resin piece from ResinLux Studio becomes a conversation piece — displayed proudly on desks, shelves, and boardroom tables long after the occasion.</p>
+            <p>We work directly with your marketing or HR team to design a collection that carries your brand identity — colours, logo, message — while delivering the quality and beauty that only artisan resin can achieve.</p>
+            <ul class="about-points">
+              <li><div class="ap-dot"></div><span>Minimum order of just 10 units</span></li>
+              <li><div class="ap-dot"></div><span>Custom colour matching to your brand palette</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Logo embedding, engraving &amp; personalisation</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Branded gift boxes &amp; tissue wrapping</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>Bulk discount from 50+ units</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>Nationwide delivery with tracking</span></li>
+            </ul>
+            <a href="#enquire" class="btn-primary">Get a Free Quote</a>
+          </div>
+          <div class="about-right fade-right">
+            <div class="about-model">
+              <div class="am-frame">
+                <div class="am-canvas">
+                  <!-- Corporate gift box SVG model -->
+                  <svg viewBox="0 0 280 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="canvas-svg">
+                    <!-- Box base -->
+                    <rect x="30" y="160" width="220" height="140" rx="10" fill="var(--bg-card)" stroke="var(--border)" stroke-width="2"/>
+                    <!-- Box lid -->
+                    <rect x="22" y="130" width="236" height="40" rx="8" fill="var(--primary)" opacity="0.85"/>
+                    <!-- Ribbon vertical -->
+                    <rect x="126" y="130" width="28" height="170" rx="4" fill="var(--amber)" opacity="0.7"/>
+                    <!-- Ribbon horizontal -->
+                    <rect x="22"  y="192" width="236" height="18" rx="4" fill="var(--amber)" opacity="0.7"/>
+                    <!-- Bow loops left -->
+                    <ellipse cx="110" cy="126" rx="36" ry="20" fill="var(--amber)" opacity="0.8" transform="rotate(-25 110 126)"/>
+                    <!-- Bow loops right -->
+                    <ellipse cx="170" cy="126" rx="36" ry="20" fill="var(--amber)" opacity="0.8" transform="rotate(25 170 126)"/>
+                    <!-- Bow knot -->
+                    <circle cx="140" cy="128" r="14" fill="var(--amber)" opacity="0.9"/>
+                    <!-- Gift items inside (visible through cutout) -->
+                    <rect x="50"  y="180" width="60" height="50" rx="6" fill="var(--secondary)" opacity="0.25"/>
+                    <rect x="122" y="180" width="50" height="50" rx="6" fill="var(--primary)"   opacity="0.2"/>
+                    <rect x="182" y="180" width="52" height="50" rx="6" fill="var(--amber)"     opacity="0.2"/>
+                    <!-- Resin drops inside -->
+                    <circle cx="80"  cy="255" r="14" fill="var(--secondary)" opacity="0.5"/>
+                    <circle cx="147" cy="255" r="12" fill="var(--primary)"   opacity="0.5"/>
+                    <circle cx="210" cy="255" r="13" fill="var(--amber)"     opacity="0.55"/>
+                    <!-- Stars / sparkle -->
+                    <circle cx="55"  cy="145" r="4" fill="#fff" opacity="0.4"/>
+                    <circle cx="230" cy="138" r="3" fill="#fff" opacity="0.35"/>
+                    <circle cx="200" cy="150" r="2.5" fill="#fff" opacity="0.4"/>
+                    <!-- shine top -->
+                    <ellipse cx="90" cy="46" rx="60" ry="22" fill="white" opacity="0.06" transform="rotate(-10 90 46)"/>
+                  </svg>
+                </div>
+                <div class="am-badge fade-in" data-delay="500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                  <span>Branded &amp;<br>Gift-Wrapped</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 3: GIFT COLLECTION CAROUSEL ══ -->
+    <section class="s-carousel" id="collection">
+      <div class="carousel-section-bg" aria-hidden="true">
+        <img src="./Images/carou-hero.jpg" alt="" />
+        <div class="csb-overlay"></div>
+        <div class="csb-ring ring-a"></div>
+        <div class="csb-ring ring-b"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Gift Collection</span>
+          <h2>Our Corporate Gift Range</h2>
+          <p>Six curated product lines — each fully customisable with your brand colours, logo, and messaging.</p>
+        </div>
+        <div class="carousel-wrap">
+          <button class="carousel-btn c-prev" id="cPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-track-outer">
+            <div class="carousel-track" id="carouselTrack">
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/begin-1.jpg" alt="Branded coaster sets" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Best Seller</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Branded Coaster Sets</h3>
+                  <p>Sets of 4 or 6 resin coasters with your logo embedded in gold, silver, or custom colour. Supplied in a magnetic-close branded box with tissue paper.</p>
+                  <div class="c-slide-meta">
+                    <span>Min. 10 sets &bull; Fully branded</span>
+                    <span class="csm-price">From £18/set</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/desk.jpg" alt="Executive desk set" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Premium</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Executive Desk Sets</h3>
+                  <p>A curated desk collection: pen holder, card tray, and mouse pad in coordinated resin colours with gold leaf accents. Perfect for senior gift-giving.</p>
+                  <div class="c-slide-meta">
+                    <span>Min. 10 units &bull; 3-piece set</span>
+                    <span class="csm-price">From £65/set</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/wall.jpg" alt="Logo wall art" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Statement</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Branded Wall Art Panels</h3>
+                  <p>Large resin panels with embedded company logo, values, or team name. A living artwork that anchors office interiors with identity and artistry.</p>
+                  <div class="c-slide-meta">
+                    <span>Min. 1 unit &bull; Any size</span>
+                    <span class="csm-price">From £380</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/gift.jpg" alt="Gift hamper" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag cso-tag--amber">Client Favourite</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Luxury Gift Hampers</h3>
+                  <p>Curated hampers combining resin coasters, a tray, a candle holder, and a personalised card — all in a branded kraft box with shredded paper fill.</p>
+                  <div class="c-slide-meta">
+                    <span>Min. 10 hampers &bull; Fully branded</span>
+                    <span class="csm-price">From £55/hamper</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/trophy.jpg" alt="Award trophy" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Recognition</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Resin Awards &amp; Trophies</h3>
+                  <p>Bespoke resin trophies and recognition plaques for employee awards, client appreciation, and event accolades. Name and message engraved or embedded.</p>
+                  <div class="c-slide-meta">
+                    <span>Min. 5 units &bull; Engraved</span>
+                    <span class="csm-price">From £45/unit</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/event.jpg" alt="Conference gifts" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Events</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Conference &amp; Event Gifts</h3>
+                  <p>Compact, travel-safe resin keepsakes for conference delegates, product launches, and trade shows. Minimum 50 units with bulk pricing available.</p>
+                  <div class="c-slide-meta">
+                    <span>Min. 50 units &bull; Branded packaging</span>
+                    <span class="csm-price">From £12/unit</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <button class="carousel-btn c-next" id="cNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 4: HOW IT WORKS ══ -->
+    <section class="s-process" id="process">
+      <div class="process-bg-anim" aria-hidden="true">
+        <div class="pba pba1"></div>
+        <div class="pba pba2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Our Process</span>
+          <h2>From Brief to Delivery —<br>A Seamless Journey</h2>
+          <p>We make the corporate gifting process effortless, from first enquiry to branded boxes arriving at your door or your recipient’s desk.</p>
+        </div>
+        <div class="process-timeline">
+
+          <div class="pt-item fade-left" data-delay="0">
+            <div class="pt-node"><div class="pt-num">01</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <h3>Discovery Call &amp; Brief</h3>
+              <p>We begin with a 20-minute discovery call or email exchange to understand your brand, occasion, budget, recipient profile, and key messaging. We ask the right questions so nothing is left to chance. No obligation — the call is always free.</p>
+              <span class="pt-time">Day 1</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="80">
+            <div class="pt-node"><div class="pt-num pt-num--teal">02</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="26" height="26" rx="3"/><path d="M8 16l5 5 11-11"/></svg>
+              </div>
+              <h3>Design Proposal &amp; Sampling</h3>
+              <p>Within 48 hours we send a visual design proposal showing your brand colours in resin, logo placement options, and packaging mockups. For orders over 50 units, a physical sample is produced and couriered to you for approval at no extra charge.</p>
+              <span class="pt-time">Day 2–3</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="160">
+            <div class="pt-node"><div class="pt-num pt-num--amber">03</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="16" r="13"/><path d="M16 8v8l5 3"/></svg>
+              </div>
+              <h3>Quote, Approval &amp; Deposit</h3>
+              <p>We issue a full itemised quote including unit cost, branding, packaging, and delivery. Once you approve, a 50% deposit secures your production slot. We assign a dedicated account manager to your order from this point forward.</p>
+              <span class="pt-time">Day 3–5</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="240">
+            <div class="pt-node"><div class="pt-num">04</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 24 L10 18 L16 22 L22 10 L28 16"/></svg>
+              </div>
+              <h3>Artisan Production</h3>
+              <p>Your order enters our production queue. Resin is mixed, poured, layered, and cured over multiple stages. Logo or text embedding is done during the final pour layer for flush, professional results. Each unit is individually inspected before packaging.</p>
+              <span class="pt-time">Day 5–14</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="320">
+            <div class="pt-node"><div class="pt-num pt-num--teal">05</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+              </div>
+              <h3>Branded Packaging</h3>
+              <p>Completed pieces are individually wrapped in tissue paper, placed in your branded gift box (custom printed or generic premium), and sealed with a branded sticker or ribbon. Multi-item hampers are assembled, photographed, and checked before dispatch.</p>
+              <span class="pt-time">Day 14–16</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="400">
+            <div class="pt-node"><div class="pt-num pt-num--amber">06</div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <h3>Delivery &amp; After-Sales</h3>
+              <p>Orders are dispatched via tracked courier — single address or direct-to-recipient drop-ship across the UK. We email you a tracking dashboard. Balance payment is due on dispatch. All corporate orders include a 6-month quality guarantee.</p>
+              <span class="pt-time">Day 16–20</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 5: PRODUCTS & PACKAGING ══ -->
+    <section class="s-materials" id="products">
+      <div class="mat-bg" aria-hidden="true">
+        <img src="" alt="" />
+        <div class="mat-overlay"></div>
+        <div class="mat-blob mb1"></div>
+        <div class="mat-blob mb2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Quality &amp; Presentation</span>
+          <h2>Premium Products &amp; Branded Packaging</h2>
+          <p>Every element of your corporate gift order is considered — from the resin formula to the final ribbon tied on the box.</p>
+        </div>
+        <div class="mat-grid">
+          <div class="mat-card fade-up" data-delay="0">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="14" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M20 10 C15 14 10 17 10 23 C10 28 14.5 32 20 32 C25.5 32 30 28 30 23 C30 17 25 14 20 10Z" fill="var(--primary)" opacity="0.8"/>
+                <circle cx="25" cy="19" r="4" fill="white" opacity="0.25"/>
+              </svg>
+            </div>
+            <h3>Crystal-Clear Epoxy</h3>
+            <p>UV-stable, non-yellowing epoxy resin with a glass-smooth surface. Rated for 50+ years without discolouration — your brand stays vibrant and impactful for years to come.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="100">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="6" y="10" width="28" height="24" rx="5" stroke="var(--amber)" stroke-width="2"/>
+                <line x1="6" y1="19" x2="34" y2="19" stroke="var(--amber)" stroke-width="1.5" opacity="0.5"/>
+                <rect x="14" y="4" width="12" height="10" rx="3" stroke="var(--amber)" stroke-width="2"/>
+                <rect x="16" y="26" width="8" height="4" rx="2" fill="var(--amber)" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Custom Branded Boxes</h3>
+            <p>Choose from magnetic-close rigid boxes, kraft paper folding boxes, or premium drawer boxes — all printable with your logo, brand colours, and custom messaging inside the lid.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="200">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <polygon points="20,4 24,14 36,14 27,21 30,32 20,25 10,32 13,21 4,14 16,14" fill="var(--amber)" opacity="0.75"/>
+                <polygon points="20,4 24,14 36,14 27,21 30,32 20,25 10,32 13,21 4,14 16,14" stroke="var(--amber)" stroke-width="1" fill="none"/>
+              </svg>
+            </div>
+            <h3>Gold &amp; Silver Leaf</h3>
+            <p>24-carat gold leaf and 99.9% silver leaf embedded within the resin surface. Adds luxurious texture and glimmer that signals premium quality with every glance.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="300">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="4" y="4" width="32" height="32" rx="6" stroke="var(--secondary)" stroke-width="2"/>
+                <text x="20" y="26" text-anchor="middle" font-size="16" font-weight="700" fill="var(--secondary)" opacity="0.8">B</text>
+                <circle cx="30" cy="10" r="6" fill="var(--secondary)" opacity="0.2"/>
+                <path d="M28 8 L32 12 M32 8 L28 12" stroke="var(--secondary)" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3>Logo Embedding</h3>
+            <p>Your vector logo is embedded directly into the resin pour — flush, durable, and impossible to peel or scratch. Available in full colour, metallic gold, or white silhouette.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="400">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M8 32 L8 18 L20 8 L32 18 L32 32" stroke="var(--primary)" stroke-width="2" fill="none"/>
+                <rect x="14" y="22" width="12" height="10" rx="2" stroke="var(--primary)" stroke-width="2" fill="none"/>
+                <line x1="20" y1="22" x2="20" y2="32" stroke="var(--primary)" stroke-width="1.5" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Direct-to-Recipient Delivery</h3>
+            <p>We can ship individual branded gifts directly to each of your recipients across the UK — ideal for remote teams, client appreciation campaigns, and distributed event gifts.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="500">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="16" stroke="var(--secondary)" stroke-width="2"/>
+                <path d="M14 20 L18 24 L26 14" stroke="var(--secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Quality Guarantee</h3>
+            <p>Every unit is inspected individually before dispatch. Our 6-month corporate quality guarantee covers any defects — we replace units at no cost, no questions asked.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 6: PRICING ══ -->
+    <section class="s-pricing" id="pricing">
+      <div class="pricing-bg-anim" aria-hidden="true">
+        <div class="pric-blob pb1"></div>
+        <div class="pric-blob pb2"></div>
+        <div class="pric-blob pb3"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Pricing</span>
+          <h2>Corporate Gift Packages</h2>
+          <p>Transparent, scalable pricing with no hidden costs. All packages include branding, packaging, and UK delivery.</p>
+        </div>
+        <div class="pricing-grid">
+
+          <div class="price-card fade-left" data-delay="0">
+            <div class="pc-header">
+              <span class="pc-tier">Starter</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£18</strong><span class="pc-each">/unit</span></div>
+              <p>Ideal for smaller teams, client thank-you gestures, and first-time corporate orders.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Minimum 10 units</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 1 product type (e.g. coasters)</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Logo or colour embed</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Generic premium gift box</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 6-month quality guarantee</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Printed branded box</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Direct-to-recipient delivery</li>
+            </ul>
+            <a href="#enquire" class="btn-secondary">Get Starter Quote</a>
+          </div>
+
+          <div class="price-card price-card--featured fade-up" data-delay="100">
+            <div class="pc-popular">Most Popular</div>
+            <div class="pc-header">
+              <span class="pc-tier">Professional</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£35</strong><span class="pc-each">/unit</span></div>
+              <p>The complete branded corporate gift — ideal for client appreciation, events, and team rewards.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Minimum 25 units</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Up to 3 product types per set</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Logo + brand colour palette</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Custom printed branded box</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Tissue paper &amp; ribbon</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Physical sample before production</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Dedicated account manager</li>
+            </ul>
+            <a href="#enquire" class="btn-primary">Get Professional Quote</a>
+          </div>
+
+          <div class="price-card fade-right" data-delay="200">
+            <div class="pc-header">
+              <span class="pc-tier">Enterprise</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£55</strong><span class="pc-each">/unit</span></div>
+              <p>Large-scale, multi-product gifting programmes for major brands, annual campaigns, and luxury gifting.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Minimum 50 units (bulk discounts)</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Full bespoke product design</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Gold leaf &amp; crystal inclusions</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Fully custom printed packaging</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Direct-to-recipient drop-ship</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Priority production slot</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Ongoing gifting programme support</li>
+            </ul>
+            <a href="#enquire" class="btn-secondary">Get Enterprise Quote</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 7: CLIENT STORIES ══ -->
+    <section class="s-stories" id="stories">
+      <div class="stories-bg" aria-hidden="true">
+        <img src="./Images/client.jpg" alt="" />
+        <div class="sb-overlay"></div>
+        <div class="sb-anim sa1"></div>
+        <div class="sb-anim sa2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Client Success</span>
+          <h2>Trusted by Leading Brands</h2>
+          <p>From start-ups to FTSE 500 companies — here’s what our corporate clients say.</p>
+        </div>
+        <div class="stories-grid">
+          <div class="story-card story-card--large fade-left" data-delay="0">
+            <div class="stc-img">
+              <img src="./Images/brand.jpg" alt="Corporate gift result" loading="lazy" />
+            </div>
+            <div class="stc-body">
+              <div class="stc-stars">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+              <blockquote>&ldquo;We ordered 200 branded coaster sets for our annual client appreciation campaign. The quality absolutely floored us. Every client messaged to ask where we got them. ResinLux managed the entire process from brief to doorstep delivery in under 3 weeks — flawless execution and a team that really cares.&rdquo;</blockquote>
+              <div class="stc-author">
+                <div class="stca-avatar" style="background:rgba(147,51,234,.15);color:var(--primary)">JM</div>
+                <div><strong>James Morgan</strong><span>Head of Marketing — TechNova Ltd</span></div>
+                <span class="stca-pkg">Professional</span>
+              </div>
+            </div>
+          </div>
+          <div class="story-card fade-up" data-delay="100">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;The executive desk sets we gave our senior leadership team were extraordinary. The gold leaf accents, the colour-matched resin, and the branded box — it screamed premium from every angle. Will use ResinLux for all our annual awards going forward.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(8,145,178,.15);color:var(--secondary)">SL</div>
+              <div><strong>Sarah Lee</strong><span>People Director — Vertex Group</span></div>
+              <span class="stca-pkg stca-pkg--teal">Enterprise</span>
+            </div>
+          </div>
+          <div class="story-card fade-right" data-delay="200">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;We used ResinLux for our product launch event — 100 personalised keepsakes for delegates. The process was incredibly smooth and the quality of each piece was identical. Several delegates posted their gifts on LinkedIn the same evening. Incredible brand value.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(217,119,6,.15);color:var(--amber)">RP</div>
+              <div><strong>Rachel Pierce</strong><span>Brand Manager — Luminary Agency</span></div>
+              <span class="stca-pkg stca-pkg--amber">Enterprise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 8: CORPORATE ENQUIRY FORM ══ -->
+    <section class="s-order" id="enquire">
+      <div class="order-bg-anim" aria-hidden="true">
+        <div class="oba oba1"></div>
+        <div class="oba oba2"></div>
+        <div class="oba oba3"></div>
+      </div>
+      <div class="container">
+        <div class="order-inner">
+          <div class="order-left fade-left">
+            <span class="section-tag">Get a Free Quote</span>
+            <h2>Start Your Corporate<br>Gifting Project</h2>
+            <p>Complete the form and we’ll send a tailored proposal within 24 hours — including product recommendations, pricing, and sample options.</p>
+            <div class="order-reassurances">
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Free consultation &amp; no-obligation quote
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Physical sample before full production
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Minimum order of just 10 units
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Dedicated account manager from day one
+              </div>
+            </div>
+            <div class="order-model" aria-hidden="true">
+              <svg viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="160" height="60">
+                <rect x="4"   y="8"  width="40" height="44" rx="6" fill="var(--primary)"   opacity="0.15" stroke="var(--primary)"   stroke-width="1.5"/>
+                <rect x="14"  y="2"  width="20" height="16" rx="4" fill="var(--primary)"   opacity="0.25" stroke="var(--primary)"   stroke-width="1.5"/>
+                <circle cx="24" cy="30" r="10" fill="var(--primary)"   opacity="0.4"/>
+                <rect x="58"  y="8"  width="40" height="44" rx="6" fill="var(--secondary)" opacity="0.15" stroke="var(--secondary)" stroke-width="1.5"/>
+                <rect x="68"  y="2"  width="20" height="16" rx="4" fill="var(--secondary)" opacity="0.25" stroke="var(--secondary)" stroke-width="1.5"/>
+                <circle cx="78" cy="30" r="10" fill="var(--secondary)" opacity="0.4"/>
+                <rect x="112" y="8"  width="40" height="44" rx="6" fill="var(--amber)"     opacity="0.15" stroke="var(--amber)"     stroke-width="1.5"/>
+                <rect x="122" y="2"  width="20" height="16" rx="4" fill="var(--amber)"     opacity="0.25" stroke="var(--amber)"     stroke-width="1.5"/>
+                <circle cx="132" cy="30" r="10" fill="var(--amber)"     opacity="0.4"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="order-right fade-right">
+            <div class="order-form-card">
+              <h3>Corporate Gifting Enquiry</h3>
+              <form id="corpForm" novalidate>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cf-name">Full Name <span class="req">*</span></label>
+                    <input type="text" id="cf-name" placeholder="e.g. James Morgan" autocomplete="name" />
+                    <span class="field-error" id="cf-name-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="cf-email">Work Email <span class="req">*</span></label>
+                    <input type="email" id="cf-email" placeholder="james@company.com" autocomplete="email" />
+                    <span class="field-error" id="cf-email-err"></span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cf-company">Company Name <span class="req">*</span></label>
+                    <input type="text" id="cf-company" placeholder="e.g. TechNova Ltd" />
+                    <span class="field-error" id="cf-company-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="cf-phone">Phone Number</label>
+                    <input type="tel" id="cf-phone" placeholder="+44 7700 000000" autocomplete="tel" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cf-qty">Estimated Quantity <span class="req">*</span></label>
+                    <select id="cf-qty">
+                      <option value="">Select quantity</option>
+                      <option>10–24 units</option>
+                      <option>25–49 units</option>
+                      <option>50–100 units</option>
+                      <option>101–250 units</option>
+                      <option>251–500 units</option>
+                      <option>500+ units</option>
+                    </select>
+                    <span class="field-error" id="cf-qty-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="cf-product">Gift Type <span class="req">*</span></label>
+                    <select id="cf-product">
+                      <option value="">Select product</option>
+                      <option>Branded Coaster Sets</option>
+                      <option>Executive Desk Sets</option>
+                      <option>Branded Wall Art Panels</option>
+                      <option>Luxury Gift Hampers</option>
+                      <option>Resin Awards &amp; Trophies</option>
+                      <option>Conference &amp; Event Gifts</option>
+                      <option>Multiple / Advise Me</option>
+                    </select>
+                    <span class="field-error" id="cf-product-err"></span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="cf-budget">Approximate Budget</label>
+                    <select id="cf-budget">
+                      <option value="">Select budget</option>
+                      <option>Under £500</option>
+                      <option>£500 – £1,500</option>
+                      <option>£1,500 – £5,000</option>
+                      <option>£5,000 – £10,000</option>
+                      <option>£10,000+</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="cf-deadline">Required By Date</label>
+                    <input type="date" id="cf-deadline" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="cf-brief">Tell Us About Your Brief <span class="req">*</span></label>
+                  <textarea id="cf-brief" rows="4" placeholder="Describe your brand, occasion, recipient profile, colour preferences, logo details, or any specific requirements…"></textarea>
+                  <span class="field-error" id="cf-brief-err"></span>
+                </div>
+
+                <div class="form-check">
+                  <input type="checkbox" id="cf-agree" />
+                  <label for="cf-agree">I agree to ResinLux Studio contacting me regarding this enquiry. <span class="req">*</span></label>
+                </div>
+                <span class="field-error" id="cf-agree-err"></span>
+
+                <button type="submit" class="btn-primary btn-full">Submit Corporate Enquiry</button>
+                <p class="form-note">We respond within 24 hours with a tailored proposal. No spam, ever.</p>
+              </form>
+
+              <div class="order-success" id="corpSuccess" hidden>
+                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
+                <strong>Enquiry Received!</strong>
+                <p>Thank you, we’ve got your brief. Our corporate team will send a tailored proposal within 24 hours.</p>
+                <a href="services.html" class="btn-secondary">Explore Other Services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./corporate.js"></script>
+</body>
+</html>

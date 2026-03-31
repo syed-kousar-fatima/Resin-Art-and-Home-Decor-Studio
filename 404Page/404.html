@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./404.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+ 
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+
+<main id="mainContent">
+
+    <!-- ── SECTION 1: HERO 404 ── -->
+    <section class="s-hero" id="hero">
+      <div class="hero-bg-shape shape-1"></div>
+      <div class="hero-bg-shape shape-2"></div>
+      <div class="hero-bg-shape shape-3"></div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-art fade-up" data-delay="0">
+            <!-- Animated 404 SVG model -->
+            <div class="art-404">
+              <span class="n4 n4-left">4</span>
+              <div class="zero-wrap">
+                <div class="zero-ring">
+                  <div class="zero-core">
+                    <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-svg">
+                      <ellipse cx="40" cy="60" rx="22" ry="14" fill="var(--secondary)" opacity="0.18"/>
+                      <path d="M40 8 C28 28 18 36 18 50 C18 62 28 72 40 72 C52 72 62 62 62 50 C62 36 52 28 40 8Z" fill="var(--primary)"/>
+                      <circle cx="52" cy="44" r="7" fill="white" opacity="0.22"/>
+                      <circle cx="52" cy="44" r="3" fill="white" opacity="0.45"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <span class="n4 n4-right">4</span>
+            </div>
+            <div class="crack-lines" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="hero-text">
+            <p class="hero-tag fade-right" data-delay="100">Error 404</p>
+            <h1 class="fade-up" data-delay="180">Oops! This Page<br>Got Lost in the Resin</h1>
+            <p class="hero-desc fade-up" data-delay="260">The page you're looking for has either been moved, renamed, or doesn't exist. Don't worry — let us guide you back to something beautiful.</p>
+            <div class="hero-actions fade-up" data-delay="340">
+              <a href="index2.html" class="btn-primary">Go to Homepage</a>
+              <a href="contact.html" class="btn-secondary">Contact Support</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: NAVIGATION OPTIONS ── -->
+    <section class="s-nav-options" id="nav-options">
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Find Your Way</span>
+          <h2>Where Would You Like to Go?</h2>
+          <p>Pick a destination and we'll take you there instantly.</p>
+        </div>
+        <div class="nav-grid">
+          <a href="index2.html" class="nav-card fade-up" data-delay="0">
+            <div class="nav-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Home</h3>
+            <p>Discover our world of resin art and handcrafted decor.</p>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="about.html" class="nav-card fade-up" data-delay="80">
+            <div class="nav-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+            <h3>About Us</h3>
+            <p>Meet the artists and the story behind ResinLux Studio.</p>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="services.html" class="nav-card fade-up" data-delay="160">
+            <div class="nav-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h3>Services</h3>
+            <p>Explore commissions, workshops, gifts, and installations.</p>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="blog.html" class="nav-card fade-up" data-delay="240">
+            <div class="nav-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <h3>Blog</h3>
+            <p>Tips, tutorials, and inspiration straight from the studio.</p>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="contact.html" class="nav-card fade-up" data-delay="320">
+            <div class="nav-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <h3>Contact</h3>
+            <p>Reach out for custom orders, queries, or a quick hello.</p>
+            <span class="nav-arrow">→</span>
+          </a>
+          <a href="home2.html" class="nav-card nav-card--accent fade-up" data-delay="400">
+            <div class="nav-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Premium Collection</h3>
+            <p>View our exclusive handcrafted resin masterpieces.</p>
+            <span class="nav-arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: SEARCH ── -->
+    <section class="s-search" id="search">
+      <div class="search-bg-blob" aria-hidden="true"></div>
+      <div class="container">
+        <div class="search-wrap">
+          <div class="search-left fade-left">
+            <span class="section-tag">Search</span>
+            <h2>Can't Find What<br>You're Looking For?</h2>
+            <p>Type in a keyword and we'll search across our entire studio — products, services, blog posts, and more.</p>
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" placeholder="Search resin art, workshops, decor…" id="siteSearch" />
+              <button class="btn-primary" id="searchBtn">Search</button>
+            </div>
+            <div class="search-suggestions">
+              <span>Popular:</span>
+              <button class="pill" onclick="fillSearch('resin wall art')">Resin Wall Art</button>
+              <button class="pill" onclick="fillSearch('workshops')">Workshops</button>
+              <button class="pill" onclick="fillSearch('gift sets')">Gift Sets</button>
+              <button class="pill" onclick="fillSearch('jewellery')">Jewellery</button>
+            </div>
+          </div>
+          <div class="search-right fade-right">
+            <div class="search-model">
+              <div class="model-magnify">
+                <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="50" r="38" stroke="var(--primary)" stroke-width="6" fill="var(--bg-card)" />
+                  <circle cx="50" cy="50" r="26" fill="var(--primary)" opacity="0.08" />
+                  <path d="M38 50 Q50 36 62 50 Q50 64 38 50Z" fill="var(--secondary)" opacity="0.35" />
+                  <circle cx="42" cy="44" r="5" fill="var(--primary)" opacity="0.3" />
+                  <line x1="80" y1="80" x2="108" y2="108" stroke="var(--primary)" stroke-width="8" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div class="model-particles">
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 4: POPULAR PAGES ── -->
+    <section class="s-popular" id="popular">
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Trending</span>
+          <h2>Our Most Visited Pages</h2>
+          <p>Here's what others are exploring right now in the studio.</p>
+        </div>
+        <div class="popular-grid">
+          <article class="pop-card fade-left" data-delay="0">
+            <div class="pop-img">
+              <img src="./Images/bespoke.jpg" alt="Resin Ocean Art" loading="lazy" />
+              <span class="pop-badge">Most Viewed</span>
+            </div>
+            <div class="pop-body">
+              <span class="pop-cat">Services</span>
+              <h3>Bespoke Resin Commissions</h3>
+              <p>Create a one-of-a-kind piece tailored entirely to your vision and space.</p>
+              <a href="services.html" class="pop-link">Explore Service <span>→</span></a>
+            </div>
+          </article>
+          <article class="pop-card fade-up" data-delay="100">
+            <div class="pop-img">
+              <img src="./Images/workshop.jpg" alt="Resin Workshop" loading="lazy" />
+              <span class="pop-badge pop-badge--teal">Top Rated</span>
+            </div>
+            <div class="pop-body">
+              <span class="pop-cat">Workshops</span>
+              <h3>Beginner Resin Workshop</h3>
+              <p>A hands-on creative session where you pour, mix, and make your own artwork.</p>
+              <a href="services.html" class="pop-link">Book a Seat <span>→</span></a>
+            </div>
+          </article>
+          <article class="pop-card fade-right" data-delay="200">
+            <div class="pop-img">
+              <img src="./Images/guide.jpg" alt="Resin Blog" loading="lazy" />
+              <span class="pop-badge pop-badge--amber">New Post</span>
+            </div>
+            <div class="pop-body">
+              <span class="pop-cat">Blog</span>
+              <h3>5 Resin Tips Every Beginner Needs</h3>
+              <p>Avoid the most common mistakes and make your first pour a masterpiece.</p>
+              <a href="blog.html" class="pop-link">Read Article <span>→</span></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: HELP & FAQ ── -->
+    <section class="s-help" id="help">
+      <div class="help-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="help-wrap">
+          <div class="help-left fade-left">
+            <span class="section-tag">Help Centre</span>
+            <h2>Common Questions</h2>
+            <p>Maybe the answer is right here. Browse our quick FAQs or reach out directly.</p>
+            <div class="faq-list">
+              <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                  Why am I seeing a 404 error?
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">This usually means the URL you typed has a typo, or the page has been moved or deleted. Try using the navigation above to find what you need.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                  How do I place a custom order?
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">Visit our Services page, choose a commission type, and fill in the enquiry form. Our team will get back to you within 24 hours.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                  Do you ship internationally?
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">Yes! We ship to over 40 countries. Shipping costs and timelines are calculated at checkout based on your location.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                  How can I join a workshop?
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">All upcoming workshops are listed on our Services page. Click 'Book a Seat' on any workshop card to reserve your spot.</div>
+              </div>
+            </div>
+          </div>
+          <div class="help-right fade-right">
+            <div class="help-model">
+              <div class="help-circle-outer">
+                <div class="help-circle-inner">
+                  <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="36" stroke="var(--primary)" stroke-width="4" stroke-dasharray="8 6" />
+                    <text x="40" y="48" text-anchor="middle" font-size="28" font-weight="700" fill="var(--primary)" font-family="Playfair Display, serif">?</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="help-tags">
+                <span class="htag fade-up" data-delay="100">Shipping</span>
+                <span class="htag fade-up" data-delay="200">Orders</span>
+                <span class="htag fade-up" data-delay="300">Workshops</span>
+                <span class="htag fade-up" data-delay="400">Returns</span>
+                <span class="htag fade-up" data-delay="500">Custom Art</span>
+              </div>
+            </div>
+            <a href="contact.html" class="btn-primary" style="display:inline-block;margin-top:2rem;">Ask a Question</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 6: CTA / BACK TO SAFETY ── -->
+    <section class="s-cta" id="cta">
+      <div class="container">
+        <div class="cta-inner fade-up">
+          <div class="cta-model" aria-hidden="true">
+            <div class="cta-orbit">
+              <div class="cta-planet"></div>
+              <div class="cta-moon"></div>
+            </div>
+          </div>
+          <span class="section-tag">Let's Get You Back</span>
+          <h2>Every Lost Page Finds Its Way Home</h2>
+          <p>You've stumbled, but the studio is still open. Explore our work, get inspired, or simply reach out — we'd love to hear from you.</p>
+          <div class="cta-actions">
+            <a href="index2.html" class="btn-primary">Back to Home</a>
+            <a href="services.html" class="btn-secondary">See Our Services</a>
+            <a href="contact.html" class="btn-ghost">Get in Touch</a>
+          </div>
+          <div class="cta-stats">
+            <div class="cta-stat fade-up" data-delay="100">
+              <strong>500+</strong>
+              <span>Artworks Created</span>
+            </div>
+            <div class="cta-stat fade-up" data-delay="200">
+              <strong>1,200+</strong>
+              <span>Happy Clients</span>
+            </div>
+            <div class="cta-stat fade-up" data-delay="300">
+              <strong>40+</strong>
+              <span>Countries Shipped</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./404.js"></script>
+</body>
+</html>

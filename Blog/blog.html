@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./blog.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="./blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+
+
+<main id="mainContent">
+
+    <!-- ===== SECTION 1: HERO ===== -->
+    <section class="blog-hero" id="blogHero">
+      <div class="hero-bg-blobs">
+        <span class="blob b1"></span>
+        <span class="blob b2"></span>
+        <span class="blob b3"></span>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-text fade-up">
+          <span class="chip fade-in">Our Journal</span>
+          <h1 class="fade-up" style="--delay:.1s">Stories, Tips &amp; Creative <span class="accent">Inspiration</span></h1>
+          <p class="fade-up" style="--delay:.2s">Dive into the world of resin art — from beginner guides and colour theory to behind-the-scenes studio moments and DIY project walkthroughs.</p>
+          <div class="hero-actions fade-up" style="--delay:.3s">
+            <a href="#categories" class="btn-primary">Explore Categories</a>
+            <a href="#latest" class="btn-secondary">Latest Posts</a>
+          </div>
+        </div>
+        <div class="hero-model fade-right" style="--delay:.15s" aria-hidden="true">
+          <!-- SVG Blog / Open Book Model -->
+          <svg viewBox="0 0 340 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero-svg">
+            <!-- Floating particles -->
+            <circle cx="30" cy="40" r="4" fill="var(--primary)" opacity=".35" class="p-float" style="--pf:6s"/>
+            <circle cx="310" cy="60" r="3" fill="var(--secondary)" opacity=".4" class="p-float" style="--pf:4.5s"/>
+            <circle cx="60" cy="250" r="5" fill="var(--amber)" opacity=".3" class="p-float" style="--pf:5s"/>
+            <circle cx="290" cy="240" r="4" fill="var(--primary)" opacity=".25" class="p-float" style="--pf:7s"/>
+            <!-- Open book base -->
+            <rect x="55" y="80" width="230" height="160" rx="12" fill="var(--card-bg)" stroke="var(--primary)" stroke-width="2"/>
+            <!-- Book spine -->
+            <rect x="165" y="82" width="10" height="156" rx="3" fill="var(--primary)" opacity=".3"/>
+            <!-- Left page lines -->
+            <line x1="75" y1="110" x2="158" y2="110" stroke="var(--primary)" stroke-width="1.5" opacity=".4"/>
+            <line x1="75" y1="124" x2="158" y2="124" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="75" y1="138" x2="158" y2="138" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="75" y1="152" x2="145" y2="152" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="75" y1="166" x2="158" y2="166" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="75" y1="180" x2="130" y2="180" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="75" y1="194" x2="158" y2="194" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <!-- Right page lines -->
+            <line x1="182" y1="110" x2="265" y2="110" stroke="var(--secondary)" stroke-width="1.5" opacity=".4"/>
+            <line x1="182" y1="124" x2="265" y2="124" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="182" y1="138" x2="255" y2="138" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="182" y1="152" x2="265" y2="152" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="182" y1="166" x2="240" y2="166" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="182" y1="180" x2="265" y2="180" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <line x1="182" y1="194" x2="250" y2="194" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+            <!-- Resin drop on left page -->
+            <ellipse cx="117" cy="145" rx="18" ry="22" fill="var(--primary)" opacity=".15"/>
+            <path d="M117 123 Q126 133 126 145 Q126 157 117 165 Q108 157 108 145 Q108 133 117 123Z" fill="var(--primary)" opacity=".6"/>
+            <!-- Colour swatches on right page -->
+            <rect x="195" y="125" width="14" height="14" rx="3" fill="var(--primary)" opacity=".8"/>
+            <rect x="214" y="125" width="14" height="14" rx="3" fill="var(--secondary)" opacity=".8"/>
+            <rect x="233" y="125" width="14" height="14" rx="3" fill="var(--amber)" opacity=".8"/>
+            <!-- Pencil -->
+            <rect x="246" y="60" width="8" height="50" rx="3" fill="var(--amber)" transform="rotate(30 250 85)" opacity=".9"/>
+            <polygon points="260,104 252,104 256,116" fill="#e2c9a0" transform="rotate(30 256 110)"/>
+            <!-- Orbiting ring -->
+            <ellipse cx="170" cy="160" rx="100" ry="30" stroke="var(--primary)" stroke-width="1" stroke-dasharray="6 4" opacity=".25" class="spin-slow"/>
+          </svg>
+        </div>
+      </div>
+      <!-- Stats bar -->
+      <div class="hero-stats container fade-up" style="--delay:.4s">
+        <div class="stat-pill"><strong class="count" data-target="120">0</strong><span>Articles</span></div>
+        <div class="stat-pill"><strong class="count" data-target="4">0</strong><span>Categories</span></div>
+        <div class="stat-pill"><strong class="count" data-target="48">0</strong><span>DIY Projects</span></div>
+        <div class="stat-pill"><strong class="count" data-target="9200">0</strong><span>Monthly Readers</span></div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: CATEGORY NAVIGATION (4 BLOGS) ===== -->
+    <section class="categories-section" id="categories">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip">Browse by Topic</span>
+          <h2 class="fade-up" style="--delay:.05s">Choose Your <span class="accent">Category</span></h2>
+          <p class="fade-up" style="--delay:.1s">Four curated journals packed with resin art knowledge, colour science, studio life, and hands-on guides.</p>
+        </div>
+        <div class="categories-grid">
+
+          <!-- Card 1: Resin Tips & Tricks -->
+          <article class="cat-card fade-left" style="--delay:.1s">
+            <div class="cat-img" style="background-image:url('./Images/tips.jpg')">
+              <span class="cat-badge">Tips &amp; Tricks</span>
+            </div>
+            <div class="cat-body">
+              <div class="cat-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none">
+                  <path d="M20 4 Q28 12 28 22 Q28 32 20 36 Q12 32 12 22 Q12 12 20 4Z" fill="var(--primary)" opacity=".8"/>
+                  <circle cx="20" cy="22" r="5" fill="#fff" opacity=".7"/>
+                </svg>
+              </div>
+              <h3>Resin Tips &amp; Tricks</h3>
+              <p>Master every pour — from bubble removal and demoulding to layering techniques, pigment ratios, and curing times.</p>
+              <ul class="cat-tags">
+                <li>Mixing Ratios</li>
+                <li>Curing Times</li>
+                <li>Bubble Tips</li>
+                <li>Mould Release</li>
+              </ul>
+              <a href="resin-tips.html" class="btn-cat">Read Articles <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Card 2: Color Inspiration -->
+          <article class="cat-card fade-up" style="--delay:.15s">
+            <div class="cat-img" style="background-image:url('./Images/color.jpg')">
+              <span class="cat-badge secondary">Colour</span>
+            </div>
+            <div class="cat-body">
+              <div class="cat-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none">
+                  <circle cx="20" cy="20" r="14" stroke="var(--secondary)" stroke-width="2"/>
+                  <circle cx="14" cy="17" r="4" fill="var(--primary)" opacity=".7"/>
+                  <circle cx="26" cy="17" r="4" fill="var(--secondary)" opacity=".7"/>
+                  <circle cx="20" cy="27" r="4" fill="var(--amber)" opacity=".7"/>
+                </svg>
+              </div>
+              <h3>Colour Inspiration</h3>
+              <p>Explore seasonal palettes, trending colour combinations, pigment blending theory, and mood boards for your next resin piece.</p>
+              <ul class="cat-tags secondary">
+                <li>Palettes</li>
+                <li>Pigment Blending</li>
+                <li>Trends</li>
+                <li>Mood Boards</li>
+              </ul>
+              <a href="color-inspiration.html" class="btn-cat secondary">Read Articles <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Card 3: Behind the Studio -->
+          <article class="cat-card fade-up" style="--delay:.2s">
+            <div class="cat-img" style="background-image:url('./Images/behind.jpg')">
+              <span class="cat-badge amber">Studio Life</span>
+            </div>
+            <div class="cat-body">
+              <div class="cat-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none">
+                  <rect x="6" y="10" width="28" height="22" rx="4" stroke="var(--amber)" stroke-width="2"/>
+                  <circle cx="20" cy="21" r="6" fill="var(--amber)" opacity=".4"/>
+                  <circle cx="20" cy="21" r="3" fill="var(--amber)" opacity=".8"/>
+                  <rect x="17" y="6" width="6" height="6" rx="1" fill="var(--amber)" opacity=".6"/>
+                </svg>
+              </div>
+              <h3>Behind the Studio</h3>
+              <p>Go behind the scenes — meet the artists, discover our workspace setup, tools, creative processes, and the story behind each collection.</p>
+              <ul class="cat-tags amber">
+                <li>Studio Tour</li>
+                <li>Meet Artists</li>
+                <li>Tools</li>
+                <li>Process</li>
+              </ul>
+              <a href="behind-studio.html" class="btn-cat amber">Read Articles <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+
+          <!-- Card 4: DIY Guides -->
+          <article class="cat-card fade-right" style="--delay:.25s">
+            <div class="cat-img" style="background-image:url('./Images/diy.jpg')">
+              <span class="cat-badge">DIY</span>
+            </div>
+            <div class="cat-body">
+              <div class="cat-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none">
+                  <rect x="8" y="20" width="24" height="14" rx="3" fill="var(--primary)" opacity=".15" stroke="var(--primary)" stroke-width="1.5"/>
+                  <path d="M14 20 V14 Q14 8 20 8 Q26 8 26 14 V20" stroke="var(--primary)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  <circle cx="20" cy="28" r="3" fill="var(--primary)" opacity=".7"/>
+                </svg>
+              </div>
+              <h3>DIY Guides</h3>
+              <p>Step-by-step project tutorials for all skill levels — coasters, wall art, jewellery, trays, geode paintings, and much more.</p>
+              <ul class="cat-tags">
+                <li>Step-by-Step</li>
+                <li>All Levels</li>
+                <li>Free Templates</li>
+                <li>Supply Lists</li>
+              </ul>
+              <a href="diy-guides.html" class="btn-cat">Read Articles <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: FEATURED / LATEST POSTS ===== -->
+    <section class="latest-section" id="latest">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip">Fresh Off the Press</span>
+          <h2 class="fade-up" style="--delay:.05s">Latest <span class="accent">Articles</span></h2>
+        </div>
+        <div class="latest-grid">
+          <!-- Featured post -->
+          <article class="post-featured fade-left" style="--delay:.1s">
+            <div class="post-img" style="background-image:url('./Images/tips.jpg')">
+              <span class="post-cat">Tips &amp; Tricks</span>
+            </div>
+            <div class="post-body">
+              <div class="post-meta"><span>12 Mar 2026</span><span>8 min read</span></div>
+              <h3>The Ultimate Beginner's Guide to Resin Pouring: Ratios, Timing &amp; Temperature</h3>
+              <p>Everything you need to know before you open your first bottle — workspace setup, safety gear, mixing ratios and the most common mistakes beginners make.</p>
+              <a href="resin-tips.html" class="btn-post">Read More</a>
+            </div>
+          </article>
+          <!-- Side posts -->
+          <div class="post-side">
+            <article class="post-card fade-up" style="--delay:.15s">
+              <div class="post-card-img" style="background-image:url('./Images/color.jpg')"></div>
+              <div class="post-card-body">
+                <span class="post-cat secondary">Colour Inspiration</span>
+                <div class="post-meta"><span>5 Mar 2026</span><span>5 min</span></div>
+                <h4>Spring 2026 Palette Drop: Sage, Coral &amp; Warm Gold</h4>
+                <a href="color-inspiration.html" class="read-link">Read More →</a>
+              </div>
+            </article>
+            <article class="post-card fade-up" style="--delay:.2s">
+              <div class="post-card-img" style="background-image:url('./Images/behind.jpg')"></div>
+              <div class="post-card-body">
+                <span class="post-cat amber">Behind the Studio</span>
+                <div class="post-meta"><span>28 Feb 2026</span><span>6 min</span></div>
+                <h4>How We Built Our New Resin Curing Room from Scratch</h4>
+                <a href="behind-studio.html" class="read-link">Read More →</a>
+              </div>
+            </article>
+            <article class="post-card fade-up" style="--delay:.25s">
+              <div class="post-card-img" style="background-image:url('./Images/diy.jpg')"></div>
+              <div class="post-card-body">
+                <span class="post-cat">DIY Guides</span>
+                <div class="post-meta"><span>20 Feb 2026</span><span>10 min</span></div>
+                <h4>DIY Geode Coaster Set — Full Tutorial with Supply List</h4>
+                <a href="diy-guides.html" class="read-link">Read More →</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4: TRENDING ARTICLES ===== -->
+    <section class="trending-section" id="trending">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip">Most Popular</span>
+          <h2 class="fade-up" style="--delay:.05s">Trending <span class="accent">Reads</span></h2>
+          <p class="fade-up" style="--delay:.1s">The articles our community keeps coming back to, every single week.</p>
+        </div>
+        <!-- Trending SVG model -->
+        <div class="trending-model fade-down" style="--delay:.05s" aria-hidden="true">
+          <svg viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="trend-svg">
+            <!-- Rising bar chart -->
+            <rect x="30" y="80" width="30" height="30" rx="4" fill="var(--primary)" opacity=".2" class="bar-rise" style="--bh:30px;--bd:.0s"/>
+            <rect x="75" y="60" width="30" height="50" rx="4" fill="var(--primary)" opacity=".4" class="bar-rise" style="--bh:50px;--bd:.1s"/>
+            <rect x="120" y="45" width="30" height="65" rx="4" fill="var(--primary)" opacity=".6" class="bar-rise" style="--bh:65px;--bd:.2s"/>
+            <rect x="165" y="30" width="30" height="80" rx="4" fill="var(--primary)" opacity=".8" class="bar-rise" style="--bh:80px;--bd:.3s"/>
+            <rect x="210" y="20" width="30" height="90" rx="4" fill="var(--primary)" class="bar-rise" style="--bh:90px;--bd:.4s"/>
+            <!-- Trend line -->
+            <polyline points="45,78 90,58 135,43 180,28 225,18" stroke="var(--secondary)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="draw-line"/>
+            <!-- Arrow up -->
+            <polygon points="225,10 218,22 232,22" fill="var(--secondary)"/>
+            <!-- Right side decorative sparkles -->
+            <path d="M290 50 L292 44 L294 50 L300 52 L294 54 L292 60 L290 54 L284 52 Z" fill="var(--amber)" opacity=".8" class="p-float" style="--pf:3s"/>
+            <path d="M330 30 L331.5 25 L333 30 L338 31.5 L333 33 L331.5 38 L330 33 L325 31.5 Z" fill="var(--primary)" opacity=".6" class="p-float" style="--pf:4s"/>
+            <path d="M360 70 L361.5 65 L363 70 L368 71.5 L363 73 L361.5 78 L360 73 L355 71.5 Z" fill="var(--secondary)" opacity=".5" class="p-float" style="--pf:5s"/>
+          </svg>
+        </div>
+        <div class="trending-list">
+          <div class="trend-item fade-left" style="--delay:.1s">
+            <span class="trend-num">01</span>
+            <div class="trend-body">
+              <span class="post-cat">Tips &amp; Tricks</span>
+              <h4>10 Resin Mistakes Every Beginner Makes (And How to Fix Them)</h4>
+              <div class="post-meta"><span>15 Jan 2026</span><span>7 min</span><span>🔥 4.2k reads</span></div>
+            </div>
+            <a href="resin-tips.html" class="trend-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          </div>
+          <div class="trend-item fade-right" style="--delay:.15s">
+            <span class="trend-num">02</span>
+            <div class="trend-body">
+              <span class="post-cat secondary">Colour Inspiration</span>
+              <h4>Ocean Blue Resin Art: The Complete Colour Mixing Formula</h4>
+              <div class="post-meta"><span>8 Feb 2026</span><span>5 min</span><span>🔥 3.1k reads</span></div>
+            </div>
+            <a href="color-inspiration.html" class="trend-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          </div>
+          <div class="trend-item fade-left" style="--delay:.2s">
+            <span class="trend-num">03</span>
+            <div class="trend-body">
+              <span class="post-cat amber">Behind the Studio</span>
+              <h4>My Daily Studio Routine: A Day in the Life of a Resin Artist</h4>
+              <div class="post-meta"><span>22 Jan 2026</span><span>6 min</span><span>🔥 2.8k reads</span></div>
+            </div>
+            <a href="behind-studio.html" class="trend-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          </div>
+          <div class="trend-item fade-right" style="--delay:.25s">
+            <span class="trend-num">04</span>
+            <div class="trend-body">
+              <span class="post-cat">DIY Guides</span>
+              <h4>How to Make Resin Jewellery at Home — Beginner's Toolkit</h4>
+              <div class="post-meta"><span>3 Feb 2026</span><span>9 min</span><span>🔥 2.5k reads</span></div>
+            </div>
+            <a href="diy-guides.html" class="trend-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          </div>
+          <div class="trend-item fade-left" style="--delay:.3s">
+            <span class="trend-num">05</span>
+            <div class="trend-body">
+              <span class="post-cat">Tips &amp; Tricks</span>
+              <h4>Why Is My Resin Sticky After Curing? 8 Causes &amp; Fixes</h4>
+              <div class="post-meta"><span>10 Mar 2026</span><span>4 min</span><span>🔥 1.9k reads</span></div>
+            </div>
+            <a href="resin-tips.html" class="trend-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          </div>
+          <div class="trend-item fade-right" style="--delay:.35s">
+            <span class="trend-num">06</span>
+            <div class="trend-body">
+              <span class="post-cat secondary">Colour Inspiration</span>
+              <h4>Metallic Pigments 101: Gold, Silver, Copper in Resin Art</h4>
+              <div class="post-meta"><span>17 Feb 2026</span><span>6 min</span><span>🔥 1.7k reads</span></div>
+            </div>
+            <a href="color-inspiration.html" class="trend-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5: VIDEO + COMMUNITY PICKS ===== -->
+    <section class="community-section" id="community">
+      <div class="section-bg-blobs" aria-hidden="true">
+        <span class="blob cb1"></span>
+        <span class="blob cb2"></span>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip">Community</span>
+          <h2 class="fade-up" style="--delay:.05s">Community <span class="accent">Picks &amp; Video</span></h2>
+          <p class="fade-up" style="--delay:.1s">Watch, learn, and share with thousands of resin artists worldwide.</p>
+        </div>
+        <div class="community-grid">
+          <!-- Video card -->
+          <div class="video-card fade-left" style="--delay:.1s">
+            <div class="video-thumb">
+              <img src="./Images/thumb.jpg" alt="Resin art video thumbnail" loading="lazy"/>
+              <button class="play-btn" aria-label="Play video">
+                <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#fff" stroke-width="2" opacity=".7"/><polygon points="19,15 37,24 19,33" fill="#fff"/></svg>
+              </button>
+            </div>
+            <div class="video-meta">
+              <span class="post-cat">Video Tutorial</span>
+              <h4>Watch: Full Geode Art Pour — Start to Finish in 20 Minutes</h4>
+              <p>Follow along as our lead artist creates a stunning geode piece using our signature colour combination.</p>
+              <a href="diy-guides.html" class="btn-secondary">View All Tutorials</a>
+            </div>
+          </div>
+          <!-- Community picks -->
+          <div class="picks-grid">
+            <div class="pick-card fade-up" style="--delay:.15s">
+              <div class="pick-img" style="background-image:url('./Images/bubble.jpg')"></div>
+              <div class="pick-body">
+                <span class="post-cat">Tips &amp; Tricks</span>
+                <h5>Perfect Bubble-Free Pours Every Time</h5>
+                <div class="post-meta"><span>Mar 2026</span></div>
+              </div>
+            </div>
+            <div class="pick-card fade-up" style="--delay:.2s">
+              <div class="pick-img" style="background-image:url('./Images/colors.jpg')"></div>
+              <div class="pick-body">
+                <span class="post-cat secondary">Colour</span>
+                <h5>Sunset Gradient: A 4-Colour Formula</h5>
+                <div class="post-meta"><span>Mar 2026</span></div>
+              </div>
+            </div>
+            <div class="pick-card fade-up" style="--delay:.25s">
+              <div class="pick-img" style="background-image:url('./Images/tools.jpg')"></div>
+              <div class="pick-body">
+                <span class="post-cat amber">Studio</span>
+                <h5>Studio Essentials: Our Must-Have Tools</h5>
+                <div class="post-meta"><span>Feb 2026</span></div>
+              </div>
+            </div>
+            <div class="pick-card fade-up" style="--delay:.3s">
+              <div class="pick-img" style="background-image:url('./Images/tray.jpg')"></div>
+                <span class="post-cat">DIY</span>
+                <h5>Beginner's First Resin Tray — Illustrated Guide</h5>
+                <div class="post-meta"><span>Feb 2026</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 6: NEWSLETTER SUBSCRIBE ===== -->
+    <section class="newsletter-section" id="newsletter">
+      <div class="container">
+        <div class="newsletter-inner">
+          <!-- Model -->
+          <div class="nl-model fade-left" style="--delay:.1s" aria-hidden="true">
+            <svg viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="nl-svg">
+              <!-- Envelope -->
+              <rect x="30" y="50" width="200" height="130" rx="10" fill="var(--card-bg)" stroke="var(--primary)" stroke-width="2"/>
+              <!-- Envelope flap open -->
+              <path d="M30 50 L130 120 L230 50" stroke="var(--primary)" stroke-width="2" fill="none"/>
+              <!-- Letter inside -->
+              <rect x="60" y="90" width="140" height="70" rx="6" fill="var(--primary)" opacity=".08" stroke="var(--primary)" stroke-width="1" stroke-dasharray="4 3"/>
+              <line x1="80" y1="112" x2="180" y2="112" stroke="var(--primary)" stroke-width="1.5" opacity=".4"/>
+              <line x1="80" y1="126" x2="165" y2="126" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+              <line x1="80" y1="140" x2="180" y2="140" stroke="var(--border)" stroke-width="1" opacity=".5"/>
+              <!-- Stars/sparkles -->
+              <path d="M245 40 L247 34 L249 40 L255 42 L249 44 L247 50 L245 44 L239 42 Z" fill="var(--amber)" opacity=".9" class="p-float" style="--pf:3.5s"/>
+              <path d="M15 80 L16.5 75 L18 80 L23 81.5 L18 83 L16.5 88 L15 83 L10 81.5 Z" fill="var(--secondary)" opacity=".7" class="p-float" style="--pf:5s"/>
+              <circle cx="50" cy="30" r="5" fill="var(--primary)" opacity=".3" class="p-float" style="--pf:6s"/>
+              <circle cx="220" cy="25" r="4" fill="var(--secondary)" opacity=".35" class="p-float" style="--pf:4s"/>
+            </svg>
+          </div>
+          <!-- Content -->
+          <div class="nl-content fade-right" style="--delay:.1s">
+            <span class="section-chip">Stay Inspired</span>
+            <h2>Never Miss a <span class="accent">New Post</span></h2>
+            <p>Join 9,200+ readers and get fresh resin tips, colour guides, DIY tutorials, and studio stories delivered weekly to your inbox.</p>
+            <ul class="nl-perks">
+              <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Free PDF: 50 Resin Tips &amp; Tricks on sign-up</li>
+              <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Weekly blog digest every Friday</li>
+              <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Exclusive early access to workshops</li>
+              <li><svg viewBox="0 0 16 16" fill="none"><path d="M3 8l4 4 6-6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Unsubscribe anytime, no spam</li>
+            </ul>
+            <form class="nl-form" id="nlForm" novalidate>
+              <div class="nl-inputs">
+                <div class="field-wrap">
+                  <input type="text" id="nlName" placeholder="Your first name" autocomplete="given-name" />
+                  <span class="field-err" id="nlNameErr"></span>
+                </div>
+                <div class="field-wrap">
+                  <input type="email" id="nlEmail" placeholder="Your email address" autocomplete="email" />
+                  <span class="field-err" id="nlEmailErr"></span>
+                </div>
+              </div>
+              <button type="submit" class="btn-primary full-w">Subscribe — It's Free</button>
+            </form>
+            <div class="nl-success" id="nlSuccess" hidden>
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="var(--primary)" stroke-width="1.5"/><path d="M7 12l4 4 6-6" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <p>You're in! Check your inbox for your free PDF.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./blog.js"></script>
+</body>
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | ResinLux Studio</title>
+  <link rel="stylesheet" href="./admin.css" />
+  <script>(function(){ var t=localStorage.getItem('adminTheme')||'light'; document.documentElement.setAttribute('data-theme',t); })();</script>
+</head>
+<body>
+<div class="adm-wrapper" id="admWrapper">
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="adm-sidebar" id="admSidebar">
+    <div class="adm-sidebar__header">
+      <div class="adm-logo">
+        <svg width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="17" cy="17" r="16" fill="var(--primary)" opacity="0.15"/>
+          <ellipse cx="17" cy="17" rx="9" ry="13" fill="var(--primary)" opacity="0.4"/>
+          <circle cx="17" cy="10" r="5" fill="var(--primary)"/>
+        </svg>
+        <span>ResinLux</span>
+      </div>
+      <button class="adm-sidebar__close" id="sidebarClose" aria-label="Close sidebar">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="adm-sidebar__profile">
+      <div class="adm-profile-avatar-wrap">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&q=80" alt="Admin" class="adm-profile-avatar" />
+        <span class="adm-online-dot"></span>
+      </div>
+      <div class="adm-sidebar__profile-info">
+        <strong>Priya Sharma</strong>
+        <span>Studio Admin</span>
+      </div>
+    </div>
+
+    <nav class="adm-nav">
+      <button class="adm-nav__item active" data-section="overview" data-title="Overview &amp; Statistics">
+        <span class="adm-nav__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+        <span class="adm-nav__label">Overview</span>
+      </button>
+      <button class="adm-nav__item" data-section="users" data-title="User Management">
+        <span class="adm-nav__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <span class="adm-nav__label">User Management</span>
+        <span class="adm-nav__badge">142</span>
+      </button>
+      <button class="adm-nav__item" data-section="content" data-title="Content Management">
+        <span class="adm-nav__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+        <span class="adm-nav__label">Content</span>
+      </button>
+      <button class="adm-nav__item" data-section="orders" data-title="Orders &amp; Bookings">
+        <span class="adm-nav__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span class="adm-nav__label">Orders &amp; Bookings</span>
+        <span class="adm-nav__badge adm-nav__badge--amber">8</span>
+      </button>
+      <button class="adm-nav__item" data-section="messages" data-title="Messages &amp; Notifications">
+        <span class="adm-nav__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
+        <span class="adm-nav__label">Messages</span>
+        <span class="adm-nav__badge">5</span>
+      </button>
+      <button class="adm-nav__item" data-section="settings" data-title="Settings &amp; Configuration">
+        <span class="adm-nav__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+        <span class="adm-nav__label">Settings</span>
+      </button>
+      <button class="adm-nav__item" data-section="reports" data-title="Reports &amp; Analytics">
+        <span class="adm-nav__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg></span>
+        <span class="adm-nav__label">Reports &amp; Analytics</span>
+      </button>
+    </nav>
+
+    <div class="adm-sidebar__footer">
+      <button class="adm-logout-btn" id="logoutBtn">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        <span>Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ========== MAIN ========== -->
+  <div class="adm-main" id="admMain">
+
+    <!-- TOPBAR -->
+    <header class="adm-topbar">
+      <button class="adm-hamburger" id="admHamburger" aria-label="Toggle sidebar">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="adm-topbar__breadcrumb">
+        <span class="adm-topbar__title">Admin Dashboard</span>
+        <span class="adm-topbar__sep">/</span>
+        <span class="adm-topbar__sub" id="topbarSub">Overview &amp; Statistics</span>
+      </div>
+      <div class="adm-topbar__actions">
+        <div class="adm-search-wrap">
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" placeholder="Search..." class="adm-search-input" aria-label="Search" />
+        </div>
+        <!-- Notifications -->
+        <div class="adm-notif-wrap" id="notifWrap">
+          <button class="adm-icon-btn" id="notifBtn" aria-label="Notifications" aria-expanded="false">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="adm-badge" id="notifCount">5</span>
+          </button>
+          <div class="adm-dropdown adm-notif-dropdown" id="notifDropdown">
+            <div class="adm-dropdown__header">
+              <span>Notifications</span>
+              <button class="adm-link-btn" id="markAllBtn">Mark all read</button>
+            </div>
+            <div class="adm-notif-list">
+              <div class="adm-notif-item unread"><div class="notif-dot notif-dot--p"></div><div class="notif-body"><p>New order — Ocean Wave Coasters (&times;4)</p><time>2 min ago</time></div></div>
+              <div class="adm-notif-item unread"><div class="notif-dot notif-dot--s"></div><div class="notif-body"><p>Workshop booked — Geode Art (3 seats)</p><time>18 min ago</time></div></div>
+              <div class="adm-notif-item unread"><div class="notif-dot notif-dot--a"></div><div class="notif-body"><p>Low stock — Purple Mica Powder (2 left)</p><time>1 hr ago</time></div></div>
+              <div class="adm-notif-item"><div class="notif-dot notif-dot--p"></div><div class="notif-body"><p>New 5&#9733; review from Emily K. on Bespoke Tray</p><time>3 hr ago</time></div></div>
+              <div class="adm-notif-item"><div class="notif-dot notif-dot--s"></div><div class="notif-body"><p>Commission enquiry from David M.</p><time>Yesterday</time></div></div>
+            </div>
+            <button class="adm-dropdown__footer-btn" onclick="switchSection('messages')">View all messages</button>
+          </div>
+        </div>
+        <!-- Theme toggle -->
+        <button class="adm-icon-btn" id="admThemeBtn" aria-label="Toggle theme">
+          <svg class="icon-sun" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <!-- Profile -->
+        <div class="adm-profile-wrap" id="profileWrap">
+          <button class="adm-profile-btn" id="profileBtn" aria-label="Profile menu" aria-expanded="false">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&q=80" alt="Admin" />
+            <div class="adm-profile-btn__info">
+              <span class="pname">Priya Sharma</span>
+              <span class="prole">Admin</span>
+            </div>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="adm-dropdown adm-profile-dropdown" id="profileDropdown">
+            <div class="adm-profile-dropdown__header">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=56&q=80" alt="Admin" />
+              <div><strong>Priya Sharma</strong><span>priya@resinlux.com</span></div>
+            </div>
+            <a href="#" class="adm-dropdown__item" onclick="switchSection('settings');return false;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> My Profile</a>
+            <a href="#" class="adm-dropdown__item" onclick="switchSection('settings');return false;"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg> Account Settings</a>
+            <div class="adm-dropdown__divider"></div>
+            <a href="#" class="adm-dropdown__item adm-dropdown__item--danger" id="profileLogoutBtn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg> Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== CONTENT ========== -->
+    <main class="adm-content">
+
+      <!-- ===== SECTION 1: OVERVIEW ===== -->
+      <div class="adm-section active" id="sec-overview">
+        <div class="sec-bg-blobs" aria-hidden="true"><div class="sec-blob sec-blob--1"></div><div class="sec-blob sec-blob--2"></div><div class="sec-blob sec-blob--3"></div></div>
+        <!-- Welcome Banner -->
+        <div class="welcome-banner fade-up">
+          <div class="welcome-banner__left">
+            <div class="welcome-text">
+              <h2>Good morning, Priya! <span class="wave">&#128075;</span></h2>
+              <p>Welcome back to your ResinLux Admin Dashboard. Here's what's happening in your studio today.</p>
+              <div class="welcome-meta">
+                <span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Saturday, 28 March 2026</span>
+                <span><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 09:42 AM</span>
+                <span class="status-open">&#9679; Studio Open</span>
+              </div>
+            </div>
+          </div>
+          <div class="welcome-banner__right">
+            <div class="welcome-quick-actions">
+              <button class="wqa-btn" onclick="switchSection('orders')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg> New Order</button>
+              <button class="wqa-btn wqa-btn--sec" onclick="switchSection('content')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add Content</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+          <div class="kpi-card fade-up" style="--delay:.05s">
+            <div class="kpi-card__icon kpi-icon--revenue"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+            <div class="kpi-card__data">
+              <span class="kpi-label">Total Revenue</span>
+              <span class="kpi-value" id="kpiRevenue">&pound;0</span>
+              <span class="kpi-trend kpi-trend--up">&#8593; 12.4% vs last month</span>
+            </div>
+          </div>
+          <div class="kpi-card fade-up" style="--delay:.1s">
+            <div class="kpi-card__icon kpi-icon--orders"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+            <div class="kpi-card__data">
+              <span class="kpi-label">Active Orders</span>
+              <span class="kpi-value" id="kpiOrders">0</span>
+              <span class="kpi-trend kpi-trend--up">&#8593; 8 new today</span>
+            </div>
+          </div>
+          <div class="kpi-card fade-up" style="--delay:.15s">
+            <div class="kpi-card__icon kpi-icon--users"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="kpi-card__data">
+              <span class="kpi-label">Total Users</span>
+              <span class="kpi-value" id="kpiUsers">0</span>
+              <span class="kpi-trend kpi-trend--up">&#8593; 23 new this month</span>
+            </div>
+          </div>
+          <div class="kpi-card fade-up" style="--delay:.2s">
+            <div class="kpi-card__icon kpi-icon--messages"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="kpi-card__data">
+              <span class="kpi-label">Unread Messages</span>
+              <span class="kpi-value" id="kpiMessages">0</span>
+              <span class="kpi-trend kpi-trend--neutral">&#8212; 5 require action</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-grid">
+          <!-- Revenue Bar Chart -->
+          <div class="chart-card fade-left" style="--delay:.1s">
+            <div class="chart-card__header">
+              <div>
+                <h3>Revenue Overview</h3>
+                <p>Monthly revenue for 2026 (GBP)</p>
+              </div>
+              <select class="chart-select" aria-label="Chart period">
+                <option>Last 6 Months</option>
+                <option>Last 12 Months</option>
+                <option>This Year</option>
+              </select>
+            </div>
+            <div class="chart-area">
+              <svg id="revenueChart" viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg" aria-label="Revenue bar chart"></svg>
+            </div>
+          </div>
+
+          <!-- Order Status Donut -->
+          <div class="chart-card fade-right" style="--delay:.1s">
+            <div class="chart-card__header">
+              <div><h3>Order Distribution</h3><p>By service category</p></div>
+            </div>
+            <div class="donut-chart-wrap">
+              <svg id="donutChart" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Order donut chart"></svg>
+              <div class="donut-legend" id="donutLegend"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Row -->
+        <div class="overview-bottom">
+          <!-- Recent Orders -->
+          <div class="overview-card fade-up" style="--delay:.1s">
+            <div class="overview-card__header">
+              <h3>Recent Orders</h3>
+              <button class="adm-link-btn" onclick="switchSection('orders')">View all</button>
+            </div>
+            <div class="adm-table-wrap">
+              <table class="adm-table">
+                <thead><tr><th>Order ID</th><th>Customer</th><th>Service</th><th>Amount</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr class="fade-in"><td><span class="order-id">#RL-2847</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=32&q=80" alt=""/><span>Emily K.</span></div></td><td>Ocean Coasters</td><td>&pound;48</td><td><span class="badge badge--processing">Processing</span></td></tr>
+                  <tr class="fade-in"><td><span class="order-id">#RL-2846</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&q=80" alt=""/><span>Marcus B.</span></div></td><td>River Table</td><td>&pound;890</td><td><span class="badge badge--pending">Pending</span></td></tr>
+                  <tr class="fade-in"><td><span class="order-id">#RL-2845</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=32&q=80" alt=""/><span>Layla H.</span></div></td><td>Geode Workshop</td><td>&pound;65</td><td><span class="badge badge--completed">Completed</span></td></tr>
+                  <tr class="fade-in"><td><span class="order-id">#RL-2844</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&q=80" alt=""/><span>James T.</span></div></td><td>Bespoke Tray</td><td>&pound;120</td><td><span class="badge badge--completed">Completed</span></td></tr>
+                  <tr class="fade-in"><td><span class="order-id">#RL-2843</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=32&q=80" alt=""/><span>Mia C.</span></div></td><td>Jewellery Set</td><td>&pound;95</td><td><span class="badge badge--processing">Processing</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Top Products + Activity -->
+          <div class="overview-side">
+            <div class="overview-card fade-right" style="--delay:.15s">
+              <div class="overview-card__header"><h3>Top Services</h3></div>
+              <ul class="top-products">
+                <li><div class="tp-rank">1</div><div class="tp-info"><span>Bespoke Commissions</span><div class="tp-bar"><div class="tp-fill" style="width:78%"></div></div></div><span class="tp-val">&pound;3,240</span></li>
+                <li><div class="tp-rank">2</div><div class="tp-info"><span>River Tables</span><div class="tp-bar"><div class="tp-fill" style="width:62%"></div></div></div><span class="tp-val">&pound;2,670</span></li>
+                <li><div class="tp-rank">3</div><div class="tp-info"><span>Workshops</span><div class="tp-bar"><div class="tp-fill" style="width:45%"></div></div></div><span class="tp-val">&pound;1,820</span></li>
+                <li><div class="tp-rank">4</div><div class="tp-info"><span>Jewellery Design</span><div class="tp-bar"><div class="tp-fill" style="width:32%"></div></div></div><span class="tp-val">&pound;690</span></li>
+              </ul>
+            </div>
+            <div class="overview-card fade-right" style="--delay:.2s">
+              <div class="overview-card__header"><h3>Upcoming Workshops</h3></div>
+              <ul class="upcoming-workshops">
+                <li><div class="uw-date"><span>APR</span><strong>02</strong></div><div class="uw-info"><span>Geode Art Masterclass</span><small>4 seats remaining</small></div><span class="badge badge--processing">Open</span></li>
+                <li><div class="uw-date"><span>APR</span><strong>08</strong></div><div class="uw-info"><span>Beginner Resin Basics</span><small>8 seats remaining</small></div><span class="badge badge--processing">Open</span></li>
+                <li><div class="uw-date"><span>APR</span><strong>15</strong></div><div class="uw-info"><span>Corporate Team Session</span><small>Fully booked</small></div><span class="badge badge--cancelled">Full</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 2: USER MANAGEMENT ===== -->
+      <div class="adm-section" id="sec-users">
+        <div class="sec-bg-blobs" aria-hidden="true"><div class="sec-blob sec-blob--4"></div><div class="sec-blob sec-blob--5"></div></div>
+        <div class="sec-header fade-up">
+          <div><h2>User Management</h2><p>Manage all registered users, roles, and permissions.</p></div>
+          <button class="adm-btn adm-btn--primary" id="addUserBtn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add User</button>
+        </div>
+        <!-- User Stats -->
+        <div class="user-stats fade-up" style="--delay:.05s">
+          <div class="user-stat-card"><span class="ust-num">142</span><span class="ust-label">Total Users</span></div>
+          <div class="user-stat-card"><span class="ust-num ust-num--green">118</span><span class="ust-label">Active</span></div>
+          <div class="user-stat-card"><span class="ust-num ust-num--primary">23</span><span class="ust-label">New This Month</span></div>
+          <div class="user-stat-card"><span class="ust-num ust-num--amber">1</span><span class="ust-label">Suspended</span></div>
+        </div>
+        <!-- Filters -->
+        <div class="table-controls fade-up" style="--delay:.1s">
+          <div class="table-search">
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" placeholder="Search users..." id="userSearch" />
+          </div>
+          <div class="role-tabs" id="roleTabs">
+            <button class="role-tab active" data-role="all">All (142)</button>
+            <button class="role-tab" data-role="admin">Admin (3)</button>
+            <button class="role-tab" data-role="artist">Artist (12)</button>
+            <button class="role-tab" data-role="customer">Customer (127)</button>
+          </div>
+        </div>
+        <!-- Users Table -->
+        <div class="adm-table-wrap fade-up" style="--delay:.15s">
+          <table class="adm-table adm-table--users" id="usersTable">
+            <thead><tr><th><input type="checkbox" id="selectAll" /></th><th>User</th><th>Email</th><th>Role</th><th>Status</th><th>Joined</th><th>Actions</th></tr></thead>
+            <tbody id="usersTableBody">
+              <tr data-role="admin"><td><input type="checkbox"/></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=36&q=80" alt=""/><div><span>Priya Sharma</span><small>Studio Director</small></div></div></td><td>priya@resinlux.com</td><td><span class="role-badge role-admin">Admin</span></td><td><span class="badge badge--completed">Active</span></td><td>Jan 2019</td><td><div class="action-btns"><button class="act-btn act-view" title="View"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="act-btn act-edit" title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button></div></td></tr>
+              <tr data-role="artist"><td><input type="checkbox"/></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=36&q=80" alt=""/><div><span>Marcus Bell</span><small>Lead Sculptor</small></div></div></td><td>marcus@resinlux.com</td><td><span class="role-badge role-artist">Artist</span></td><td><span class="badge badge--completed">Active</span></td><td>Mar 2020</td><td><div class="action-btns"><button class="act-btn act-view" title="View"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="act-btn act-edit" title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button></div></td></tr>
+              <tr data-role="artist"><td><input type="checkbox"/></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=36&q=80" alt=""/><div><span>Layla Hassan</span><small>Colour Lead</small></div></div></td><td>layla@resinlux.com</td><td><span class="role-badge role-artist">Artist</span></td><td><span class="badge badge--completed">Active</span></td><td>Jun 2021</td><td><div class="action-btns"><button class="act-btn act-view" title="View"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="act-btn act-edit" title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button></div></td></tr>
+              <tr data-role="customer"><td><input type="checkbox"/></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=36&q=80" alt=""/><div><span>Emily Knox</span><small>Customer</small></div></div></td><td>emily.k@email.com</td><td><span class="role-badge role-customer">Customer</span></td><td><span class="badge badge--completed">Active</span></td><td>Feb 2024</td><td><div class="action-btns"><button class="act-btn act-view" title="View"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="act-btn act-edit" title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="act-btn act-suspend" title="Suspend"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></button></div></td></tr>
+              <tr data-role="customer"><td><input type="checkbox"/></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=36&q=80" alt=""/><div><span>James Tran</span><small>Customer</small></div></div></td><td>james.t@email.com</td><td><span class="role-badge role-customer">Customer</span></td><td><span class="badge badge--completed">Active</span></td><td>Aug 2024</td><td><div class="action-btns"><button class="act-btn act-view" title="View"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="act-btn act-edit" title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="act-btn act-suspend" title="Suspend"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></button></div></td></tr>
+              <tr data-role="customer"><td><input type="checkbox"/></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=36&q=80" alt=""/><div><span>Mia Carter</span><small>Customer</small></div></div></td><td>mia.c@email.com</td><td><span class="role-badge role-customer">Customer</span></td><td><span class="badge badge--completed">Active</span></td><td>Nov 2024</td><td><div class="action-btns"><button class="act-btn act-view" title="View"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="act-btn act-edit" title="Edit"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="act-btn act-suspend" title="Suspend"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></button></div></td></tr>
+              <tr data-role="customer"><td><input type="checkbox"/></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=36&q=80" alt=""/><div><span>David Martin</span><small>Customer</small></div></div></td><td>david.m@email.com</td><td><span class="role-badge role-customer">Customer</span></td><td><span class="badge badge--pending">Suspended</span></td><td>Jan 2025</td><td><div class="action-btns"><button class="act-btn act-view" title="View"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button><button class="act-btn act-edit" title="Activate"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 3: CONTENT MANAGEMENT ===== -->
+      <div class="adm-section" id="sec-content">
+        <div class="sec-bg-blobs" aria-hidden="true"><div class="sec-blob sec-blob--6"></div><div class="sec-blob sec-blob--7"></div></div>
+        <div class="sec-header fade-up">
+          <div><h2>Content Management</h2><p>Manage blog posts, gallery, services, and workshop slots.</p></div>
+          <button class="adm-btn adm-btn--primary" id="addContentBtn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Add New</button>
+        </div>
+        <div class="content-tabs fade-up" style="--delay:.05s" id="contentTabs">
+          <button class="ctab active" data-ctab="blogs">&#128221; Blog Posts <span class="ctab-count">12</span></button>
+          <button class="ctab" data-ctab="gallery">&#128247; Gallery <span class="ctab-count">48</span></button>
+          <button class="ctab" data-ctab="services">&#9197; Services <span class="ctab-count">6</span></button>
+          <button class="ctab" data-ctab="workshops">&#127912; Workshop Slots <span class="ctab-count">4</span></button>
+        </div>
+        <!-- Blog Posts Tab -->
+        <div class="ctab-panel active fade-in" id="ctab-blogs">
+          <div class="content-grid">
+            <div class="content-card"><div class="content-card__img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&q=70" alt="" loading="lazy"/><span class="content-status content-status--published">Published</span></div><div class="content-card__body"><h4>The Ultimate Guide to Resin Art Tips &amp; Tricks</h4><p>Bubble-free techniques, pigment pairings, and expert advice...</p><div class="content-card__meta"><span>Mar 28, 2026</span><span>4.2k views</span></div><div class="content-card__actions"><button class="act-btn act-edit">Edit</button><button class="act-btn act-view">View</button><button class="act-btn act-suspend">Delete</button></div></div></div>
+            <div class="content-card"><div class="content-card__img"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&q=70" alt="" loading="lazy"/><span class="content-status content-status--published">Published</span></div><div class="content-card__body"><h4>Colour Inspiration for Resin: Seasonal Palettes</h4><p>Curated colour palettes for every season of the year...</p><div class="content-card__meta"><span>Mar 22, 2026</span><span>5.8k views</span></div><div class="content-card__actions"><button class="act-btn act-edit">Edit</button><button class="act-btn act-view">View</button><button class="act-btn act-suspend">Delete</button></div></div></div>
+            <div class="content-card"><div class="content-card__img"><img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=300&q=70" alt="" loading="lazy"/><span class="content-status content-status--published">Published</span></div><div class="content-card__body"><h4>Behind the Studio: A Day in the Life at ResinLux</h4><p>An intimate look at how our studio creates every piece...</p><div class="content-card__meta"><span>Mar 15, 2026</span><span>6.1k views</span></div><div class="content-card__actions"><button class="act-btn act-edit">Edit</button><button class="act-btn act-view">View</button><button class="act-btn act-suspend">Delete</button></div></div></div>
+            <div class="content-card"><div class="content-card__img"><img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=300&q=70" alt="" loading="lazy"/><span class="content-status content-status--draft">Draft</span></div><div class="content-card__body"><h4>DIY Resin at Home: Complete Beginner Guide</h4><p>Everything you need to start your resin journey at home...</p><div class="content-card__meta"><span>Mar 10, 2026</span><span>Draft</span></div><div class="content-card__actions"><button class="act-btn act-edit">Edit</button><button class="act-btn act-view">Preview</button><button class="act-btn act-suspend">Delete</button></div></div></div>
+          </div>
+        </div>
+        <!-- Gallery Tab -->
+        <div class="ctab-panel fade-in" id="ctab-gallery">
+          <div class="gallery-grid">
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1580193769210-b8d1c049a7d9?w=200&q=70" alt="Resin art" loading="lazy"/><div class="gallery-item__overlay"><button class="act-btn act-edit">Edit</button><button class="act-btn act-suspend">Remove</button></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=200&q=70" alt="Resin art" loading="lazy"/><div class="gallery-item__overlay"><button class="act-btn act-edit">Edit</button><button class="act-btn act-suspend">Remove</button></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=200&q=70" alt="Resin art" loading="lazy"/><div class="gallery-item__overlay"><button class="act-btn act-edit">Edit</button><button class="act-btn act-suspend">Remove</button></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?w=200&q=70" alt="Resin art" loading="lazy"/><div class="gallery-item__overlay"><button class="act-btn act-edit">Edit</button><button class="act-btn act-suspend">Remove</button></div></div>
+            <div class="gallery-item"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=200&q=70" alt="Resin art" loading="lazy"/><div class="gallery-item__overlay"><button class="act-btn act-edit">Edit</button><button class="act-btn act-suspend">Remove</button></div></div>
+            <div class="gallery-item gallery-item--add"><div><svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span>Upload Image</span></div></div>
+          </div>
+        </div>
+        <!-- Services Tab -->
+        <div class="ctab-panel fade-in" id="ctab-services">
+          <div class="services-list">
+            <div class="service-row"><div class="service-info"><div class="service-icon" style="background:rgba(147,51,234,.12);color:var(--primary)"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12,2 22,8.5 22,15.5 12,22 2,15.5 2,8.5"/></svg></div><div><strong>Bespoke Commissions</strong><p>Custom resin art pieces made to order</p></div></div><div class="service-meta"><span>&pound;150+ / piece</span><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label><div class="action-btns"><button class="act-btn act-edit">Edit</button></div></div></div>
+            <div class="service-row"><div class="service-info"><div class="service-icon" style="background:rgba(8,145,178,.12);color:var(--secondary)"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div><strong>Workshops</strong><p>Public and private resin art classes</p></div></div><div class="service-meta"><span>&pound;65 / session</span><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label><div class="action-btns"><button class="act-btn act-edit">Edit</button></div></div></div>
+            <div class="service-row"><div class="service-info"><div class="service-icon" style="background:rgba(217,119,6,.12);color:var(--amber)"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div><strong>Corporate Gifting</strong><p>Branded resin gifts for businesses</p></div></div><div class="service-meta"><span>&pound;25+ / item</span><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label><div class="action-btns"><button class="act-btn act-edit">Edit</button></div></div></div>
+            <div class="service-row"><div class="service-info"><div class="service-icon" style="background:rgba(147,51,234,.12);color:var(--primary)"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M12 2a10 10 0 1 0 10 10"/></svg></div><div><strong>Jewellery Design</strong><p>Custom resin jewellery and pendants</p></div></div><div class="service-meta"><span>&pound;45+ / piece</span><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label><div class="action-btns"><button class="act-btn act-edit">Edit</button></div></div></div>
+            <div class="service-row"><div class="service-info"><div class="service-icon" style="background:rgba(8,145,178,.12);color:var(--secondary)"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><div><strong>Interior Installations</strong><p>Large-scale resin art for spaces</p></div></div><div class="service-meta"><span>&pound;500+ / project</span><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label><div class="action-btns"><button class="act-btn act-edit">Edit</button></div></div></div>
+            <div class="service-row"><div class="service-info"><div class="service-icon" style="background:rgba(217,119,6,.12);color:var(--amber)"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10H7M21 6H3M21 14H3M21 18H7"/></svg></div><div><strong>Birthday &amp; Wedding Gifts</strong><p>Personalised gift sets for occasions</p></div></div><div class="service-meta"><span>&pound;35+ / set</span><label class="toggle-switch"><input type="checkbox" /><span class="toggle-slider"></span></label><div class="action-btns"><button class="act-btn act-edit">Edit</button></div></div></div>
+          </div>
+        </div>
+        <!-- Workshops Tab -->
+        <div class="ctab-panel fade-in" id="ctab-workshops">
+          <div class="workshops-list">
+            <div class="workshop-row"><div class="workshop-date"><span>APR</span><strong>02</strong></div><div class="workshop-info"><h4>Geode Art Masterclass</h4><p>Advanced geode techniques with crystal inclusions &mdash; 3 hours</p><div class="workshop-meta"><span>Max: 12 students</span><span>Booked: 8</span><span>&pound;65/person</span></div></div><div class="workshop-actions"><span class="badge badge--processing">Active</span><button class="act-btn act-edit">Edit</button><button class="act-btn act-suspend">Cancel</button></div></div>
+            <div class="workshop-row"><div class="workshop-date"><span>APR</span><strong>08</strong></div><div class="workshop-info"><h4>Beginner Resin Basics</h4><p>First-time pour, colour mixing, and bubble-free techniques</p><div class="workshop-meta"><span>Max: 10 students</span><span>Booked: 2</span><span>&pound;45/person</span></div></div><div class="workshop-actions"><span class="badge badge--processing">Active</span><button class="act-btn act-edit">Edit</button><button class="act-btn act-suspend">Cancel</button></div></div>
+            <div class="workshop-row"><div class="workshop-date"><span>APR</span><strong>15</strong></div><div class="workshop-info"><h4>Corporate Team Session</h4><p>Private group booking for Nexus Design Ltd &mdash; team building</p><div class="workshop-meta"><span>Max: 20 students</span><span>Booked: 20</span><span>&pound;55/person</span></div></div><div class="workshop-actions"><span class="badge badge--cancelled">Full</span><button class="act-btn act-edit">Edit</button></div></div>
+            <div class="workshop-row"><div class="workshop-date"><span>APR</span><strong>22</strong></div><div class="workshop-info"><h4>Ocean &amp; Fluid Pour</h4><p>Advanced cell formation techniques and tidal effects</p><div class="workshop-meta"><span>Max: 8 students</span><span>Booked: 0</span><span>&pound;75/person</span></div></div><div class="workshop-actions"><span class="badge badge--pending">Draft</span><button class="act-btn act-edit">Edit</button><button class="act-btn act-suspend">Delete</button></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 4: ORDERS & BOOKINGS ===== -->
+      <div class="adm-section" id="sec-orders">
+        <div class="sec-bg-blobs" aria-hidden="true"><div class="sec-blob sec-blob--1"></div><div class="sec-blob sec-blob--3"></div></div>
+        <div class="sec-header fade-up">
+          <div><h2>Orders &amp; Bookings</h2><p>Track all orders, commissions, and workshop bookings.</p></div>
+          <button class="adm-btn adm-btn--primary"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> New Order</button>
+        </div>
+        <div class="order-stats fade-up" style="--delay:.05s">
+          <div class="order-stat"><span class="ost-num">234</span><span class="ost-label">Total Orders</span></div>
+          <div class="order-stat"><span class="ost-num ost-num--amber">8</span><span class="ost-label">Pending</span></div>
+          <div class="order-stat"><span class="ost-num ost-num--primary">12</span><span class="ost-label">Processing</span></div>
+          <div class="order-stat"><span class="ost-num ost-num--green">198</span><span class="ost-label">Completed</span></div>
+          <div class="order-stat"><span class="ost-num ost-num--red">16</span><span class="ost-label">Cancelled</span></div>
+        </div>
+        <div class="table-controls fade-up" style="--delay:.1s">
+          <div class="table-search"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="search" placeholder="Search orders..." id="orderSearch" /></div>
+          <div class="role-tabs" id="orderTabs">
+            <button class="role-tab active" data-ostatus="all">All</button>
+            <button class="role-tab" data-ostatus="pending">Pending</button>
+            <button class="role-tab" data-ostatus="processing">Processing</button>
+            <button class="role-tab" data-ostatus="completed">Completed</button>
+            <button class="role-tab" data-ostatus="cancelled">Cancelled</button>
+          </div>
+        </div>
+        <div class="adm-table-wrap fade-up" style="--delay:.15s">
+          <table class="adm-table" id="ordersTable">
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Service/Product</th><th>Date</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead>
+            <tbody id="ordersTableBody">
+              <tr data-ostatus="processing"><td><span class="order-id">#RL-2847</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=32&q=80" alt=""/><span>Emily Knox</span></div></td><td>Ocean Wave Coasters (&times;4)</td><td>28 Mar 2026</td><td>&pound;48.00</td><td><span class="badge badge--processing">Processing</span></td><td><div class="action-btns"><button class="act-btn act-view" title="View">View</button><button class="act-btn act-edit" title="Edit">Edit</button></div></td></tr>
+              <tr data-ostatus="pending"><td><span class="order-id">#RL-2846</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&q=80" alt=""/><span>Marcus Bell</span></div></td><td>River Table &mdash; Live Edge Oak</td><td>27 Mar 2026</td><td>&pound;890.00</td><td><span class="badge badge--pending">Pending</span></td><td><div class="action-btns"><button class="act-btn act-view" title="View">View</button><button class="act-btn act-edit" title="Edit">Edit</button></div></td></tr>
+              <tr data-ostatus="completed"><td><span class="order-id">#RL-2845</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=32&q=80" alt=""/><span>Layla Hassan</span></div></td><td>Geode Art Workshop &mdash; 1 seat</td><td>26 Mar 2026</td><td>&pound;65.00</td><td><span class="badge badge--completed">Completed</span></td><td><div class="action-btns"><button class="act-btn act-view" title="View">View</button></div></td></tr>
+              <tr data-ostatus="completed"><td><span class="order-id">#RL-2844</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=32&q=80" alt=""/><span>James Tran</span></div></td><td>Bespoke Serving Tray</td><td>25 Mar 2026</td><td>&pound;120.00</td><td><span class="badge badge--completed">Completed</span></td><td><div class="action-btns"><button class="act-btn act-view" title="View">View</button></div></td></tr>
+              <tr data-ostatus="processing"><td><span class="order-id">#RL-2843</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=32&q=80" alt=""/><span>Mia Carter</span></div></td><td>Botanical Jewellery Set</td><td>24 Mar 2026</td><td>&pound;95.00</td><td><span class="badge badge--processing">Processing</span></td><td><div class="action-btns"><button class="act-btn act-view" title="View">View</button><button class="act-btn act-edit" title="Edit">Edit</button></div></td></tr>
+              <tr data-ostatus="pending"><td><span class="order-id">#RL-2842</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&q=80" alt=""/><span>David Martin</span></div></td><td>Corporate Gift Set (&times;12)</td><td>23 Mar 2026</td><td>&pound;420.00</td><td><span class="badge badge--pending">Pending</span></td><td><div class="action-btns"><button class="act-btn act-view" title="View">View</button><button class="act-btn act-edit" title="Edit">Edit</button></div></td></tr>
+              <tr data-ostatus="cancelled"><td><span class="order-id">#RL-2841</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=32&q=80" alt=""/><span>Sarah O&apos;Brien</span></div></td><td>Wedding Favour Set (&times;30)</td><td>22 Mar 2026</td><td>&pound;210.00</td><td><span class="badge badge--cancelled">Cancelled</span></td><td><div class="action-btns"><button class="act-btn act-view" title="View">View</button></div></td></tr>
+              <tr data-ostatus="completed"><td><span class="order-id">#RL-2840</span></td><td><div class="customer-cell"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&q=80" alt=""/><span>Tom Nguyen</span></div></td><td>Interior Feature Wall Panel</td><td>20 Mar 2026</td><td>&pound;1,250.00</td><td><span class="badge badge--completed">Completed</span></td><td><div class="action-btns"><button class="act-btn act-view" title="View">View</button></div></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 5: MESSAGES ===== -->
+      <div class="adm-section" id="sec-messages">
+        <div class="sec-bg-blobs" aria-hidden="true"><div class="sec-blob sec-blob--4"></div><div class="sec-blob sec-blob--2"></div></div>
+        <div class="sec-header fade-up">
+          <div><h2>Messages &amp; Notifications</h2><p>Manage customer enquiries, notifications, and studio communications.</p></div>
+          <button class="adm-btn adm-btn--primary"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Compose</button>
+        </div>
+        <div class="messages-layout fade-in" style="--delay:.05s">
+          <!-- Message List -->
+          <div class="msg-list" id="msgList">
+            <div class="msg-list__header">
+              <div class="table-search"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><input type="search" placeholder="Search messages..." /></div>
+              <div class="msg-filter-tabs">
+                <button class="msg-tab active" data-filter="all">All</button>
+                <button class="msg-tab" data-filter="unread">Unread <span class="ctab-count">5</span></button>
+                <button class="msg-tab" data-filter="starred">Starred</button>
+              </div>
+            </div>
+            <div class="msg-items" id="msgItems">
+              <div class="msg-item active unread" data-msg="1" onclick="openMessage(1)">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&q=80" alt="Emily" />
+                <div class="msg-item__body">
+                  <div class="msg-item__top"><strong>Emily Knox</strong><time>2 min</time></div>
+                  <p class="msg-item__preview">Hi, I wanted to ask about my coaster order — when can I expect...</p>
+                </div>
+                <div class="msg-unread-dot"></div>
+              </div>
+              <div class="msg-item unread" data-msg="2" onclick="openMessage(2)">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&q=80" alt="Marcus" />
+                <div class="msg-item__body">
+                  <div class="msg-item__top"><strong>Marcus Bell</strong><time>18 min</time></div>
+                  <p class="msg-item__preview">The oak slab has arrived. Can we schedule a colour consultation...</p>
+                </div>
+                <div class="msg-unread-dot"></div>
+              </div>
+              <div class="msg-item unread" data-msg="3" onclick="openMessage(3)">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&q=80" alt="David" />
+                <div class="msg-item__body">
+                  <div class="msg-item__top"><strong>David Martin</strong><time>1 hr</time></div>
+                  <p class="msg-item__preview">We need 12 corporate gift sets for our annual conference...</p>
+                </div>
+                <div class="msg-unread-dot"></div>
+              </div>
+              <div class="msg-item" data-msg="4" onclick="openMessage(4)">
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&q=80" alt="Layla" />
+                <div class="msg-item__body">
+                  <div class="msg-item__top"><strong>Layla Hassan</strong><time>3 hr</time></div>
+                  <p class="msg-item__preview">Thank you so much for the beautiful pendant. I received so many...</p>
+                </div>
+              </div>
+              <div class="msg-item unread" data-msg="5" onclick="openMessage(5)">
+                <div class="msg-avatar-initial">S</div>
+                <div class="msg-item__body">
+                  <div class="msg-item__top"><strong>Sofia Reyes</strong><time>Yesterday</time></div>
+                  <p class="msg-item__preview">I would love to book a studio visit to discuss a bespoke commission...</p>
+                </div>
+                <div class="msg-unread-dot"></div>
+              </div>
+              <div class="msg-item" data-msg="6" onclick="openMessage(6)">
+                <div class="msg-avatar-initial" style="background:var(--secondary)">T</div>
+                <div class="msg-item__body">
+                  <div class="msg-item__top"><strong>Tom Nguyen</strong><time>2 days</time></div>
+                  <p class="msg-item__preview">The feature wall panels exceeded all expectations. The clients were...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Message Viewer -->
+          <div class="msg-viewer" id="msgViewer">
+            <div class="msg-viewer__header">
+              <div class="msg-viewer__from">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=44&q=80" alt="Emily" id="mvAvatar" />
+                <div><strong id="mvName">Emily Knox</strong><span id="mvEmail">emily.k@email.com</span></div>
+              </div>
+              <div class="msg-viewer__actions">
+                <button class="act-btn" title="Reply"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 17 4 12 9 7"/><path d="M20 18v-2a4 4 0 0 0-4-4H4"/></svg></button>
+                <button class="act-btn" title="Star"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></button>
+                <button class="act-btn act-suspend" title="Delete"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg></button>
+              </div>
+            </div>
+            <div class="msg-viewer__subject"><h3 id="mvSubject">Re: Coaster Order #RL-2847</h3><time id="mvTime">Saturday, 28 March 2026 at 09:40 AM</time></div>
+            <div class="msg-viewer__body" id="mvBody">
+              <p>Hi there!</p>
+              <p>I wanted to follow up on my order for the Ocean Wave Coasters (Order #RL-2847). I placed the order on 28th March and I'm wondering when I might expect delivery?</p>
+              <p>Also, would it be possible to include a personalised message card with the order? They're a gift for my sister's birthday.</p>
+              <p>Thank you so much for your help!</p>
+              <p>Best wishes,<br/>Emily</p>
+            </div>
+            <div class="msg-viewer__reply">
+              <textarea placeholder="Type your reply..." rows="3"></textarea>
+              <div class="msg-reply-actions">
+                <button class="adm-btn adm-btn--primary"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Send Reply</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 6: SETTINGS ===== -->
+      <div class="adm-section" id="sec-settings">
+        <div class="sec-bg-blobs" aria-hidden="true"><div class="sec-blob sec-blob--5"></div><div class="sec-blob sec-blob--7"></div></div>
+        <div class="sec-header fade-up">
+          <div><h2>Settings &amp; Configuration</h2><p>Manage your profile, studio details, and system preferences.</p></div>
+        </div>
+        <div class="settings-tabs fade-up" style="--delay:.05s" id="settingsTabs">
+          <button class="stab active" data-stab="profile">&#128100; Profile</button>
+          <button class="stab" data-stab="studio">&#127958; Studio</button>
+          <button class="stab" data-stab="appearance">&#127752; Appearance</button>
+          <button class="stab" data-stab="notifications">&#128276; Notifications</button>
+          <button class="stab" data-stab="security">&#128274; Security</button>
+        </div>
+        <!-- Profile Tab -->
+        <div class="stab-panel active fade-in" id="stab-profile">
+          <div class="settings-grid">
+            <div class="settings-card settings-card--avatar fade-left">
+              <div class="avatar-upload">
+                <div class="avatar-preview"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&q=80" alt="Admin" id="avatarPreview" /></div>
+                <button class="adm-btn adm-btn--sec-sm">Change Photo</button>
+                <p>JPG, PNG or WEBP. Max 2MB.</p>
+              </div>
+            </div>
+            <div class="settings-card fade-right">
+              <h3>Personal Information</h3>
+              <div class="settings-form">
+                <div class="sf-row">
+                  <div class="form-group"><label>First Name</label><input type="text" value="Priya" /></div>
+                  <div class="form-group"><label>Last Name</label><input type="text" value="Sharma" /></div>
+                </div>
+                <div class="form-group"><label>Email Address</label><input type="email" value="priya@resinlux.com" /></div>
+                <div class="form-group"><label>Phone</label><input type="tel" value="+44 7700 900123" /></div>
+                <div class="form-group"><label>Role</label><input type="text" value="Studio Admin &amp; Director" readonly /></div>
+                <div class="form-group"><label>Bio</label><textarea rows="3">Founder of ResinLux Studio with 7 years of professional resin art experience. Passionate about craft, design, and building creative communities.</textarea></div>
+                <button class="adm-btn adm-btn--primary">Save Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Studio Tab -->
+        <div class="stab-panel fade-in" id="stab-studio">
+          <div class="settings-card fade-up">
+            <h3>Studio Information</h3>
+            <div class="settings-form">
+              <div class="form-group"><label>Studio Name</label><input type="text" value="ResinLux Studio" /></div>
+              <div class="form-group"><label>Address Line 1</label><input type="text" value="12 Artisan Warehouse, Craft Quarter" /></div>
+              <div class="sf-row">
+                <div class="form-group"><label>City</label><input type="text" value="Manchester" /></div>
+                <div class="form-group"><label>Postcode</label><input type="text" value="M4 1AB" /></div>
+              </div>
+              <div class="sf-row">
+                <div class="form-group"><label>Phone</label><input type="tel" value="+44 161 900 1234" /></div>
+                <div class="form-group"><label>Email</label><input type="email" value="hello@resinlux.com" /></div>
+              </div>
+              <div class="form-group"><label>Website</label><input type="url" value="https://resinlux.com" /></div>
+              <div class="form-group"><label>Studio Hours</label><input type="text" value="Mon&ndash;Fri: 9AM&ndash;6PM | Sat: 10AM&ndash;4PM" /></div>
+              <h4 style="margin:1.25rem 0 .75rem">Social Links</h4>
+              <div class="sf-row">
+                <div class="form-group"><label>Instagram</label><input type="url" value="@resinluxstudio" /></div>
+                <div class="form-group"><label>Facebook</label><input type="url" value="/resinlux" /></div>
+              </div>
+              <button class="adm-btn adm-btn--primary">Save Studio Info</button>
+            </div>
+          </div>
+        </div>
+        <!-- Appearance Tab -->
+        <div class="stab-panel fade-in" id="stab-appearance">
+          <div class="settings-card fade-up">
+            <h3>Appearance &amp; Theme</h3>
+            <div class="appearance-options">
+              <div class="app-option">
+                <div class="app-option__info"><strong>Dashboard Theme</strong><p>Choose between light and dark mode for the admin dashboard.</p></div>
+                <div class="theme-toggle-row">
+                  <button class="theme-opt active" data-theme-opt="light"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg> Light</button>
+                  <button class="theme-opt" data-theme-opt="dark"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg> Dark</button>
+                </div>
+              </div>
+              <div class="app-option">
+                <div class="app-option__info"><strong>Sidebar Style</strong><p>Choose whether the sidebar is always visible or auto-hides on smaller screens.</p></div>
+                <select class="adm-select"><option>Auto (responsive)</option><option>Always visible</option><option>Always collapsed</option></select>
+              </div>
+              <div class="app-option">
+                <div class="app-option__info"><strong>Dashboard Language</strong><p>Set the default language for the admin interface.</p></div>
+                <select class="adm-select"><option>English (UK)</option><option>English (US)</option></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Notifications Tab -->
+        <div class="stab-panel fade-in" id="stab-notifications">
+          <div class="settings-card fade-up">
+            <h3>Notification Preferences</h3>
+            <div class="notif-prefs">
+              <div class="notif-pref-row"><div><strong>New Orders</strong><p>Get notified when a new order or booking is placed</p></div><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label></div>
+              <div class="notif-pref-row"><div><strong>Messages</strong><p>Get notified when a new customer message arrives</p></div><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label></div>
+              <div class="notif-pref-row"><div><strong>Low Stock Alerts</strong><p>Get notified when materials are running low</p></div><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label></div>
+              <div class="notif-pref-row"><div><strong>New User Registrations</strong><p>Get notified when a new user registers</p></div><label class="toggle-switch"><input type="checkbox" /><span class="toggle-slider"></span></label></div>
+              <div class="notif-pref-row"><div><strong>Workshop Updates</strong><p>Get notified about workshop bookings and cancellations</p></div><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label></div>
+              <div class="notif-pref-row"><div><strong>Email Digest</strong><p>Receive a daily summary email of all studio activity</p></div><label class="toggle-switch"><input type="checkbox" checked /><span class="toggle-slider"></span></label></div>
+            </div>
+            <button class="adm-btn adm-btn--primary" style="margin-top:1.5rem">Save Preferences</button>
+          </div>
+        </div>
+        <!-- Security Tab -->
+        <div class="stab-panel fade-in" id="stab-security">
+          <div class="settings-grid">
+            <div class="settings-card fade-left">
+              <h3>Change Password</h3>
+              <div class="settings-form">
+                <div class="form-group"><label>Current Password</label><input type="password" placeholder="Enter current password" /></div>
+                <div class="form-group"><label>New Password</label><input type="password" placeholder="At least 8 characters" /></div>
+                <div class="form-group"><label>Confirm New Password</label><input type="password" placeholder="Repeat new password" /></div>
+                <button class="adm-btn adm-btn--primary">Update Password</button>
+              </div>
+            </div>
+            <div class="settings-card fade-right">
+              <h3>Two-Factor Authentication</h3>
+              <div class="tfa-status">
+                <div class="tfa-badge tfa-badge--off">2FA is currently <strong>disabled</strong></div>
+                <p>Enable two-factor authentication to add an extra layer of security to your admin account. You'll need an authenticator app such as Google Authenticator.</p>
+                <button class="adm-btn adm-btn--primary">Enable 2FA</button>
+              </div>
+              <hr style="margin:1.5rem 0;border-color:var(--border)">
+              <h3>Active Sessions</h3>
+              <div class="sessions-list">
+                <div class="session-row"><div class="session-info"><span class="session-device">Chrome on MacBook Pro</span><span>Manchester, UK &mdash; Current Session</span></div><span class="badge badge--completed">Active</span></div>
+                <div class="session-row"><div class="session-info"><span class="session-device">Safari on iPhone 15</span><span>Manchester, UK &mdash; 2 hours ago</span></div><button class="act-btn act-suspend" style="font-size:.78rem;padding:.3rem .7rem">Revoke</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION 7: REPORTS & ANALYTICS ===== -->
+      <div class="adm-section" id="sec-reports">
+        <div class="sec-bg-blobs" aria-hidden="true"><div class="sec-blob sec-blob--6"></div><div class="sec-blob sec-blob--3"></div></div>
+        <div class="sec-header fade-up">
+          <div><h2>Reports &amp; Analytics</h2><p>Track revenue, growth, and studio performance metrics.</p></div>
+          <div class="reports-header-actions">
+            <select class="adm-select" id="reportPeriod"><option value="6">Last 6 Months</option><option value="12" selected>Last 12 Months</option><option value="3">Last 3 Months</option></select>
+            <button class="adm-btn adm-btn--sec"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Export PDF</button>
+          </div>
+        </div>
+        <!-- Report KPIs -->
+        <div class="kpi-grid fade-up" style="--delay:.05s">
+          <div class="kpi-card"><div class="kpi-card__icon kpi-icon--revenue"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="kpi-card__data"><span class="kpi-label">Annual Revenue</span><span class="kpi-value">&pound;86,240</span><span class="kpi-trend kpi-trend--up">&#8593; 31.2% YoY</span></div></div>
+          <div class="kpi-card"><div class="kpi-card__icon kpi-icon--orders"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="kpi-card__data"><span class="kpi-label">Growth Rate</span><span class="kpi-value">+31.2%</span><span class="kpi-trend kpi-trend--up">&#8593; Best year to date</span></div></div>
+          <div class="kpi-card"><div class="kpi-card__icon kpi-icon--users"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="kpi-card__data"><span class="kpi-label">Avg Order Value</span><span class="kpi-value">&pound;369</span><span class="kpi-trend kpi-trend--up">&#8593; 14.8% vs last year</span></div></div>
+          <div class="kpi-card"><div class="kpi-card__icon kpi-icon--messages"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><div class="kpi-card__data"><span class="kpi-label">Top Category</span><span class="kpi-value">Bespoke</span><span class="kpi-trend kpi-trend--up">37.5% of revenue</span></div></div>
+        </div>
+        <!-- Revenue Chart -->
+        <div class="chart-card fade-up" style="--delay:.1s">
+          <div class="chart-card__header">
+            <div><h3>Monthly Revenue (2026)</h3><p>Gross revenue by month in GBP</p></div>
+            <div class="chart-legend"><span class="legend-dot" style="background:var(--primary)"></span> Revenue <span class="legend-dot" style="background:var(--secondary)"></span> Orders</div>
+          </div>
+          <div class="chart-area">
+            <svg id="lineChart" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg" aria-label="Monthly revenue line chart"></svg>
+          </div>
+        </div>
+        <!-- Bottom Reports Row -->
+        <div class="reports-bottom">
+          <!-- Traffic Sources -->
+          <div class="chart-card fade-left" style="--delay:.1s">
+            <div class="chart-card__header"><div><h3>Traffic Sources</h3><p>Website visitors by channel</p></div></div>
+            <div class="traffic-bars" id="trafficBars">
+              <div class="traffic-bar-row"><span>Organic Search</span><div class="t-bar"><div class="t-fill" style="width:52%"></div></div><span class="t-pct">52%</span></div>
+              <div class="traffic-bar-row"><span>Social Media</span><div class="t-bar"><div class="t-fill" style="width:28%;background:var(--secondary)"></div></div><span class="t-pct">28%</span></div>
+              <div class="traffic-bar-row"><span>Direct</span><div class="t-bar"><div class="t-fill" style="width:12%;background:var(--amber)"></div></div><span class="t-pct">12%</span></div>
+              <div class="traffic-bar-row"><span>Referral</span><div class="t-bar"><div class="t-fill" style="width:8%;background:#16a34a"></div></div><span class="t-pct">8%</span></div>
+            </div>
+          </div>
+          <!-- Top Products Table -->
+          <div class="chart-card fade-right" style="--delay:.1s">
+            <div class="chart-card__header"><div><h3>Top Services by Revenue</h3><p>Year to date performance</p></div></div>
+            <table class="adm-table">
+              <thead><tr><th>Service</th><th>Orders</th><th>Revenue</th><th>Growth</th></tr></thead>
+              <tbody>
+                <tr><td>Bespoke Commissions</td><td>87</td><td>&pound;32,340</td><td><span class="kpi-trend kpi-trend--up">+18%</span></td></tr>
+                <tr><td>River Tables</td><td>23</td><td>&pound;21,470</td><td><span class="kpi-trend kpi-trend--up">+42%</span></td></tr>
+                <tr><td>Workshops</td><td>156</td><td>&pound;14,820</td><td><span class="kpi-trend kpi-trend--up">+29%</span></td></tr>
+                <tr><td>Corporate Gifting</td><td>34</td><td>&pound;9,860</td><td><span class="kpi-trend kpi-trend--up">+65%</span></td></tr>
+                <tr><td>Jewellery Design</td><td>68</td><td>&pound;5,440</td><td><span class="kpi-trend kpi-trend--neutral">&plusmn;2%</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Mobile overlay -->
+  <div class="adm-overlay" id="admOverlay"></div>
+
+  <!-- Logout Modal -->
+  <div class="adm-modal" id="logoutModal">
+    <div class="adm-modal__backdrop" id="modalBackdrop"></div>
+    <div class="adm-modal__box">
+      <div class="adm-modal__icon"><svg width="48" height="48" fill="none" stroke="var(--primary)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div>
+      <h3>Confirm Logout</h3>
+      <p>Are you sure you want to log out of the ResinLux Admin Dashboard?</p>
+      <div class="adm-modal__btns">
+        <button class="adm-btn adm-btn--ghost" id="cancelLogout">Cancel</button>
+        <button class="adm-btn adm-btn--danger" id="confirmLogout">Yes, Logout</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="./admin.js"></script>
+</body>
+</html>

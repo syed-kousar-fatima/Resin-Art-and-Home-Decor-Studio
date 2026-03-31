@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./workshop.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="./workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+<main id="mainContent">
+
+    <!-- ══ SECTION 1: HERO ══ -->
+    <section class="s-hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="./Images/workshop-hero.jpg" alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-particles" aria-hidden="true">
+        <span class="fp fp1"></span><span class="fp fp2"></span>
+        <span class="fp fp3"></span><span class="fp fp4"></span>
+        <span class="fp fp5"></span><span class="fp fp6"></span>
+      </div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-breadcrumb fade-down" data-delay="0">
+            <a href="index2.html">Home</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <a href="services.html">Services</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <span>Workshops</span>
+          </div>
+          <h1 class="fade-up" data-delay="100">
+            Resin Art<br>
+            <em>Workshops &amp; Classes</em>
+          </h1>
+          <p class="hero-sub fade-up" data-delay="200">Learn the art of resin pouring in a relaxed, creative studio environment. From complete beginners to experienced crafters — our expert-led workshops guide you through every step and you leave with your own finished artwork.</p>
+          <div class="hero-actions fade-up" data-delay="300">
+            <a href="#book" class="btn-primary">Book a Workshop</a>
+            <a href="#types" class="btn-ghost-light">View Workshop Types</a>
+          </div>
+          <div class="hero-stats fade-up" data-delay="400">
+            <div class="hs-item"><strong>2,400+</strong><span>Students Taught</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>Max 8</strong><span>Per Session</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>All Levels</strong><span>Beginner to Advanced</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>4.9 ★</strong><span>Average Rating</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 2: WHAT ARE OUR WORKSHOPS ══ -->
+    <section class="s-about" id="about">
+      <div class="about-bg-anim" aria-hidden="true">
+        <div class="aba aba1"></div>
+        <div class="aba aba2"></div>
+        <div class="aba aba3"></div>
+      </div>
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-left fade-left">
+            <span class="section-tag">About Our Workshops</span>
+            <h2>A Creative Experience<br>You'll Never Forget</h2>
+            <p>Our workshops are more than just a craft class — they’re an immersive creative experience in a beautifully designed studio. You’ll learn professional techniques from our lead artisans, work with premium materials, and take home a piece of art you made yourself.</p>
+            <p>Whether you’re looking for a solo creative escape, a date night with a difference, a team building activity, or a unique hen or birthday celebration — ResinLux Workshops are designed to inspire, relax, and excite.</p>
+            <ul class="about-points">
+              <li><div class="ap-dot"></div><span>All materials, tools &amp; aprons provided</span></li>
+              <li><div class="ap-dot"></div><span>Take home your finished artwork same day</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Step-by-step expert guidance throughout</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Small groups (max 8) for personal attention</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>Refreshments &amp; studio playlist included</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>Private &amp; corporate bookings available</span></li>
+            </ul>
+            <a href="#book" class="btn-primary">Reserve Your Spot</a>
+          </div>
+          <div class="about-right fade-right">
+            <div class="about-model">
+              <div class="am-frame">
+                <div class="am-canvas">
+                  <!-- Workshop table SVG model -->
+                  <svg viewBox="0 0 280 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="canvas-svg">
+                    <!-- Table surface -->
+                    <rect x="20" y="60" width="240" height="180" rx="12" fill="var(--bg-card)" stroke="var(--border)" stroke-width="2"/>
+                    <!-- Resin cups -->
+                    <rect x="40" y="90" width="32" height="44" rx="6" fill="var(--primary)" opacity="0.75"/>
+                    <rect x="40" y="86" width="32" height="10" rx="3" fill="var(--primary)" opacity="0.4"/>
+                    <rect x="85" y="98" width="28" height="36" rx="6" fill="var(--secondary)" opacity="0.8"/>
+                    <rect x="85" y="94" width="28" height="10" rx="3" fill="var(--secondary)" opacity="0.4"/>
+                    <rect x="126" y="90" width="30" height="40" rx="6" fill="var(--amber)" opacity="0.8"/>
+                    <rect x="126" y="86" width="30" height="10" rx="3" fill="var(--amber)" opacity="0.4"/>
+                    <!-- Canvas board -->
+                    <rect x="168" y="78" width="76" height="96" rx="6" fill="var(--bg-accent)" stroke="var(--border)" stroke-width="1.5"/>
+                    <!-- Pour in progress -->
+                    <path d="M170 120 Q192 100 206 120 Q220 140 252 125" stroke="var(--primary)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.7"/>
+                    <path d="M170 140 Q195 120 215 138 Q230 152 252 140" stroke="var(--secondary)" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+                    <!-- Brush -->
+                    <rect x="50" y="152" width="6" height="52" rx="3" fill="var(--secondary)" opacity="0.7"/>
+                    <ellipse cx="53" cy="150" rx="7" ry="5" fill="var(--amber)" opacity="0.9"/>
+                    <!-- Pigment drops -->
+                    <circle cx="140" cy="168" r="8"  fill="var(--primary)"   opacity="0.5"/>
+                    <circle cx="100" cy="175" r="6"  fill="var(--secondary)" opacity="0.5"/>
+                    <circle cx="60"  cy="180" r="5"  fill="var(--amber)"     opacity="0.55"/>
+                    <!-- Table legs -->
+                    <rect x="30"  y="238" width="10" height="50" rx="4" fill="var(--text-muted)" opacity="0.2"/>
+                    <rect x="240" y="238" width="10" height="50" rx="4" fill="var(--text-muted)" opacity="0.2"/>
+                    <!-- Shine -->
+                    <ellipse cx="80" cy="72" rx="55" ry="18" fill="white" opacity="0.07" transform="rotate(-8 80 72)"/>
+                  </svg>
+                </div>
+                <div class="am-badge fade-in" data-delay="500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <span>4.9★ Rated<br>by 800+ Students</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 3: WORKSHOP TYPES CAROUSEL ══ -->
+    <section class="s-carousel" id="types">
+      <div class="carousel-section-bg" aria-hidden="true">
+        <img src="./Images/workshop-hero2.jpg" alt="" />
+        <div class="csb-overlay"></div>
+        <div class="csb-ring ring-a"></div>
+        <div class="csb-ring ring-b"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Workshop Catalogue</span>
+          <h2>Choose Your Perfect Workshop</h2>
+          <p>Six distinct workshop experiences for every skill level, group size, and creative ambition.</p>
+        </div>
+        <div class="carousel-wrap">
+          <button class="carousel-btn c-prev" id="cPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-track-outer">
+            <div class="carousel-track" id="carouselTrack">
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/begin.jpg" alt="Beginner workshop" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Beginner</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Beginner Ocean Pour</h3>
+                  <p>Your first experience with epoxy resin. Learn the basics of mixing ratios, colour blending, and the iconic ocean pour technique. Leave with a framed 30cm × 40cm panel.</p>
+                  <div class="c-slide-meta">
+                    <span>2.5 hrs &bull; All levels</span>
+                    <span class="csm-price">From £55</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/inter-geodge.jpg" alt="Geode workshop" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Intermediate</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Geode &amp; Crystal Art</h3>
+                  <p>Create your own geode-inspired masterpiece using crushed quartz, gold leaf, and layered mica pigments. Ideal for those who’ve tried resin before.</p>
+                  <div class="c-slide-meta">
+                    <span>3 hrs &bull; Some experience helpful</span>
+                    <span class="csm-price">From £75</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/level.jpg" alt="Abstract workshop" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">All Levels</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Abstract Resin Painting</h3>
+                  <p>Explore Dutch pour, dirty pour, and blow-torch cell techniques to create a completely free-form abstract artwork in your chosen colour palette.</p>
+                  <div class="c-slide-meta">
+                    <span>3 hrs &bull; All levels</span>
+                    <span class="csm-price">From £65</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/jewel.jpg" alt="Jewellery workshop" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Beginner</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Resin Jewellery Making</h3>
+                  <p>Cast your own earrings, pendants, and rings using silicone moulds, botanical inclusions, and custom pigments. Take home a full jewellery set.</p>
+                  <div class="c-slide-meta">
+                    <span>2.5 hrs &bull; No experience needed</span>
+                    <span class="csm-price">From £62</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/corporate.jpg" alt="Corporate workshop" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Corporate</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Corporate Team Workshop</h3>
+                  <p>A bespoke team event for 8–40 people. Includes collaborative art challenges, branded keepsake take-homes, catered refreshments, and a roaming artist guide.</p>
+                  <div class="c-slide-meta">
+                    <span>3–4 hrs &bull; Any size group</span>
+                    <span class="csm-price">From £45/person</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/master.jpg" alt="Advanced masterclass" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag cso-tag--amber">Masterclass</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Advanced Masterclass</h3>
+                  <p>A full-day intensive for serious creatives covering deep-pour layering, 3D geode structures, metallic lacing, and professional finishing and varnishing.</p>
+                  <div class="c-slide-meta">
+                    <span>6 hrs &bull; Some experience required</span>
+                    <span class="csm-price">From £145</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <button class="carousel-btn c-next" id="cNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 4: WHAT YOU'LL LEARN ══ -->
+    <section class="s-process" id="learn">
+      <div class="process-bg-anim" aria-hidden="true">
+        <div class="pba pba1"></div>
+        <div class="pba pba2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Workshop Curriculum</span>
+          <h2>What You’ll Learn &amp;<br>Create Step by Step</h2>
+          <p>Every session follows our proven creative curriculum — structured enough to guide, free enough to inspire.</p>
+        </div>
+        <div class="process-timeline">
+
+          <div class="pt-item fade-left" data-delay="0">
+            <div class="pt-node">
+              <div class="pt-num">01</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="10" r="6"/><path d="M4 26c0-6 5.4-10 12-10s12 4 12 10"/></svg>
+              </div>
+              <h3>Welcome &amp; Introduction (15 min)</h3>
+              <p>Arrive to a beautifully laid studio with your personal workstation fully prepared. Your artist guide introduces the session, explains safety, and shares the day’s creative brief. You choose your personal colour palette from over 80 pigment options and discuss your vision.</p>
+              <span class="pt-time">Arrival</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="80">
+            <div class="pt-node">
+              <div class="pt-num pt-num--teal">02</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 24 L10 18 L16 22 L22 10 L28 16"/><rect x="2" y="2" width="28" height="28" rx="3" stroke-width="1.5"/></svg>
+              </div>
+              <h3>Resin Science &amp; Mixing Ratios (20 min)</h3>
+              <p>Understand the chemistry behind epoxy resin — how to correctly measure and mix your resin and hardener to the right ratio, how to avoid common mistakes like cloudiness, sticky surfaces, and overheating. We demonstrate using temperature, timing, and technique.</p>
+              <span class="pt-time">Theory</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="160">
+            <div class="pt-node">
+              <div class="pt-num pt-num--amber">03</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 4 C10 10 4 14 4 22 C4 27 9.4 30 16 30 C22.6 30 28 27 28 22 C28 14 22 10 16 4Z"/></svg>
+              </div>
+              <h3>Colour Blending &amp; Pigment Play (30 min)</h3>
+              <p>Get hands-on with mixing pigments, mica powders, alcohol inks, and glitter. Learn colour theory as it applies to resin — contrast, harmony, dominance, and flow. Guided exercises help you blend your chosen palette before the main pour begins.</p>
+              <span class="pt-time">Hands-On</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="240">
+            <div class="pt-node">
+              <div class="pt-num">04</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="8" width="24" height="20" rx="3"/><path d="M10 8V6a6 6 0 0 1 12 0v2"/></svg>
+              </div>
+              <h3>The Main Pour &amp; Technique (60–90 min)</h3>
+              <p>The heart of the session. Pour your resin onto your chosen substrate and use your selected technique — ocean pour, dirty pour, Dutch pour, bloom, or geode inlay. Your guide demonstrates each move, then watches and coaches as you create. Blowtorch cells, tilting, and lacing are all covered here.</p>
+              <span class="pt-time">Main Event</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="320">
+            <div class="pt-node">
+              <div class="pt-num pt-num--teal">05</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="16" r="12"/><path d="M10 16l4 4 8-8"/></svg>
+              </div>
+              <h3>Finishing, Curing &amp; Care (20 min)</h3>
+              <p>Learn how to remove bubbles with a blowtorch, cover your piece to cure safely, and apply a UV-resistant topcoat. We explain the full 24–48-hour curing process, how to handle and transport your work, long-term care, and cleaning advice.</p>
+              <span class="pt-time">Finishing</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="400">
+            <div class="pt-node">
+              <div class="pt-num pt-num--amber">06</div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="4" width="24" height="24" rx="3"/><path d="M10 16l4 4 8-8"/></svg>
+              </div>
+              <h3>Showcase &amp; Take Home (15 min)</h3>
+              <p>Share and celebrate what you’ve made with the group. Every student receives a care card, a studio keepsake bag, a 10% loyalty discount on future workshops, and — most importantly — their finished artwork to take home proudly.</p>
+              <span class="pt-time">Wrap Up</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 5: WHAT'S INCLUDED ══ -->
+    <section class="s-materials" id="included">
+      <div class="mat-bg" aria-hidden="true">
+        <img src="./Images/whats.jpg" alt="" />
+        <div class="mat-overlay"></div>
+        <div class="mat-blob mb1"></div>
+        <div class="mat-blob mb2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Everything Provided</span>
+          <h2>What’s Included in Every Workshop</h2>
+          <p>You arrive empty-handed and leave with an artwork you’re proud of. Everything in between is on us.</p>
+        </div>
+        <div class="mat-grid">
+          <div class="mat-card fade-up" data-delay="0">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="5" y="10" width="30" height="24" rx="5" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M5 18h30" stroke="var(--primary)" stroke-width="1.5" opacity="0.5"/>
+                <circle cx="14" cy="27" r="3" fill="var(--primary)" opacity="0.7"/>
+                <circle cx="26" cy="27" r="3" fill="var(--secondary)" opacity="0.7"/>
+              </svg>
+            </div>
+            <h3>Premium Resin Kit</h3>
+            <p>Crystal-clear, low-VOC epoxy resin and hardener pre-measured to your project. BPA-free, non-toxic, and food-safe formula used by professional resin artists.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="100">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="8" y="4" width="10" height="32" rx="4" fill="var(--primary)" opacity="0.7"/>
+                <rect x="22" y="8" width="10" height="28" rx="4" fill="var(--secondary)" opacity="0.7"/>
+                <rect x="15" y="2" width="10" height="20" rx="4" fill="var(--amber)" opacity="0.7"/>
+                <ellipse cx="20" cy="36" rx="14" ry="4" fill="var(--text-muted)" opacity="0.15"/>
+              </svg>
+            </div>
+            <h3>80+ Pigment Colours</h3>
+            <p>Cosmetic-grade mica powders, alcohol inks, neon pigments, holographic glitters, and custom metallic blends. Choose freely and experiment to your heart’s content.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="200">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="6" y="12" width="28" height="22" rx="4" stroke="var(--amber)" stroke-width="2" fill="none"/>
+                <rect x="12" y="4" width="16" height="12" rx="3" stroke="var(--amber)" stroke-width="2" fill="none"/>
+                <line x1="14" y1="22" x2="14" y2="30" stroke="var(--amber)" stroke-width="1.5" opacity="0.5"/>
+                <line x1="20" y1="22" x2="20" y2="30" stroke="var(--amber)" stroke-width="1.5" opacity="0.5"/>
+                <line x1="26" y1="22" x2="26" y2="30" stroke="var(--amber)" stroke-width="1.5" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Substrate &amp; Canvas</h3>
+            <p>Pre-levelled birch wood panels or gallery-wrapped canvas in the size suited to your workshop. Pre-sealed and ready to pour — no prep needed from you.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="300">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M20 5 C14 11 8 15 8 22 C8 28 13.4 34 20 34 C26.6 34 32 28 32 22 C32 15 26 11 20 5Z" fill="var(--secondary)" opacity="0.8"/>
+                <ellipse cx="26" cy="18" rx="5" ry="7" fill="white" opacity="0.2" transform="rotate(-20 26 18)"/>
+              </svg>
+            </div>
+            <h3>Gold Leaf &amp; Inclusions</h3>
+            <p>24-carat gold and silver leaf flakes, crushed quartz crystals, dried botanical petals, and mica inclusions available at every workstation to elevate your piece.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="400">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="15" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M12 20 L16 24 L28 14" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Expert Artist Guide</h3>
+            <p>Each session is led by one of our experienced resin artists with at least 3 years of teaching experience. Your guide roams the studio, offering personal coaching at every stage.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="500">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M10 30 C10 24 14 18 20 18 C26 18 30 24 30 30" stroke="var(--amber)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <rect x="14" y="8" width="12" height="12" rx="6" stroke="var(--amber)" stroke-width="2.5" fill="none"/>
+                <circle cx="20" cy="14" r="3" fill="var(--amber)" opacity="0.7"/>
+                <path d="M8 36 h24" stroke="var(--amber)" stroke-width="1.5" opacity="0.3"/>
+              </svg>
+            </div>
+            <h3>Refreshments &amp; Atmosphere</h3>
+            <p>Complimentary teas, coffees, soft drinks, and light snacks. Curated studio playlists, ambient lighting, and a relaxed creative vibe that makes the whole experience feel like a treat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 6: PRICING ══ -->
+    <section class="s-pricing" id="pricing">
+      <div class="pricing-bg-anim" aria-hidden="true">
+        <div class="pric-blob pb1"></div>
+        <div class="pric-blob pb2"></div>
+        <div class="pric-blob pb3"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Workshop Pricing</span>
+          <h2>Choose Your Workshop Package</h2>
+          <p>All prices include full materials, expert guidance, refreshments, and your finished artwork to take home.</p>
+        </div>
+        <div class="pricing-grid">
+
+          <div class="price-card fade-left" data-delay="0">
+            <div class="pc-header">
+              <span class="pc-tier">Solo Session</span>
+              <div class="pc-price">
+                <span class="pc-from">From</span>
+                <strong>£55</strong>
+              </div>
+              <p>A single creative session for one person. Perfect for a solo creative escape or a unique gift.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 2.5 – 3-hour session</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> All materials included</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Take home your artwork</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Refreshments included</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Studio playlist &amp; ambience</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Gold leaf inclusions</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Advanced techniques</li>
+            </ul>
+            <a href="#book" class="btn-secondary">Book Solo</a>
+          </div>
+
+          <div class="price-card price-card--featured fade-up" data-delay="100">
+            <div class="pc-popular">Most Popular</div>
+            <div class="pc-header">
+              <span class="pc-tier">Duo &amp; Group</span>
+              <div class="pc-price">
+                <span class="pc-from">From</span>
+                <strong>£48</strong>
+                <span class="pc-each">/person</span>
+              </div>
+              <p>Perfect for date nights, friend groups, hen dos, and birthday celebrations (2–8 people).</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 3-hour session</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> All materials included</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Private table area for your group</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Gold leaf &amp; crystal inclusions</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Prosecco &amp; canapé upgrade available</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Group photo with your artworks</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 10% loyalty discount on return</li>
+            </ul>
+            <a href="#book" class="btn-primary">Book Group</a>
+          </div>
+
+          <div class="price-card fade-right" data-delay="200">
+            <div class="pc-header">
+              <span class="pc-tier">Corporate &amp; Private</span>
+              <div class="pc-price">
+                <span class="pc-from">From</span>
+                <strong>£45</strong>
+                <span class="pc-each">/person</span>
+              </div>
+              <p>Bespoke events for 8–40 people. Fully tailored to your company theme, brand, and objectives.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 3–6-hour session</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Fully branded keepsakes</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Catered food &amp; drinks</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Team challenge &amp; group art activity</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Venue hire or we come to you</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Dedicated event coordinator</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Post-event photo gallery</li>
+            </ul>
+            <a href="#book" class="btn-secondary">Enquire Corporate</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 7: STUDENT STORIES ══ -->
+    <section class="s-stories" id="stories">
+      <div class="stories-bg" aria-hidden="true">
+        <img src="./Images/story.jpg" alt="" />
+        <div class="sb-overlay"></div>
+        <div class="sb-anim sa1"></div>
+        <div class="sb-anim sa2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Student Stories</span>
+          <h2>What Our Students Say</h2>
+          <p>Over 2,400 students have passed through our studio doors. Here are some of their stories.</p>
+        </div>
+        <div class="stories-grid">
+          <div class="story-card story-card--large fade-left" data-delay="0">
+            <div class="stc-img">
+              <img src="./Images/birth.jpg" alt="Workshop result" loading="lazy" />
+            </div>
+            <div class="stc-body">
+              <div class="stc-stars">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+              <blockquote>&ldquo;I booked the Beginner Ocean Pour for my birthday and it was the best decision. I had zero artistic experience but the guide made it feel so natural and fun. My ocean panel is now hanging in our hallway and every visitor asks where I bought it. I’ve already booked the geode class next!&rdquo;</blockquote>
+              <div class="stc-author">
+                <div class="stca-avatar" style="background:rgba(147,51,234,.15);color:var(--primary)">EW</div>
+                <div>
+                  <strong>Emma Watson</strong>
+                  <span>Beginner Ocean Pour — Manchester</span>
+                </div>
+                <span class="stca-pkg">Solo</span>
+              </div>
+            </div>
+          </div>
+          <div class="story-card fade-up" data-delay="100">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;We did the corporate workshop for our whole marketing team (22 people). The coordination was faultless, the energy in the room was electric, and every person left buzzing. Our artworks now decorate the office walls.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(8,145,178,.15);color:var(--secondary)">LK</div>
+              <div>
+                <strong>Laura Kim</strong>
+                <span>Corporate Event — Leeds</span>
+              </div>
+              <span class="stca-pkg stca-pkg--teal">Corporate</span>
+            </div>
+          </div>
+          <div class="story-card fade-right" data-delay="200">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;I did the Advanced Masterclass and it absolutely changed how I approach resin. Six hours of focused, expert teaching — I learned more in one day than months of self-teaching online. The deep-pour technique alone was worth every penny.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(217,119,6,.15);color:var(--amber)">TN</div>
+              <div>
+                <strong>Tom Nash</strong>
+                <span>Advanced Masterclass — Birmingham</span>
+              </div>
+              <span class="stca-pkg stca-pkg--amber">Masterclass</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 8: BOOKING FORM ══ -->
+    <section class="s-order" id="book">
+      <div class="order-bg-anim" aria-hidden="true">
+        <div class="oba oba1"></div>
+        <div class="oba oba2"></div>
+        <div class="oba oba3"></div>
+      </div>
+      <div class="container">
+        <div class="order-inner">
+          <div class="order-left fade-left">
+            <span class="section-tag">Reserve Your Spot</span>
+            <h2>Book Your Workshop<br>Today</h2>
+            <p>Spaces fill up fast — especially weekends and evening sessions. Submit your booking request and we’ll confirm availability and send a payment link within 2 hours.</p>
+            <div class="order-reassurances">
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Free cancellation up to 72 hours before
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Gift vouchers available for all sessions
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Deposit to secure, balance on the day
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Private sessions available any day of the week
+              </div>
+            </div>
+            <!-- Workshop model -->
+            <div class="order-model" aria-hidden="true">
+              <svg viewBox="0 0 140 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="60">
+                <!-- 3 mini canvas boards -->
+                <rect x="4"  y="10" width="36" height="44" rx="5" fill="var(--primary)"   opacity="0.18" stroke="var(--primary)"   stroke-width="1.5"/>
+                <path d="M6  30 Q14 20 22 28 Q30 36 40 26" stroke="var(--primary)"   stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+                <rect x="52" y="10" width="36" height="44" rx="5" fill="var(--secondary)" opacity="0.18" stroke="var(--secondary)" stroke-width="1.5"/>
+                <path d="M54 32 Q62 18 70 26 Q78 34 88 22" stroke="var(--secondary)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+                <rect x="100" y="10" width="36" height="44" rx="5" fill="var(--amber)"     opacity="0.18" stroke="var(--amber)"     stroke-width="1.5"/>
+                <path d="M102 28 Q110 16 120 24 Q128 32 136 20" stroke="var(--amber)"     stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+              </svg>
+            </div>
+          </div>
+          <div class="order-right fade-right">
+            <div class="order-form-card">
+              <h3>Workshop Booking Request</h3>
+              <form id="bookForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="bf-name">Full Name *</label>
+                    <input type="text" id="bf-name" placeholder="e.g. Sarah Wilson" autocomplete="name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="bf-email">Email Address *</label>
+                    <input type="email" id="bf-email" placeholder="you@example.com" autocomplete="email" required />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="bf-phone">Phone Number</label>
+                    <input type="tel" id="bf-phone" placeholder="+44 7700 000000" autocomplete="tel" />
+                  </div>
+                  <div class="form-group">
+                    <label for="bf-guests">Number of Guests *</label>
+                    <select id="bf-guests" required>
+                      <option value="">Select guests</option>
+                      <option>Just me (1)</option>
+                      <option>2 people</option>
+                      <option>3–4 people</option>
+                      <option>5–8 people</option>
+                      <option>9–20 people (corporate)</option>
+                      <option>21+ people (large event)</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="bf-workshop">Workshop Type *</label>
+                    <select id="bf-workshop" required>
+                      <option value="">Choose a workshop</option>
+                      <option>Beginner Ocean Pour (£55)</option>
+                      <option>Geode &amp; Crystal Art (£75)</option>
+                      <option>Abstract Resin Painting (£65)</option>
+                      <option>Resin Jewellery Making (£62)</option>
+                      <option>Corporate Team Workshop</option>
+                      <option>Advanced Masterclass (£145)</option>
+                      <option>Not sure — advise me</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="bf-date">Preferred Date</label>
+                    <input type="date" id="bf-date" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="bf-notes">Additional Notes or Special Requests</label>
+                  <textarea id="bf-notes" rows="3" placeholder="e.g. birthday celebration, dietary requirements, accessibility needs, colour preferences…"></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-full">Request Workshop Booking</button>
+                <p class="form-note">We confirm within 2 hours. Free cancellation up to 72 hours before your session.</p>
+              </form>
+              <div class="order-success" id="bookSuccess" hidden>
+                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
+                <strong>Booking Request Received!</strong>
+                <p>Thank you! We’ll confirm availability and send your payment link within 2 hours. Get ready to create something amazing.</p>
+                <a href="services.html" class="btn-secondary">Explore Other Services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./workshop.js"></script>
+</body>
+</html>

@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./diy.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="./index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="./diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+
+ <main id="mainContent">
+
+    <!-- ====== SECTION 1: HERO ====== -->
+    <section class="dg-hero" id="hero">
+      <div class="dg-hero__bg">
+        <img src="./Images/diy.jpg" alt="DIY resin craft" class="dg-hero__img" />
+        <div class="dg-hero__overlay"></div>
+        <div class="dg-hero__blobs">
+          <div class="blob blob--1"></div>
+          <div class="blob blob--2"></div>
+          <div class="blob blob--3"></div>
+        </div>
+        <div class="particles" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="container">
+        <nav class="dg-breadcrumb fade-down" aria-label="Breadcrumb">
+          <a href="../Index/index.html">Home</a>
+          <span>/</span>
+          <a href="../Blog/blog.html">Blog</a>
+          <span>/</span>
+          <span>DIY Guides</span>
+        </nav>
+        <div class="dg-hero__content">
+          <div class="dg-hero__tags fade-up" style="--delay:0.1s">
+            <span class="tag tag--primary">DIY Projects</span>
+            <span class="tag tag--secondary">Step-by-Step</span>
+            <span class="tag tag--amber">12 min read</span>
+          </div>
+          <h1 class="dg-hero__title fade-up" style="--delay:0.2s">The Complete DIY Resin<br>Guide: Create at Home</h1>
+          <p class="dg-hero__desc fade-up" style="--delay:0.3s">Everything you need to make stunning resin art from your own home — step-by-step projects for coasters, jewellery, wall art, trays, and decorative keepsakes. No studio required. Just imagination, the right kit, and this guide.</p>
+          <div class="dg-hero__meta fade-up" style="--delay:0.4s">
+            <div class="meta-author">
+              <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=48&q=80" alt="Author" class="meta-avatar" />
+              <div>
+                <span class="meta-name">Mia Carter</span>
+                <span class="meta-role">DIY &amp; Education Lead</span>
+              </div>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-info">
+              <span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                March 28, 2026
+              </span>
+              <span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                12 min read
+              </span>
+              <span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                7.3k views
+              </span>
+            </div>
+          </div>
+          <div class="dg-hero__stats fade-up" style="--delay:0.5s">
+            <div class="stat"><span class="stat__num" data-target="18">0</span><span class="stat__label">DIY Projects</span></div>
+            <div class="stat"><span class="stat__num" data-target="6">0</span><span class="stat__label">Difficulty Levels</span></div>
+            <div class="stat"><span class="stat__num" data-target="52">0</span><span class="stat__label">Step-by-Step Tips</span></div>
+            <div class="stat"><span class="stat__num" data-target="3">0</span><span class="stat__label">Starter Kits Reviewed</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 2: YOUR FIRST DIY KIT ====== -->
+    <section class="dg-kit section-pad" id="starter-kit">
+      <div class="dg-kit__bg-anim" aria-hidden="true">
+        <div class="bg-blob bg-blob--a"></div>
+        <div class="bg-blob bg-blob--b"></div>
+      </div>
+      <div class="container dg-split">
+        <!-- LEFT: text -->
+        <div class="dg-split__text fade-right">
+          <span class="section-chip">Chapter 1</span>
+          <h2 class="section-title">Building Your First DIY Resin Kit</h2>
+          <p>Before you pour a single drop, assembling the right kit is everything. Trying to DIY with incomplete supplies leads to frustration and wasted material. These are the twelve essential items every first-time resin DIY artist needs — and exactly why each one earns its place on the worktop.</p>
+          <ul class="tips-list">
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Art-grade 2-part epoxy resin</strong> — Not hardware-store epoxy. Art-grade resin stays clear, cures at room temperature, and produces the glass-like finish you see in professional pieces.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Digital kitchen scales (0.1g)</strong> — Measuring by weight is the single biggest upgrade a beginner can make. Inaccurate ratios cause sticky, permanently uncured resin.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Silicone mixing cups &amp; stir sticks</strong> — Cured resin peels cleanly from silicone. This means cups and stir sticks are reusable indefinitely — essential for budget-conscious DIY.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Nitrile gloves (box of 100)</strong> — Resin is a skin sensitiser on repeated uncured contact. Gloves every single time, no exceptions, even for "just a quick drip."</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Silicone moulds (coaster set)</strong> — Coasters are the perfect beginner project: flat, forgiving, and immediately useful. A 4-piece round set costs under £10 and lasts for hundreds of pours.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Butane kitchen torch</strong> — Popping surface bubbles with a torch pass is faster and more effective than any other method. A small catering torch from a kitchen shop works perfectly.</div>
+            </li>
+          </ul>
+        </div>
+        <!-- RIGHT: DIY kit SVG model -->
+        <div class="dg-split__model fade-left">
+          <svg viewBox="0 0 340 380" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="DIY kit model">
+            <!-- Workbench -->
+            <rect x="20" y="310" width="300" height="12" rx="4" fill="var(--secondary)" opacity="0.15"/>
+            <!-- Resin bottle A -->
+            <rect x="50" y="175" width="44" height="125" rx="8" fill="var(--primary)" opacity="0.13" class="model-part"/>
+            <rect x="58" y="163" width="28" height="18" rx="4" fill="var(--primary)" opacity="0.28" class="model-part"/>
+            <text x="72" y="245" text-anchor="middle" font-size="9" fill="var(--primary)" font-weight="700">PART A</text>
+            <!-- Resin bottle B -->
+            <rect x="108" y="185" width="44" height="115" rx="8" fill="var(--secondary)" opacity="0.13" class="model-part"/>
+            <rect x="116" y="173" width="28" height="18" rx="4" fill="var(--secondary)" opacity="0.28" class="model-part"/>
+            <text x="130" y="249" text-anchor="middle" font-size="9" fill="var(--secondary)" font-weight="700">PART B</text>
+            <!-- Scale -->
+            <rect x="168" y="260" width="80" height="40" rx="6" fill="var(--amber)" opacity="0.13" class="model-part"/>
+            <rect x="180" y="248" width="56" height="16" rx="3" fill="var(--amber)" opacity="0.22" class="model-part"/>
+            <text x="208" y="283" text-anchor="middle" font-size="8" fill="var(--amber)" font-weight="700">SCALE</text>
+            <text x="208" y="295" text-anchor="middle" font-size="10" fill="var(--amber)" font-weight="900">0.0g</text>
+            <!-- Coaster mould -->
+            <ellipse cx="260" cy="270" rx="28" ry="10" fill="var(--primary)" opacity="0.14" class="model-part"/>
+            <ellipse cx="260" cy="270" rx="28" ry="10" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.35"/>
+            <ellipse cx="260" cy="260" rx="28" ry="10" fill="var(--primary)" opacity="0.10" class="model-part"/>
+            <ellipse cx="260" cy="260" rx="28" ry="10" fill="none" stroke="var(--primary)" stroke-width="1.5" opacity="0.2"/>
+            <!-- Mixing cup -->
+            <path d="M168,185 L162,260 Q166,268 174,268 Q182,268 186,260 L180,185 Z" fill="var(--secondary)" opacity="0.15" class="model-part"/>
+            <line x1="168" y1="205" x2="180" y2="205" stroke="var(--secondary)" stroke-width="1.2" opacity="0.4"/>
+            <line x1="166" y1="225" x2="182" y2="225" stroke="var(--secondary)" stroke-width="1.2" opacity="0.4"/>
+            <line x1="164" y1="245" x2="184" y2="245" stroke="var(--secondary)" stroke-width="1.2" opacity="0.4"/>
+            <!-- Torch -->
+            <rect x="285" y="210" width="14" height="88" rx="5" fill="#888" opacity="0.18" class="model-part"/>
+            <ellipse cx="292" cy="208" rx="9" ry="5" fill="var(--amber)" opacity="0.28" class="model-part"/>
+            <path d="M287,200 Q292,186 297,200" fill="var(--amber)" opacity="0.45" class="drop-float"/>
+            <!-- Floating resin drops -->
+            <ellipse cx="80" cy="90" rx="16" ry="22" fill="var(--primary)" opacity="0.2" class="drop-float"/>
+            <ellipse cx="210" cy="75" rx="12" ry="17" fill="var(--secondary)" opacity="0.2" class="drop-float" style="animation-delay:.6s"/>
+            <ellipse cx="155" cy="45" rx="9" ry="13" fill="var(--amber)" opacity="0.28" class="drop-float" style="animation-delay:1.2s"/>
+            <!-- Orbit rings -->
+            <circle cx="170" cy="175" r="135" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.2" class="spin-slow"/>
+            <circle cx="170" cy="175" r="155" fill="none" stroke="var(--secondary)" stroke-width="1" stroke-dasharray="4 9" opacity="0.13" class="spin-slow" style="animation-direction:reverse;animation-duration:20s"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 3: PROJECT CAROUSEL ====== -->
+    <section class="dg-carousel section-pad" id="projects">
+      <div class="dg-carousel__bg">
+        <img src="./Images/diy.jpg" alt="DIY Projects" class="dg-carousel__bg-img" />
+        <div class="dg-carousel__overlay"></div>
+        <div class="carousel-ring carousel-ring--1"></div>
+        <div class="carousel-ring carousel-ring--2"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip section-chip--light">Chapter 2</span>
+          <h2 class="section-title section-title--light">6 DIY Projects to Make at Home</h2>
+          <p class="section-sub section-sub--light">From your very first coaster pour to a full set of botanical jewellery — six projects in order of increasing complexity, each with full step-by-step guidance.</p>
+        </div>
+        <div class="carousel" id="projectCarousel">
+          <div class="carousel__track" id="projectTrack">
+
+            <div class="carousel__slide">
+              <div class="project-card">
+                <div class="project-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.12"/>
+                    <circle cx="30" cy="30" r="18" fill="none" stroke="var(--primary)" stroke-width="2.5"/>
+                    <circle cx="30" cy="30" r="8" fill="var(--primary)" opacity="0.3"/>
+                  </svg>
+                </div>
+                <span class="project-level project-level--beginner">Beginner</span>
+                <h3>Ocean Wave Coasters</h3>
+                <p>Four coasters using teal, white, and pearl mica to create ocean-wave cell patterns. Perfect first project: low material cost, forgiving mould shape, and stunning results even on the first pour.</p>
+                <ul>
+                  <li>Time: 30 min + 24h cure</li>
+                  <li>Cost: approx. £12 materials</li>
+                  <li>Difficulty: &#9733;&#9733;&#9734;&#9734;&#9734;</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="project-card">
+                <div class="project-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.12"/>
+                    <rect x="18" y="18" width="24" height="24" rx="3" fill="none" stroke="var(--secondary)" stroke-width="2.5"/>
+                    <path d="M22 22 L38 38M38 22 L22 38" stroke="var(--secondary)" stroke-width="1.5" opacity="0.4"/>
+                  </svg>
+                </div>
+                <span class="project-level project-level--beginner">Beginner</span>
+                <h3>Resin Serving Tray</h3>
+                <p>Pour a deep-set serving tray with a solid gold-leaf and amber resin design. Frames of painter's tape on a flat surface become the mould. A dramatic, functional piece that impresses every guest.</p>
+                <ul>
+                  <li>Time: 45 min + 48h cure</li>
+                  <li>Cost: approx. £18 materials</li>
+                  <li>Difficulty: &#9733;&#9733;&#9733;&#9734;&#9734;</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="project-card">
+                <div class="project-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.12"/>
+                    <ellipse cx="30" cy="30" rx="10" ry="16" fill="none" stroke="var(--amber)" stroke-width="2.5"/>
+                    <circle cx="30" cy="18" r="4" fill="var(--amber)" opacity="0.5"/>
+                  </svg>
+                </div>
+                <span class="project-level project-level--intermediate">Intermediate</span>
+                <h3>Botanical Pendant</h3>
+                <p>Encapsulate pressed flowers and ferns in a teardrop silicone mould to create a wearable pendant. The key skill is layering — a clear base, a floral layer, and a clear topcoat seal the piece in crystal resin.</p>
+                <ul>
+                  <li>Time: 3 layers, 3 days total</li>
+                  <li>Cost: approx. £8 per pendant</li>
+                  <li>Difficulty: &#9733;&#9733;&#9733;&#9734;&#9734;</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="project-card">
+                <div class="project-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.1"/>
+                    <rect x="14" y="14" width="32" height="32" rx="4" fill="none" stroke="var(--primary)" stroke-width="2"/>
+                    <path d="M18 26 Q24 18 30 26 Q36 34 42 26" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <span class="project-level project-level--intermediate">Intermediate</span>
+                <h3>Abstract Canvas Pour</h3>
+                <p>Pour a fluid abstract design onto a pre-primed canvas using the dirty-pour cup technique. Layer five pigmented cups and tip them all at once, then tilt the canvas for dramatic movement. Covers 30×40cm perfectly.</p>
+                <ul>
+                  <li>Time: 1 hour + 24h cure</li>
+                  <li>Cost: approx. £22 materials</li>
+                  <li>Difficulty: &#9733;&#9733;&#9733;&#9733;&#9734;</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="project-card">
+                <div class="project-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.1"/>
+                    <path d="M20 46 L30 14 L40 46" fill="none" stroke="var(--secondary)" stroke-width="2.5" stroke-linejoin="round"/>
+                    <line x1="23" y1="38" x2="37" y2="38" stroke="var(--secondary)" stroke-width="2"/>
+                  </svg>
+                </div>
+                <span class="project-level project-level--advanced">Advanced</span>
+                <h3>Geode Wall Art</h3>
+                <p>Create a geode-inspired wall piece on a wooden panel using amethyst pigments, crushed crystal inclusions, and gold leaf edge details. This multi-step project is deeply meditative and produces gallery-quality results.</p>
+                <ul>
+                  <li>Time: 3–4 hours + 48h cure</li>
+                  <li>Cost: approx. £35 materials</li>
+                  <li>Difficulty: &#9733;&#9733;&#9733;&#9733;&#9734;</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="project-card">
+                <div class="project-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.1"/>
+                    <path d="M14 38 Q20 18 30 20 Q40 22 46 38" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/>
+                    <line x1="14" y1="38" x2="46" y2="38" stroke="var(--amber)" stroke-width="2"/>
+                    <line x1="20" y1="44" x2="40" y2="44" stroke="var(--amber)" stroke-width="2" opacity="0.5"/>
+                  </svg>
+                </div>
+                <span class="project-level project-level--advanced">Advanced</span>
+                <h3>Mini Resin River Table</h3>
+                <p>Bond two small live-edge timber offcuts with a river of deep teal and blue resin. Build a frame from melamine board, seal the wood, and pour in layers. A true statement piece you built entirely yourself.</p>
+                <ul>
+                  <li>Time: 2 days total (multiple pours)</li>
+                  <li>Cost: approx. £55 materials</li>
+                  <li>Difficulty: &#9733;&#9733;&#9733;&#9733;&#9733;</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <button class="carousel__btn carousel__btn--prev" id="projectPrev" aria-label="Previous">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="carousel__btn carousel__btn--next" id="projectNext" aria-label="Next">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div class="carousel__dots" id="projectDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 4: STEP-BY-STEP: COASTER GUIDE ====== -->
+    <section class="dg-steps section-pad" id="coaster-guide">
+      <div class="dg-steps__bg-anim" aria-hidden="true">
+        <div class="bg-blob bg-blob--c"></div>
+        <div class="bg-blob bg-blob--d"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip">Chapter 3</span>
+          <h2 class="section-title">Step-by-Step: Ocean Wave Coasters</h2>
+          <p class="section-sub">The most popular beginner DIY project, broken into six achievable steps. Follow these exactly and you'll have four flawless coasters ready to gift or display.</p>
+        </div>
+        <div class="steps-grid">
+
+          <div class="step-card fade-left" style="--delay:0s">
+            <div class="step-card__num">01</div>
+            <div class="step-card__content">
+              <h3>Prepare Your Workspace</h3>
+              <p>Cover your table with a silicone mat or plastic sheeting. Ensure the room is 21–24°C and well ventilated. Set out all tools before you begin: scales, cups, stir sticks, moulds, pigments, torch, and timer.</p>
+              <div class="step-card__img">
+                <img src="./Images/workspace-1.jpg" alt="Workspace preparation" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card fade-right" style="--delay:0.1s">
+            <div class="step-card__num">02</div>
+            <div class="step-card__content">
+              <h3>Measure &amp; Mix Your Resin</h3>
+              <p>Weigh Part A and Part B to your brand's specified ratio (commonly 1:1 or 2:1 by weight). Combine in a silicone cup and stir slowly for 4 full minutes, scraping the sides and base. Rest for 3 minutes.</p>
+              <div class="step-card__img">
+                <img src="./Images/mix.jpg" alt="Mixing resin" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card fade-left" style="--delay:0.2s">
+            <div class="step-card__num">03</div>
+            <div class="step-card__content">
+              <h3>Divide &amp; Colour</h3>
+              <p>Split your mixed resin into three cups: 50% white + pearl mica, 30% teal pigment, 20% clear. These three create the ocean layer effect. Stir each cup briefly to incorporate colour without re-introducing bubbles.</p>
+              <div class="step-card__img">
+                <img src="./Images/divide.jpg" alt="Adding colour" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card fade-right" style="--delay:0.3s">
+            <div class="step-card__num">04</div>
+            <div class="step-card__content">
+              <h3>Pour in Layers</h3>
+              <p>Pour the white base into each mould first, then add teal in a thin line across the middle, then drizzle the clear over the top. Use a cocktail stick or toothpick to drag through the layers to create wave motion.</p>
+              <div class="step-card__img">
+                <img src="./Images/pour-1.jpg" alt="Layered pour" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card fade-left" style="--delay:0.4s">
+            <div class="step-card__num">05</div>
+            <div class="step-card__content">
+              <h3>Torch &amp; Tent</h3>
+              <p>Pass the torch 15cm above the surface in one or two sweeping passes to pop bubbles and activate cells in the white resin. Immediately cover with a cardboard box tent. Do not disturb for 24 hours.</p>
+              <div class="step-card__img">
+                <img src="./Images/torch.jpg" alt="Torch pass" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card fade-right" style="--delay:0.5s">
+            <div class="step-card__num">06</div>
+            <div class="step-card__content">
+              <h3>Demould &amp; Finish</h3>
+              <p>After 24 hours, gently flex the silicone mould to release each coaster. Sand any sharp edges with 800 grit wet sandpaper. Apply self-adhesive felt pads to the base. Your coasters are ready to use or gift.</p>
+              <div class="step-card__img">
+                <img src="./Images/demould.jpg" alt="Finished coasters" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 5: TROUBLESHOOTING GUIDE ====== -->
+    <section class="dg-troubleshoot section-pad" id="troubleshooting">
+      <div class="dg-troubleshoot__bg">
+        <img src="./Images/trouble.jpg" alt="Troubleshooting background" class="dg-troubleshoot__bg-img" />
+        <div class="dg-troubleshoot__overlay"></div>
+        <div class="bg-blob bg-blob--e"></div>
+        <div class="bg-blob bg-blob--f"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip section-chip--light">Chapter 4</span>
+          <h2 class="section-title section-title--light">DIY Troubleshooting: When Things Go Wrong</h2>
+          <p class="section-sub section-sub--light">Every DIY resin artist faces these challenges. Here's exactly how to diagnose and fix the six most common home-studio problems.</p>
+        </div>
+        <div class="trouble-grid">
+          <div class="trouble-card fade-up" style="--delay:0s">
+            <div class="trouble-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.12"/>
+                <path d="M20 20 Q30 35 40 20" fill="none" stroke="var(--primary)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="30" cy="40" r="5" fill="var(--primary)" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>Sticky Surface</h3>
+            <p><strong>Cause:</strong> Incorrect ratio or under-mixing. <strong>Fix:</strong> Pour a fresh, correctly-mixed thin layer over the sticky surface to re-catalyse curing. For severe cases, scrape off and restart. Always mix by weight and stir for the full 4 minutes.</p>
+          </div>
+          <div class="trouble-card fade-up" style="--delay:0.1s">
+            <div class="trouble-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.12"/>
+                <circle cx="22" cy="28" r="6" fill="var(--secondary)" opacity="0.35"/>
+                <circle cx="36" cy="24" r="4" fill="var(--secondary)" opacity="0.35"/>
+                <circle cx="34" cy="36" r="5" fill="var(--secondary)" opacity="0.35"/>
+              </svg>
+            </div>
+            <h3>Too Many Bubbles</h3>
+            <p><strong>Cause:</strong> Cold resin, over-mixing speed, or skipped rest time. <strong>Fix:</strong> Warm bottles in a 40°C water bath before opening. Stir slowly. Rest mixed resin 3–5 minutes. Use a torch immediately after pouring in broad, sweeping arcs.</p>
+          </div>
+          <div class="trouble-card fade-up" style="--delay:0.2s">
+            <div class="trouble-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.12"/>
+                <path d="M16 44 Q30 10 44 44" fill="none" stroke="var(--amber)" stroke-width="3" stroke-linecap="round"/>
+                <line x1="30" y1="10" x2="30" y2="44" stroke="var(--amber)" stroke-width="1.5" opacity="0.3" stroke-dasharray="3 3"/>
+              </svg>
+            </div>
+            <h3>Colours Turned Muddy</h3>
+            <p><strong>Cause:</strong> Over-mixing pigment layers together, or complementary colours blending completely. <strong>Fix:</strong> Work faster before resin thickens. Keep colour sections separated and swipe — don't stir. White pigment between layers acts as a buffer.</p>
+          </div>
+          <div class="trouble-card fade-up" style="--delay:0.3s">
+            <div class="trouble-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.1"/>
+                <rect x="16" y="24" width="28" height="18" rx="3" fill="var(--primary)" opacity="0.2"/>
+                <path d="M20 24 Q30 14 40 24" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Resin Overheated &amp; Cracked</h3>
+            <p><strong>Cause:</strong> Too much resin poured in one go — the exothermic reaction generates dangerous heat in large masses. <strong>Fix:</strong> Never pour more than 1.5cm depth at once. For deep projects, use deep-pour resin formula and work in 1cm layers with 24h between each.</p>
+          </div>
+          <div class="trouble-card fade-up" style="--delay:0.4s">
+            <div class="trouble-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.1"/>
+                <path d="M18 18 L42 42M42 18 L18 42" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                <circle cx="30" cy="30" r="6" fill="none" stroke="var(--secondary)" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3>Cloudy or Hazy Finish</h3>
+            <p><strong>Cause:</strong> Moisture contamination, cold conditions, or high humidity above 60%. <strong>Fix:</strong> Always work in low-humidity rooms. Warm both bottles before opening. Avoid using water-based colourants. A dehumidifier in your workspace makes a dramatic difference in damp climates.</p>
+          </div>
+          <div class="trouble-card fade-up" style="--delay:0.5s">
+            <div class="trouble-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.1"/>
+                <circle cx="30" cy="30" r="14" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-dasharray="4 3"/>
+                <path d="M26 26 L34 34M34 26 L26 34" stroke="var(--amber)" stroke-width="2" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Dust in the Cured Piece</h3>
+            <p><strong>Cause:</strong> Uncovered curing environment. <strong>Fix:</strong> Always tent immediately after the torch pass. Wipe the inside of your cardboard box tent with a barely damp cloth to attract and trap dust. Work in the same room you cure, and avoid moving around nearby during the first hour.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: SAFETY GUIDE ====== -->
+    <section class="dg-safety section-pad" id="safety">
+      <div class="dg-safety__bg-anim" aria-hidden="true">
+        <div class="bg-blob bg-blob--g"></div>
+        <div class="bg-blob bg-blob--h"></div>
+      </div>
+      <div class="container dg-split">
+        <!-- LEFT: safety shield SVG -->
+        <div class="dg-split__model fade-right">
+          <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="Safety model">
+            <!-- Shield -->
+            <path d="M160 30 L270 80 L270 190 Q270 280 160 330 Q50 280 50 190 L50 80 Z" fill="var(--primary)" opacity="0.07" class="model-part"/>
+            <path d="M160 30 L270 80 L270 190 Q270 280 160 330 Q50 280 50 190 L50 80 Z" fill="none" stroke="var(--primary)" stroke-width="2.5" opacity="0.35"/>
+            <!-- Tick / check inside shield -->
+            <path d="M110 180 L145 215 L212 145" fill="none" stroke="var(--primary)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+            <!-- Glove icons floating -->
+            <ellipse cx="60" cy="70" rx="16" ry="22" fill="var(--secondary)" opacity="0.18" class="drop-float"/>
+            <ellipse cx="265" cy="80" rx="12" ry="17" fill="var(--amber)" opacity="0.18" class="drop-float" style="animation-delay:.5s"/>
+            <ellipse cx="280" cy="240" rx="10" ry="14" fill="var(--primary)" opacity="0.15" class="drop-float" style="animation-delay:1s"/>
+            <ellipse cx="38" cy="250" rx="11" ry="15" fill="var(--secondary)" opacity="0.15" class="drop-float" style="animation-delay:1.5s"/>
+            <!-- Orbit ring -->
+            <circle cx="160" cy="185" r="140" fill="none" stroke="var(--secondary)" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.18" class="spin-slow"/>
+            <!-- Sparkles -->
+            <circle cx="50" cy="30" r="5" fill="var(--amber)" opacity="0.5" class="twinkle"/>
+            <circle cx="280" cy="40" r="4" fill="var(--primary)" opacity="0.5" class="twinkle" style="animation-delay:.4s"/>
+            <circle cx="300" cy="160" r="3" fill="var(--secondary)" opacity="0.5" class="twinkle" style="animation-delay:.8s"/>
+          </svg>
+        </div>
+        <!-- RIGHT: safety text -->
+        <div class="dg-split__text fade-left">
+          <span class="section-chip">Chapter 5</span>
+          <h2 class="section-title">DIY Safety: Protect Yourself at Home</h2>
+          <p>Home studios don't have the safety infrastructure of professional workshops, which makes personal protection even more important. These six safety rules are non-negotiable, regardless of how small the project.</p>
+          <ul class="tips-list">
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Always wear nitrile gloves</strong> — Uncured epoxy resin is a dermal sensitiser. Repeated skin contact without gloves can cause a permanent allergy that prevents you from ever working with resin again.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Open windows every session</strong> — Even low-VOC resins release vapours during mixing. Cross-ventilation (open window + door) is the minimum. An extractor fan is ideal.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Wear a respirator for long sessions</strong> — A simple dust mask does nothing for chemical vapours. For sessions over 30 minutes or in poorly ventilated rooms, an OV/P100 half-face respirator is essential.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Never leave hot resin unattended</strong> — Deep pours generate significant heat. A mixing cup of active resin left unattended on a wooden table can scorch or even ignite. Always pour flat immediately after mixing.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Keep children and pets out during work</strong> — Uncured resin is toxic to animals and young children who may touch surfaces or inhale vapours at floor level. Cure behind a closed door.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Dispose of waste resin properly</strong> — Pour leftover mixed resin into a small silicone mould and allow it to cure fully before disposing as solid waste. Never pour liquid resin down a drain.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 7: MATERIAL SHOPPING GUIDE ====== -->
+    <section class="dg-shopping section-pad" id="shopping">
+      <div class="dg-shopping__bg">
+        <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1600&q=80" alt="Shopping guide background" class="dg-shopping__bg-img" />
+        <div class="dg-shopping__overlay"></div>
+        <div class="bg-blob bg-blob--i"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip section-chip--light">Chapter 6</span>
+          <h2 class="section-title section-title--light">What to Buy &amp; Where</h2>
+          <p class="section-sub section-sub--light">A curated budget-by-budget breakdown of what to buy at each stage of your DIY resin journey — so you spend money on what actually matters.</p>
+        </div>
+        <div class="shopping-tiers">
+          <div class="shopping-tier fade-up" style="--delay:0s">
+            <div class="shopping-tier__header">
+              <svg width="32" height="32" fill="none" stroke="var(--secondary)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <h3>Starter (Under £40)</h3>
+              <span class="tier-badge tier-badge--starter">First Project</span>
+            </div>
+            <ul class="shopping-list">
+              <li><span class="shop-check">✓</span> 500ml art resin kit (A+B)</li>
+              <li><span class="shop-check">✓</span> 4-piece round silicone coaster mould</li>
+              <li><span class="shop-check">✓</span> 3 mica powder colours (teal, white, gold)</li>
+              <li><span class="shop-check">✓</span> 2x silicone mixing cups</li>
+              <li><span class="shop-check">✓</span> Box of 50 nitrile gloves</li>
+              <li><span class="shop-check">✓</span> 5 wooden stir sticks</li>
+              <li><span class="shop-check">✓</span> Small butane kitchen torch</li>
+              <li><span class="shop-check">✓</span> Silicone mat / craft paper</li>
+            </ul>
+          </div>
+          <div class="shopping-tier fade-up" style="--delay:0.15s">
+            <div class="shopping-tier__header">
+              <svg width="32" height="32" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <h3>Growing (£40–£100)</h3>
+              <span class="tier-badge tier-badge--growing">Level Up</span>
+            </div>
+            <ul class="shopping-list">
+              <li><span class="shop-check shop-check--primary">✓</span> 1L resin kit + extra hardener</li>
+              <li><span class="shop-check shop-check--primary">✓</span> Jewellery &amp; botanical mould set</li>
+              <li><span class="shop-check shop-check--primary">✓</span> 10-colour mica powder set</li>
+              <li><span class="shop-check shop-check--primary">✓</span> Alcohol ink set (6 colours)</li>
+              <li><span class="shop-check shop-check--primary">✓</span> Digital kitchen scales (0.1g)</li>
+              <li><span class="shop-check shop-check--primary">✓</span> Gold + silver leaf sheets</li>
+              <li><span class="shop-check shop-check--primary">✓</span> 90% isopropyl alcohol</li>
+              <li><span class="shop-check shop-check--primary">✓</span> UV protective topcoat spray</li>
+            </ul>
+          </div>
+          <div class="shopping-tier fade-up" style="--delay:0.3s">
+            <div class="shopping-tier__header">
+              <svg width="32" height="32" fill="none" stroke="var(--amber)" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <h3>Advanced (£100+)</h3>
+              <span class="tier-badge tier-badge--advanced">Pro Home Studio</span>
+            </div>
+            <ul class="shopping-list">
+              <li><span class="shop-check shop-check--amber">✓</span> Deep-pour resin (2L+)</li>
+              <li><span class="shop-check shop-check--amber">✓</span> Pressure pot (2.5 gal) + compressor</li>
+              <li><span class="shop-check shop-check--amber">✓</span> Orbital sander + 400–3000 grit pads</li>
+              <li><span class="shop-check shop-check--amber">✓</span> UV nail lamp for UV resin work</li>
+              <li><span class="shop-check shop-check--amber">✓</span> OV/P100 respirator half-face</li>
+              <li><span class="shop-check shop-check--amber">✓</span> Meguiar's polishing compound</li>
+              <li><span class="shop-check shop-check--amber">✓</span> Dehumidifier for workspace</li>
+              <li><span class="shop-check shop-check--amber">✓</span> Professional silicone mould set</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../Index/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./diy.js"></script>
+</body>
+</html>

@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./interior.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="./interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+<main id="mainContent">
+
+    <!-- ══ SECTION 1: HERO ══ -->
+    <section class="s-hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="./Images/interior-hero.jpg" alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-particles" aria-hidden="true">
+        <span class="fp fp1"></span><span class="fp fp2"></span>
+        <span class="fp fp3"></span><span class="fp fp4"></span>
+        <span class="fp fp5"></span><span class="fp fp6"></span>
+      </div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-breadcrumb fade-down" data-delay="0">
+            <a href="index2.html">Home</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <a href="services.html">Services</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <span>Interior Installations</span>
+          </div>
+          <h1 class="fade-up" data-delay="100">
+            Large-Scale Resin<br>
+            <em>Interior Installations</em>
+          </h1>
+          <p class="hero-sub fade-up" data-delay="200">Transform your space with statement epoxy resin installations — river tables, feature walls, bar tops, counter surfaces, and sculptural panels that fuse art with architecture. Every project is site-measured, bespoke-designed, and professionally installed.</p>
+          <div class="hero-actions fade-up" data-delay="300">
+            <a href="#enquire" class="btn-primary">Start a Project</a>
+            <a href="#projects" class="btn-ghost-light">View Our Work</a>
+          </div>
+          <div class="hero-stats fade-up" data-delay="400">
+            <div class="hs-item"><strong>180+</strong><span>Installations Completed</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>Residential &amp; Commercial</strong><span>Both Sectors Served</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>Site Visit</strong><span>Included Free</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>10-Year</strong><span>Structural Guarantee</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 2: WHAT ARE INTERIOR INSTALLATIONS ══ -->
+    <section class="s-about" id="about">
+      <div class="about-bg-anim" aria-hidden="true">
+        <div class="aba aba1"></div>
+        <div class="aba aba2"></div>
+        <div class="aba aba3"></div>
+      </div>
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-left fade-left">
+            <span class="section-tag">What We Do</span>
+            <h2>Resin Art at an<br>Architectural Scale</h2>
+            <p>Interior installations take resin art beyond the wall and into the fabric of your space. A river table becomes the centrepiece of your dining room. A resin feature wall transforms a reception lobby into an experience. A custom bar top turns a hospitality space into a brand statement.</p>
+            <p>At ResinLux Studio, we design and execute large-format epoxy resin installations for homes, restaurants, hotels, offices, retail spaces, and wellness centres. Every project begins with a free site visit and consultation, followed by a detailed design proposal before a single litre of resin is mixed.</p>
+            <ul class="about-points">
+              <li><div class="ap-dot"></div><span>Epoxy river tables in solid wood &amp; live-edge slabs</span></li>
+              <li><div class="ap-dot"></div><span>Resin feature walls, panels &amp; murals</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Bar tops, counters &amp; kitchen surfaces</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Flooring, staircase inlays &amp; lobby features</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>UV-resistant, heat-stable, food-safe finishes</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>10-year structural guarantee on all installations</span></li>
+            </ul>
+            <a href="#enquire" class="btn-primary">Book a Site Visit</a>
+          </div>
+          <div class="about-right fade-right">
+            <div class="about-model">
+              <div class="am-frame">
+                <div class="am-canvas">
+                  <!-- Interior wall/panel SVG model -->
+                  <svg viewBox="0 0 280 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="canvas-svg">
+                    <!-- Room wall frame -->
+                    <rect x="12" y="12" width="256" height="316" rx="10" fill="var(--bg-card)" stroke="var(--border)" stroke-width="2"/>
+                    <!-- Floor line -->
+                    <line x1="12" y1="268" x2="268" y2="268" stroke="var(--border)" stroke-width="2"/>
+                    <!-- Feature wall panel -->
+                    <rect x="30" y="30" width="220" height="180" rx="8" fill="var(--bg-accent)" stroke="var(--border)" stroke-width="1.5"/>
+                    <!-- Resin wave layers on wall -->
+                    <path d="M30 140 Q70 115 110 138 Q150 160 190 132 Q220 112 250 128 L250 210 L30 210Z" fill="var(--secondary)" opacity="0.18"/>
+                    <path d="M30 160 Q80 138 125 158 Q170 176 210 152 Q235 138 250 148 L250 210 L30 210Z" fill="var(--secondary)" opacity="0.3"/>
+                    <path d="M30 182 Q90 165 140 182 Q185 196 230 172 Q245 162 250 168 L250 210 L30 210Z" fill="var(--secondary)" opacity="0.48"/>
+                    <!-- Panel top abstract pour -->
+                    <ellipse cx="180" cy="80" rx="55" ry="40" fill="var(--primary)" opacity="0.2" transform="rotate(-15 180 80)"/>
+                    <ellipse cx="90" cy="90" rx="42" ry="32" fill="var(--amber)" opacity="0.18" transform="rotate(10 90 90)"/>
+                    <!-- Gold veins -->
+                    <path d="M50 50 Q120 40 200 70 Q230 80 248 60" stroke="var(--amber)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.45"/>
+                    <path d="M30 100 Q90 85 160 110 Q210 125 250 100" stroke="var(--amber)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.35"/>
+                    <!-- River table below -->
+                    <rect x="36" y="230" width="208" height="26" rx="5" fill="var(--text-muted)" opacity="0.18" stroke="var(--border)" stroke-width="1"/>
+                    <!-- Epoxy river in table -->
+                    <path d="M80 230 Q100 236 120 230 Q140 224 160 230 Q180 236 200 230 L200 256 Q180 262 160 256 Q140 250 120 256 Q100 262 80 256Z" fill="var(--secondary)" opacity="0.55"/>
+                    <!-- Table legs -->
+                    <rect x="50"  y="256" width="10" height="36" rx="4" fill="var(--text-muted)" opacity="0.25"/>
+                    <rect x="220" y="256" width="10" height="36" rx="4" fill="var(--text-muted)" opacity="0.25"/>
+                    <!-- Shine -->
+                    <ellipse cx="85" cy="44" rx="58" ry="18" fill="white" opacity="0.07" transform="rotate(-10 85 44)"/>
+                  </svg>
+                </div>
+                <div class="am-badge fade-in" data-delay="500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>10-Year<br>Guarantee</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 3: INSTALLATION TYPES CAROUSEL ══ -->
+    <section class="s-carousel" id="projects">
+      <div class="carousel-section-bg" aria-hidden="true">
+        <img src="./Images/portfolio.png" alt="" />
+        <div class="csb-overlay"></div>
+        <div class="csb-ring ring-a"></div>
+        <div class="csb-ring ring-b"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Our Portfolio</span>
+          <h2>Installation Types &amp; Project Examples</h2>
+          <p>Six categories of interior installation — each designed from scratch and built to last for decades.</p>
+        </div>
+        <div class="carousel-wrap">
+          <button class="carousel-btn c-prev" id="cPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-track-outer">
+            <div class="carousel-track" id="carouselTrack">
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/river.jpg" alt="Epoxy river table" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Most Popular</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Epoxy River Tables</h3>
+                  <p>Solid walnut, oak, or live-edge elm slabs divided by a flowing epoxy river in your chosen colour. The definitive statement piece for dining rooms, boardrooms, and hospitality spaces.</p>
+                  <div class="c-slide-meta"><span>Any wood &bull; Any size</span><span class="csm-price">From £950</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/wall-1.jpg" alt="Resin feature wall" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Signature</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Resin Feature Walls</h3>
+                  <p>Floor-to-ceiling resin panel walls with ocean, geode, or abstract finishes. Creates a jaw-dropping focal point in living rooms, lobbies, receptions, and restaurants.</p>
+                  <div class="c-slide-meta"><span>Any dimension &bull; Custom design</span><span class="csm-price">From £1,800</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/bar.jpg" alt="Bar top resin" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Hospitality</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Bar Tops &amp; Counters</h3>
+                  <p>Seamless, food-safe epoxy bar tops, kitchen island surfaces, and commercial counter tops. Waterproof, heat-resistant to 200°C, and scratch-resistant for high-traffic use.</p>
+                  <div class="c-slide-meta"><span>Food-safe &bull; Heat-resistant</span><span class="csm-price">From £680</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/stais.jpg" alt="Resin floor" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag cso-tag--amber">Statement</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Resin Floors &amp; Staircase Inlays</h3>
+                  <p>Poured resin flooring with embedded designs, terrazzo patterns, or metallic swirls. Staircase treads and risers with flowing resin inlays in contrasting colours.</p>
+                  <div class="c-slide-meta"><span>Non-slip finish &bull; Anti-UV</span><span class="csm-price">From £120/m²</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/office.jpg" alt="Office reception panel" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Commercial</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Reception &amp; Office Panels</h3>
+                  <p>Branded resin panels, logo walls, and decorative screens for office receptions, co-working spaces, and retail environments. Designed to reinforce brand identity at scale.</p>
+                  <div class="c-slide-meta"><span>Brand-matched &bull; Any size</span><span class="csm-price">From £1,200</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/bath.png" alt="Bathroom resin surface" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Residential</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Bathroom &amp; Spa Surfaces</h3>
+                  <p>Waterproof, mould-resistant resin surfaces for bathroom walls, vanity tops, shower trays, and spa treatment rooms. A seamless, grout-free alternative to tiling.</p>
+                  <div class="c-slide-meta"><span>Waterproof &bull; Grout-free</span><span class="csm-price">From £480</span></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <button class="carousel-btn c-next" id="cNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 4: OUR PROCESS ══ -->
+    <section class="s-process" id="process">
+      <div class="process-bg-anim" aria-hidden="true">
+        <div class="pba pba1"></div>
+        <div class="pba pba2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Project Journey</span>
+          <h2>From Site Visit to<br>Stunning Installation</h2>
+          <p>A rigorous, transparent process ensures every installation is flawless — from the first measurement to the final polish.</p>
+        </div>
+        <div class="process-timeline">
+
+          <div class="pt-item fade-left" data-delay="0">
+            <div class="pt-node"><div class="pt-num">01</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <h3>Free Site Visit &amp; Measurement</h3>
+              <p>One of our project leads visits your space to take precise measurements, assess substrate conditions, lighting, temperature, and humidity. We photograph the space and discuss your vision in depth. No charge, no obligation. We cover residential and commercial sites across the UK.</p>
+              <span class="pt-time">Week 1</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="80">
+            <div class="pt-node"><div class="pt-num pt-num--teal">02</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="26" height="26" rx="3"/><path d="M8 16l5 5 11-11"/></svg>
+              </div>
+              <h3>Design Concept &amp; 3D Visualisation</h3>
+              <p>Our design team produces a full colour concept with detailed measurements, material specifications, finish options, and a 3D render of how the installation will look in your specific space. Multiple revisions are included. You approve before any work begins.</p>
+              <span class="pt-time">Week 1–2</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="160">
+            <div class="pt-node"><div class="pt-num pt-num--amber">03</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="16" r="13"/><path d="M16 8v8l5 3"/></svg>
+              </div>
+              <h3>Quote, Approval &amp; Scheduling</h3>
+              <p>A full itemised quote is issued — covering materials, labour, delivery, and installation. A 40% deposit secures your production and installation slot. Typical lead time is 3–6 weeks depending on project scale. A dedicated project manager oversees your job from this point.</p>
+              <span class="pt-time">Week 2</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="240">
+            <div class="pt-node"><div class="pt-num">04</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 24 L10 18 L16 22 L22 10 L28 16"/></svg>
+              </div>
+              <h3>Studio Fabrication</h3>
+              <p>For tables, panels, and prefabricated elements, production begins in our workshop. Resin is mixed, layered, poured over multiple sessions, and cured under controlled temperature. Wood slabs are kiln-dried, machined, and fitted with structural supports before resin application. Each stage is photographed and shared with you.</p>
+              <span class="pt-time">Weeks 3–5</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="320">
+            <div class="pt-node"><div class="pt-num pt-num--teal">05</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="14" width="24" height="16" rx="3"/><path d="M10 14v-4a6 6 0 1 1 12 0v4"/></svg>
+              </div>
+              <h3>On-Site Installation</h3>
+              <p>Our specialist installation crew arrives at your property. For in-situ pours (bar tops, floors, walls), the surface is prepared, primed, and sealed before resin is applied. For prefabricated elements (tables, panels), our team handles white-glove delivery and professional fixing. Work areas are fully protected throughout.</p>
+              <span class="pt-time">Weeks 5–6</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="400">
+            <div class="pt-node"><div class="pt-num pt-num--amber">06</div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="16 2 20 12 30 12 22 19 25 29 16 23 7 29 10 19 2 12 12 12"/></svg>
+              </div>
+              <h3>Finishing, Handover &amp; Aftercare</h3>
+              <p>Final sanding, polishing, and UV topcoat application ensures a mirror-perfect surface. We complete a full quality inspection with you present, hand over your care guide and maintenance kit, and register your 10-year structural guarantee. Follow-up service visits are included in the first year.</p>
+              <span class="pt-time">Handover</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 5: MATERIALS & FINISHES ══ -->
+    <section class="s-materials" id="materials">
+      <div class="mat-bg" aria-hidden="true">
+        <img src="./Images/material.jpg" alt="" />
+        <div class="mat-overlay"></div>
+        <div class="mat-blob mb1"></div>
+        <div class="mat-blob mb2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Technical Excellence</span>
+          <h2>Materials Built to Last Decades</h2>
+          <p>We specify only structural-grade, professionally-sourced materials for every installation — chosen for performance, beauty, and longevity.</p>
+        </div>
+        <div class="mat-grid">
+          <div class="mat-card fade-up" data-delay="0">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="4" y="10" width="32" height="24" rx="5" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M4 20 Q12 14 20 20 Q28 26 36 20" stroke="var(--secondary)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M4 26 Q14 20 24 26 Q30 30 36 26" stroke="var(--primary)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+              </svg>
+            </div>
+            <h3>Structural Epoxy Resin</h3>
+            <p>Industrial-grade, 100% solids epoxy with Shore D hardness of 80+. UV-stable, non-yellowing, rated to 200°C. Certified for structural and food-contact use in commercial environments.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="100">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="6" y="8" width="28" height="28" rx="4" stroke="var(--amber)" stroke-width="2" fill="none"/>
+                <path d="M6 20 Q15 12 24 20 Q32 28 34 22" stroke="var(--amber)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <circle cx="34" cy="14" r="5" fill="var(--amber)" opacity="0.7"/>
+              </svg>
+            </div>
+            <h3>Kiln-Dried Solid Wood Slabs</h3>
+            <p>Sustainably sourced English walnut, American black walnut, white oak, and elm slabs dried to below 8% moisture for dimensional stability. Every slab is hand-selected for grain character.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="200">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <polygon points="20,4 24,14 36,14 27,21 30,32 20,25 10,32 13,21 4,14 16,14" fill="var(--amber)" opacity="0.75"/>
+                <polygon points="20,4 24,14 36,14 27,21 30,32 20,25 10,32 13,21 4,14 16,14" stroke="var(--amber)" stroke-width="1" fill="none"/>
+              </svg>
+            </div>
+            <h3>24-Carat Gold &amp; Metal Inclusions</h3>
+            <p>Gold leaf, copper powder, mica metallic pigments, and crushed quartz embedded within resin layers for texture, depth, and the distinctive ResinLux aesthetic of luxury and artistry.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="300">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="15" stroke="var(--secondary)" stroke-width="2"/>
+                <circle cx="20" cy="20" r="9"  fill="var(--secondary)" opacity="0.2"/>
+                <path d="M14 20 L18 24 L26 14" stroke="var(--secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>UV-Resistant Topcoats</h3>
+            <p>Professional-grade UV-resistant varnishes applied in multiple coats after full cure. Prevents yellowing from sunlight exposure for a minimum of 15 years, maintaining colour vibrancy throughout.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="400">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="4" y="4" width="32" height="32" rx="6" stroke="var(--primary)" stroke-width="2" fill="none"/>
+                <rect x="10" y="10" width="8" height="20" rx="2" fill="var(--primary)" opacity="0.4"/>
+                <rect x="22" y="14" width="8" height="16" rx="2" fill="var(--secondary)" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>Steel &amp; Structural Hardware</h3>
+            <p>All tables include powder-coated steel or solid brass legs engineered for the specific weight of the slab. Wall fixings use hidden French cleats rated to 10× the load of the installation.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="500">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M8 32 L8 18 L20 8 L32 18 L32 32" stroke="var(--primary)" stroke-width="2" fill="none"/>
+                <rect x="14" y="22" width="12" height="10" rx="2" stroke="var(--primary)" stroke-width="2" fill="none"/>
+                <line x1="20" y1="22" x2="20" y2="32" stroke="var(--primary)" stroke-width="1.5" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Anti-Slip &amp; Specialist Coatings</h3>
+            <p>Floors and staircase treads receive anti-slip aggregate finishes rated R11–R13. Bathroom and spa surfaces are treated with anti-microbial coatings. All finishes are independently tested to British Standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 6: PRICING ══ -->
+    <section class="s-pricing" id="pricing">
+      <div class="pricing-bg-anim" aria-hidden="true">
+        <div class="pric-blob pb1"></div>
+        <div class="pric-blob pb2"></div>
+        <div class="pric-blob pb3"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Investment</span>
+          <h2>Installation Project Tiers</h2>
+          <p>Every project is quoted individually after site visit. The tiers below indicate typical investment ranges by project scale.</p>
+        </div>
+        <div class="pricing-grid">
+
+          <div class="price-card fade-left" data-delay="0">
+            <div class="pc-header">
+              <span class="pc-tier">Residential</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£680</strong></div>
+              <p>Single residential installation — a river table, bar top, bathroom surface, or decorative wall panel for your home.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Free site visit &amp; consultation</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 2D design proposal</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Standard epoxy &amp; pigments</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Professional installation</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 5-year guarantee</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> 3D visualisation</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Gold leaf inclusions</li>
+            </ul>
+            <a href="#enquire" class="btn-secondary">Get Residential Quote</a>
+          </div>
+
+          <div class="price-card price-card--featured fade-up" data-delay="100">
+            <div class="pc-popular">Most Popular</div>
+            <div class="pc-header">
+              <span class="pc-tier">Signature</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£1,800</strong></div>
+              <p>A premium statement installation — feature wall, large river table, or full surface treatment with luxury finishes.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Free site visit &amp; consultation</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Full 3D visualisation render</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Premium epoxy &amp; gold leaf inclusions</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Kiln-dried solid wood slabs</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> White-glove installation team</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 10-year structural guarantee</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Dedicated project manager</li>
+            </ul>
+            <a href="#enquire" class="btn-primary">Get Signature Quote</a>
+          </div>
+
+          <div class="price-card fade-right" data-delay="200">
+            <div class="pc-header">
+              <span class="pc-tier">Commercial</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£4,500</strong></div>
+              <p>Multi-element commercial projects — restaurants, hotels, offices, retail fit-outs, and multi-room residential renovations.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Multiple site visits &amp; surveys</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Full architectural visualisation</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Brand-matched custom colours</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Multi-element installation programme</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Out-of-hours installation available</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Full snagging &amp; aftercare programme</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 10-year structural guarantee</li>
+            </ul>
+            <a href="#enquire" class="btn-secondary">Get Commercial Quote</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 7: CLIENT PROJECTS ══ -->
+    <section class="s-stories" id="client-projects">
+      <div class="stories-bg" aria-hidden="true">
+        <img src="./Images/carousel-hero.jpg" alt="" />
+        <div class="sb-overlay"></div>
+        <div class="sb-anim sa1"></div>
+        <div class="sb-anim sa2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Client Projects</span>
+          <h2>Spaces Transformed by ResinLux</h2>
+          <p>Every project tells a story. Here are three clients whose spaces were permanently changed by a ResinLux installation.</p>
+        </div>
+        <div class="stories-grid">
+          <div class="story-card story-card--large fade-left" data-delay="0">
+            <div class="stc-img">
+              <img src="./Images/river-table.jpg" alt="River table installation" loading="lazy" />
+            </div>
+            <div class="stc-body">
+              <div class="stc-stars">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+              <blockquote>&ldquo;Our ResinLux river table is quite simply the most beautiful object in our home. The deep teal river running through the walnut slab is breathtaking from every angle. The installation team were meticulous — two days of careful work and the result is flawless. Every single visitor asks about it within five minutes of walking in.&rdquo;</blockquote>
+              <div class="stc-author">
+                <div class="stca-avatar" style="background:rgba(147,51,234,.15);color:var(--primary)">PH</div>
+                <div><strong>Patrick &amp; Helen Rose</strong><span>River Dining Table — Surrey</span></div>
+                <span class="stca-pkg">Signature</span>
+              </div>
+            </div>
+          </div>
+          <div class="story-card fade-up" data-delay="100">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;The resin bar top we had installed in our cocktail bar has become our signature. Guests photograph it constantly and tag us on Instagram. We’ve had journalists ask specifically about it. The team worked overnight to fit our schedule — we opened on time and it was perfect.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(8,145,178,.15);color:var(--secondary)">AN</div>
+              <div><strong>Amara Nwosu</strong><span>Bar Top — Nightingale Bar, Manchester</span></div>
+              <span class="stca-pkg stca-pkg--teal">Commercial</span>
+            </div>
+          </div>
+          <div class="story-card fade-right" data-delay="200">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;We asked ResinLux to create a feature wall for our new office reception with our brand purple and gold. What arrived was beyond anything we imagined — 5 metres wide, floor to ceiling, and utterly magnificent. It sets the tone for every client meeting from the moment they walk in.&rdquo;</blockquote>
+            <div class="stca-author" style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:auto">
+              <div class="stca-avatar" style="background:rgba(217,119,6,.15);color:var(--amber)">VK</div>
+              <div><strong>Vanessa King</strong><span>Feature Wall — Vertex HQ, London</span></div>
+              <span class="stca-pkg stca-pkg--amber">Commercial</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 8: PROJECT ENQUIRY FORM ══ -->
+    <section class="s-order" id="enquire">
+      <div class="order-bg-anim" aria-hidden="true">
+        <div class="oba oba1"></div>
+        <div class="oba oba2"></div>
+        <div class="oba oba3"></div>
+      </div>
+      <div class="container">
+        <div class="order-inner">
+          <div class="order-left fade-left">
+            <span class="section-tag">Start Your Project</span>
+            <h2>Request a Free<br>Site Visit &amp; Quote</h2>
+            <p>Tell us about your space and vision. We’ll respond within 24 hours to schedule a free site visit — where the real conversation begins.</p>
+            <div class="order-reassurances">
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Free site visit, no obligation
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                3D visualisation before any commitment
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Residential &amp; commercial projects accepted
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                10-year structural guarantee on all work
+              </div>
+            </div>
+            <!-- Installation model -->
+            <div class="order-model" aria-hidden="true">
+              <svg viewBox="0 0 160 70" fill="none" xmlns="http://www.w3.org/2000/svg" width="160" height="70">
+                <!-- Mini wall panel -->
+                <rect x="4"   y="4"  width="60" height="62" rx="6" fill="var(--primary)"   opacity="0.12" stroke="var(--primary)"   stroke-width="1.5"/>
+                <path d="M4 30 Q18 22 34 30 Q50 38 64 28" stroke="var(--secondary)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
+                <path d="M4 42 Q20 34 38 42 Q54 50 64 40" stroke="var(--primary)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+                <!-- Mini table -->
+                <rect x="78" y="18" width="78" height="22" rx="4" fill="var(--text-muted)" opacity="0.15" stroke="var(--border)" stroke-width="1"/>
+                <path d="M94 18 Q106 23 118 18 Q130 13 142 18 L142 40 Q130 45 118 40 Q106 35 94 40Z" fill="var(--secondary)" opacity="0.5"/>
+                <rect x="86"  y="40" width="8" height="24" rx="3" fill="var(--text-muted)" opacity="0.2"/>
+                <rect x="144" y="40" width="8" height="24" rx="3" fill="var(--text-muted)" opacity="0.2"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="order-right fade-right">
+            <div class="order-form-card">
+              <h3>Installation Project Enquiry</h3>
+              <form id="instForm" novalidate>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="if-name">Full Name <span class="req">*</span></label>
+                    <input type="text" id="if-name" placeholder="e.g. Patrick Rose" autocomplete="name" />
+                    <span class="field-error" id="if-name-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="if-email">Email Address <span class="req">*</span></label>
+                    <input type="email" id="if-email" placeholder="you@example.com" autocomplete="email" />
+                    <span class="field-error" id="if-email-err"></span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="if-phone">Phone Number <span class="req">*</span></label>
+                    <input type="tel" id="if-phone" placeholder="+44 7700 000000" autocomplete="tel" />
+                    <span class="field-error" id="if-phone-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="if-type">Project Type <span class="req">*</span></label>
+                    <select id="if-type">
+                      <option value="">Select project type</option>
+                      <option>Epoxy River Table</option>
+                      <option>Resin Feature Wall</option>
+                      <option>Bar Top or Counter</option>
+                      <option>Resin Floor</option>
+                      <option>Staircase Inlay</option>
+                      <option>Office / Reception Panel</option>
+                      <option>Bathroom / Spa Surface</option>
+                      <option>Multiple / Full Fit-Out</option>
+                      <option>Not sure — advise me</option>
+                    </select>
+                    <span class="field-error" id="if-type-err"></span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="if-sector">Space Type <span class="req">*</span></label>
+                    <select id="if-sector">
+                      <option value="">Select space type</option>
+                      <option>Private Residence</option>
+                      <option>Restaurant or Bar</option>
+                      <option>Hotel or Hospitality</option>
+                      <option>Office or Commercial</option>
+                      <option>Retail or Showroom</option>
+                      <option>Spa or Wellness</option>
+                      <option>Other</option>
+                    </select>
+                    <span class="field-error" id="if-sector-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="if-budget">Approximate Budget</label>
+                    <select id="if-budget">
+                      <option value="">Select budget range</option>
+                      <option>Under £1,500</option>
+                      <option>£1,500 – £5,000</option>
+                      <option>£5,000 – £15,000</option>
+                      <option>£15,000 – £50,000</option>
+                      <option>£50,000+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="if-location">Location / Postcode <span class="req">*</span></label>
+                    <input type="text" id="if-location" placeholder="e.g. London, SW1A 1AA" />
+                    <span class="field-error" id="if-location-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="if-timeline">Desired Completion Date</label>
+                    <input type="date" id="if-timeline" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="if-brief">Project Description <span class="req">*</span></label>
+                  <textarea id="if-brief" rows="4" placeholder="Describe your space, dimensions (if known), colour preferences, inspiration images, or any specific requirements…"></textarea>
+                  <span class="field-error" id="if-brief-err"></span>
+                </div>
+
+                <div class="form-check">
+                  <input type="checkbox" id="if-agree" />
+                  <label for="if-agree">I agree to ResinLux Studio contacting me about this project enquiry. <span class="req">*</span></label>
+                </div>
+                <span class="field-error" id="if-agree-err"></span>
+
+                <button type="submit" class="btn-primary btn-full">Submit Project Enquiry</button>
+                <p class="form-note">We respond within 24 hours to arrange your free site visit. No spam, no obligation.</p>
+              </form>
+
+              <div class="order-success" id="instSuccess" hidden>
+                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
+                <strong>Enquiry Received!</strong>
+                <p>Thank you! Our project team will be in touch within 24 hours to arrange your free site visit and design consultation.</p>
+                <a href="services.html" class="btn-secondary">Explore Other Services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./interior.js"></script>
+</body>
+</html>

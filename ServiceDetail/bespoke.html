@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./bespoke.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="./bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+ <main id="mainContent">
+
+    <!-- ══ SECTION 1: HERO ══ -->
+    <section class="s-hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="./Images/bespoke-hero.jpg" alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+      <!-- floating particles -->
+      <div class="hero-particles" aria-hidden="true">
+        <span class="fp fp1"></span><span class="fp fp2"></span>
+        <span class="fp fp3"></span><span class="fp fp4"></span>
+        <span class="fp fp5"></span><span class="fp fp6"></span>
+      </div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-breadcrumb fade-down" data-delay="0">
+            <a href="index2.html">Home</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <a href="services.html">Services</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <span>Bespoke Commissions</span>
+          </div>
+          <h1 class="fade-up" data-delay="100">
+            Bespoke Resin<br>
+            <em>Art Commissions</em>
+          </h1>
+          <p class="hero-sub fade-up" data-delay="200">One-of-a-kind artworks handcrafted entirely around your vision. Every colour, texture, size, and detail is yours to decide — we bring it to life in premium epoxy resin.</p>
+          <div class="hero-actions fade-up" data-delay="300">
+            <a href="#order" class="btn-primary">Start My Commission</a>
+            <a href="#gallery" class="btn-ghost-light">View Gallery</a>
+          </div>
+          <div class="hero-stats fade-up" data-delay="400">
+            <div class="hs-item">
+              <strong>500+</strong>
+              <span>Commissions Completed</span>
+            </div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item">
+              <strong>12-Month</strong>
+              <span>Craftsmanship Guarantee</span>
+            </div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item">
+              <strong>48-Hour</strong>
+              <span>Design Mockup Turnaround</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 2: WHAT IS BESPOKE? ══ -->
+    <section class="s-about" id="about">
+      <div class="about-bg-anim" aria-hidden="true">
+        <div class="aba aba1"></div>
+        <div class="aba aba2"></div>
+        <div class="aba aba3"></div>
+      </div>
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-left fade-left">
+            <span class="section-tag">What Is Bespoke?</span>
+            <h2>Art Made Entirely<br>for You</h2>
+            <p>A bespoke commission is the ultimate personalised artwork. Unlike ready-made pieces, every element of a bespoke resin work is designed from scratch to match your space, palette, style, and story.</p>
+            <p>From a single abstract panel above your sofa to a full dining table set in ocean resin — we collaborate with you at every stage, sharing digital previews and colour samples before a single drop of epoxy is poured.</p>
+            <ul class="about-points">
+              <li>
+                <div class="ap-dot"></div>
+                <span>No two pieces ever identical</span>
+              </li>
+              <li>
+                <div class="ap-dot"></div>
+                <span>Digital mockup before production begins</span>
+              </li>
+              <li>
+                <div class="ap-dot"></div>
+                <span>Any size from A3 to 2m×2m+</span>
+              </li>
+              <li>
+                <div class="ap-dot ap-dot--teal"></div>
+                <span>UV-resistant, heat-stable finish</span>
+              </li>
+              <li>
+                <div class="ap-dot ap-dot--teal"></div>
+                <span>Certificate of authenticity included</span>
+              </li>
+              <li>
+                <div class="ap-dot ap-dot--amber"></div>
+                <span>Nationwide delivery &amp; installation</span>
+              </li>
+            </ul>
+            <a href="#order" class="btn-primary">Start a Commission</a>
+          </div>
+          <div class="about-right fade-right">
+            <div class="about-model">
+              <!-- Animated resin canvas SVG -->
+              <div class="am-frame">
+                <div class="am-canvas">
+                  <svg viewBox="0 0 280 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="canvas-svg">
+                    <rect x="8" y="8" width="264" height="324" rx="12" fill="var(--bg-card)" stroke="var(--border)" stroke-width="2"/>
+                    <!-- ocean wave layers -->
+                    <path d="M8 220 Q50 195 90 215 Q130 235 170 210 Q210 185 272 205 L272 332 Q8 332 8 332Z" fill="var(--secondary)" opacity="0.18"/>
+                    <path d="M8 240 Q60 218 110 238 Q160 258 210 230 Q240 215 272 232 L272 332 L8 332Z" fill="var(--secondary)" opacity="0.28"/>
+                    <path d="M8 265 Q70 248 130 265 Q180 278 230 258 Q255 248 272 258 L272 332 L8 332Z" fill="var(--secondary)" opacity="0.45"/>
+                    <!-- resin pour top -->
+                    <path d="M8 80 Q50 55 90 75 Q130 95 180 60 Q220 32 272 55 L272 8 Q8 8 8 8Z" fill="var(--primary)" opacity="0.15"/>
+                    <ellipse cx="200" cy="110" rx="55" ry="65" fill="var(--primary)" opacity="0.2" transform="rotate(-15 200 110)"/>
+                    <ellipse cx="80" cy="150" rx="45" ry="55" fill="var(--amber)" opacity="0.18" transform="rotate(10 80 150)"/>
+                    <!-- bubbles -->
+                    <circle cx="60"  cy="80"  r="12" fill="var(--primary)"   opacity="0.35"/>
+                    <circle cx="120" cy="55"  r="8"  fill="var(--secondary)" opacity="0.4"/>
+                    <circle cx="200" cy="90"  r="10" fill="var(--amber)"     opacity="0.4"/>
+                    <circle cx="240" cy="60"  r="6"  fill="var(--primary)"   opacity="0.3"/>
+                    <circle cx="160" cy="130" r="14" fill="var(--secondary)" opacity="0.25"/>
+                    <!-- highlight -->
+                    <ellipse cx="80" cy="40" rx="60" ry="22" fill="white" opacity="0.08" transform="rotate(-10 80 40)"/>
+                  </svg>
+                </div>
+                <div class="am-badge fade-in" data-delay="500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span>Certificate of<br>Authenticity</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 3: COMMISSION TYPES CAROUSEL ══ -->
+    <section class="s-carousel" id="gallery">
+      <div class="carousel-section-bg" aria-hidden="true">
+        <img src="./Images/carousel-hero.jpg" alt="" />
+        <div class="csb-overlay"></div>
+        <!-- animated rings -->
+        <div class="csb-ring ring-a"></div>
+        <div class="csb-ring ring-b"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Portfolio</span>
+          <h2>Commission Types &amp; Recent Work</h2>
+          <p>Explore the styles and scales we've created for clients across the UK and beyond.</p>
+        </div>
+        <div class="carousel-wrap">
+          <button class="carousel-btn c-prev" id="cPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-track-outer">
+            <div class="carousel-track" id="carouselTrack">
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/wave.jpg" alt="Ocean resin panel" loading="lazy" />
+                  <div class="c-slide-overlay">
+                    <span class="cso-tag">Ocean Series</span>
+                  </div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Ocean Wave Panels</h3>
+                  <p>Deep-pour ocean art capturing the motion of breaking waves with cells, lacing, and sea-glass pigments.</p>
+                  <div class="c-slide-meta">
+                    <span>Size: 60cm × 90cm to 2m × 1.5m</span>
+                    <span class="csm-price">From £295</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/geodge.jpg" alt="Geode resin art" loading="lazy" />
+                  <div class="c-slide-overlay">
+                    <span class="cso-tag">Geode Collection</span>
+                  </div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Geode &amp; Crystal Art</h3>
+                  <p>Geode-inspired works with real crushed quartz, gold leaf, and layered pigments replicating natural stone formations.</p>
+                  <div class="c-slide-meta">
+                    <span>Size: A2 to 1.2m × 1.2m</span>
+                    <span class="csm-price">From £380</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/table.jpg" alt="River table" loading="lazy" />
+                  <div class="c-slide-overlay">
+                    <span class="cso-tag">Furniture</span>
+                  </div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Resin River Tables</h3>
+                  <p>Solid walnut, oak, or elm slabs paired with flowing epoxy rivers in custom colours. Statement pieces for any room.</p>
+                  <div class="c-slide-meta">
+                    <span>Size: Custom to specification</span>
+                    <span class="csm-price">From £950</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/paintins.jpg" alt="Abstract resin" loading="lazy" />
+                  <div class="c-slide-overlay">
+                    <span class="cso-tag">Abstract</span>
+                  </div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Abstract Resin Paintings</h3>
+                  <p>Free-form pours, swipe technique, and dirty pour styles in any colour palette — matched to your room or brand identity.</p>
+                  <div class="c-slide-meta">
+                    <span>Size: A3 to 1.5m × 1m</span>
+                    <span class="csm-price">From £195</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/botanical.jpg" alt="Floral resin" loading="lazy" />
+                  <div class="c-slide-overlay">
+                    <span class="cso-tag">Botanical</span>
+                  </div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Botanical Resin Frames</h3>
+                  <p>Pressed real flowers, foliage, and botanicals suspended in clear epoxy — preserved forever and framed beautifully.</p>
+                  <div class="c-slide-meta">
+                    <span>Size: A4 to A0</span>
+                    <span class="csm-price">From £145</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/personal.jpg" alt="Personalised resin" loading="lazy" />
+                  <div class="c-slide-overlay">
+                    <span class="cso-tag">Personalised</span>
+                  </div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Personalised Keepsakes</h3>
+                  <p>Names, dates, coordinates, and meaningful objects cast in resin — perfect for weddings, memorials, and milestone moments.</p>
+                  <div class="c-slide-meta">
+                    <span>Size: Various</span>
+                    <span class="csm-price">From £85</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <button class="carousel-btn c-next" id="cNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 4: OUR PROCESS ══ -->
+    <section class="s-process" id="process">
+      <div class="process-bg-anim" aria-hidden="true">
+        <div class="pba pba1"></div>
+        <div class="pba pba2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">How It Works</span>
+          <h2>Your Commission Journey,<br>Step by Step</h2>
+          <p>A collaborative, transparent process from first idea to finished artwork on your wall.</p>
+        </div>
+        <div class="process-timeline">
+
+          <div class="pt-item fade-left" data-delay="0">
+            <div class="pt-node">
+              <div class="pt-num">01</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <h3>Discovery Consultation</h3>
+              <p>We begin with a free 30-minute consultation — in-studio, online, or by phone. We discuss your space, style preferences, colour palette, budget, and timeline.</p>
+              <span class="pt-time">Day 1</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="80">
+            <div class="pt-node">
+              <div class="pt-num pt-num--teal">02</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="26" height="26" rx="3"/><path d="M8 16l5 5 11-11"/></svg>
+              </div>
+              <h3>Design &amp; Mockup</h3>
+              <p>Our artists create a detailed digital mockup showing colour layout, technique, and scale. You can request revisions freely until you’re 100% happy before we proceed.</p>
+              <span class="pt-time">Day 2–3</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="160">
+            <div class="pt-node">
+              <div class="pt-num pt-num--amber">03</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="16" cy="16" r="13"/><path d="M16 8v8l5 3"/></svg>
+              </div>
+              <h3>Artisan Crafting</h3>
+              <p>Once approved, our artisans begin the pour process. Depending on complexity, this takes 2–7 days — involving multiple layers, curing stages, and precision finishing.</p>
+              <span class="pt-time">Day 4–10</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="240">
+            <div class="pt-node">
+              <div class="pt-num">04</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12l4-4 4 4-4 4z"/><path d="M20 12l4-4 4 4-4 4z"/><path d="M12 20l4-4 4 4-4 4z"/></svg>
+              </div>
+              <h3>Quality Review &amp; Sanding</h3>
+              <p>Each piece is inspected under studio lighting, hand-sanded through five grits up to 3000, and finished with a UV-resistant gloss topcoat for lasting brilliance.</p>
+              <span class="pt-time">Day 10–12</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="320">
+            <div class="pt-node">
+              <div class="pt-num pt-num--teal">05</div>
+              <div class="pt-line"></div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <h3>Delivery &amp; Installation</h3>
+              <p>Your artwork is custom-packaged and dispatched with specialist art couriers. For large pieces, we offer white-glove installation by our team at no extra charge.</p>
+              <span class="pt-time">Day 13–16</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="400">
+            <div class="pt-node">
+              <div class="pt-num pt-num--amber">06</div>
+            </div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="16 2 20 12 30 12 22 19 25 29 16 23 7 29 10 19 2 12 12 12"/></svg>
+              </div>
+              <h3>Aftercare &amp; Guarantee</h3>
+              <p>Receive your care guide, certificate of authenticity, and 12-month guarantee. We’re always available for advice, touch-ups, or future commissions.</p>
+              <span class="pt-time">Ongoing</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 5: MATERIALS & TECHNIQUES ══ -->
+    <section class="s-materials" id="materials">
+      <div class="mat-bg" aria-hidden="true">
+        <img src="./Images/tech.jpg" alt="" />
+        <div class="mat-overlay"></div>
+        <div class="mat-blob mb1"></div>
+        <div class="mat-blob mb2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Craft &amp; Quality</span>
+          <h2>Premium Materials &amp; Techniques</h2>
+          <p>Every commission uses gallery-grade materials chosen for longevity, vibrancy, and safety.</p>
+        </div>
+        <div class="mat-grid">
+          <div class="mat-card fade-up" data-delay="0">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M20 8 C14 14 8 18 8 26 C8 32 13.4 36 20 36 C26.6 36 32 32 32 26 C32 18 26 14 20 8Z" fill="var(--primary)" opacity="0.8"/>
+                <circle cx="25" cy="21" r="5" fill="white" opacity="0.25"/>
+              </svg>
+            </div>
+            <h3>Crystal-Clear Epoxy</h3>
+            <p>Food-safe, low-VOC, UV-resistant epoxy resin rated for 50+ years. Self-levels to a glass-smooth finish without bubbles.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="100">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="4" y="4" width="32" height="32" rx="6" stroke="var(--secondary)" stroke-width="2"/>
+                <rect x="10" y="10" width="8" height="8" rx="2" fill="var(--secondary)" opacity="0.7"/>
+                <rect x="22" y="10" width="8" height="8" rx="2" fill="var(--primary)" opacity="0.6"/>
+                <rect x="10" y="22" width="8" height="8" rx="2" fill="var(--amber)" opacity="0.7"/>
+                <rect x="22" y="22" width="8" height="8" rx="2" fill="var(--secondary)" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Professional Pigments</h3>
+            <p>Cosmetic-grade mica powders, alcohol inks, and custom-blended epoxy pigments in over 200 colours — fade-proof and UV-stable.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="200">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="4" y="14" width="32" height="22" rx="4" stroke="var(--amber)" stroke-width="2" fill="none"/>
+                <rect x="12" y="4" width="16" height="14" rx="3" stroke="var(--amber)" stroke-width="2" fill="none"/>
+                <line x1="16" y1="14" x2="16" y2="36" stroke="var(--amber)" stroke-width="1.5" opacity="0.4"/>
+                <line x1="24" y1="14" x2="24" y2="36" stroke="var(--amber)" stroke-width="1.5" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>Premium Substrates</h3>
+            <p>Marine-grade birch ply, gallery canvas, solid wood slabs, and acrylic boards selected for their adhesion, weight, and longevity.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="300">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="16" stroke="var(--primary)" stroke-width="2" stroke-dasharray="4 3"/>
+                <path d="M12 28 L16 18 L20 24 L24 14 L28 20" stroke="var(--secondary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </div>
+            <h3>Advanced Techniques</h3>
+            <p>Ocean pour, dirty pour, Dutch pour, blowtorch cells, lacing, geode inlay, gold leaf application — each chosen to achieve your exact desired look.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="400">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M20 4 L34 12 L34 28 L20 36 L6 28 L6 12Z" stroke="var(--amber)" stroke-width="2" fill="none"/>
+                <path d="M20 10 L28 15 L28 25 L20 30 L12 25 L12 15Z" fill="var(--amber)" opacity="0.2"/>
+                <circle cx="20" cy="20" r="4" fill="var(--amber)" opacity="0.8"/>
+              </svg>
+            </div>
+            <h3>Real Inclusions</h3>
+            <p>Crushed quartz crystals, 24-carat gold leaf, real dried botanicals, shells, and glass beads embedded for depth and texture.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="500">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <path d="M20 4 C12 12 4 18 4 28 C4 34 11.2 38 20 38 C28.8 38 36 34 36 28 C36 18 28 12 20 4Z" fill="var(--secondary)" opacity="0.8"/>
+                <ellipse cx="27" cy="24" rx="7" ry="9" fill="white" opacity="0.2" transform="rotate(-20 27 24)"/>
+                <circle cx="28" cy="20" r="4" fill="white" opacity="0.3"/>
+              </svg>
+            </div>
+            <h3>Eco-Conscious Process</h3>
+            <p>BPA-free, non-toxic formulations. Sustainable wood sourcing, zero single-use plastic packaging, and recyclable backing boards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 6: PRICING ══ -->
+    <section class="s-pricing" id="pricing">
+      <div class="pricing-bg-anim" aria-hidden="true">
+        <div class="pric-blob pb1"></div>
+        <div class="pric-blob pb2"></div>
+        <div class="pric-blob pb3"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Pricing</span>
+          <h2>Commission Packages</h2>
+          <p>Transparent pricing with no hidden fees. All packages include consultation, mockup, crafting, and delivery.</p>
+        </div>
+        <div class="pricing-grid">
+
+          <div class="price-card fade-left" data-delay="0">
+            <div class="pc-header">
+              <span class="pc-tier">Essential</span>
+              <div class="pc-price">
+                <span class="pc-from">From</span>
+                <strong>£195</strong>
+              </div>
+              <p>Perfect for smaller pieces, gifts, and first-time collectors.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Up to 60cm × 80cm</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 1 design revision</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 2 colour palette options</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Standard delivery</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 6-month guarantee</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Gold leaf inclusions</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Installation service</li>
+            </ul>
+            <a href="#order" class="btn-secondary">Start Essential</a>
+          </div>
+
+          <div class="price-card price-card--featured fade-up" data-delay="100">
+            <div class="pc-popular">Most Popular</div>
+            <div class="pc-header">
+              <span class="pc-tier">Signature</span>
+              <div class="pc-price">
+                <span class="pc-from">From</span>
+                <strong>£480</strong>
+              </div>
+              <p>Our most requested tier — large pieces with full customisation and premium materials.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Up to 120cm × 120cm</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 3 design revisions</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Unlimited palette options</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Tracked express delivery</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 12-month guarantee</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Real inclusions (quartz, leaf)</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Certificate of authenticity</li>
+            </ul>
+            <a href="#order" class="btn-primary">Start Signature</a>
+          </div>
+
+          <div class="price-card fade-right" data-delay="200">
+            <div class="pc-header">
+              <span class="pc-tier">Masterwork</span>
+              <div class="pc-price">
+                <span class="pc-from">From</span>
+                <strong>£950</strong>
+              </div>
+              <p>Monumental commissions, river tables, multi-panel sets, and interior installations.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Any size (2m+ available)</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Unlimited revisions</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> In-home space consultation</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> White-glove installation</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Lifetime care plan</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 24-carat gold leaf &amp; crystals</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Multi-panel &amp; furniture options</li>
+            </ul>
+            <a href="#order" class="btn-secondary">Enquire Masterwork</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 7: CLIENT STORIES ══ -->
+    <section class="s-stories" id="stories">
+      <div class="stories-bg" aria-hidden="true">
+        <img src="./Images/client.jpg" alt="" />
+        <div class="sb-overlay"></div>
+        <div class="sb-anim sa1"></div>
+        <div class="sb-anim sa2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Client Stories</span>
+          <h2>What Our Collectors Say</h2>
+          <p>Every commission has a story. Here are some of the voices behind the art.</p>
+        </div>
+        <div class="stories-grid">
+          <div class="story-card story-card--large fade-left" data-delay="0">
+            <div class="stc-img">
+              <img src="./Images/ocean.jpg" alt="Commission result" loading="lazy" />
+            </div>
+            <div class="stc-body">
+              <div class="stc-stars">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+              <blockquote>&ldquo;The ocean panel above our fireplace is the most talked-about piece in our home. ResinLux guided us through every decision — the mockup was perfect and the real thing exceeded even that. We've already commissioned two more pieces.&rdquo;</blockquote>
+              <div class="stc-author">
+                <div class="stca-avatar" style="background:rgba(147,51,234,.15);color:var(--primary)">SC</div>
+                <div>
+                  <strong>Sophia Clarke</strong>
+                  <span>Signature Ocean Panel — London</span>
+                </div>
+                <span class="stca-pkg">Signature</span>
+              </div>
+            </div>
+          </div>
+          <div class="story-card fade-up" data-delay="100">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;My geode diptych is just breathtaking. The team matched my living room palette so precisely — it looks like the art was designed with the room, not for it.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(8,145,178,.15);color:var(--secondary)">RH</div>
+              <div>
+                <strong>Rachel Hughes</strong>
+                <span>Geode Diptych — Edinburgh</span>
+              </div>
+              <span class="stca-pkg stca-pkg--teal">Signature</span>
+            </div>
+          </div>
+          <div class="story-card fade-right" data-delay="200">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;Commissioned a resin river dining table for our new build. The whole process from first call to installation took just 18 days. Absolutely faultless.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(217,119,6,.15);color:var(--amber)">DM</div>
+              <div>
+                <strong>Daniel Morris</strong>
+                <span>River Dining Table — Bristol</span>
+              </div>
+              <span class="stca-pkg stca-pkg--amber">Masterwork</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 8: ORDER / CTA ══ -->
+    <section class="s-order" id="order">
+      <div class="order-bg-anim" aria-hidden="true">
+        <div class="oba oba1"></div>
+        <div class="oba oba2"></div>
+        <div class="oba oba3"></div>
+      </div>
+      <div class="container">
+        <div class="order-inner">
+          <div class="order-left fade-left">
+            <span class="section-tag">Start Your Commission</span>
+            <h2>Ready to Create<br>Something Unique?</h2>
+            <p>Fill in the form and we’ll send you a personalised quote within 24 hours. Consultations are always free with no obligation.</p>
+            <div class="order-reassurances">
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Free consultation &amp; no-obligation quote
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Digital mockup before production
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Secure deposit payment, balance on completion
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                12-month craftsmanship guarantee
+              </div>
+            </div>
+            <!-- mini model -->
+            <div class="order-model" aria-hidden="true">
+              <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="60">
+                <ellipse cx="22" cy="30" rx="16" ry="20" fill="var(--primary)" opacity="0.85"/>
+                <circle cx="28" cy="23" r="6" fill="white" opacity="0.25"/>
+                <ellipse cx="62" cy="28" rx="12" ry="16" fill="var(--secondary)" opacity="0.8"/>
+                <circle cx="67" cy="22" r="5" fill="white" opacity="0.25"/>
+                <ellipse cx="100" cy="32" rx="14" ry="18" fill="var(--amber)" opacity="0.85"/>
+                <circle cx="106" cy="25" r="6" fill="white" opacity="0.25"/>
+              </svg>
+            </div>
+          </div>
+          <div class="order-right fade-right">
+            <div class="order-form-card">
+              <h3>Commission Enquiry</h3>
+              <form id="orderForm" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="of-name">Full Name *</label>
+                    <input type="text" id="of-name" placeholder="e.g. Sarah Wilson" autocomplete="name" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="of-email">Email Address *</label>
+                    <input type="email" id="of-email" placeholder="you@example.com" autocomplete="email" required />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="of-phone">Phone (optional)</label>
+                    <input type="tel" id="of-phone" placeholder="+44 7700 000000" autocomplete="tel" />
+                  </div>
+                  <div class="form-group">
+                    <label for="of-package">Package *</label>
+                    <select id="of-package" required>
+                      <option value="">Select a package</option>
+                      <option>Essential (from £195)</option>
+                      <option>Signature (from £480)</option>
+                      <option>Masterwork (from £950)</option>
+                      <option>Not sure — advise me</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="of-style">Commission Style *</label>
+                  <select id="of-style" required>
+                    <option value="">Select a style</option>
+                    <option>Ocean / Wave</option>
+                    <option>Geode / Crystal</option>
+                    <option>Abstract</option>
+                    <option>Botanical / Floral</option>
+                    <option>River Table / Furniture</option>
+                    <option>Personalised Keepsake</option>
+                    <option>Other — I’ll describe</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="of-details">Tell us about your vision</label>
+                  <textarea id="of-details" rows="4" placeholder="Describe your space, colours, size requirements, occasion, or any inspiration..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary btn-full">Send Commission Enquiry</button>
+                <p class="form-note">We respond within 24 hours. No spam. No obligation.</p>
+              </form>
+              <div class="order-success" id="orderSuccess" hidden>
+                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
+                <strong>Enquiry Received!</strong>
+                <p>Thank you. We’ll be in touch within 24 hours with your personalised quote and next steps.</p>
+                <a href="services.html" class="btn-secondary">Explore Other Services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./bespoke.js"></script>
+</body>
+</html>

@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./behind.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="./behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+
+
+  <main id="mainContent">
+
+    <!-- ====== SECTION 1: HERO ====== -->
+    <section class="bs-hero" id="hero">
+      <div class="bs-hero__bg">
+        <img src="./Images/workspace.jpg" alt="Studio workspace" class="bs-hero__img" />
+        <div class="bs-hero__overlay"></div>
+        <div class="bs-hero__blobs">
+          <div class="blob blob--1"></div>
+          <div class="blob blob--2"></div>
+          <div class="blob blob--3"></div>
+        </div>
+        <div class="particles" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="container">
+        <nav class="bs-breadcrumb fade-down" aria-label="Breadcrumb">
+          <a href="index2.html">Home</a>
+          <span>/</span>
+          <a href="blog.html">Blog</a>
+          <span>/</span>
+          <span>Behind the Studio</span>
+        </nav>
+        <div class="bs-hero__content">
+          <div class="bs-hero__tags fade-up" style="--delay:0.1s">
+            <span class="tag tag--primary">Studio Life</span>
+            <span class="tag tag--secondary">Behind the Scenes</span>
+            <span class="tag tag--amber">9 min read</span>
+          </div>
+          <h1 class="bs-hero__title fade-up" style="--delay:0.2s">Behind the Studio:<br>Where Every Piece Begins</h1>
+          <p class="bs-hero__desc fade-up" style="--delay:0.3s">Step inside ResinLux Studio — explore our creative space, meet the artisans, discover our daily rituals, the tools we swear by, and the philosophy that turns raw resin into heirloom art. An intimate look at the heartbeat of everything we make.</p>
+          <div class="bs-hero__meta fade-up" style="--delay:0.4s">
+            <div class="meta-author">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=48&q=80" alt="Author" class="meta-avatar" />
+              <div>
+                <span class="meta-name">Priya Sharma</span>
+                <span class="meta-role">Studio Director &amp; Founder</span>
+              </div>
+            </div>
+            <div class="meta-divider"></div>
+            <div class="meta-info">
+              <span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                March 28, 2026
+              </span>
+              <span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                9 min read
+              </span>
+              <span>
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                6.1k views
+              </span>
+            </div>
+          </div>
+          <div class="bs-hero__stats fade-up" style="--delay:0.5s">
+            <div class="stat"><span class="stat__num" data-target="7">0</span><span class="stat__label">Studio Years</span></div>
+            <div class="stat"><span class="stat__num" data-target="12">0</span><span class="stat__label">Artisans</span></div>
+            <div class="stat"><span class="stat__num" data-target="3400">0</span><span class="stat__label">Pieces Created</span></div>
+            <div class="stat"><span class="stat__num" data-target="28">0</span><span class="stat__label">Awards Won</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 2: THE STUDIO SPACE ====== -->
+    <section class="bs-space section-pad" id="studio-space">
+      <div class="bs-space__bg-anim" aria-hidden="true">
+        <div class="bg-blob bg-blob--a"></div>
+        <div class="bg-blob bg-blob--b"></div>
+      </div>
+      <div class="container bs-split">
+        <!-- LEFT: text -->
+        <div class="bs-split__text fade-right">
+          <span class="section-chip">Chapter 1</span>
+          <h2 class="section-title">Our Studio Space</h2>
+          <p>Nestled in a converted Victorian warehouse in the heart of the city, ResinLux Studio is a living, breathing creative organism. Natural light floods in through steel-framed skylights. The scent of fresh resin mingles with the warmth of raw timber. Every corner is arranged to inspire.
+          </p>
+          <ul class="tips-list">
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>2,400 sq ft of creative space</strong> — Divided into pour zones, curing rooms, finishing stations, a photography suite, and a client consultation lounge.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Industrial ventilation system</strong> — Purpose-built extraction keeps fumes safely managed so artists can work comfortably for full 8-hour studio days.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Climate-controlled curing room</strong> — Held at a constant 22°C and 45% humidity, our curing room guarantees perfect results regardless of the season outside.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Materials library</strong> — Over 400 pigments, powders, inclusions, and specialty resins are catalogued and accessible to every artist in the studio.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Client gallery wall</strong> — A rotating display of commissioned and studio pieces lines the entry corridor — inspiration for every visitor who walks through our doors.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Workshop classroom</strong> — Seats 12 students with individual pour stations, overhead mirrors, and a live-feed monitor screen so every step can be seen clearly.</div>
+            </li>
+          </ul>
+        </div>
+        <!-- RIGHT: studio building SVG model -->
+        <div class="bs-split__model fade-left">
+          <svg viewBox="0 0 340 380" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="Studio building model">
+            <!-- Ground -->
+            <rect x="20" y="310" width="300" height="12" rx="4" fill="var(--secondary)" opacity="0.15"/>
+            <!-- Building body -->
+            <rect x="55" y="130" width="230" height="180" rx="6" fill="var(--primary)" opacity="0.08" class="model-part"/>
+            <rect x="55" y="130" width="230" height="180" rx="6" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+            <!-- Roof -->
+            <polygon points="40,130 170,55 300,130" fill="var(--secondary)" opacity="0.12" class="model-part"/>
+            <polygon points="40,130 170,55 300,130" fill="none" stroke="var(--secondary)" stroke-width="2" opacity="0.4"/>
+            <!-- Skylight -->
+            <rect x="130" y="80" width="80" height="30" rx="4" fill="var(--amber)" opacity="0.25" class="model-part"/>
+            <line x1="170" y1="80" x2="170" y2="110" stroke="var(--amber)" stroke-width="1.5" opacity="0.5"/>
+            <!-- Windows -->
+            <rect x="80" y="160" width="50" height="40" rx="4" fill="var(--secondary)" opacity="0.2" class="model-part"/>
+            <line x1="105" y1="160" x2="105" y2="200" stroke="var(--secondary)" stroke-width="1.5" opacity="0.4"/>
+            <rect x="195" y="160" width="50" height="40" rx="4" fill="var(--secondary)" opacity="0.2" class="model-part"/>
+            <line x1="220" y1="160" x2="220" y2="200" stroke="var(--secondary)" stroke-width="1.5" opacity="0.4"/>
+            <!-- Door -->
+            <rect x="145" y="240" width="50" height="70" rx="4" fill="var(--primary)" opacity="0.2" class="model-part"/>
+            <circle cx="188" cy="276" r="4" fill="var(--primary)" opacity="0.5"/>
+            <!-- Sign above door -->
+            <rect x="140" y="220" width="60" height="16" rx="3" fill="var(--amber)" opacity="0.3"/>
+            <text x="170" y="231" text-anchor="middle" font-size="7" fill="var(--amber)" font-weight="700" opacity="0.8">RESINLUX</text>
+            <!-- Floating elements -->
+            <ellipse cx="60" cy="60" rx="14" ry="20" fill="var(--primary)" opacity="0.2" class="drop-float"/>
+            <ellipse cx="290" cy="70" rx="10" ry="15" fill="var(--secondary)" opacity="0.2" class="drop-float" style="animation-delay:.5s"/>
+            <ellipse cx="320" cy="200" rx="8" ry="12" fill="var(--amber)" opacity="0.25" class="drop-float" style="animation-delay:1s"/>
+            <!-- Orbit rings -->
+            <circle cx="170" cy="185" r="140" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.18" class="spin-slow"/>
+            <circle cx="170" cy="185" r="160" fill="none" stroke="var(--secondary)" stroke-width="1" stroke-dasharray="4 8" opacity="0.12" class="spin-slow" style="animation-direction:reverse;animation-duration:22s"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 3: STUDIO MOMENTS CAROUSEL ====== -->
+    <section class="bs-carousel section-pad" id="moments">
+      <div class="bs-carousel__bg">
+        <img src="./Images/studio-say.jpg" alt="Studio moments" class="bs-carousel__bg-img" />
+        <div class="bs-carousel__overlay"></div>
+        <div class="carousel-ring carousel-ring--1"></div>
+        <div class="carousel-ring carousel-ring--2"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip section-chip--light">Chapter 2</span>
+          <h2 class="section-title section-title--light">A Day in the Studio</h2>
+          <p class="section-sub section-sub--light">From the first pour of the morning to the final polish at day's end — six defining moments that make up a typical creative day at ResinLux.</p>
+        </div>
+        <div class="carousel" id="momentsCarousel">
+          <div class="carousel__track" id="momentsTrack">
+
+            <div class="carousel__slide">
+              <div class="moment-card">
+                <div class="moment-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.12"/>
+                    <circle cx="30" cy="20" r="8" fill="var(--amber)" opacity="0.5"/>
+                    <path d="M18 42 Q24 30 30 28 Q36 26 42 42" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <span class="moment-time">7:30 AM</span>
+                <h3>The Morning Ritual</h3>
+                <p>Before any resin is touched, the studio is prepared. Artists review the day's orders, inspect curing pieces from the previous evening, set the room temperature, and mix their palette intentions for the day. Music goes on — usually something instrumental.</p>
+                <ul>
+                  <li>Check overnight cured pieces</li>
+                  <li>Review commission briefs</li>
+                  <li>Set climate controls &amp; ventilation</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="moment-card">
+                <div class="moment-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.12"/>
+                    <path d="M20 20 L40 20 L38 42 Q30 46 22 42 Z" fill="var(--primary)" opacity="0.3"/>
+                    <line x1="30" y1="14" x2="30" y2="20" stroke="var(--primary)" stroke-width="3" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <span class="moment-time">9:00 AM</span>
+                <h3>The First Pour</h3>
+                <p>The main creative work begins. Resins are measured precisely by weight, pigments are chosen and pre-mixed, and the first pour of the session commences. This is the meditative heart of the studio day — calm, focused, deliberate.</p>
+                <ul>
+                  <li>Weight-based mixing for accuracy</li>
+                  <li>Pigments prepared in advance</li>
+                  <li>No interruptions during pour phase</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="moment-card">
+                <div class="moment-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.12"/>
+                    <path d="M15 35 Q30 10 45 35" fill="none" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M15 40 Q30 20 45 40" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+                  </svg>
+                </div>
+                <span class="moment-time">11:00 AM</span>
+                <h3>The Torch Pass</h3>
+                <p>Once poured, each piece gets its torch pass — a swift, sweeping flame that pops surface bubbles and activates cell formation. It's one of the most visually dramatic moments in resin art, and always draws onlookers during studio tours.</p>
+                <ul>
+                  <li>15cm distance, sweeping arcs</li>
+                  <li>Two passes maximum per section</li>
+                  <li>Natural cell patterns form within minutes</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="moment-card">
+                <div class="moment-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.1"/>
+                    <rect x="18" y="18" width="24" height="24" rx="4" fill="none" stroke="var(--amber)" stroke-width="2.5"/>
+                    <path d="M22 30 L28 36 L38 24" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="moment-time">1:00 PM</span>
+                <h3>Quality Inspection</h3>
+                <p>Every piece in the studio undergoes a rigorous mid-day inspection. Artists examine active pours for self-levelling, check for dust or contamination, and make any final adjustments before pieces are tented for undisturbed curing. Nothing leaves without passing our 12-point quality check.</p>
+                <ul>
+                  <li>Surface level check &amp; dust tent</li>
+                  <li>Edge drips cleaned with isopropyl</li>
+                  <li>Cure temperature logged per piece</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="moment-card">
+                <div class="moment-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.1"/>
+                    <circle cx="30" cy="30" r="14" fill="none" stroke="var(--primary)" stroke-width="2.5"/>
+                    <circle cx="30" cy="30" r="7" fill="var(--primary)" opacity="0.3"/>
+                    <line x1="30" y1="16" x2="30" y2="44" stroke="var(--primary)" stroke-width="1.5" opacity="0.3"/>
+                    <line x1="16" y1="30" x2="44" y2="30" stroke="var(--primary)" stroke-width="1.5" opacity="0.3"/>
+                  </svg>
+                </div>
+                <span class="moment-time">3:00 PM</span>
+                <h3>The Finishing Studio</h3>
+                <p>Fully cured pieces move to the finishing station: wet sanding from 400 to 3000 grit, polishing with cutting compound, a final buff to mirror clarity. It's here that the true beauty of resin reveals itself — a transformation that never gets old, no matter how many pieces pass through.</p>
+                <ul>
+                  <li>Wet sand 400 → 800 → 1500 → 3000 grit</li>
+                  <li>Cutting compound buffed at low speed</li>
+                  <li>Final UV-protective topcoat applied</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="carousel__slide">
+              <div class="moment-card">
+                <div class="moment-card__icon">
+                  <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.1"/>
+                    <rect x="16" y="22" width="28" height="20" rx="3" fill="none" stroke="var(--secondary)" stroke-width="2.5"/>
+                    <path d="M16 28 L30 36 L44 28" fill="none" stroke="var(--secondary)" stroke-width="2" opacity="0.5"/>
+                  </svg>
+                </div>
+                <span class="moment-time">5:00 PM</span>
+                <h3>Client Delivery &amp; Review</h3>
+                <p>The day closes with packaging, photography, and client communication. Every finished piece is photographed in our studio light box before dispatch. Delivery notes are hand-written. We treat every piece — regardless of size — as if it's being delivered to a gallery opening.</p>
+                <ul>
+                  <li>Studio light-box photography</li>
+                  <li>Hand-written care instructions</li>
+                  <li>Damage-proof custom packaging</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          <button class="carousel__btn carousel__btn--prev" id="momentsPrev" aria-label="Previous">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="carousel__btn carousel__btn--next" id="momentsNext" aria-label="Next">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+          <div class="carousel__dots" id="momentsDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 4: MEET THE TEAM ====== -->
+    <section class="bs-team section-pad" id="team">
+      <div class="bs-team__bg-anim" aria-hidden="true">
+        <div class="bg-blob bg-blob--c"></div>
+        <div class="bg-blob bg-blob--d"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip">Chapter 3</span>
+          <h2 class="section-title">The People Behind the Art</h2>
+          <p class="section-sub">Every piece that leaves ResinLux is the product of human hands, trained eyes, and genuine passion. Meet the artists who bring the studio to life every day.</p>
+        </div>
+        <div class="team-grid">
+
+          <div class="team-card fade-left" style="--delay:0s">
+            <div class="team-card__img-wrap">
+              <img src="./Images/priya.jpg" alt="Priya Sharma" loading="lazy" />
+              <div class="team-card__overlay">
+                <p>"Every pour is a conversation between intention and accident — and that's the magic."</p>
+              </div>
+            </div>
+            <div class="team-card__body">
+              <h3>Priya Sharma</h3>
+              <span class="team-role">Founder &amp; Studio Director</span>
+              <p>7 years of resin mastery. Priya founded ResinLux after leaving a corporate design career and has since built it into one of the UK's most celebrated resin art studios.</p>
+            </div>
+          </div>
+
+          <div class="team-card fade-up" style="--delay:0.1s">
+            <div class="team-card__img-wrap">
+              <img src="./Images/marcus.jpg" alt="Marcus Bell" loading="lazy" />
+              <div class="team-card__overlay">
+                <p>"I love that no two pieces are the same. The resin always has the final word."</p>
+              </div>
+            </div>
+            <div class="team-card__body">
+              <h3>Marcus Bell</h3>
+              <span class="team-role">Lead Resin Sculptor</span>
+              <p>Specialising in large-format river tables and architectural installations. Marcus brings a structural engineer's precision to the craft of resin art.</p>
+            </div>
+          </div>
+
+          <div class="team-card fade-right" style="--delay:0.2s">
+            <div class="team-card__img-wrap">
+              <img src="./Images/layla.jpg" alt="Layla Hassan" loading="lazy" />
+              <div class="team-card__overlay">
+                <p>"Colour is the emotion — everything else is just the vehicle to carry it."</p>
+              </div>
+            </div>
+            <div class="team-card__body">
+              <h3>Misba</h3>
+              <span class="team-role">Colour &amp; Jewellery Lead</span>
+              <p>Our colour theorist and jewellery specialist, Layla's palette sensibility elevates every commission. Her geode pendants have a 6-week waiting list.</p>
+            </div>
+          </div>
+
+          <div class="team-card fade-left" style="--delay:0.3s">
+            <div class="team-card__img-wrap">
+              <img src="./Images/james.jpg" alt="James Tran" loading="lazy" />
+              <div class="team-card__overlay">
+                <p>"The finishing stage is where patience pays off. I could sand all day."</p>
+              </div>
+            </div>
+            <div class="team-card__body">
+              <h3>James Tran</h3>
+              <span class="team-role">Finishing &amp; Polishing Specialist</span>
+              <p>James transforms cured resin from dull to mirror-bright. His wet-sanding and polishing process takes each piece through nine progressive grits — the result is always flawless.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 5: OUR PHILOSOPHY ====== -->
+    <section class="bs-philosophy section-pad" id="philosophy">
+      <div class="bs-philosophy__bg">
+        <img src="./Images/philosophy.jpg" alt="Philosophy background" class="bs-philosophy__bg-img" />
+        <div class="bs-philosophy__overlay"></div>
+        <div class="bg-blob bg-blob--e"></div>
+        <div class="bg-blob bg-blob--f"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip section-chip--light">Chapter 4</span>
+          <h2 class="section-title section-title--light">Our Studio Philosophy</h2>
+          <p class="section-sub section-sub--light">Six principles that guide every decision we make — from which resin we stock to how we pack a delivery.</p>
+        </div>
+        <div class="philosophy-grid">
+          <div class="philosophy-card fade-up" style="--delay:0s">
+            <div class="philosophy-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.12"/>
+                <polygon points="30,12 34,26 48,26 37,34 41,48 30,40 19,48 23,34 12,26 26,26" fill="var(--primary)" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>Craft Over Speed</h3>
+            <p>We never rush a piece. Every commission has the time it needs. We believe that truly excellent work cannot be produced under artificial time pressure — so we quote realistic timelines and protect creative space fiercely.</p>
+          </div>
+          <div class="philosophy-card fade-up" style="--delay:0.1s">
+            <div class="philosophy-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.12"/>
+                <path d="M15 30 Q22 15 30 30 Q38 45 45 30" fill="none" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="30" cy="30" r="4" fill="var(--secondary)" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Transparency Always</h3>
+            <p>We share every stage of a commission with our clients — from initial pigment testing to curing photos and pre-delivery inspection images. You always know exactly what you're receiving, before it arrives.</p>
+          </div>
+          <div class="philosophy-card fade-up" style="--delay:0.2s">
+            <div class="philosophy-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.12"/>
+                <path d="M20 40 C20 30 30 20 30 20 C30 20 40 30 40 40 C40 46 35 50 30 50 C25 50 20 46 20 40Z" fill="var(--amber)" opacity="0.35"/>
+              </svg>
+            </div>
+            <h3>Sustainable Materials</h3>
+            <p>We source low-VOC bio-based resins wherever possible. All packaging is recycled or biodegradable. Waste resin is cured in silicone moulds and donated to community art projects rather than sent to landfill.</p>
+          </div>
+          <div class="philosophy-card fade-up" style="--delay:0.3s">
+            <div class="philosophy-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.1"/>
+                <circle cx="30" cy="26" r="10" fill="none" stroke="var(--primary)" stroke-width="2.5"/>
+                <path d="M16 46 Q20 36 30 36 Q40 36 44 46" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3>People-First Culture</h3>
+            <p>Artist wellbeing is not an afterthought — it's central to everything. Our studio provides health-grade PPE, mandatory breaks, ergonomic workstations, and a mental-health-aware work culture that celebrates creative individuality.</p>
+          </div>
+          <div class="philosophy-card fade-up" style="--delay:0.4s">
+            <div class="philosophy-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.1"/>
+                <path d="M12 30 L30 12 L48 30 L30 48 Z" fill="none" stroke="var(--secondary)" stroke-width="2.5"/>
+                <path d="M20 30 L30 20 L40 30 L30 40 Z" fill="var(--secondary)" opacity="0.25"/>
+              </svg>
+            </div>
+            <h3>Precision in Everything</h3>
+            <p>We weigh every component to 0.1g accuracy. We log every pour temperature. We document every commission with photographs at every stage. This obsessive precision is what allows us to reproduce successful results and learn from every challenge.</p>
+          </div>
+          <div class="philosophy-card fade-up" style="--delay:0.5s">
+            <div class="philosophy-card__icon">
+              <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.1"/>
+                <path d="M30 14 L34 24 L44 24 L36 30 L39 40 L30 34 L21 40 L24 30 L16 24 L26 24 Z" fill="none" stroke="var(--amber)" stroke-width="2" opacity="0.6"/>
+                <circle cx="30" cy="30" r="5" fill="var(--amber)" opacity="0.4"/>
+              </svg>
+            </div>
+            <h3>Continual Learning</h3>
+            <p>The resin world evolves constantly — new formulations, new pigment technologies, new tools. Every artist at ResinLux dedicates at least four hours per week to experimentation, technique development, and material research. We never stop learning.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 6: TOOLS WE USE ====== -->
+    <section class="bs-tools section-pad" id="tools">
+      <div class="bs-tools__bg-anim" aria-hidden="true">
+        <div class="bg-blob bg-blob--g"></div>
+        <div class="bg-blob bg-blob--h"></div>
+      </div>
+      <div class="container bs-split">
+        <!-- LEFT: model -->
+        <div class="bs-split__model fade-right">
+          <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="Tool bench model">
+            <!-- Workbench surface -->
+            <rect x="20" y="240" width="280" height="14" rx="4" fill="var(--secondary)" opacity="0.15" class="model-part"/>
+            <!-- Pressure pot -->
+            <ellipse cx="80" cy="220" rx="36" ry="26" fill="var(--primary)" opacity="0.12" class="model-part"/>
+            <ellipse cx="80" cy="220" rx="36" ry="26" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.4"/>
+            <rect x="70" y="194" width="20" height="10" rx="3" fill="var(--primary)" opacity="0.3"/>
+            <line x1="80" y1="186" x2="80" y2="194" stroke="var(--primary)" stroke-width="2" opacity="0.5"/>
+            <text x="80" y="224" text-anchor="middle" font-size="7" fill="var(--primary)" font-weight="700" opacity="0.7">PRESSURE</text>
+            <text x="80" y="234" text-anchor="middle" font-size="7" fill="var(--primary)" font-weight="700" opacity="0.7">POT</text>
+            <!-- Orbital sander -->
+            <rect x="130" y="196" width="50" height="50" rx="10" fill="var(--secondary)" opacity="0.12" class="model-part"/>
+            <circle cx="155" cy="221" r="16" fill="none" stroke="var(--secondary)" stroke-width="2" opacity="0.4" class="spin-slow" style="animation-duration:8s"/>
+            <text x="155" y="225" text-anchor="middle" font-size="7" fill="var(--secondary)" font-weight="700" opacity="0.7">SANDER</text>
+            <!-- Digital scale -->
+            <rect x="200" y="210" width="80" height="36" rx="6" fill="var(--amber)" opacity="0.12" class="model-part"/>
+            <rect x="214" y="200" width="52" height="14" rx="3" fill="var(--amber)" opacity="0.2"/>
+            <text x="240" y="231" text-anchor="middle" font-size="8" fill="var(--amber)" font-weight="700" opacity="0.7">SCALE</text>
+            <text x="240" y="243" text-anchor="middle" font-size="10" fill="var(--amber)" font-weight="900" opacity="0.8">0.0g</text>
+            <!-- Mixing cups row -->
+            <path d="M50,290 L46,310 Q50,314 55,314 Q60,314 64,310 L60,290Z" fill="var(--primary)" opacity="0.2" class="model-part"/>
+            <path d="M80,290 L76,310 Q80,314 85,314 Q90,314 94,310 L90,290Z" fill="var(--secondary)" opacity="0.2" class="model-part"/>
+            <path d="M110,290 L106,310 Q110,314 115,314 Q120,314 124,310 L120,290Z" fill="var(--amber)" opacity="0.2" class="model-part"/>
+            <!-- Torch -->
+            <rect x="180" y="265" width="16" height="48" rx="4" fill="#888" opacity="0.2" class="model-part"/>
+            <ellipse cx="188" cy="263" rx="10" ry="6" fill="var(--amber)" opacity="0.3" class="model-part"/>
+            <path d="M183,255 Q188,240 193,255" fill="var(--amber)" opacity="0.4" class="drop-float"/>
+            <!-- Floating drops -->
+            <ellipse cx="40" cy="90" rx="12" ry="18" fill="var(--primary)" opacity="0.2" class="drop-float"/>
+            <ellipse cx="280" cy="80" rx="9" ry="13" fill="var(--secondary)" opacity="0.2" class="drop-float" style="animation-delay:.6s"/>
+            <ellipse cx="300" cy="180" rx="7" ry="10" fill="var(--amber)" opacity="0.25" class="drop-float" style="animation-delay:1.2s"/>
+            <!-- Orbit ring -->
+            <circle cx="160" cy="185" r="130" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.18" class="spin-slow"/>
+          </svg>
+        </div>
+        <!-- RIGHT: text -->
+        <div class="bs-split__text fade-left">
+          <span class="section-chip">Chapter 5</span>
+          <h2 class="section-title">The Tools We Rely On</h2>
+          <p>Every artist is only as good as the tools they trust. At ResinLux Studio we've tested hundreds of products over seven years and landed on a core kit that has never let us down. These are the non-negotiables in our studio.</p>
+          <ul class="tips-list">
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Ohaus Scout Digital Scale</strong> — 0.1g precision, 5kg capacity. We have twelve of these in the studio — one per workstation. Accurate ratio mixing is non-negotiable.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>California Air Tools Pressure Pot (2.5 gal)</strong> — Used for all jewellery and mould casting. Eliminates micro-bubbles invisible to the naked eye.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Mirka Abranet Wet/Dry Pads</strong> — 400 to 3000 grit progression. Leaves a scratch-free surface for polishing compound to work on.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Bosch GEX 125-150 AVE Orbital Sander</strong> — Variable speed, dust-extracted, vibration-dampened. Our finishing artists use these for 3–4 hours daily without fatigue.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Dremel Versatip Butane Torch</strong> — Adjustable flame intensity, piezo ignition, no lighter needed. The most controllable studio torch we've tested.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Meguiar's Ultimate Compound</strong> — Our polish of choice after fine sanding. One pass brings resin from satin to a deep, glass-like mirror finish.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== SECTION 7: STUDIO MILESTONES ====== -->
+    <section class="bs-milestones section-pad" id="milestones">
+      <div class="bs-milestones__bg">
+        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1600&q=80" alt="Milestones background" class="bs-milestones__bg-img" />
+        <div class="bs-milestones__overlay"></div>
+        <div class="bg-blob bg-blob--i"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip section-chip--light">Chapter 6</span>
+          <h2 class="section-title section-title--light">Seven Years of Studio Milestones</h2>
+          <p class="section-sub section-sub--light">From a single workbench in a spare room to a 2,400 sq ft professional studio — the milestones that shaped ResinLux into what it is today.</p>
+        </div>
+        <div class="milestones-timeline">
+
+          <div class="milestone fade-left" style="--delay:0s">
+            <div class="milestone__year">2019</div>
+            <div class="milestone__content">
+              <h3>Studio Founded</h3>
+              <p>Priya Sharma poures her first commissioned piece from a kitchen workbench. The first sale: a set of teal and gold coasters for a local interior designer. The waiting list starts within two weeks.</p>
+            </div>
+          </div>
+
+          <div class="milestone fade-right" style="--delay:0.1s">
+            <div class="milestone__year">2020</div>
+            <div class="milestone__content">
+              <h3>First Commercial Space</h3>
+              <p>ResinLux moves into a 300 sq ft studio unit. Marcus Bell joins as the first full-time artist. First corporate gift commission — 200 personalised coasters for a London fintech company's rebrand launch.</p>
+            </div>
+          </div>
+
+          <div class="milestone fade-left" style="--delay:0.2s">
+            <div class="milestone__year">2021</div>
+            <div class="milestone__content">
+              <h3>Workshop Programme Launched</h3>
+              <p>The first public workshops sell out within 24 hours. Layla Hassan joins to lead jewellery design. The studio expands to 800 sq ft. First geode river table delivered — a 2-metre dining centrepiece.</p>
+            </div>
+          </div>
+
+          <div class="milestone fade-right" style="--delay:0.3s">
+            <div class="milestone__year">2022</div>
+            <div class="milestone__content">
+              <h3>Interior Installations Begin</h3>
+              <p>ResinLux completes its first commercial interior installation — a 6-panel feature wall for a boutique hotel in Manchester. The project cements the studio's reputation in the architectural interiors market.</p>
+            </div>
+          </div>
+
+          <div class="milestone fade-left" style="--delay:0.4s">
+            <div class="milestone__year">2023</div>
+            <div class="milestone__content">
+              <h3>Award-Winning Year</h3>
+              <p>ResinLux wins Best Resin Art Studio at the UK Craft Awards and the Sustainable Artisan Prize. Press coverage in Homes &amp; Gardens and Dezeen. The studio team grows to 8 artists.</p>
+            </div>
+          </div>
+
+          <div class="milestone fade-right" style="--delay:0.5s">
+            <div class="milestone__year">2024</div>
+            <div class="milestone__content">
+              <h3>Current Warehouse Studio</h3>
+              <p>The move to the current 2,400 sq ft Victorian warehouse. Pressure pot room, photography suite, and client gallery all come online. The team reaches 12 artists. Online workshop programme launches globally.</p>
+            </div>
+          </div>
+
+          <div class="milestone fade-left" style="--delay:0.6s">
+            <div class="milestone__year">2026</div>
+            <div class="milestone__content">
+              <h3>What's Next</h3>
+              <p>A dedicated international shipping programme, a materials subscription box, and an in-studio residency for emerging resin artists are all in development. The best work is always ahead of us.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./behind.js"></script>
+</body>
+</html>

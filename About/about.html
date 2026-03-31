@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./about.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="./about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+<!-- ===== MAIN CONTENT ===== -->
+  <main id="mainContent">
+
+    <!-- SECTION 1: HERO WITH VIDEO -->
+    <section class="about-hero" id="hero">
+      <div class="hero-video-wrap">
+        <video autoplay muted loop playsinline class="hero-bg-video">
+          <source src="./Images/resin-video.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content fade-up">
+        <span class="hero-badge">Our Story</span>
+        <h1 class="hero-title">Crafting Art.<br /><span class="grad-text">Creating Magic.</span></h1>
+        <p class="hero-sub">Where resin meets passion — every piece we create is a living story of color, texture, and soul. Welcome to ResinLux Studio.</p>
+        <div class="hero-cta-row">
+          <a href="#story" class="btn-primary">Discover Our Journey</a>
+          <a href="#team" class="btn-secondary">Meet the Team</a>
+        </div>
+      </div>
+      <div class="hero-scroll-hint">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: OUR STORY -->
+    <section class="about-story section-pad" id="story">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-tag">Founded with Purpose</span>
+          <h2 class="section-title">Our <span class="grad-text">Story</span></h2>
+          <p class="section-sub">From a small kitchen workshop to an award-winning resin art studio — here's how it all began.</p>
+        </div>
+        <div class="story-grid">
+          <div class="story-images fade-left">
+            <div class="story-img-main">
+              <img src="./Images/resin.jpg" width="600" height="400" alt="Resin art creation process" loading="lazy" />
+            </div>
+            <div class="story-img-float fade-right">
+              <img src="./Images/studio.jpg" width="300" height="200" alt="Studio workspace" loading="lazy" />
+            </div>
+          </div>
+          <div class="story-content fade-right">
+            <div class="story-text">
+              <p>It started in 2018 with a dining table, a bag of resin, and an unshakeable belief that beauty could be poured from a bottle. Our founder, Aria Mehta, began experimenting with pigments and resins after years in interior design — searching for something more tactile, more personal.</p>
+              <p>What began as weekend experiments quickly became a full studio, as word spread through the city about pieces that seemed to trap sunlight and colour in amber glass. By 2020, ResinLux had its first dedicated workshop space and a growing community of artists and collectors.</p>
+              <p>Today, our studio spans 3,000 sq ft of creative space, housing six artisans, three dedicated workshops, and a gallery that has featured in Architectural Digest, Elle Décor, and local art exhibitions across the country.</p>
+            </div>
+            <div class="story-milestones">
+              <div class="milestone-item hover-lift">
+                <span class="milestone-year">2018</span>
+                <span class="milestone-desc">Studio Founded</span>
+              </div>
+              <div class="milestone-item hover-lift">
+                <span class="milestone-year">2020</span>
+                <span class="milestone-desc">First Gallery Show</span>
+              </div>
+              <div class="milestone-item hover-lift">
+                <span class="milestone-year">2022</span>
+                <span class="milestone-desc">National Award</span>
+              </div>
+              <div class="milestone-item hover-lift">
+                <span class="milestone-year">2024</span>
+                <span class="milestone-desc">500+ Commissions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: OUR MISSION -->
+    <section class="about-mission section-pad bg-alt" id="mission">
+      <div class="mission-bg-img">
+        <img src="./Images/mission.jpg" width="1600" height="700" alt="Mission background" loading="lazy" />
+        <div class="mission-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up" style="color:#fff;">
+          <span class="section-tag" style="background:rgba(255,255,255,0.15);color:#fff;">Why We Exist</span>
+          <h2 class="section-title" style="color:#fff;">Our <span class="grad-text">Mission</span></h2>
+          <p class="section-sub" style="color:rgba(255,255,255,0.8);">We exist to make meaningful art accessible, personal, and lasting — for every home and every story.</p>
+        </div>
+        <div class="mission-pillars">
+          <div class="pillar-card glass-card fade-up" style="--delay:0.1s">
+            <div class="pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>Accessible Art</h3>
+            <p>Fine art should not live only in galleries. We create bespoke pieces for everyday living spaces, making luxury tangible.</p>
+          </div>
+          <div class="pillar-card glass-card fade-up" style="--delay:0.2s">
+            <div class="pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3>Sustainable Materials</h3>
+            <p>We source eco-conscious resins and pigments, reducing our environmental impact while maintaining uncompromising quality.</p>
+          </div>
+          <div class="pillar-card glass-card fade-up" style="--delay:0.3s">
+            <div class="pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Community First</h3>
+            <p>Every workshop, every class, every collaboration is built to grow the creative community around us — not just our revenue.</p>
+          </div>
+          <div class="pillar-card glass-card fade-up" style="--delay:0.4s">
+            <div class="pillar-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Quality Without Compromise</h3>
+            <p>Every ResinLux piece is hand-crafted, cured to perfection, and guaranteed to maintain its brilliance for decades.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: OUR VISION -->
+    <section class="about-vision section-pad" id="vision">
+      <div class="container">
+        <div class="vision-layout">
+          <div class="vision-text fade-left">
+            <span class="section-tag">Looking Forward</span>
+            <h2 class="section-title">Our <span class="grad-text">Vision</span></h2>
+            <p class="vision-lead">To become the world's most beloved resin art studio — where every creation tells a story worth living with.</p>
+            <p>We envision a future where handcrafted resin art is as commonplace as fine photography — displayed in homes, offices, and public spaces around the globe. A future where our workshops have empowered over 10,000 aspiring artists to find their creative voice.</p>
+            <p>By 2030, we aim to have studios in five cities, a global online learning platform, and a certified sustainable supply chain that other studios model their practices after.</p>
+            <div class="vision-goals">
+              <div class="goal-item fade-up" style="--delay:0.1s">
+                <div class="goal-num">10K+</div>
+                <div class="goal-label">Artists Empowered</div>
+              </div>
+              <div class="goal-item fade-up" style="--delay:0.2s">
+                <div class="goal-num">5</div>
+                <div class="goal-label">Cities by 2030</div>
+              </div>
+              <div class="goal-item fade-up" style="--delay:0.3s">
+                <div class="goal-num">100%</div>
+                <div class="goal-label">Eco Materials</div>
+              </div>
+            </div>
+          </div>
+          <div class="vision-images fade-right">
+            <div class="vision-img-stack">
+              <img src="./Images/vision.jpg" width="500" height="600" alt="Vision — future studio" loading="lazy" class="vi-main" />
+              <div class="vision-float-card">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Award-Winning Studio</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TEAM -->
+    <section class="about-team section-pad bg-alt" id="team">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-tag">The Makers</span>
+          <h2 class="section-title">Meet the <span class="grad-text">Team</span></h2>
+          <p class="section-sub">Six passionate artisans who pour their heart (and resin) into every piece we create.</p>
+        </div>
+        <div class="team-grid">
+          <!-- Member 1 -->
+          <div class="team-card fade-up" style="--delay:0.05s">
+            <div class="team-img-wrap">
+              <img src="./Images/aria.jpg" width="400" height="400" alt="Aria Mehta" loading="lazy" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="team-info">
+              <h3>Aria Mehta</h3>
+              <span class="team-role">Founder & Lead Artist</span>
+              <p>Visionary behind ResinLux. Combines interior design expertise with resin mastery to create statement pieces.</p>
+            </div>
+          </div>
+          <!-- Member 2 -->
+          <div class="team-card fade-up" style="--delay:0.1s">
+            <div class="team-img-wrap">
+              <img src="./Images/rohan.jpg" width="400" height="400" alt="Rohan Kapoor" loading="lazy" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="team-info">
+              <h3>Rohan Kapoor</h3>
+              <span class="team-role">Master Resin Sculptor</span>
+              <p>Specialises in large-scale 3D resin sculptures and ocean-wave techniques that defy gravity.</p>
+            </div>
+          </div>
+          <!-- Member 3 -->
+          <div class="team-card fade-up" style="--delay:0.15s">
+            <div class="team-img-wrap">
+              <img src="./Images/leena.jpg" width="400" height="400" alt="Leena Sharma" loading="lazy" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="team-info">
+              <h3>Leena Sharma</h3>
+              <span class="team-role">Color Alchemist</span>
+              <p>Our pigment expert. Leena creates proprietary color blends that make every piece uniquely luminous.</p>
+            </div>
+          </div>
+          <!-- Member 4 -->
+          <div class="team-card fade-up" style="--delay:0.2s">
+            <div class="team-img-wrap">
+              <img src="./Images/dev.jpg" width="400" height="400" alt="Dev Nair" loading="lazy" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="team-info">
+              <h3>Dev Nair</h3>
+              <span class="team-role">Workshop Director</span>
+              <p>Runs all public and private workshops. Dev has guided over 2,000 students into their first resin creation.</p>
+            </div>
+          </div>
+          <!-- Member 5 -->
+          <div class="team-card fade-up" style="--delay:0.25s">
+            <div class="team-img-wrap">
+              <img src="./Images/priya.jpg" width="400" height="400" alt="Priya Joshi" loading="lazy" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="team-info">
+              <h3>Priya Joshi</h3>
+              <span class="team-role">Jewellery Specialist</span>
+              <p>Transforms resin into wearable art. Priya's jewellery line has been featured in three national fashion shows.</p>
+            </div>
+          </div>
+          <!-- Member 6 -->
+          <div class="team-card fade-up" style="--delay:0.3s">
+            <div class="team-img-wrap">
+              <img src="./Images/kiran.jpg" width="400" height="400" alt="Kiran Das" loading="lazy" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                </div>
+              </div>
+            </div>
+            <div class="team-info">
+              <h3>Kiran Das</h3>
+              <span class="team-role">Corporate & Events Lead</span>
+              <p>Manages bespoke corporate commissions and large event installations. The logistical heart of the studio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: VALUES & CULTURE -->
+    <section class="about-values section-pad" id="values">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-tag">What Drives Us</span>
+          <h2 class="section-title">Our <span class="grad-text">Values</span></h2>
+          <p class="section-sub">Six principles that shape every decision, every piece, and every relationship at ResinLux.</p>
+        </div>
+        <div class="values-grid">
+          <div class="value-card fade-left" style="--delay:0.05s">
+            <div class="value-num">01</div>
+            <h3>Authenticity</h3>
+            <p>Every piece is an honest expression of the artist's vision — never mass-produced, never replicated.</p>
+          </div>
+          <div class="value-card fade-right" style="--delay:0.1s">
+            <div class="value-num">02</div>
+            <h3>Mastery</h3>
+            <p>We pursue excellence in every pour, every cure, every finish. Good enough is never good enough.</p>
+          </div>
+          <div class="value-card fade-left" style="--delay:0.15s">
+            <div class="value-num">03</div>
+            <h3>Connection</h3>
+            <p>Art is a bridge between the maker and the collector. We honour that relationship with every commission.</p>
+          </div>
+          <div class="value-card fade-right" style="--delay:0.2s">
+            <div class="value-num">04</div>
+            <h3>Curiosity</h3>
+            <p>We experiment, we fail, we learn. Our studio is a living laboratory of colour, chemistry, and creativity.</p>
+          </div>
+          <div class="value-card fade-left" style="--delay:0.25s">
+            <div class="value-num">05</div>
+            <h3>Responsibility</h3>
+            <p>From sourcing to packaging, we choose sustainability at every step of our creative process.</p>
+          </div>
+          <div class="value-card fade-right" style="--delay:0.3s">
+            <div class="value-num">06</div>
+            <h3>Joy</h3>
+            <p>Creating should feel like play. We infuse our studio with laughter, music, and the sheer joy of making things.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: ACHIEVEMENTS & NUMBERS -->
+    <section class="about-numbers section-pad bg-dark-section" id="numbers">
+      <div class="numbers-bg">
+        <img src="./Images/numbers.jpg" width="1600" height="700" alt="Studio numbers background" loading="lazy" />
+        <div class="numbers-overlay"></div>
+      </div>
+      <div class="container">
+        <div class="section-header fade-up" style="color:#fff;">
+          <span class="section-tag" style="background:rgba(255,255,255,0.15);color:#fff;">By the Numbers</span>
+          <h2 class="section-title" style="color:#fff;">Six Years of <span class="grad-text">Impact</span></h2>
+        </div>
+        <div class="numbers-grid">
+          <div class="num-card fade-up" style="--delay:0.05s">
+            <div class="num-value" data-target="500">0</div>
+            <div class="num-plus">+</div>
+            <div class="num-label">Commissions Completed</div>
+          </div>
+          <div class="num-card fade-up" style="--delay:0.1s">
+            <div class="num-value" data-target="2000">0</div>
+            <div class="num-plus">+</div>
+            <div class="num-label">Students Taught</div>
+          </div>
+          <div class="num-card fade-up" style="--delay:0.15s">
+            <div class="num-value" data-target="14">0</div>
+            <div class="num-plus"></div>
+            <div class="num-label">Awards Won</div>
+          </div>
+          <div class="num-card fade-up" style="--delay:0.2s">
+            <div class="num-value" data-target="32">0</div>
+            <div class="num-plus"></div>
+            <div class="num-label">Press Features</div>
+          </div>
+          <div class="num-card fade-up" style="--delay:0.25s">
+            <div class="num-value" data-target="6">0</div>
+            <div class="num-plus"></div>
+            <div class="num-label">Expert Artisans</div>
+          </div>
+          <div class="num-card fade-up" style="--delay:0.3s">
+            <div class="num-value" data-target="98">0</div>
+            <div class="num-plus">%</div>
+            <div class="num-label">Client Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: TESTIMONIALS -->
+    <section class="about-testimonials section-pad" id="testimonials">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-tag">What Clients Say</span>
+          <h2 class="section-title">Stories of <span class="grad-text">Delight</span></h2>
+          <p class="section-sub">From homeowners to corporate clients — here's what people say about living with ResinLux art.</p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testi-card featured-testi fade-up" style="--delay:0.05s">
+            <div class="testi-quote-icon">&#8220;</div>
+            <p class="testi-text">The ocean-wave triptych Aria created for our living room stopped three guests mid-conversation during our first dinner party. ResinLux doesn't just make art — they create conversation pieces that outlast any trend.</p>
+            <div class="testi-author">
+              <img src="./Images/leena.jpg" width="60" height="60" alt="Meera Patel" loading="lazy" />
+              <div>
+                <strong>Meera Patel</strong>
+                <span>Interior Designer, Mumbai</span>
+              </div>
+            </div>
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          </div>
+          <div class="testi-card fade-up" style="--delay:0.1s">
+            <div class="testi-quote-icon">&#8220;</div>
+            <p class="testi-text">We ordered custom resin art for our entire office floor. The process was seamless, the pieces arrived perfectly, and our team productivity noticeably improved — probably because people are happier surrounded by beauty.</p>
+            <div class="testi-author">
+              <img src="./Images/rohan.jpg" width="60" height="60" alt="Arjun Mehrotra" loading="lazy" />
+              <div>
+                <strong>Arjun Mehrotra</strong>
+                <span>CEO, TechNova Solutions</span>
+              </div>
+            </div>
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          </div>
+          <div class="testi-card fade-up" style="--delay:0.15s">
+            <div class="testi-quote-icon">&#8220;</div>
+            <p class="testi-text">I attended Leena's color workshop on a whim, with zero artistic experience. Six hours later, I walked out with a piece I'm genuinely proud of. The team's patience and skill are extraordinary.</p>
+            <div class="testi-author">
+              <img src="./Images/aria.jpg" width="60" height="60" alt="Sana Hussain" loading="lazy" />
+              <div>
+                <strong>Sana Hussain</strong>
+                <span>Workshop Participant</span>
+              </div>
+            </div>
+            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: STUDIO GALLERY -->
+    <section class="about-gallery section-pad bg-alt" id="gallery">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-tag">Inside Our World</span>
+          <h2 class="section-title">Behind the <span class="grad-text">Scenes</span></h2>
+          <p class="section-sub">A glimpse into the creative space where every piece comes to life.</p>
+        </div>
+        <div class="gallery-masonry">
+          <div class="gal-item gal-tall fade-up" style="--delay:0.05s">
+            <img src="./Images/workspace.jpg" width="400" height="600" alt="Studio workspace" loading="lazy" />
+            <div class="gal-caption">Our Main Studio Floor</div>
+          </div>
+          <div class="gal-item fade-up" style="--delay:0.1s">
+            <img src="./Images/pouring.jpg" width="400" height="300" alt="Resin pouring" loading="lazy" />
+            <div class="gal-caption">The Pour in Progress</div>
+          </div>
+          <div class="gal-item fade-up" style="--delay:0.15s">
+            <img src="./Images/color.jpg" width="400" height="300" alt="Color mixing" loading="lazy" />
+            <div class="gal-caption">Color Lab</div>
+          </div>
+          <div class="gal-item gal-wide fade-up" style="--delay:0.2s">
+            <img src="./Images/session.jpg" width="600" height="300" alt="Workshop session" loading="lazy" />
+            <div class="gal-caption">Weekend Workshop</div>
+          </div>
+          <div class="gal-item fade-up" style="--delay:0.25s">
+            <img src="./Images/piece.jpg" width="400" height="300" alt="Finished pieces" loading="lazy" />
+            <div class="gal-caption">Gallery Wall</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: JOIN US CTA -->
+    <section class="about-joinus section-pad" id="joinus">
+      <div class="container">
+        <div class="joinus-layout">
+          <div class="joinus-text fade-left">
+            <span class="section-tag">Open Positions</span>
+            <h2 class="section-title">Join Our <span class="grad-text">Creative Family</span></h2>
+            <p>We're always looking for passionate artists, workshop facilitators, and creative thinkers who share our love for resin art. If you believe in beauty, sustainability, and community — we'd love to hear from you.</p>
+            <div class="job-list">
+              <div class="job-item hover-lift fade-up" style="--delay:0.1s">
+                <div class="job-info">
+                  <h4>Senior Resin Artist</h4>
+                  <span>Full-time · Mumbai</span>
+                </div>
+                <a href="#" class="btn-primary">Apply</a>
+              </div>
+              <div class="job-item hover-lift fade-up" style="--delay:0.15s">
+                <div class="job-info">
+                  <h4>Workshop Facilitator</h4>
+                  <span>Part-time · Remote + In-Studio</span>
+                </div>
+                <a href="#" class="btn-primary">Apply</a>
+              </div>
+              <div class="job-item hover-lift fade-up" style="--delay:0.2s">
+                <div class="job-info">
+                  <h4>Social Media & Content Creator</h4>
+                  <span>Full-time · Mumbai</span>
+                </div>
+                <a href="#" class="btn-primary">Apply</a>
+              </div>
+            </div>
+          </div>
+          <div class="joinus-image fade-right">
+            <img src="./Images/collab.jpg" width="500" height="550" alt="Team collaborating" loading="lazy" />
+            <div class="joinus-quote">
+              <blockquote>"The best thing about working here is that every single day, you make something that didn't exist before."</blockquote>
+              <cite>— Dev Nair, Workshop Director</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./about.js"></script>
+</body>
+</html>

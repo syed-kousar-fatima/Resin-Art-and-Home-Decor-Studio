@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./gifts.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="./index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="/index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="./gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+<main id="mainContent">
+
+    <!-- ══ SECTION 1: HERO ══ -->
+    <section class="s-hero" id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <img src="./Images/birth.jpg" alt="" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-particles" aria-hidden="true">
+        <span class="fp fp1"></span><span class="fp fp2"></span>
+        <span class="fp fp3"></span><span class="fp fp4"></span>
+        <span class="fp fp5"></span><span class="fp fp6"></span>
+      </div>
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-breadcrumb fade-down" data-delay="0">
+            <a href="index2.html">Home</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <a href="services.html">Services</a>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 4 10 8 6 12"/></svg>
+            <span>Birthday &amp; Wedding Gifts</span>
+          </div>
+          <h1 class="fade-up" data-delay="100">
+            Resin Gifts for Life’s<br>
+            <em>Most Special Occasions</em>
+          </h1>
+          <p class="hero-sub fade-up" data-delay="200">Celebrate the moments that matter most with handcrafted resin gifts that are as unique as the people receiving them. From bespoke birthday keepsakes to complete wedding favour collections — every piece is made with love, designed with care, and delivered beautifully.</p>
+          <div class="hero-actions fade-up" data-delay="300">
+            <a href="#order" class="btn-primary">Order a Gift</a>
+            <a href="#collection" class="btn-ghost-light">Browse Gift Ideas</a>
+          </div>
+          <div class="hero-stats fade-up" data-delay="400">
+            <div class="hs-item"><strong>5,000+</strong><span>Gifts Delivered</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>100%</strong><span>Personalised</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>Gift-Wrapped</strong><span>Every Order</span></div>
+            <div class="hs-sep" aria-hidden="true"></div>
+            <div class="hs-item"><strong>5–7 Days</strong><span>Production Time</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 2: WHAT WE OFFER ══ -->
+    <section class="s-about" id="about">
+      <div class="about-bg-anim" aria-hidden="true">
+        <div class="aba aba1"></div>
+        <div class="aba aba2"></div>
+        <div class="aba aba3"></div>
+      </div>
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-left fade-left">
+            <span class="section-tag">Gifts That Last Forever</span>
+            <h2>Handcrafted Resin Gifts<br>for Every Celebration</h2>
+            <p>Flowers wilt, chocolates disappear, and vouchers get forgotten. A ResinLux gift is something entirely different — a permanent, artisan-crafted piece of art that the recipient will treasure, display, and talk about for years to come.</p>
+            <p>Whether it’s a milestone birthday, a golden anniversary, a wedding favour for 200 guests, or a single statement piece for a bride-to-be — we create gifts that carry the meaning, colour, and personality of the occasion they celebrate.</p>
+            <ul class="about-points">
+              <li><div class="ap-dot"></div><span>Fully personalised with names, dates &amp; messages</span></li>
+              <li><div class="ap-dot"></div><span>Wedding favours from 20 to 500+ units</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Birthday keepsakes for every milestone age</span></li>
+              <li><div class="ap-dot ap-dot--teal"></div><span>Botanical, floral &amp; crystal inclusions</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>Luxury gift boxes &amp; ribbon wrapping included</span></li>
+              <li><div class="ap-dot ap-dot--amber"></div><span>Nationwide next-day delivery available</span></li>
+            </ul>
+            <a href="#order" class="btn-primary">Design a Gift</a>
+          </div>
+          <div class="about-right fade-right">
+            <div class="about-model">
+              <div class="am-frame">
+                <div class="am-canvas">
+                  <!-- Birthday cake + wedding SVG model -->
+                  <svg viewBox="0 0 280 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="canvas-svg">
+                    <!-- Background -->
+                    <rect x="8" y="8" width="264" height="324" rx="12" fill="var(--bg-card)" stroke="var(--border)" stroke-width="2"/>
+                    <!-- WEDDING RINGS top-left -->
+                    <circle cx="72" cy="80" r="30" stroke="var(--amber)" stroke-width="5" fill="none"/>
+                    <circle cx="98" cy="80" r="30" stroke="var(--primary)" stroke-width="5" fill="none"/>
+                    <!-- Diamond gem on ring -->
+                    <polygon points="85,46 92,56 85,62 78,56" fill="var(--primary)" opacity="0.9"/>
+                    <polygon points="85,46 92,56 85,62" fill="var(--secondary)" opacity="0.5"/>
+                    <circle cx="90" cy="49" r="3" fill="white" opacity="0.5"/>
+                    <!-- BIRTHDAY CAKE bottom-right -->
+                    <!-- Cake base tier -->
+                    <rect x="142" y="220" width="116" height="78" rx="8" fill="var(--amber)" opacity="0.8"/>
+                    <!-- Cake middle tier -->
+                    <rect x="154" y="175" width="92" height="50" rx="6" fill="var(--primary)" opacity="0.7"/>
+                    <!-- Cake top tier -->
+                    <rect x="168" y="145" width="64" height="36" rx="5" fill="var(--secondary)" opacity="0.75"/>
+                    <!-- Candles -->
+                    <rect x="180" y="118" width="8" height="30" rx="3" fill="var(--primary)" opacity="0.8"/>
+                    <rect x="196" y="122" width="8" height="26" rx="3" fill="var(--secondary)" opacity="0.8"/>
+                    <rect x="212" y="119" width="8" height="28" rx="3" fill="var(--amber)" opacity="0.8"/>
+                    <!-- Flames -->
+                    <ellipse cx="184" cy="116" rx="5" ry="7" fill="var(--amber)"/>
+                    <ellipse cx="200" cy="120" rx="4" ry="6" fill="var(--amber)"/>
+                    <ellipse cx="216" cy="117" rx="4.5" ry="6.5" fill="var(--amber)"/>
+                    <!-- Cake decorations -->
+                    <circle cx="154" cy="254" r="6" fill="var(--primary)" opacity="0.5"/>
+                    <circle cx="172" cy="242" r="5" fill="var(--secondary)" opacity="0.5"/>
+                    <circle cx="200" cy="248" r="5" fill="var(--amber)" opacity="0.55"/>
+                    <circle cx="238" cy="252" r="6" fill="var(--primary)" opacity="0.4"/>
+                    <!-- GIFT BOX left-bottom -->
+                    <rect x="24" y="196" width="96" height="88" rx="8" fill="var(--secondary)" opacity="0.18" stroke="var(--border)" stroke-width="1.5"/>
+                    <rect x="22" y="182" width="100" height="22" rx="6" fill="var(--secondary)" opacity="0.6"/>
+                    <!-- Ribbon -->
+                    <rect x="67" y="182" width="12" height="102" rx="3" fill="var(--amber)" opacity="0.7"/>
+                    <rect x="22" y="216" width="100" height="10" rx="3" fill="var(--amber)" opacity="0.7"/>
+                    <!-- Bow -->
+                    <ellipse cx="60" cy="178" rx="18" ry="10" fill="var(--amber)" opacity="0.8" transform="rotate(-25 60 178)"/>
+                    <ellipse cx="84" cy="178" rx="18" ry="10" fill="var(--amber)" opacity="0.8" transform="rotate(25 84 178)"/>
+                    <circle cx="72" cy="180" r="8" fill="var(--amber)" opacity="0.9"/>
+                    <!-- Stars / sparkles -->
+                    <circle cx="42" cy="120" r="4" fill="var(--amber)" opacity="0.6"/>
+                    <circle cx="250" cy="155" r="3" fill="var(--primary)" opacity="0.5"/>
+                    <circle cx="135" cy="165" r="2.5" fill="var(--secondary)" opacity="0.5"/>
+                    <text x="40" y="115" font-size="12" fill="var(--amber)" opacity="0.6">♥</text>
+                    <text x="240" y="106" font-size="10" fill="var(--primary)" opacity="0.5">☆</text>
+                  </svg>
+                </div>
+                <div class="am-badge fade-in" data-delay="500">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                  <span>Gift-Wrapped<br>&amp; Personalised</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 3: GIFT COLLECTION CAROUSEL ══ -->
+    <section class="s-carousel" id="collection">
+      <div class="carousel-section-bg" aria-hidden="true">
+        <img src="./Images/gift.jpg" alt="" />
+        <div class="csb-overlay"></div>
+        <div class="csb-ring ring-a"></div>
+        <div class="csb-ring ring-b"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Gift Ideas</span>
+          <h2>Our Birthday &amp; Wedding Gift Collection</h2>
+          <p>Six signature gift lines — each fully customisable with personal names, dates, colours, and messages.</p>
+        </div>
+        <div class="carousel-wrap">
+          <button class="carousel-btn c-prev" id="cPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="carousel-track-outer">
+            <div class="carousel-track" id="carouselTrack">
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/favor.jpg" alt="Wedding favour set" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Best Seller</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Wedding Favour Sets</h3>
+                  <p>Personalised resin coasters, magnets, or keyrings engraved with the couple’s names and wedding date. Available in any colour palette to match your wedding theme, from 20 to 500+ units.</p>
+                  <div class="c-slide-meta"><span>Min. 20 favours &bull; Custom colours</span><span class="csm-price">From £8/favour</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/birthday.jpg" alt="Birthday keepsake" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Popular Gift</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Milestone Birthday Keepsakes</h3>
+                  <p>A one-of-a-kind resin artwork celebrating a milestone birthday — 18th, 21st, 30th, 40th, 50th or any age. Personalised with name, year, and their favourite colours or florals.</p>
+                  <div class="c-slide-meta"><span>Any age &bull; Personalised</span><span class="csm-price">From £65</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/bridal.jpg" alt="Bridal gift set" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag cso-tag--amber">Bridal</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Bridal Gift Sets</h3>
+                  <p>Luxurious gift sets for the bride-to-be — a personalised tray, coaster set, and keepsake box using her wedding colour palette. The ultimate hen party or bridal shower gift.</p>
+                  <div class="c-slide-meta"><span>3-piece set &bull; Custom palette</span><span class="csm-price">From £125</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/cake.jpg" alt="Resin cake topper" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Unique</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Resin Cake Toppers</h3>
+                  <p>Bespoke resin cake toppers in custom shapes — initial letters, hearts, floral arches, or abstract sculpture. Available for wedding cakes, birthday cakes, and anniversary celebrations.</p>
+                  <div class="c-slide-meta"><span>Any shape &bull; Keepsake after</span><span class="csm-price">From £45</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/anniversary.jpg" alt="Anniversary gift" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Anniversary</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Anniversary Art Pieces</h3>
+                  <p>Commission a resin artwork to mark a wedding anniversary — ruby, golden, silver, or pearl. Embed real flowers from the original wedding bouquet or meaningful mementos inside the piece.</p>
+                  <div class="c-slide-meta"><span>Wedding flowers &bull; Any anniversary</span><span class="csm-price">From £145</span></div>
+                </div>
+              </div>
+
+              <div class="c-slide">
+                <div class="c-slide-img">
+                  <img src="./Images/numbers.jpg" alt="Table number set" loading="lazy" />
+                  <div class="c-slide-overlay"><span class="cso-tag">Wedding</span></div>
+                </div>
+                <div class="c-slide-body">
+                  <h3>Wedding Table Numbers &amp; Stationery</h3>
+                  <p>Matching sets of resin table numbers, name place holders, and decorative centrepiece stands — all in your wedding colours and styled to complement your table decor perfectly.</p>
+                  <div class="c-slide-meta"><span>Matching sets &bull; Any colour</span><span class="csm-price">From £12/number</span></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <button class="carousel-btn c-next" id="cNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 4: HOW IT WORKS ══ -->
+    <section class="s-process" id="process">
+      <div class="process-bg-anim" aria-hidden="true">
+        <div class="pba pba1"></div>
+        <div class="pba pba2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">The Process</span>
+          <h2>From Your Idea to Their<br>Perfect Gift</h2>
+          <p>Ordering a personalised ResinLux gift is simple, joyful, and completely guided by our team from start to delivery.</p>
+        </div>
+        <div class="process-timeline">
+
+          <div class="pt-item fade-left" data-delay="0">
+            <div class="pt-node"><div class="pt-num">01</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <h3>Tell Us Your Vision</h3>
+              <p>Complete our online order form with the recipient’s name, the occasion, your preferred colour palette, any inclusions you’d like (botanicals, florals, gold leaf), and your delivery deadline. No idea is too detailed or too open — our gift designers can suggest the perfect piece for any budget.</p>
+              <span class="pt-time">Day 1</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="80">
+            <div class="pt-node"><div class="pt-num pt-num--teal">02</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="26" height="26" rx="3"/><path d="M8 16l5 5 11-11"/></svg>
+              </div>
+              <h3>Design Confirmation &amp; Quote</h3>
+              <p>Within 24 hours we send a personalised design proposal with colour swatches, product options, and a clear price. For wedding orders with 50+ items, we produce a physical sample at no extra charge so you can approve the exact finish before production begins. Revisions are always free.</p>
+              <span class="pt-time">Day 1–2</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="160">
+            <div class="pt-node"><div class="pt-num pt-num--amber">03</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 4 C10 10 4 14 4 22 C4 27 9.4 30 16 30 C22.6 30 28 27 28 22 C28 14 22 10 16 4Z"/></svg>
+              </div>
+              <h3>Artisan Production</h3>
+              <p>Once you confirm, our artisans begin crafting your gifts by hand. Resin is mixed, pigments are blended to your exact palette, and inclusions are placed with jeweller’s precision. Personalisation (names, dates, messages) is embedded into the final resin layer for a permanent, seamless result.</p>
+              <span class="pt-time">Days 2–6</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="240">
+            <div class="pt-node"><div class="pt-num">04</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 24 L10 18 L16 22 L22 10 L28 16"/></svg>
+              </div>
+              <h3>Quality Check &amp; Finishing</h3>
+              <p>Each piece is individually inspected, wet-sanded to a high-gloss clarity, and finished with a UV-resistant topcoat. Wedding favour sets are batch-checked to ensure perfect colour consistency across every unit. Any piece that doesn’t meet our standard is remade before it reaches you.</p>
+              <span class="pt-time">Day 6–7</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-left" data-delay="320">
+            <div class="pt-node"><div class="pt-num pt-num--teal">05</div><div class="pt-line"></div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--teal">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12V22H4V12"/><path d="M22 7H2v5h20V7z"/><path d="M12 22V7"/></svg>
+              </div>
+              <h3>Gift Wrapping &amp; Packaging</h3>
+              <p>Every gift is placed in a luxury magnetic-close box, nestled on velvet cushioning with tissue paper and ribbon. Wedding favours are individually wrapped and tied, then packed into presentation trays by table. A handwritten personalised message card is placed inside every single order.</p>
+              <span class="pt-time">Day 7–8</span>
+            </div>
+          </div>
+
+          <div class="pt-item fade-right" data-delay="400">
+            <div class="pt-node"><div class="pt-num pt-num--amber">06</div></div>
+            <div class="pt-body">
+              <div class="pt-icon pt-icon--amber">
+                <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 5-9 13-9 13S3 15 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <h3>Delivery to Your Door</h3>
+              <p>Dispatched via fully tracked, insured courier. Single gifts arrive in 1–2 working days from dispatch. Wedding favour orders are delivered in custom presentation boxes arranged by table number, ready to place directly at your venue. Next-day delivery available on most single gift orders.</p>
+              <span class="pt-time">Day 8–10</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 5: WHAT'S INCLUDED ══ -->
+    <section class="s-materials" id="included">
+      <div class="mat-bg" aria-hidden="true">
+        <img src="./Images/client.jpg" alt="" />
+        <div class="mat-overlay"></div>
+        <div class="mat-blob mb1"></div>
+        <div class="mat-blob mb2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Every Detail Matters</span>
+          <h2>What’s Included in Every Gift Order</h2>
+          <p>From the first pour to the final ribbon — nothing is left to chance. Every ResinLux gift is complete from the moment it leaves our studio.</p>
+        </div>
+        <div class="mat-grid">
+          <div class="mat-card fade-up" data-delay="0">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="14" stroke="var(--primary)" stroke-width="2"/>
+                <path d="M20 10 C15 14 10 17 10 23 C10 28 14.5 32 20 32 C25.5 32 30 28 30 23 C30 17 25 14 20 10Z" fill="var(--primary)" opacity="0.8"/>
+                <circle cx="25" cy="19" r="4" fill="white" opacity="0.28"/>
+              </svg>
+            </div>
+            <h3>Premium Resin &amp; Pigments</h3>
+            <p>UV-stable, non-toxic, food-safe epoxy resin blended with cosmetic-grade mica pigments in over 80 colours. Every gift maintains its vibrancy for decades without yellowing or fading.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="100">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <ellipse cx="14" cy="20" rx="8" ry="12" fill="var(--secondary)" opacity="0.7" transform="rotate(-15 14 20)"/>
+                <ellipse cx="26" cy="20" rx="8" ry="12" fill="var(--primary)" opacity="0.5" transform="rotate(15 26 20)"/>
+                <circle cx="20" cy="15" r="5" fill="var(--amber)" opacity="0.8"/>
+                <circle cx="22" cy="13" r="2" fill="white" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Real Botanical Inclusions</h3>
+            <p>Dried flowers, pressed petals, foliage, and botanicals from your own wedding bouquet or our studio collection. Permanently preserved inside the resin, never to fade or wither.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="200">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <polygon points="20,4 24,14 36,14 27,21 30,32 20,25 10,32 13,21 4,14 16,14" fill="var(--amber)" opacity="0.75"/>
+                <polygon points="20,4 24,14 36,14 27,21 30,32 20,25 10,32 13,21 4,14 16,14" stroke="var(--amber)" stroke-width="1" fill="none"/>
+              </svg>
+            </div>
+            <h3>24-Carat Gold Leaf</h3>
+            <p>Genuine 24-carat gold and silver leaf available as a premium inclusion in any piece. Catches the light beautifully and adds a truly luxurious dimension to birthday and wedding gifts alike.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="300">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="6" y="10" width="28" height="24" rx="5" stroke="var(--secondary)" stroke-width="2"/>
+                <line x1="6" y1="19" x2="34" y2="19" stroke="var(--secondary)" stroke-width="1.5" opacity="0.4"/>
+                <rect x="14" y="6" width="12" height="10" rx="3" stroke="var(--secondary)" stroke-width="2"/>
+                <rect x="16" y="26" width="8" height="4" rx="2" fill="var(--secondary)" opacity="0.5"/>
+              </svg>
+            </div>
+            <h3>Luxury Gift Box &amp; Ribbon</h3>
+            <p>Every piece is presented in a magnetic-close premium gift box with velvet cushioning, tissue paper, and a satin ribbon. Wedding favours are individually wrapped and arranged. No extra charge for packaging.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="400">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <rect x="4" y="8" width="32" height="24" rx="5" stroke="var(--primary)" stroke-width="2" fill="none"/>
+                <path d="M4 16h32" stroke="var(--primary)" stroke-width="1.5" opacity="0.4"/>
+                <path d="M14 16 L14 32" stroke="var(--primary)" stroke-width="1.5" opacity="0.3"/>
+                <circle cx="9" cy="12" r="2" fill="var(--primary)" opacity="0.6"/>
+              </svg>
+            </div>
+            <h3>Personalised Message Card</h3>
+            <p>Every order includes a handwritten or printed personalised message card from you to your recipient. For wedding favours, individual per-guest name tags are available as part of the order.</p>
+          </div>
+          <div class="mat-card fade-up" data-delay="500">
+            <div class="mc-icon">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="16" stroke="var(--amber)" stroke-width="2.5" fill="none"/>
+                <path d="M12 20 L16 24 L28 14" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Care Guide &amp; Guarantee</h3>
+            <p>All gifts include a printed care and maintenance guide with tips for display, cleaning, and long-term storage. Every piece is covered by a 12-month quality guarantee against defects.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 6: PRICING ══ -->
+    <section class="s-pricing" id="pricing">
+      <div class="pricing-bg-anim" aria-hidden="true">
+        <div class="pric-blob pb1"></div>
+        <div class="pric-blob pb2"></div>
+        <div class="pric-blob pb3"></div>
+      </div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Gift Packages</span>
+          <h2>Gifts for Every Budget</h2>
+          <p>All prices include full personalisation, luxury packaging, and tracked delivery. No hidden extras.</p>
+        </div>
+        <div class="pricing-grid">
+
+          <div class="price-card fade-left" data-delay="0">
+            <div class="pc-header">
+              <span class="pc-tier">Single Gift</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£45</strong></div>
+              <p>The perfect individual gift — a personalised resin keepsake for a birthday, anniversary, or celebration.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 1 personalised piece</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Name, date or message embed</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 2 colour choices</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Luxury gift box</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Message card included</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Botanical inclusions</li>
+              <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Gold leaf accent</li>
+            </ul>
+            <a href="#order" class="btn-secondary">Order a Gift</a>
+          </div>
+
+          <div class="price-card price-card--featured fade-up" data-delay="100">
+            <div class="pc-popular">Most Popular</div>
+            <div class="pc-header">
+              <span class="pc-tier">Signature Gift</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£85</strong></div>
+              <p>Our most-gifted tier — a premium personalised piece with botanical or gold leaf inclusions. Ideal for milestone occasions.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 1 premium personalised piece</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Unlimited colour combinations</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Botanical or gold leaf inclusions</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Customer flowers accepted</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Premium luxury gift box</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Personalised message card</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 12-month quality guarantee</li>
+            </ul>
+            <a href="#order" class="btn-primary">Order Signature</a>
+          </div>
+
+          <div class="price-card fade-right" data-delay="200">
+            <div class="pc-header">
+              <span class="pc-tier">Wedding &amp; Collection</span>
+              <div class="pc-price"><span class="pc-from">From</span><strong>£8</strong><span class="pc-each">/favour</span></div>
+              <p>Complete wedding favour sets, bridal gift collections, and multi-piece celebration bundles from 20 to 500+ units.</p>
+            </div>
+            <ul class="pc-features">
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Minimum 20 units</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Couple’s names &amp; wedding date</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Wedding colour palette matching</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Physical sample before production</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Per-guest name tags available</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Table arrangement included</li>
+              <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Bulk discount from 100+ units</li>
+            </ul>
+            <a href="#order" class="btn-secondary">Enquire Wedding</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 7: STORIES ══ -->
+    <section class="s-stories" id="stories">
+      <div class="stories-bg" aria-hidden="true">
+        <img src="./Images/story.jpg" alt="" />
+        <div class="sb-overlay"></div>
+        <div class="sb-anim sa1"></div>
+        <div class="sb-anim sa2"></div>
+      </div>
+      <div class="container">
+        <div class="section-head section-head--light fade-up">
+          <span class="section-tag section-tag--light">Real Stories</span>
+          <h2>Gifts That Made People Cry (Happy Tears)</h2>
+          <p>The reactions when a ResinLux gift is unwrapped are unlike anything else. Here are just a few.</p>
+        </div>
+        <div class="stories-grid">
+          <div class="story-card story-card--large fade-left" data-delay="0">
+            <div class="stc-img">
+              <img src="./Images/wedding.jpg" alt="Wedding gift story" loading="lazy" />
+            </div>
+            <div class="stc-body">
+              <div class="stc-stars">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+              <blockquote>&ldquo;We ordered 180 resin coaster favours for our wedding in dusty rose and sage. Every single guest commented on how beautiful they were — several cried when they saw the couple’s initials and wedding date embedded inside. They sat on our table for six months after the wedding because we couldn’t bring ourselves to put them away. ResinLux made our wedding unforgettable.&rdquo;</blockquote>
+              <div class="stc-author">
+                <div class="stca-avatar" style="background:rgba(147,51,234,.15);color:var(--primary)">SE</div>
+                <div><strong>Sophie &amp; Ethan Clarke</strong><span>Wedding Favours (180 units) — Yorkshire</span></div>
+                <span class="stca-pkg">Wedding</span>
+              </div>
+            </div>
+          </div>
+          <div class="story-card fade-up" data-delay="100">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;I bought my mum a personalised resin piece for her 60th birthday with her birth flowers and the year she was born embedded in her favourite colours. She sobbed. She has it on the mantlepiece and shows every visitor. Best gift I’ve ever given.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(8,145,178,.15);color:var(--secondary)">KH</div>
+              <div><strong>Katie Hughes</strong><span>60th Birthday Keepsake — Bristol</span></div>
+              <span class="stca-pkg stca-pkg--teal">Signature</span>
+            </div>
+          </div>
+          <div class="story-card fade-right" data-delay="200">
+            <div class="stc-stars">
+              <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+            </div>
+            <blockquote>&ldquo;The bridal gift set I bought my best friend for her hen do was stunning — a personalised tray, coasters, and jewellery dish in her wedding colours with her future married name. She kept it on her dressing table throughout the wedding morning. Truly irreplaceable.&rdquo;</blockquote>
+            <div class="stc-author">
+              <div class="stca-avatar" style="background:rgba(217,119,6,.15);color:var(--amber)">NP</div>
+              <div><strong>Natasha Price</strong><span>Bridal Gift Set — London</span></div>
+              <span class="stca-pkg stca-pkg--amber">Bridal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 8: ORDER FORM ══ -->
+    <section class="s-order" id="order">
+      <div class="order-bg-anim" aria-hidden="true">
+        <div class="oba oba1"></div>
+        <div class="oba oba2"></div>
+        <div class="oba oba3"></div>
+      </div>
+      <div class="container">
+        <div class="order-inner">
+          <div class="order-left fade-left">
+            <span class="section-tag">Order Your Gift</span>
+            <h2>Create the Perfect<br>Gift Right Now</h2>
+            <p>Fill in the form below and we’ll send a personalised design proposal and price within 24 hours. There’s no obligation, and the design consultation is always free.</p>
+            <div class="order-reassurances">
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Free design consultation, no obligation
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Ready in 5–7 working days
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Next-day delivery available on single gifts
+              </div>
+              <div class="or-item">
+                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
+                Luxury gift box &amp; message card included
+              </div>
+            </div>
+            <!-- Gift model -->
+            <div class="order-model" aria-hidden="true">
+              <svg viewBox="0 0 160 70" fill="none" xmlns="http://www.w3.org/2000/svg" width="160" height="70">
+                <!-- Gift box 1 -->
+                <rect x="4"   y="14" width="44" height="50" rx="5" fill="var(--primary)"   opacity="0.15" stroke="var(--primary)"   stroke-width="1.5"/>
+                <rect x="2"   y="9"  width="48" height="12" rx="4" fill="var(--primary)"   opacity="0.5"/>
+                <rect x="23"  y="9"  width="8"  height="55" rx="2" fill="var(--amber)"     opacity="0.6"/>
+                <!-- Gift box 2 -->
+                <rect x="58"  y="20" width="44" height="44" rx="5" fill="var(--secondary)" opacity="0.15" stroke="var(--secondary)" stroke-width="1.5"/>
+                <rect x="56"  y="14" width="48" height="12" rx="4" fill="var(--secondary)" opacity="0.5"/>
+                <rect x="77"  y="14" width="8"  height="50" rx="2" fill="var(--amber)"     opacity="0.6"/>
+                <!-- Gift box 3 -->
+                <rect x="112" y="10" width="44" height="54" rx="5" fill="var(--amber)"     opacity="0.15" stroke="var(--amber)"     stroke-width="1.5"/>
+                <rect x="110" y="4"  width="48" height="12" rx="4" fill="var(--amber)"     opacity="0.5"/>
+                <rect x="131" y="4"  width="8"  height="60" rx="2" fill="var(--primary)"   opacity="0.5"/>
+                <!-- Hearts -->
+                <text x="20"  y="46" font-size="14" fill="var(--primary)"   opacity="0.5">♥</text>
+                <text x="74"  y="46" font-size="12" fill="var(--secondary)" opacity="0.5">♥</text>
+                <text x="128" y="40" font-size="14" fill="var(--amber)"     opacity="0.5">♥</text>
+              </svg>
+            </div>
+          </div>
+
+          <div class="order-right fade-right">
+            <div class="order-form-card">
+              <h3>Gift Order Enquiry</h3>
+              <form id="giftForm" novalidate>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="gf-name">Your Name <span class="req">*</span></label>
+                    <input type="text" id="gf-name" placeholder="e.g. Katie Hughes" autocomplete="name" />
+                    <span class="field-error" id="gf-name-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="gf-email">Email Address <span class="req">*</span></label>
+                    <input type="email" id="gf-email" placeholder="you@example.com" autocomplete="email" />
+                    <span class="field-error" id="gf-email-err"></span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="gf-phone">Phone Number</label>
+                    <input type="tel" id="gf-phone" placeholder="+44 7700 000000" autocomplete="tel" />
+                  </div>
+                  <div class="form-group">
+                    <label for="gf-occasion">Occasion <span class="req">*</span></label>
+                    <select id="gf-occasion">
+                      <option value="">Select occasion</option>
+                      <option>Birthday (18th)</option>
+                      <option>Birthday (21st)</option>
+                      <option>Birthday (30th)</option>
+                      <option>Birthday (40th)</option>
+                      <option>Birthday (50th)</option>
+                      <option>Birthday (60th+)</option>
+                      <option>Wedding Favours</option>
+                      <option>Bridal Gift Set</option>
+                      <option>Wedding Anniversary</option>
+                      <option>Hen Party Gift</option>
+                      <option>Cake Topper</option>
+                      <option>Table Numbers / Stationery</option>
+                      <option>Other Celebration</option>
+                    </select>
+                    <span class="field-error" id="gf-occasion-err"></span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="gf-recipient">Recipient’s Name <span class="req">*</span></label>
+                    <input type="text" id="gf-recipient" placeholder="Name to personalise the gift" />
+                    <span class="field-error" id="gf-recipient-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="gf-qty">Quantity</label>
+                    <select id="gf-qty">
+                      <option value="">Select quantity</option>
+                      <option>1 gift</option>
+                      <option>2–5 gifts</option>
+                      <option>6–19 units</option>
+                      <option>20–49 units (wedding favours)</option>
+                      <option>50–100 units</option>
+                      <option>100–250 units</option>
+                      <option>250+ units</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="gf-deadline">Required By Date <span class="req">*</span></label>
+                    <input type="date" id="gf-deadline" />
+                    <span class="field-error" id="gf-deadline-err"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="gf-budget">Approximate Budget</label>
+                    <select id="gf-budget">
+                      <option value="">Select budget</option>
+                      <option>Under £50</option>
+                      <option>£50 – £100</option>
+                      <option>£100 – £250</option>
+                      <option>£250 – £500</option>
+                      <option>£500 – £1,500</option>
+                      <option>£1,500+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="gf-details">Colour &amp; Personalisation Details <span class="req">*</span></label>
+                  <textarea id="gf-details" rows="4" placeholder="e.g. Purple and gold for a 50th birthday, embed the name &quot;Margaret&quot; and the date, include dried lavender. Or: dusty rose and sage wedding favours with &quot;Sophie &amp; Ethan 14.06.25&quot;..."></textarea>
+                  <span class="field-error" id="gf-details-err"></span>
+                </div>
+
+                <div class="form-check">
+                  <input type="checkbox" id="gf-agree" />
+                  <label for="gf-agree">I agree to ResinLux Studio contacting me about this gift order. <span class="req">*</span></label>
+                </div>
+                <span class="field-error" id="gf-agree-err"></span>
+
+                <button type="submit" class="btn-primary btn-full">Submit Gift Order Enquiry</button>
+                <p class="form-note">We reply within 24 hours with a design proposal. No obligation to proceed.</p>
+              </form>
+
+              <div class="order-success" id="giftSuccess" hidden>
+                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
+                <strong>Order Enquiry Received!</strong>
+                <p>Thank you! Our gift designers will send you a personalised proposal within 24 hours. They’re going to love this gift.</p>
+                <a href="services.html" class="btn-secondary">Explore Other Services</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src=".//gifts.js"></script>
+</body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./coming.css">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+ <main id="mainContent">
+
+    <!-- ── SECTION 1: HERO COUNTDOWN ── -->
+    <section class="s-hero" id="hero">
+      <div class="hero-blob blob-1" aria-hidden="true"></div>
+      <div class="hero-blob blob-2" aria-hidden="true"></div>
+      <div class="hero-blob blob-3" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-inner">
+
+          <div class="hero-left">
+            <span class="hero-eyebrow fade-down" data-delay="0">Something Special is Coming</span>
+            <h1 class="fade-up" data-delay="100">
+              We're Crafting<br>
+              <em>Something Beautiful</em>
+            </h1>
+            <p class="hero-desc fade-up" data-delay="200">
+              ResinLux Studio is preparing a brand-new experience — new collections, new workshops, and a fully redesigned store. Get ready to be inspired.
+            </p>
+
+            <!-- Countdown -->
+            <div class="countdown fade-up" data-delay="300">
+              <div class="cd-block">
+                <span class="cd-num" id="cd-days">00</span>
+                <span class="cd-label">Days</span>
+              </div>
+              <span class="cd-sep" aria-hidden="true">:</span>
+              <div class="cd-block">
+                <span class="cd-num" id="cd-hours">00</span>
+                <span class="cd-label">Hours</span>
+              </div>
+              <span class="cd-sep" aria-hidden="true">:</span>
+              <div class="cd-block">
+                <span class="cd-num" id="cd-mins">00</span>
+                <span class="cd-label">Minutes</span>
+              </div>
+              <span class="cd-sep" aria-hidden="true">:</span>
+              <div class="cd-block">
+                <span class="cd-num" id="cd-secs">00</span>
+                <span class="cd-label">Seconds</span>
+              </div>
+            </div>
+
+            <div class="hero-actions fade-up" data-delay="400">
+              <a href="#notify" class="btn-primary">Notify Me at Launch</a>
+              <a href="#sneak" class="btn-secondary">Sneak Preview</a>
+            </div>
+          </div>
+
+          <div class="hero-right fade-in" data-delay="150">
+            <!-- Resin drop SVG model -->
+            <div class="hero-model">
+              <div class="model-ring ring-outer"></div>
+              <div class="model-ring ring-mid"></div>
+              <div class="model-core">
+                <svg viewBox="0 0 160 200" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-hero">
+                  <ellipse cx="80" cy="178" rx="52" ry="18" fill="var(--secondary)" opacity="0.15"/>
+                  <path d="M80 10 C52 55 24 80 24 120 C24 158 50 185 80 185 C110 185 136 158 136 120 C136 80 108 55 80 10Z" fill="var(--primary)"/>
+                  <ellipse cx="103" cy="100" rx="18" ry="26" fill="white" opacity="0.18" transform="rotate(-20 103 100)"/>
+                  <circle cx="108" cy="88" r="8" fill="white" opacity="0.32"/>
+                  <path d="M50 130 Q80 115 110 130" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+                </svg>
+              </div>
+              <div class="model-particles">
+                <span class="mp mp1"></span>
+                <span class="mp mp2"></span>
+                <span class="mp mp3"></span>
+                <span class="mp mp4"></span>
+                <span class="mp mp5"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: WHAT'S COMING (SNEAK PEEK) ── -->
+    <section class="s-sneak" id="sneak">
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Sneak Peek</span>
+          <h2>What We're Preparing for You</h2>
+          <p>A curated glimpse into the new features, collections, and experiences launching soon.</p>
+        </div>
+        <div class="sneak-grid">
+
+          <div class="sneak-card fade-left" data-delay="0">
+            <div class="sneak-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l3 3 5-5"/></svg>
+            </div>
+            <div class="sneak-body">
+              <h3>New Resin Collections</h3>
+              <p>Over 60 new handcrafted pieces dropping at launch — wall art, trays, coasters, and exclusive limited editions.</p>
+            </div>
+            <div class="sneak-progress">
+              <span class="sp-label">Ready</span>
+              <div class="sp-bar"><div class="sp-fill" style="--pct:82%"></div></div>
+              <span class="sp-pct">82%</span>
+            </div>
+          </div>
+
+          <div class="sneak-card fade-up" data-delay="80">
+            <div class="sneak-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="sneak-body">
+              <h3>Live Workshop Booking</h3>
+              <p>Real-time seat availability, instant confirmation, and digital workshop kits — all inside a brand-new booking system.</p>
+            </div>
+            <div class="sneak-progress">
+              <span class="sp-label">Ready</span>
+              <div class="sp-bar"><div class="sp-fill" style="--pct:70%"></div></div>
+              <span class="sp-pct">70%</span>
+            </div>
+          </div>
+
+          <div class="sneak-card fade-right" data-delay="160">
+            <div class="sneak-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div class="sneak-body">
+              <h3>Commission Portal</h3>
+              <p>Submit your custom order, track its progress in real-time, and receive digital previews before your piece is poured.</p>
+            </div>
+            <div class="sneak-progress">
+              <span class="sp-label">Ready</span>
+              <div class="sp-bar"><div class="sp-fill" style="--pct:58%"></div></div>
+              <span class="sp-pct">58%</span>
+            </div>
+          </div>
+
+          <div class="sneak-card fade-left" data-delay="240">
+            <div class="sneak-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </div>
+            <div class="sneak-body">
+              <h3>Resin Art Blog 2.0</h3>
+              <p>In-depth tutorials, video guides, colour theory breakdowns, and exclusive DIY recipes from our master artisans.</p>
+            </div>
+            <div class="sneak-progress">
+              <span class="sp-label">Ready</span>
+              <div class="sp-bar"><div class="sp-fill" style="--pct:90%"></div></div>
+              <span class="sp-pct">90%</span>
+            </div>
+          </div>
+
+          <div class="sneak-card fade-up" data-delay="320">
+            <div class="sneak-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <div class="sneak-body">
+              <h3>Loyalty Rewards</h3>
+              <p>Earn points with every purchase, workshop, and referral. Redeem for free pieces, exclusive discounts, and early access.</p>
+            </div>
+            <div class="sneak-progress">
+              <span class="sp-label">Ready</span>
+              <div class="sp-bar"><div class="sp-fill" style="--pct:45%"></div></div>
+              <span class="sp-pct">45%</span>
+            </div>
+          </div>
+
+          <div class="sneak-card fade-right" data-delay="400">
+            <div class="sneak-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <div class="sneak-body">
+              <h3>VIP Early Access</h3>
+              <p>Be the first to shop new drops, get private workshop invites, and receive a personalised launch gift from us.</p>
+            </div>
+            <div class="sneak-progress">
+              <span class="sp-label">Ready</span>
+              <div class="sp-bar"><div class="sp-fill sp-fill--amber" style="--pct:100%"></div></div>
+              <span class="sp-pct">100%</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: EMAIL NOTIFY ── -->
+    <section class="s-notify" id="notify">
+      <div class="notify-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="notify-wrap">
+          <div class="notify-left fade-left">
+            <span class="section-tag">Stay in the Loop</span>
+            <h2>Be First to Know<br>When We Launch</h2>
+            <p>Join our early-access list and receive an exclusive 20% discount code the moment we go live — plus a free digital resin guide.</p>
+            <ul class="notify-perks">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                20% launch-day discount
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Free 40-page resin guide PDF
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                Priority access to limited editions
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                No spam, unsubscribe anytime
+              </li>
+            </ul>
+          </div>
+          <div class="notify-right fade-right">
+            <div class="notify-card">
+              <div class="notify-model" aria-hidden="true">
+                <div class="mail-model">
+                  <svg viewBox="0 0 100 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="4" y="8" width="92" height="64" rx="8" fill="var(--bg-accent)" stroke="var(--border)" stroke-width="2"/>
+                    <path d="M4 16 L50 46 L96 16" stroke="var(--primary)" stroke-width="3" stroke-linecap="round"/>
+                    <rect x="28" y="30" width="44" height="6" rx="3" fill="var(--primary)" opacity="0.12"/>
+                    <rect x="34" y="40" width="32" height="4" rx="2" fill="var(--secondary)" opacity="0.2"/>
+                  </svg>
+                </div>
+              </div>
+              <h3>Get Early Access</h3>
+              <form class="notify-form" id="notifyForm" novalidate>
+                <div class="form-group">
+                  <label for="nf-name">Your Name</label>
+                  <input type="text" id="nf-name" placeholder="e.g. Sarah Wilson" autocomplete="name" />
+                </div>
+                <div class="form-group">
+                  <label for="nf-email">Email Address</label>
+                  <input type="email" id="nf-email" placeholder="you@example.com" autocomplete="email" />
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" id="nf-vip" />
+                  <label for="nf-vip">I want VIP early access + exclusive gifts</label>
+                </div>
+                <button type="submit" class="btn-primary btn-full">Notify Me at Launch</button>
+                <p class="form-note">We respect your privacy. No spam, ever.</p>
+              </form>
+              <div class="notify-success" id="notifySuccess" hidden>
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                <strong>You're on the list!</strong>
+                <p>Watch your inbox — your early-access link is on its way.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 4: BEHIND THE SCENES ── -->
+    <section class="s-behind" id="behind">
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Behind the Scenes</span>
+          <h2>A Peek Inside the Studio</h2>
+          <p>While we build, the studio never stops creating. Here's what's happening right now.</p>
+        </div>
+        <div class="behind-grid">
+          <div class="behind-item fade-left" data-delay="0">
+            <div class="bi-img">
+              <img src="./Images/ocean-wave.jpg" alt="Resin pouring" loading="lazy" />
+              <div class="bi-overlay">
+                <span class="bi-tag">In Progress</span>
+              </div>
+            </div>
+            <div class="bi-body">
+              <span class="bi-cat">New Collection</span>
+              <h3>Ocean Wave Series</h3>
+              <p>60 deep-pour panels capturing the motion of breaking waves — each one hand-mixed over 72 hours.</p>
+            </div>
+          </div>
+          <div class="behind-item fade-up" data-delay="100">
+            <div class="bi-img">
+              <img src="./Images/master.jpg" alt="Studio workshop" loading="lazy" />
+              <div class="bi-overlay">
+                <span class="bi-tag">Coming Soon</span>
+              </div>
+            </div>
+            <div class="bi-body">
+              <span class="bi-cat">Workshop</span>
+              <h3>Beginner Resin Masterclass</h3>
+              <p>Our most-requested workshop, now redesigned with smaller groups, take-home kits, and video follow-up lessons.</p>
+            </div>
+          </div>
+          <div class="behind-item fade-right" data-delay="200">
+            <div class="bi-img">
+              <img src="./Images/tutorial.jpg" alt="Blog content" loading="lazy" />
+              <div class="bi-overlay">
+                <span class="bi-tag bi-tag--amber">Ready</span>
+              </div>
+            </div>
+            <div class="bi-body">
+              <span class="bi-cat">Blog</span>
+              <h3>20 Exclusive Tutorials</h3>
+              <p>Written by our lead artisan — covering colour theory, mould techniques, epoxy ratios, and finishing secrets.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="behind-progress-wrap fade-up" data-delay="200">
+          <h3>Overall Launch Progress</h3>
+          <div class="overall-bar">
+            <div class="ob-fill" id="overallBar" style="--pct:73%"></div>
+            <span class="ob-label">73% Complete</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: SOCIAL / STAY CONNECTED ── -->
+    <section class="s-social" id="social">
+      <div class="social-bg" aria-hidden="true"></div>
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Follow Along</span>
+          <h2>Stay Connected While We Build</h2>
+          <p>Follow us on social for daily studio updates, behind-the-scenes reels, and first-look drops.</p>
+        </div>
+        <div class="social-grid">
+          <a href="#" class="soc-card fade-up" data-delay="0">
+            <div class="soc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div class="soc-body">
+              <h3>Instagram</h3>
+              <p>Daily pour videos, colour reveals, and studio life reels.</p>
+              <span class="soc-handle">@resinluxstudio</span>
+            </div>
+            <span class="soc-followers">24.8K</span>
+          </a>
+          <a href="#" class="soc-card fade-up" data-delay="100">
+            <div class="soc-icon soc-icon--teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </div>
+            <div class="soc-body">
+              <h3>YouTube</h3>
+              <p>Full-length tutorials, time-lapses, and workshop previews.</p>
+              <span class="soc-handle">ResinLux Studio</span>
+            </div>
+            <span class="soc-followers">9.3K</span>
+          </a>
+          <a href="#" class="soc-card fade-up" data-delay="200">
+            <div class="soc-icon soc-icon--amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <div class="soc-body">
+              <h3>Pinterest</h3>
+              <p>Inspiration boards, colour palettes, and design references.</p>
+              <span class="soc-handle">ResinLux</span>
+            </div>
+            <span class="soc-followers">18.1K</span>
+          </a>
+          <a href="#" class="soc-card fade-up" data-delay="300">
+            <div class="soc-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </div>
+            <div class="soc-body">
+              <h3>Facebook</h3>
+              <p>Community group, live sessions, and giveaway announcements.</p>
+              <span class="soc-handle">ResinLux Studio</span>
+            </div>
+            <span class="soc-followers">11.4K</span>
+          </a>
+          <a href="#" class="soc-card fade-up" data-delay="400">
+            <div class="soc-icon soc-icon--teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="soc-body">
+              <h3>WhatsApp</h3>
+              <p>Direct updates to your phone — exclusive to our early-access community.</p>
+              <span class="soc-handle">+44 7700 900123</span>
+            </div>
+            <span class="soc-followers">VIP</span>
+          </a>
+          <a href="#" class="soc-card fade-up" data-delay="500">
+            <div class="soc-icon soc-icon--amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div class="soc-body">
+              <h3>LinkedIn</h3>
+              <p>Studio milestones, press features, and B2B partnership announcements.</p>
+              <span class="soc-handle">ResinLux Studio Ltd</span>
+            </div>
+            <span class="soc-followers">5.2K</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 6: FAQ / LAUNCH DETAILS ── -->
+    <section class="s-launch" id="launch">
+      <div class="container">
+        <div class="launch-wrap">
+          <div class="launch-left fade-left">
+            <span class="section-tag">Launch Details</span>
+            <h2>Your Questions,<br>Answered</h2>
+            <p>Everything you need to know before the big day.</p>
+            <div class="faq-list">
+              <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                  When exactly are you launching?
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">We're targeting a launch in 30 days. Sign up for early access and we'll send you an exact date + reminder 48 hours before we go live.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                  Will the existing shop still be accessible?
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">During the transition, the shop will be in maintenance mode. All existing orders are safe and fully fulfilled. New orders resume at launch.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                  What's new in the relaunched site?
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">A completely new shop, live workshop booking, real-time commission tracking, a loyalty rewards program, and over 60 new artworks. It's a full upgrade.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                  I placed an order before maintenance. What happens?
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">All pre-maintenance orders are being processed as normal. You'll receive tracking info via email. Contact us on WhatsApp if you have concerns.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-q" aria-expanded="false">
+                  How do I get the early-bird discount?
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-a">Subscribe to our launch list above. Your unique 20% discount code will arrive in your inbox the moment we go live — valid for 48 hours only.</div>
+              </div>
+            </div>
+          </div>
+          <div class="launch-right fade-right">
+            <div class="launch-model">
+              <div class="lm-clock">
+                <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" class="clock-svg">
+                  <circle cx="80" cy="80" r="74" stroke="var(--border)" stroke-width="4"/>
+                  <circle cx="80" cy="80" r="74" stroke="var(--primary)" stroke-width="4"
+                    stroke-dasharray="465" stroke-dashoffset="120"
+                    stroke-linecap="round"
+                    transform="rotate(-90 80 80)"
+                    class="clock-arc"/>
+                  <circle cx="80" cy="80" r="56" fill="var(--bg-card)"/>
+                  <line x1="80" y1="80" x2="80" y2="38" stroke="var(--primary)" stroke-width="4" stroke-linecap="round" class="clock-hour"/>
+                  <line x1="80" y1="80" x2="110" y2="80" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round" class="clock-min"/>
+                  <circle cx="80" cy="80" r="6" fill="var(--primary)"/>
+                </svg>
+              </div>
+              <div class="lm-facts">
+                <div class="lm-fact fade-up" data-delay="100">
+                  <strong>30</strong><span>Days to Go</span>
+                </div>
+                <div class="lm-fact fade-up" data-delay="200">
+                  <strong>1,847</strong><span>Subscribers</span>
+                </div>
+                <div class="lm-fact fade-up" data-delay="300">
+                  <strong>60+</strong><span>New Pieces</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./coming.js"></script>
+</body>
+</html>

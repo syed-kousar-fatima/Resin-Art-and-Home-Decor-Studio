@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="./index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="/index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+<!-- ═══════════════════ MAIN CONTENT ═══════════════════ -->
+<main id="mainContent">
+
+  <!-- ── SECTION 1: SPLIT CINEMATIC HERO ── -->
+  <section class="s2-hero" id="home">
+    <div class="s2-hero-left">
+      <span class="s2-hero-tag reveal">Premium Collection 2026</span>
+      <h1 class="s2-hero-title reveal">Where Resin Meets <em>Refined Living</em></h1>
+      <p class="s2-hero-desc reveal">Handcrafted resin art that transforms your space into a gallery. Each piece is a unique fusion of colour, texture, and intention — made to last a lifetime.</p>
+      <div class="s2-hero-btns reveal">
+        <a href="services.html" class="btn btn-primary">Explore Collection</a>
+        <a href="about.html" class="btn btn-secondary">Our Story</a>
+      </div>
+      <div class="s2-hero-stats reveal">
+        <div class="s2-stat"><strong class="count" data-target="2400">0</strong><span>Pieces Sold</span></div>
+        <div class="s2-stat"><strong class="count" data-target="98">0</strong><span>% Satisfied</span></div>
+        <div class="s2-stat"><strong class="count" data-target="12">0</strong><span>Countries</span></div>
+      </div>
+    </div>
+    <div class="s2-hero-right">
+      <div class="s2-hero-img-stack">
+        <img src="./Images/wall.jpg" width="600" height="700" alt="Premium resin wall art" class="hero-img-main" loading="eager" />
+        <div class="hero-img-float">
+          <img src="./Images/jewel.jpg" width="200" height="200" alt="Resin jewellery close-up" loading="eager" />
+        </div>
+        <div class="hero-badge">✦ Artisan Made</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 2: BRAND MANIFESTO ── -->
+  <section class="s2-manifesto section-pad">
+    <div class="container">
+      <div class="manifesto-grid reveal">
+        <div class="manifesto-left">
+          <span class="section-eyebrow">Our Belief</span>
+          <h2 class="manifesto-headline">Art is not decoration.<br/><span class="text-primary">It is declaration.</span></h2>
+          <p>Every piece we create carries the maker's intention. We pour ourselves into each work — literally. Resin art is alive: it moves, it glows, it breathes. No two pieces are ever the same.</p>
+          <p>Founded by artisans who grew up surrounded by colour and craft, ResinLux has grown into a studio that blends traditional art philosophy with contemporary materials.</p>
+          <a href="about.html" class="btn btn-primary" style="margin-top:1.5rem">Meet the Artists</a>
+        </div>
+        <div class="manifesto-right">
+          <div class="manifesto-img-grid">
+            <img src="./Images/art.jpg" width="400" height="300" alt="Artist at work" loading="lazy" />
+            <img src="./Images/pour.jpg" width="400" height="300" alt="Resin pouring process" loading="lazy" />
+            <img src="./Images/finish.jpg" width="400" height="300" alt="Finished resin art" loading="lazy" />
+            <img src="./Images/decor.jpg" width="400" height="300" alt="Home decor display" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 3: SIGNATURE SHOWCASE (TABS) ── -->
+  <section class="s2-showcase section-pad bg-alt">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-eyebrow">Signature Range</span>
+        <h2>Premium Pieces, <span class="text-primary">Curated for You</span></h2>
+        <p>Browse our most sought-after collections — each crafted with intention and finished to museum quality.</p>
+      </div>
+      <div class="tab-bar reveal">
+        <button class="tab-btn active" data-tab="wall">Wall Art</button>
+        <button class="tab-btn" data-tab="home">Home Decor</button>
+        <button class="tab-btn" data-tab="jewel">Jewellery</button>
+        <button class="tab-btn" data-tab="gift">Gift Sets</button>
+      </div>
+      <div class="tab-panel active" id="tab-wall">
+        <div class="showcase-grid">
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/wave.jpg" width="400" height="300" alt="Ocean Wave painting" loading="lazy" /></div>
+            <div class="sc-body">
+              <h3>Ocean Wave Panel</h3><p>100×70 cm. Teal, white and gold pigment on birch board. Each wave is hand-poured for a unique finish.</p>
+              <div class="sc-meta"><span class="price">AED 1,800</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div>
+            </div>
+          </div>
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/crystal.jpg" width="400" height="300" alt="Abstract geode art" loading="lazy" /></div>
+            <div class="sc-body">
+              <h3>Crystal Geode Slice</h3><p>80×60 cm. Amethyst-inspired purple and silver pigments with crushed mica shimmer throughout.</p>
+              <div class="sc-meta"><span class="price">AED 2,200</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div>
+            </div>
+          </div>
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/desrt.jpg" width="400" height="300" alt="Desert sunset resin art" loading="lazy" /></div>
+            <div class="sc-body">
+              <h3>Desert Sunset Canvas</h3><p>120×80 cm. Warm amber, burnt orange and crimson — a tribute to the desert horizon at dusk.</p>
+              <div class="sc-meta"><span class="price">AED 2,900</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-home">
+        <div class="showcase-grid">
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/tray.jpg" width="400" height="300" alt="Resin tray" loading="lazy" /></div>
+            <div class="sc-body"><h3>Marble Serve Tray</h3><p>Luxurious white and gold marble-effect resin tray with brass handles. Food-safe coating.</p><div class="sc-meta"><span class="price">AED 450</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div></div>
+          </div>
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/set.jpg" width="400" height="300" alt="Coaster set" loading="lazy" /></div>
+            <div class="sc-body"><h3>Botanical Coaster Set</h3><p>Set of 4. Preserved flowers encased in crystal-clear resin. Each coaster is one-of-a-kind.</p><div class="sc-meta"><span class="price">AED 280</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div></div>
+          </div>
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/clock.jpg" width="400" height="300" alt="Resin clock" loading="lazy" /></div>
+            <div class="sc-body"><h3>Epoxy River Clock</h3><p>Live-edge wood with flowing teal resin river. Battery operated with silent sweep movement.</p><div class="sc-meta"><span class="price">AED 780</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-jewel">
+        <div class="showcase-grid">
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/necklace.jpg" width="400" height="300" alt="Resin necklace" loading="lazy" /></div>
+            <div class="sc-body"><h3>Aurora Pendant</h3><p>Hand-poured resin pendant with iridescent pigment and 18k gold-filled chain. Hypoallergenic.</p><div class="sc-meta"><span class="price">AED 195</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div></div>
+          </div>
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/ring.jpg" width="400" height="300" alt="Resin ring" loading="lazy" /></div>
+            <div class="sc-body"><h3>Marble Band Ring</h3><p>Adjustable resin ring with white and grey marble swirl. Coated with UV-resistant topcoat.</p><div class="sc-meta"><span class="price">AED 95</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div></div>
+          </div>
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/earings.jpg" width="400" height="300" alt="Resin earrings" loading="lazy" /></div>
+            <div class="sc-body"><h3>Galaxy Drop Earrings</h3><p>Deep navy and silver flake resin drops. Sterling silver ear hooks. Comes in a gift box.</p><div class="sc-meta"><span class="price">AED 145</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-gift">
+        <div class="showcase-grid">
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/gift.jpg" width="400" height="300" alt="Gift set" loading="lazy" /></div>
+            <div class="sc-body"><h3>Celebration Gift Box</h3><p>Curated set: 2 coasters + 1 pendant + personalised greeting card. Ships in luxury packaging.</p><div class="sc-meta"><span class="price">AED 390</span><a href="services.html" class="btn btn-primary btn-sm">Order Now</a></div></div>
+          </div>
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/corporate.jpg" width="400" height="300" alt="Corporate gift" loading="lazy" /></div>
+            <div class="sc-body"><h3>Corporate Prestige Set</h3><p>Branded resin paperweight + desk tray with company colours. MOQ 10 pieces. Custom engraving available.</p><div class="sc-meta"><span class="price">from AED 520</span><a href="services.html" class="btn btn-primary btn-sm">Enquire</a></div></div>
+          </div>
+          <div class="showcase-card reveal">
+            <div class="sc-img"><img src="./Images/wedding.jpg" width="400" height="300" alt="Wedding favour set" loading="lazy" /></div>
+            <div class="sc-body"><h3>Wedding Favour Collection</h3><p>Bespoke resin keychains with wedding date and monogram. Sold in sets of 25 with tulle bags.</p><div class="sc-meta"><span class="price">from AED 12/pc</span><a href="services.html" class="btn btn-primary btn-sm">Enquire</a></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 4: ARTISAN PROFILES ── -->
+  <section class="s2-artisans section-pad">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-eyebrow">The Makers</span>
+        <h2>Hands Behind <span class="text-primary">Every Piece</span></h2>
+        <p>Our artisans bring decades of combined experience across fine art, interior design, and jewellery making.</p>
+      </div>
+      <div class="artisan-grid">
+        <div class="artisan-card reveal">
+          <div class="artisan-img">
+            <img src="./Images/nour.jpg" width="300" height="300" alt="Lead artist Nour" loading="lazy" />
+            <div class="artisan-overlay">
+              <p>"I see resin as a medium that captures light and time. Each pour is a conversation with colour."</p>
+              <div class="artisan-socials">
+                <a href="#" aria-label="Instagram"><i class="icon lucide-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="icon lucide-bookmark"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="artisan-info"><h3>Nour Al-Rashid</h3><span>Lead Artist & Founder</span><p>12 yrs · Wall Art · Installations</p></div>
+        </div>
+        <div class="artisan-card reveal">
+          <div class="artisan-img">
+            <img src="./Images/sarah.jpg" width="300" height="300" alt="Jewellery artisan Sara" loading="lazy" />
+            <div class="artisan-overlay">
+              <p>"Jewellery is wearable art. I want every pendant to feel like a tiny galaxy you carry with you."</p>
+              <div class="artisan-socials">
+                <a href="#" aria-label="Instagram"><i class="icon lucide-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="icon lucide-bookmark"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="artisan-info"><h3>Sara Mehta</h3><span>Jewellery Specialist</span><p>8 yrs · Pendants · Rings · Earrings</p></div>
+        </div>
+        <div class="artisan-card reveal">
+          <div class="artisan-img">
+            <img src="./Images/khalid.jpg" width="300" height="300" alt="Furniture artisan Khalid" loading="lazy" />
+            <div class="artisan-overlay">
+              <p>"Wood and resin are natural partners. I love how the river table tells its own story of flow."</p>
+              <div class="artisan-socials">
+                <a href="#" aria-label="Instagram"><i class="icon lucide-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="icon lucide-bookmark"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="artisan-info"><h3>Khalid Aziz</h3><span>Furniture & Decor Artisan</span><p>10 yrs · Tables · Clocks · Trays</p></div>
+        </div>
+        <div class="artisan-card reveal">
+          <div class="artisan-img">
+            <img src="./Images/raya.jpg" width="300" height="300" alt="Workshop instructor Raya" loading="lazy" />
+            <div class="artisan-overlay">
+              <p>"Teaching resin art is about sharing a language. When students pour their first wave, I see real joy."</p>
+              <div class="artisan-socials">
+                <a href="#" aria-label="Instagram"><i class="icon lucide-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="icon lucide-bookmark"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="artisan-info"><h3>Raya Osman</h3><span>Workshop Lead Instructor</span><p>6 yrs · Training · DIY Kits</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 5: BEFORE / AFTER TRANSFORMATIONS ── -->
+  <section class="s2-transform section-pad bg-alt">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-eyebrow">Real Results</span>
+        <h2>Space <span class="text-primary">Transformations</span></h2>
+        <p>See how a single bespoke piece can redefine the feel of an entire room.</p>
+      </div>
+      <div class="transform-grid">
+        <div class="transform-card reveal">
+          <div class="transform-images">
+            <div class="before-img">
+              <img src="./Images/before.jpg" width="500" height="350" alt="Living room before" loading="lazy" />
+              <span class="label-tag before">Before</span>
+            </div>
+            <div class="arrow-divider" aria-hidden="true"><i class="icon lucide-arrow-right"></i></div>
+            <div class="after-img">
+              <img src="./Images/after.jpg" width="500" height="350" alt="Living room after" loading="lazy" />
+              <span class="label-tag after">After</span>
+            </div>
+          </div>
+          <div class="transform-desc"><h3>Living Room Feature Wall</h3><p>Ocean wave triptych replaced a blank wall, becoming the room's centrepiece. Client described it as "transformative".</p></div>
+        </div>
+        <div class="transform-card reveal">
+          <div class="transform-images">
+            <div class="before-img">
+              <img src="./Images/old.jpg" width="500" height="350" alt="Office before" loading="lazy" />
+              <span class="label-tag before">Before</span>
+            </div>
+            <div class="arrow-divider" aria-hidden="true"><i class="icon lucide-arrow-right"></i></div>
+            <div class="after-img">
+              <img src="./Images/new.jpg" width="500" height="350" alt="Office after" loading="lazy" />
+              <span class="label-tag after">After</span>
+            </div>
+          </div>
+          <div class="transform-desc"><h3>Corporate Reception Lobby</h3><p>Custom resin installation with company colours elevated brand presence and created a memorable first impression.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 6: STUDIO TOUR ── -->
+  <section class="s2-studio section-pad">
+    <div class="container">
+      <div class="studio-inner">
+        <div class="studio-content reveal">
+          <span class="section-eyebrow">Inside ResinLux</span>
+          <h2>A Studio Built on <span class="text-primary">Passion</span></h2>
+          <p>Our 2,400 sq ft studio in Dubai Design District is where every piece begins its journey. Equipped with professional-grade ventilation, precision temperature control, and an archive of over 300 pigment colours.</p>
+          <ul class="studio-features">
+            <li><i class="icon lucide-check-circle"></i> Climate-controlled pouring bays</li>
+            <li><i class="icon lucide-check-circle"></i> Professional UV and LED curing stations</li>
+            <li><i class="icon lucide-check-circle"></i> Dedicated packaging room with custom gift wrapping</li>
+            <li><i class="icon lucide-check-circle"></i> In-studio workshop space (up to 12 participants)</li>
+            <li><i class="icon lucide-check-circle"></i> Open studio visits by appointment</li>
+          </ul>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem">Book a Studio Visit</a>
+        </div>
+        <div class="studio-gallery reveal">
+          <div class="sg-large">
+            <img src="./Images/interior.jpg" width="600" height="500" alt="Studio interior" loading="lazy" />
+          </div>
+          <div class="sg-small">
+            <img src="./Images/storage.jpg" width="280" height="230" alt="Pigment storage wall" loading="lazy" />
+            <img src="./Images/work.jpg" width="280" height="230" alt="Workshop setup" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 7: AWARDS & RECOGNITION ── -->
+  <section class="s2-awards section-pad bg-alt">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-eyebrow">Recognition</span>
+        <h2>Honoured by <span class="text-primary">Industry &amp; Community</span></h2>
+        <p>Our commitment to quality and originality has been recognised by leading art and design organisations.</p>
+      </div>
+      <div class="awards-grid">
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="icon lucide-award"></i></div>
+          <h3>Best Artisan Studio 2025</h3>
+          <p>Dubai Design Week — voted by a panel of interior design professionals.</p>
+          <span class="award-year">2025</span>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="icon lucide-star"></i></div>
+          <h3>Top Creative Brand</h3>
+          <p>Gulf Art &amp; Craft Fair — recognised for outstanding innovation in resin art.</p>
+          <span class="award-year">2024</span>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="icon lucide-globe"></i></div>
+          <h3>International Craft Export Award</h3>
+          <p>UAE Ministry of Culture — for expanding handmade art exports to 12+ countries.</p>
+          <span class="award-year">2024</span>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="icon lucide-heart"></i></div>
+          <h3>Community Choice Award</h3>
+          <p>Etsy UAE Community — highest-rated handmade home decor shop three years running.</p>
+          <span class="award-year">2023–25</span>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="icon lucide-shield-check"></i></div>
+          <h3>Eco-Conscious Studio Cert.</h3>
+          <p>Certified by Green Arts Initiative for sustainable sourcing and low-waste practices.</p>
+          <span class="award-year">2023</span>
+        </div>
+        <div class="award-card reveal">
+          <div class="award-icon"><i class="icon lucide-trending-up"></i></div>
+          <h3>Fastest-Growing Art Brand</h3>
+          <p>Forbes Middle East — featured in their 2023 creative economy spotlight edition.</p>
+          <span class="award-year">2023</span>
+        </div>
+      </div>
+      <!-- Press Logos -->
+      <div class="press-strip reveal">
+        <span>As seen in</span>
+        <div class="press-logos">
+          <span class="press-logo">Forbes ME</span>
+          <span class="press-logo">Vogue Arabia</span>
+          <span class="press-logo">Gulf Art Fair</span>
+          <span class="press-logo">Design Week</span>
+          <span class="press-logo">Khaleej Times</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 8: LIVE NUMBERS DASHBOARD ── -->
+  <section class="s2-numbers section-pad bg-numbers">
+    <div class="container">
+      <div class="section-heading reveal" style="color:var(--text-on-dark)">
+        <span class="section-eyebrow" style="color:var(--amber)">By the Numbers</span>
+        <h2 style="color:var(--text-on-dark)">ResinLux <span style="color:var(--secondary)">At a Glance</span></h2>
+        <p style="color:rgba(255,255,255,0.75)">Six years of craftsmanship, community, and colour captured in a single snapshot.</p>
+      </div>
+      <div class="numbers-grid">
+        <div class="number-card reveal">
+          <i class="icon lucide-package" aria-hidden="true"></i>
+          <strong class="count" data-target="2400">0</strong>
+          <span>Pieces Delivered</span>
+        </div>
+        <div class="number-card reveal">
+          <i class="icon lucide-users" aria-hidden="true"></i>
+          <strong class="count" data-target="1800">0</strong>
+          <span>Happy Clients</span>
+        </div>
+        <div class="number-card reveal">
+          <i class="icon lucide-palette" aria-hidden="true"></i>
+          <strong class="count" data-target="320">0</strong>
+          <span>Pigment Colours</span>
+        </div>
+        <div class="number-card reveal">
+          <i class="icon lucide-globe" aria-hidden="true"></i>
+          <strong class="count" data-target="12">0</strong>
+          <span>Countries Shipped</span>
+        </div>
+        <div class="number-card reveal">
+          <i class="icon lucide-book-open" aria-hidden="true"></i>
+          <strong class="count" data-target="540">0</strong>
+          <span>Workshop Graduates</span>
+        </div>
+        <div class="number-card reveal">
+          <i class="icon lucide-star" aria-hidden="true"></i>
+          <strong class="count" data-target="4">0</strong>
+          <span>Design Awards</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 9: VIDEO TUTORIALS ── -->
+  <section class="s2-tutorials section-pad">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-eyebrow">Learn &amp; Create</span>
+        <h2>Free Tutorials to <span class="text-primary">Get You Started</span></h2>
+        <p>Not ready to buy yet? Follow along with our expert tutorials and try resin art at home.</p>
+      </div>
+      <div class="tutorial-grid">
+        <div class="tutorial-card featured reveal">
+          <div class="tut-thumb">
+            <img src="./Images/begin.jpg" width="700" height="420" alt="Beginner resin pour tutorial" loading="lazy" />
+            <div class="play-btn" aria-label="Play tutorial video"><i class="icon lucide-play-circle"></i></div>
+            <span class="tut-badge">Most Watched</span>
+          </div>
+          <div class="tut-info">
+            <span class="tut-tag">Beginner</span>
+            <h3>Your First Resin Pour — Complete Guide</h3>
+            <p>45 min walkthrough covering tools, safety, colour mixing, and your first poured piece from start to finish.</p>
+            <div class="tut-meta"><i class="icon lucide-clock"></i> 45 min <i class="icon lucide-eye" style="margin-left:1rem"></i> 128k views</div>
+          </div>
+        </div>
+        <div class="tut-side-list">
+          <div class="tutorial-card reveal">
+            <div class="tut-thumb sm">
+              <img src="./Images/ocean.jpg" width="300" height="200" alt="Ocean effect tutorial" loading="lazy" />
+              <div class="play-btn sm" aria-label="Play"><i class="icon lucide-play-circle"></i></div>
+            </div>
+            <div class="tut-info sm">
+              <span class="tut-tag">Intermediate</span>
+              <h3>Creating the Ocean Effect</h3>
+              <p>Layering technique for realistic wave movement using alcohol ink and silicone oil.</p>
+              <div class="tut-meta"><i class="icon lucide-clock"></i> 22 min</div>
+            </div>
+          </div>
+          <div class="tutorial-card reveal">
+            <div class="tut-thumb sm">
+              <img src="./Images/jewel find.jpg" width="300" height="200" alt="Jewellery tutorial" loading="lazy" />
+              <div class="play-btn sm" aria-label="Play"><i class="icon lucide-play-circle"></i></div>
+            </div>
+            <div class="tut-info sm">
+              <span class="tut-tag">Beginner</span>
+              <h3>Resin Jewellery — Pendants &amp; Rings</h3>
+              <p>Using silicone moulds to cast your first wearable piece. Tools list included.</p>
+              <div class="tut-meta"><i class="icon lucide-clock"></i> 18 min</div>
+            </div>
+          </div>
+          <div class="tutorial-card reveal">
+            <div class="tut-thumb sm">
+              <img src="./Images/geoge.jpg" width="300" height="200" alt="Geode painting tutorial" loading="lazy" />
+              <div class="play-btn sm" aria-label="Play"><i class="icon lucide-play-circle"></i></div>
+            </div>
+            <div class="tut-info sm">
+              <span class="tut-tag">Advanced</span>
+              <h3>Geode Art — Crystal Clusters</h3>
+              <p>Glass glitter, crushed stone and layered pigment to build a convincing geode slice.</p>
+              <div class="tut-meta"><i class="icon lucide-clock"></i> 35 min</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem" class="reveal">
+        <a href="blog.html#diy" class="btn btn-secondary">Browse All Tutorials</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SECTION 10: COMMUNITY & UPCOMING EVENTS ── -->
+  <section class="s2-community section-pad bg-alt">
+    <div class="container">
+      <div class="section-heading reveal">
+        <span class="section-eyebrow">Community</span>
+        <h2>Join the <span class="text-primary">ResinLux Circle</span></h2>
+        <p>A growing community of resin enthusiasts, collectors, and home decor lovers. Share your creates, join events, grow your skills.</p>
+      </div>
+      <div class="community-layout">
+        <!-- Events -->
+        <div class="events-col reveal">
+          <h3 class="col-title"><i class="icon lucide-calendar"></i> Upcoming Events</h3>
+          <div class="event-item">
+            <div class="event-date"><strong>12</strong><span>Apr</span></div>
+            <div class="event-info">
+              <h4>Beginner Ocean Pour Workshop</h4>
+              <p><i class="icon lucide-map-pin"></i> Dubai Design District · 10:00 AM – 1:00 PM</p>
+              <div class="event-tags"><span class="etag">3 seats left</span><span class="etag outline">AED 350</span></div>
+            </div>
+            <a href="services.html#workshops" class="btn btn-primary btn-sm">Book</a>
+          </div>
+          <div class="event-item">
+            <div class="event-date"><strong>19</strong><span>Apr</span></div>
+            <div class="event-info">
+              <h4>Geode Art Masterclass</h4>
+              <p><i class="icon lucide-map-pin"></i> Dubai Design District · 2:00 PM – 6:00 PM</p>
+              <div class="event-tags"><span class="etag">8 seats left</span><span class="etag outline">AED 550</span></div>
+            </div>
+            <a href="services.html#workshops" class="btn btn-primary btn-sm">Book</a>
+          </div>
+          <div class="event-item">
+            <div class="event-date"><strong>3</strong><span>May</span></div>
+            <div class="event-info">
+              <h4>Kids Resin Crafts Day</h4>
+              <p><i class="icon lucide-map-pin"></i> City Walk Mall, Dubai · 11:00 AM – 3:00 PM</p>
+              <div class="event-tags"><span class="etag green">Open</span><span class="etag outline">AED 180/child</span></div>
+            </div>
+            <a href="services.html#workshops" class="btn btn-primary btn-sm">Book</a>
+          </div>
+          <div class="event-item">
+            <div class="event-date"><strong>17</strong><span>May</span></div>
+            <div class="event-info">
+              <h4>Corporate Team-Building Pour Session</h4>
+              <p><i class="icon lucide-map-pin"></i> Your Venue or Our Studio</p>
+              <div class="event-tags"><span class="etag green">Flexible dates</span><span class="etag outline">Custom pricing</span></div>
+            </div>
+            <a href="contact.html" class="btn btn-secondary btn-sm">Enquire</a>
+          </div>
+        </div>
+        <!-- Social Wall -->
+        <div class="social-col reveal">
+          <h3 class="col-title"><i class="icon lucide-instagram"></i> Community Gallery</h3>
+          <div class="social-grid">
+            <div class="social-img"><img src="./Images/c1.jpg" width="200" height="200" alt="Community art 1" loading="lazy" /><div class="social-hover"><i class="icon lucide-heart"></i> 248</div></div>
+            <div class="social-img"><img src="./Images/c2.jpg" width="200" height="200" alt="Community art 2" loading="lazy" /><div class="social-hover"><i class="icon lucide-heart"></i> 192</div></div>
+            <div class="social-img"><img src="./Images/c3.jpg" width="200" height="200" alt="Community art 3" loading="lazy" /><div class="social-hover"><i class="icon lucide-heart"></i> 374</div></div>
+            <div class="social-img"><img src="./Images/c4.jpg" width="200" height="200" alt="Community art 4" loading="lazy" /><div class="social-hover"><i class="icon lucide-heart"></i> 156</div></div>
+            <div class="social-img"><img src="./Images/c5.jpg" width="200" height="200" alt="Community art 5" loading="lazy" /><div class="social-hover"><i class="icon lucide-heart"></i> 289</div></div>
+            <div class="social-img"><img src="./Images/c6.jpg" width="200" height="200" alt="Community art 6" loading="lazy" /><div class="social-hover"><i class="icon lucide-heart"></i> 412</div></div>
+          </div>
+          <div class="social-cta">
+            <p>Tag <strong>#ResinLuxStudio</strong> to be featured in our gallery</p>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-secondary"><i class="icon lucide-instagram"></i> Follow on Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="s2-cta-banner section-pad">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div>
+          <h2>Ready to Commission Something <span class="text-primary">Truly Unique?</span></h2>
+          <p>Tell us your vision — colour, size, feeling. We'll translate it into resin.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="services.html" class="btn btn-primary">Start a Commission</a>
+          <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./home.js"></script>
+</body>
+</html>

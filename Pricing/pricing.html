@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ResinCraft Studio - Resin Art & Home Decor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./pricing.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<header class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Logo + Brand -->
+    <a href="/index.html" class="nav-brand">
+      <div class="nav-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+      </div>
+      <span class="nav-brand-name">ResinCraft Studio</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" id="navDesktop">
+      <ul class="nav-list">
+
+        <!-- Home — with dropdown -->
+<li class="nav-item nav-has-dropdown">
+  <a href="./index.html" class="nav-link">Home</a>
+  <ul class="nav-dropdown" id="dd-home">
+    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
+    
+  </ul>
+</li>
+ 
+        <li class="nav-item">
+          <a href="../About/about.html" class="nav-link">About</a>
+        </li>
+
+        <!-- Services — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Services/service.html" class="nav-link">Services</a>
+          <ul class="nav-dropdown" id="dd-services">
+            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
+          </ul>
+        </li>
+
+        <!-- Blog — click navigates, hover shows dropdown, no icon -->
+        <li class="nav-item nav-has-dropdown">
+          <a href="../Blog/blog.html" class="nav-link">Blog</a>
+          <ul class="nav-dropdown" id="dd-blog">
+            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
+            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
+            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
+            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+
+      </ul>
+    </nav>
+
+    <!-- Right Actions -->
+    <div class="nav-actions">
+      <button class="icon-btn theme-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+        <i data-lucide="sun" class="icon-sun"></i>
+        <i data-lucide="moon" class="icon-moon"></i>
+      </button>
+      <button class="icon-btn rtl-btn desktop-only" id="rtlToggle" aria-label="Toggle RTL" title="Toggle RTL/LTR">
+        <i data-lucide="align-right"></i>
+      </button>
+      <a href="../LoginRegister/login.html" class="btn btn-primary desktop-only">Login</a>
+      <button class="icon-btn hamburger-btn mobile-tablet-only" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+        <i data-lucide="menu" class="ham-icon ham-open"></i>
+        <i data-lucide="x" class="ham-icon ham-close"></i>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Drawer Overlay -->
+<div class="drawer-overlay" id="drawerOverlay" role="presentation"></div>
+
+<!-- Mobile/Tablet Drawer -->
+<aside class="nav-drawer" id="navDrawer" aria-label="Mobile navigation" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="drawer-title">Menu</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu">
+      <i data-lucide="x"></i>
+    </button>
+  </div>
+
+  <ul class="drawer-nav">
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-home">
+        <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-home">
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+       
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../About/about.html" class="drawer-link">About</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-services">
+        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-services">
+        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
+        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
+        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
+        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
+        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
+        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
+        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
+        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
+      </button>
+      <ul class="drawer-sub" id="sub-blog">
+        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
+        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
+        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
+        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
+        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
+      </ul>
+    </li>
+
+    <li class="drawer-item">
+      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+
+    <li class="drawer-divider"></li>
+
+    <li class="drawer-item">
+      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+    </li>
+
+    <li class="drawer-item">
+      <button class="btn btn-secondary drawer-full-btn" id="drawerRtlBtn">
+        <i data-lucide="align-right"></i>
+        <span class="rtl-label">Switch to RTL</span>
+      </button>
+    </li>
+
+  </ul>
+</aside>
+<main id="mainContent">
+
+    <!-- ============================================================
+         SECTION 1: HERO + PRICING OVERVIEW
+         ============================================================ -->
+    <section class="pr-hero" id="pricing-hero">
+      <div class="pr-hero__bg">
+        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1600&q=80" alt="Resin art pricing" class="pr-hero__img" />
+        <div class="pr-hero__overlay"></div>
+        <div class="pr-hero__blobs">
+          <div class="blob blob--1"></div>
+          <div class="blob blob--2"></div>
+          <div class="blob blob--3"></div>
+        </div>
+        <div class="particles" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Hero headline -->
+        <div class="pr-hero__content">
+          <span class="section-chip section-chip--light fade-down">Simple, Transparent Pricing</span>
+          <h1 class="pr-hero__title fade-up" style="--delay:.1s">Plans Crafted for Every<br>Stage of Your Creative Journey</h1>
+          <p class="pr-hero__desc fade-up" style="--delay:.2s">From your very first resin pour to a fully equipped professional studio — choose the plan that matches your ambition. No hidden fees, no lock-in contracts, no surprises.</p>
+
+          <!-- Billing toggle -->
+          <div class="billing-toggle fade-up" style="--delay:.3s">
+            <span id="labelMonthly" class="toggle-label toggle-label--active">Monthly</span>
+            <button class="toggle-btn" id="billingToggle" role="switch" aria-checked="false" aria-label="Toggle annual billing">
+              <span class="toggle-thumb"></span>
+            </button>
+            <span id="labelAnnual" class="toggle-label">Annual <span class="save-badge">Save 20%</span></span>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="pr-hero__stats fade-up" style="--delay:.4s">
+            <div class="stat">
+              <span class="stat__num" data-target="3400">0</span>
+              <span class="stat__label">Happy Clients</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num" data-target="98">0</span>
+              <span class="stat__suffix">%</span>
+              <span class="stat__label">Satisfaction Rate</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num" data-target="7">0</span>
+              <span class="stat__label">Years of Expertise</span>
+            </div>
+            <div class="stat">
+              <span class="stat__num" data-target="28">0</span>
+              <span class="stat__label">Industry Awards</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── 3 PRICING CARDS ── -->
+        <div class="pricing-cards" id="pricingCards">
+
+          <!-- STARTER -->
+          <div class="pricing-card fade-left" style="--delay:.1s">
+            <div class="pricing-card__top">
+              <div class="plan-icon plan-icon--starter">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="22" fill="var(--secondary)" opacity="0.14"/>
+                  <path d="M16 32 Q20 18 24 16 Q28 14 32 32" fill="none" stroke="var(--secondary)" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="24" cy="24" r="5" fill="var(--secondary)" opacity="0.4"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="plan-name">Starter</h3>
+                <p class="plan-sub">Perfect for curious beginners exploring resin art for the first time.</p>
+              </div>
+            </div>
+            <div class="pricing-card__price">
+              <span class="price-amount" data-monthly="29" data-annual="23">&pound;29</span>
+              <span class="price-period">/month</span>
+            </div>
+            <ul class="plan-features">
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round"/></svg> 2 DIY project guides per month</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round"/></svg> Access to beginner material library</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round"/></svg> Community forum access</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round"/></svg> 1 online Q&amp;A session/month</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round"/></svg> Email support (48h response)</li>
+              <li class="feature--off"><svg viewBox="0 0 20 20"><line x1="5" y1="5" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15" y1="5" x2="5" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Studio access sessions</li>
+              <li class="feature--off"><svg viewBox="0 0 20 20"><line x1="5" y1="5" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15" y1="5" x2="5" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Commission discounts</li>
+              <li class="feature--off"><svg viewBox="0 0 20 20"><line x1="5" y1="5" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15" y1="5" x2="5" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 1-to-1 artist mentorship</li>
+            </ul>
+            <a href="#enquire" class="btn btn--secondary btn--full">Get Started</a>
+          </div>
+
+          <!-- STUDIO (POPULAR) -->
+          <div class="pricing-card pricing-card--popular fade-up" style="--delay:.2s">
+            <div class="popular-badge">
+              <svg width="14" height="14" viewBox="0 0 20 20"><polygon points="10,1 12.9,7 20,8.2 15,13 16.2,20 10,16.8 3.8,20 5,13 0,8.2 7.1,7" fill="currentColor"/></svg>
+              Most Popular
+            </div>
+            <div class="pricing-card__top">
+              <div class="plan-icon plan-icon--studio">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="22" fill="var(--primary)" opacity="0.14"/>
+                  <polygon points="24,8 28,18 39,18 30,25 33,36 24,29 15,36 18,25 9,18 20,18" fill="var(--primary)" opacity="0.5"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="plan-name">Studio</h3>
+                <p class="plan-sub">Our most loved plan for passionate hobbyists and developing artists.</p>
+              </div>
+            </div>
+            <div class="pricing-card__price">
+              <span class="price-amount" data-monthly="79" data-annual="63">&pound;79</span>
+              <span class="price-period">/month</span>
+            </div>
+            <ul class="plan-features">
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg> Unlimited DIY project guides</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg> Full material &amp; pigment library</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg> Priority community + live chat</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg> 4 live Q&amp;A sessions/month</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg> Priority email support (12h)</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg> 2 studio access sessions/month</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg> 10% off all commissions</li>
+              <li class="feature--off"><svg viewBox="0 0 20 20"><line x1="5" y1="5" x2="15" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="15" y1="5" x2="5" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> 1-to-1 artist mentorship</li>
+            </ul>
+            <a href="#enquire" class="btn btn--primary btn--full">Get Started</a>
+          </div>
+
+          <!-- PROFESSIONAL -->
+          <div class="pricing-card fade-right" style="--delay:.3s">
+            <div class="pricing-card__top">
+              <div class="plan-icon plan-icon--pro">
+                <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="22" fill="var(--amber)" opacity="0.14"/>
+                  <path d="M12 34 L24 14 L36 34 Z" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linejoin="round"/>
+                  <circle cx="24" cy="24" r="5" fill="var(--amber)" opacity="0.45"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="plan-name">Professional</h3>
+                <p class="plan-sub">Full studio access and mentorship for serious and commercial artists.</p>
+              </div>
+            </div>
+            <div class="pricing-card__price">
+              <span class="price-amount" data-monthly="149" data-annual="119">&pound;149</span>
+              <span class="price-period">/month</span>
+            </div>
+            <ul class="plan-features">
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"/></svg> Everything in Studio, plus:</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"/></svg> Unlimited studio access sessions</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"/></svg> Full pigment &amp; equipment loan</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"/></svg> Dedicated phone support (24h)</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"/></svg> 25% off all commissions</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"/></svg> 1-to-1 artist mentorship (2h/mo)</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"/></svg> Portfolio review &amp; gallery listing</li>
+              <li><svg viewBox="0 0 20 20"><polyline points="16 5 8 13 4 9" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round"/></svg> Commercial licensing support</li>
+            </ul>
+            <a href="#enquire" class="btn btn--secondary btn--full">Get Started</a>
+          </div>
+
+        </div><!-- /pricing-cards -->
+
+        <p class="pricing-note fade-up" style="--delay:.5s">All plans include a <strong>14-day free trial</strong>. No credit card required to start. Cancel anytime.</p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 2: FEATURE SHOWCASE CAROUSEL + COMPARISON TABLE
+         ============================================================ -->
+    <section class="pr-features section-pad" id="features">
+      <div class="pr-features__bg-anim" aria-hidden="true">
+        <div class="bg-blob bg-blob--a"></div>
+        <div class="bg-blob bg-blob--b"></div>
+      </div>
+
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip">What You Get</span>
+          <h2 class="section-title">Everything Included in Every Plan</h2>
+          <p class="section-sub">A closer look at the features, resources, and studio access that make each ResinLux membership uniquely valuable.</p>
+        </div>
+
+        <!-- Feature carousel -->
+        <div class="feature-carousel" id="featureCarousel">
+          <div class="feature-carousel__bg">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80" alt="Features background" />
+            <div class="feature-carousel__overlay"></div>
+            <div class="carousel-ring carousel-ring--1"></div>
+            <div class="carousel-ring carousel-ring--2"></div>
+          </div>
+          <div class="container" style="position:relative;z-index:1">
+            <div class="carousel">
+              <div class="carousel__track" id="featTrack">
+
+                <div class="carousel__slide">
+                  <div class="feat-card">
+                    <div class="feat-card__icon">
+                      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.14"/>
+                        <rect x="16" y="14" width="28" height="32" rx="4" fill="none" stroke="var(--primary)" stroke-width="2.5"/>
+                        <line x1="22" y1="22" x2="38" y2="22" stroke="var(--primary)" stroke-width="2" opacity="0.5"/>
+                        <line x1="22" y1="30" x2="38" y2="30" stroke="var(--primary)" stroke-width="2" opacity="0.4"/>
+                        <line x1="22" y1="38" x2="32" y2="38" stroke="var(--primary)" stroke-width="2" opacity="0.3"/>
+                      </svg>
+                    </div>
+                    <h3>Project Guide Library</h3>
+                    <p>Access a growing library of 80+ step-by-step resin project guides, from beginner coasters to advanced geode wall panels. New guides added every fortnight.</p>
+                    <ul>
+                      <li>Starter: 2 guides/month</li>
+                      <li>Studio: Unlimited access</li>
+                      <li>Professional: Unlimited + early access</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="carousel__slide">
+                  <div class="feat-card">
+                    <div class="feat-card__icon">
+                      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.14"/>
+                        <path d="M15 40 Q20 24 30 22 Q40 20 45 40" fill="none" stroke="var(--secondary)" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="30" cy="30" r="6" fill="var(--secondary)" opacity="0.4"/>
+                      </svg>
+                    </div>
+                    <h3>Live Q&amp;A Sessions</h3>
+                    <p>Monthly live video sessions with ResinLux lead artists. Ask real questions in real time, watch live pours, and get personalised technique feedback directly from professionals.</p>
+                    <ul>
+                      <li>Starter: 1 session/month</li>
+                      <li>Studio: 4 sessions/month</li>
+                      <li>Professional: Unlimited sessions</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="carousel__slide">
+                  <div class="feat-card">
+                    <div class="feat-card__icon">
+                      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.14"/>
+                        <rect x="12" y="20" width="36" height="26" rx="4" fill="none" stroke="var(--amber)" stroke-width="2.5"/>
+                        <path d="M12 30 L30 40 L48 30" fill="none" stroke="var(--amber)" stroke-width="2" opacity="0.5"/>
+                      </svg>
+                    </div>
+                    <h3>Studio Access Sessions</h3>
+                    <p>Book time in our 2,400 sq ft professional studio with full equipment access — pressure pots, orbital sanders, climate-controlled curing rooms, and 400+ pigments. The complete professional workspace, yours by appointment.</p>
+                    <ul>
+                      <li>Starter: Not included</li>
+                      <li>Studio: 2 sessions/month</li>
+                      <li>Professional: Unlimited sessions</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="carousel__slide">
+                  <div class="feat-card">
+                    <div class="feat-card__icon">
+                      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="var(--primary)" opacity="0.12"/>
+                        <circle cx="30" cy="24" r="9" fill="none" stroke="var(--primary)" stroke-width="2.5"/>
+                        <path d="M16 44 Q20 34 30 34 Q40 34 44 44" fill="none" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                    <h3>1-to-1 Artist Mentorship</h3>
+                    <p>Exclusive to Professional members: monthly one-on-one mentorship sessions with a dedicated ResinLux lead artist. Work on your portfolio, develop your signature style, and get honest critique that accelerates real growth.</p>
+                    <ul>
+                      <li>Starter: Not included</li>
+                      <li>Studio: Not included</li>
+                      <li>Professional: 2 hours/month</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="carousel__slide">
+                  <div class="feat-card">
+                    <div class="feat-card__icon">
+                      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="var(--secondary)" opacity="0.12"/>
+                        <polygon points="30,12 34,22 46,22 36,30 39,42 30,34 21,42 24,30 14,22 26,22" fill="var(--secondary)" opacity="0.4"/>
+                      </svg>
+                    </div>
+                    <h3>Commission Discounts</h3>
+                    <p>Members save on all commissioned pieces ordered through the studio. Discounts scale with plan tier, applied automatically at checkout. Combined with your growing skill, the plan pays for itself fast.</p>
+                    <ul>
+                      <li>Starter: No discount</li>
+                      <li>Studio: 10% on all commissions</li>
+                      <li>Professional: 25% on all commissions</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="carousel__slide">
+                  <div class="feat-card">
+                    <div class="feat-card__icon">
+                      <svg viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="30" cy="30" r="28" fill="var(--amber)" opacity="0.12"/>
+                        <rect x="14" y="14" width="32" height="32" rx="4" fill="none" stroke="var(--amber)" stroke-width="2"/>
+                        <path d="M20 24 Q26 18 30 24 Q34 30 40 24" fill="none" stroke="var(--amber)" stroke-width="2.5" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                    <h3>Portfolio &amp; Gallery Listing</h3>
+                    <p>Professional members receive a dedicated portfolio page on the ResinLux website, plus inclusion in our rotating gallery display at the studio — seen by hundreds of clients, press, and collaborators every month.</p>
+                    <ul>
+                      <li>Starter: Not included</li>
+                      <li>Studio: Not included</li>
+                      <li>Professional: Full portfolio page</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div><!-- /track -->
+              <button class="carousel__btn carousel__btn--prev" id="featPrev" aria-label="Previous">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+              </button>
+              <button class="carousel__btn carousel__btn--next" id="featNext" aria-label="Next">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+              </button>
+              <div class="carousel__dots" id="featDots"></div>
+            </div>
+          </div>
+        </div><!-- /feature-carousel -->
+
+        <!-- Feature comparison table -->
+        <div class="comparison-table fade-up" style="--delay:.1s">
+          <h3 class="comparison-title">Full Feature Comparison</h3>
+          <div class="compare-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Starter</th>
+                  <th class="col-popular">Studio <span class="popular-pill">Popular</span></th>
+                  <th>Professional</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Project guide library</td><td>2/month</td><td class="col-popular">Unlimited</td><td>Unlimited + early access</td></tr>
+                <tr><td>Live Q&amp;A sessions</td><td>1/month</td><td class="col-popular">4/month</td><td>Unlimited</td></tr>
+                <tr><td>Community access</td><td>Standard</td><td class="col-popular">Priority</td><td>Priority + VIP channel</td></tr>
+                <tr><td>Email support</td><td>48h reply</td><td class="col-popular">12h reply</td><td>Dedicated (24/7)</td></tr>
+                <tr><td>Studio access sessions</td><td class="feature--x">&times;</td><td class="col-popular">2/month</td><td>Unlimited</td></tr>
+                <tr><td>Commission discount</td><td class="feature--x">&times;</td><td class="col-popular">10%</td><td>25%</td></tr>
+                <tr><td>Pigment &amp; equipment loan</td><td class="feature--x">&times;</td><td class="col-popular"><span class="feature--x">&times;</span></td><td>Full access</td></tr>
+                <tr><td>1-to-1 mentorship</td><td class="feature--x">&times;</td><td class="col-popular"><span class="feature--x">&times;</span></td><td>2h/month</td></tr>
+                <tr><td>Portfolio &amp; gallery listing</td><td class="feature--x">&times;</td><td class="col-popular"><span class="feature--x">&times;</span></td><td>Full page</td></tr>
+                <tr><td>Commercial licensing</td><td class="feature--x">&times;</td><td class="col-popular"><span class="feature--x">&times;</span></td><td>Included</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Social proof strip -->
+        <div class="testimonials-strip">
+          <div class="testimonial fade-left" style="--delay:0s">
+            <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"The Studio plan paid for itself in the first month with commission discounts alone. The live Q&amp;A sessions are worth the price on their own."</p>
+            <div class="testimonial__author">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&q=80" alt="Sofia" />
+              <div><strong>Sofia R.</strong><span>Studio Member, 14 months</span></div>
+            </div>
+          </div>
+          <div class="testimonial fade-up" style="--delay:.1s">
+            <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Upgrading to Professional was a turning point. The mentorship and gallery listing brought my first commercial client within six weeks."</p>
+            <div class="testimonial__author">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&q=80" alt="James" />
+              <div><strong>James T.</strong><span>Professional Member, 8 months</span></div>
+            </div>
+          </div>
+          <div class="testimonial fade-right" style="--delay:.2s">
+            <div class="testimonial__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p>"Started on Starter with zero experience. Six months later I'm on Professional and selling pieces at craft fairs. The progression support is exceptional."</p>
+            <div class="testimonial__author">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&q=80" alt="Layla" />
+              <div><strong>Layla H.</strong><span>Professional Member, 6 months</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION 3: FAQ + CUSTOM QUOTE ENQUIRY FORM
+         ============================================================ -->
+    <section class="pr-enquire section-pad" id="enquire">
+      <div class="pr-enquire__bg">
+        <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1600&q=80" alt="Enquire background" class="pr-enquire__bg-img" />
+        <div class="pr-enquire__overlay"></div>
+        <div class="bg-blob bg-blob--c"></div>
+        <div class="bg-blob bg-blob--d"></div>
+      </div>
+
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="section-chip section-chip--light">Got Questions?</span>
+          <h2 class="section-title section-title--light">Frequently Asked Questions &amp; Custom Enquiries</h2>
+          <p class="section-sub section-sub--light">Everything you need to know before you commit — and a direct line to our team if you need something tailored.</p>
+        </div>
+
+        <div class="enquire-grid">
+          <!-- LEFT: FAQ accordion -->
+          <div class="faq-col fade-right">
+            <h3 class="col-heading">Frequently Asked Questions</h3>
+            <div class="faq-accordion" id="faqAccordion">
+
+              <div class="faq-item">
+                <button class="faq-btn" aria-expanded="false">
+                  <span>Can I change my plan at any time?</span>
+                  <svg class="faq-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body">
+                  <p>Yes, absolutely. You can upgrade or downgrade your plan at any time from your account dashboard. Upgrades take effect immediately, with a prorated charge. Downgrades take effect at the start of your next billing cycle.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-btn" aria-expanded="false">
+                  <span>Is there a long-term contract?</span>
+                  <svg class="faq-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body">
+                  <p>No lock-in at all. All plans are month-to-month. The annual option is available at a 20% discount for members who want to commit for the year, but it's entirely optional. Cancel anytime with no penalties.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-btn" aria-expanded="false">
+                  <span>What happens after the 14-day free trial?</span>
+                  <svg class="faq-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body">
+                  <p>After your 14-day trial ends, you'll be asked to select a payment method to continue. We send a reminder 3 days before the trial ends. If you don't add payment details, your account automatically pauses — your data is never deleted.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-btn" aria-expanded="false">
+                  <span>Do studio access sessions roll over?</span>
+                  <svg class="faq-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body">
+                  <p>Studio sessions on the Studio plan (2/month) expire at the end of each calendar month and do not roll over. Professional plan sessions are unlimited so rollover is not relevant. We recommend booking early in the month to ensure availability.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-btn" aria-expanded="false">
+                  <span>Can I get a custom corporate or group plan?</span>
+                  <svg class="faq-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body">
+                  <p>Yes. We offer bespoke team memberships for studios, design firms, educational institutions, and corporate wellness programmes. Fill in the enquiry form and select "Corporate / Group" as the plan type — we'll prepare a tailored quote within 2 business days.</p>
+                </div>
+              </div>
+
+              <div class="faq-item">
+                <button class="faq-btn" aria-expanded="false">
+                  <span>Is VAT included in the listed prices?</span>
+                  <svg class="faq-arrow" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-body">
+                  <p>All prices shown are exclusive of VAT. UK customers will have 20% VAT added at checkout. EU and international customers may be subject to local taxes. VAT receipts are available from your account billing page after each payment.</p>
+                </div>
+              </div>
+
+            </div><!-- /faq -->
+          </div>
+
+          <!-- RIGHT: Enquiry form -->
+          <div class="form-col fade-left">
+            <div class="form-card" id="formCard">
+              <h3 class="col-heading col-heading--form">Request a Custom Quote</h3>
+              <p class="form-card__sub">Not sure which plan fits? Tell us your goals and we'll recommend the right option or build a bespoke package for you.</p>
+              <form id="enquireForm" novalidate>
+
+                <div class="form-group">
+                  <label for="e-name">Full Name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="e-name" name="name" placeholder="Your full name" autocomplete="name" />
+                  <span class="form-error" id="err-name"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="e-email">Email Address <span aria-hidden="true">*</span></label>
+                  <input type="email" id="e-email" name="email" placeholder="your@email.com" autocomplete="email" />
+                  <span class="form-error" id="err-email"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="e-phone">Phone Number</label>
+                  <input type="tel" id="e-phone" name="phone" placeholder="+44 7700 000000" autocomplete="tel" />
+                </div>
+
+                <div class="form-group">
+                  <label for="e-plan">Interested Plan <span aria-hidden="true">*</span></label>
+                  <select id="e-plan" name="plan">
+                    <option value="">Select a plan</option>
+                    <option value="starter">Starter &mdash; &pound;29/month</option>
+                    <option value="studio">Studio &mdash; &pound;79/month (Most Popular)</option>
+                    <option value="professional">Professional &mdash; &pound;149/month</option>
+                    <option value="corporate">Corporate / Group (Custom)</option>
+                    <option value="unsure">Not sure — help me choose</option>
+                  </select>
+                  <span class="form-error" id="err-plan"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="e-level">Current Experience Level <span aria-hidden="true">*</span></label>
+                  <select id="e-level" name="level">
+                    <option value="">Select your level</option>
+                    <option value="beginner">Complete Beginner</option>
+                    <option value="hobbyist">Hobbyist (some experience)</option>
+                    <option value="intermediate">Intermediate Artist</option>
+                    <option value="advanced">Advanced / Semi-Professional</option>
+                    <option value="professional">Working Professional</option>
+                  </select>
+                  <span class="form-error" id="err-level"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="e-goals">Your Goals <span aria-hidden="true">*</span></label>
+                  <textarea id="e-goals" name="goals" rows="3" placeholder="e.g. I want to start making jewellery from home and eventually sell at craft fairs..."></textarea>
+                  <span class="form-error" id="err-goals"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="checkbox-label checkbox-label--agree">
+                    <input type="checkbox" id="e-agree" name="agree" />
+                    I agree to ResinLux Studio contacting me about membership options. <span aria-hidden="true">*</span>
+                  </label>
+                  <span class="form-error" id="err-agree"></span>
+                </div>
+
+                <button type="submit" class="btn btn--primary btn--full">Send Enquiry</button>
+              </form>
+
+              <div class="form-success" id="formSuccess" hidden>
+                <svg width="56" height="56" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+                <h3>Enquiry Received!</h3>
+                <p>Thank you — our team will review your goals and respond with a tailored recommendation within 24 hours. Your 14-day free trial is waiting whenever you're ready.</p>
+                <a href="#pricing-hero" class="btn btn--secondary">View Plans Again</a>
+              </div>
+            </div>
+          </div>
+        </div><!-- /enquire-grid -->
+
+        <!-- Money-back guarantee strip -->
+        <div class="guarantee-strip fade-up" style="--delay:.2s">
+          <div class="guarantee-item">
+            <svg width="36" height="36" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <div><strong>14-Day Free Trial</strong><span>No credit card required</span></div>
+          </div>
+          <div class="guarantee-item">
+            <svg width="36" height="36" fill="none" stroke="var(--secondary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            <div><strong>Cancel Anytime</strong><span>No lock-in, no penalties</span></div>
+          </div>
+          <div class="guarantee-item">
+            <svg width="36" height="36" fill="none" stroke="var(--amber)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+            <div><strong>Satisfaction Guaranteed</strong><span>98% member satisfaction rate</span></div>
+          </div>
+          <div class="guarantee-item">
+            <svg width="36" height="36" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <div><strong>Secure Payments</strong><span>PCI-compliant, encrypted checkout</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+ 
+
+
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="#" class="footer-logo">
+            <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+              <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+              <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+            </svg>
+            <span>ResinCraft Studio</span>
+          </a>
+          <p>Transforming spaces with bespoke resin art and handcrafted home decor since 2018.</p>
+          <div class="footer-social">
+            <a href="#" class="soc-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="soc-link" aria-label="Pinterest"><i data-lucide="bookmark"></i></a>
+            <a href="#" class="soc-link" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="soc-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="../About/about.html">About Us</a></li>
+            <li><a href="../Services/service.html">Services</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="../Blog/blog.html">Blog</a></li>
+            <li><a href="../Contact/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../ServiceDetail/bespoke.html">Bespoke Commissions</a></li>
+            <li><a href="../ServiceDetail/workshop.html">Resin Workshops</a></li>
+            <li><a href="../ServiceDetail/corporate.html">Corporate Gifting</a></li>
+            <li><a href="../ServiceDetail/jewel.html">Jewellery Design</a></li>
+            <li><a href="../ServiceDetail/interior.html">Interior Installations</a></li>
+            <li><a href="../ServiceDetail/gifts.html">Wedding Gifts</a></li>
+          </ul>
+        </div>
+         <div class="footer-col">
+          <h4>Additional</h4>
+          <ul>
+            <li><a href="../AdminDashboard/admin.html">Client Portal</a></li>
+            <li><a href="../Pricing/pricing.html">Pricing </a></li>
+            <li><a href="../404Page/404.html">404 Page</a></li>
+            <li><a href="../ComingSoon/coming.html">Coming Soon</a></li>
+          
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-contact">
+            <li><i data-lucide="map-pin"></i><span>12 Artisan Lane, Shoreditch, London E1 6RF</span></li>
+            <li><i data-lucide="phone"></i><a href="tel:+442071234567">+44 207 123 4567</a></li>
+            <li><i data-lucide="mail"></i><a href="mailto:hello@resincraft.studio">hello@resincraft.studio</a></li>
+            <li><i data-lucide="clock"></i><span>Mon–Sat: 9am – 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="footer-bot-inner">
+        <p>© 2026 ResinCraft Studio. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== WHATSAPP WIDGET ========== -->
+<div class="wa-widget" id="waWidget">
+  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
+    <i data-lucide="message-circle" class="wa-ico-open"></i>
+    <i data-lucide="x" class="wa-ico-close"></i>
+  </button>
+  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
+    <div class="wa-head">
+      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
+      <div class="wa-info">
+        <strong>ResinCraft Studio</strong>
+        <span>Typically replies in minutes</span>
+      </div>
+      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-bubble">
+        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
+        <p>How can we help you today?</p>
+        <small>Just now</small>
+      </div>
+    </div>
+    <div class="wa-foot">
+      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
+        <i data-lucide="message-circle"></i> Chat on WhatsApp
+      </a>
+      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
+    </div>
+  </div>
+</div>
+
+<script src="./pricing.js"></script>
+</body>
+</html>
