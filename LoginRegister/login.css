@@ -328,6 +328,9 @@ form { display: flex; flex-direction: column; gap: 7px; }
   transition: color .2s;
 }
 .switch-btn:hover { color: var(--primary-dark); }
+.switch-btn{
+  text-decoration: none;
+}
 
 /* ===== RTL ===== */
 [dir="rtl"] .input-icon { left: auto; right: 12px; }

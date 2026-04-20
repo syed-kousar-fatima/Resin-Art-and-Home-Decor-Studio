@@ -31,7 +31,7 @@
     <div class="tab-switch" id="tabSwitch">
       <button class="tab-btn active" data-tab="login" id="tabLogin">Log In</button>
       <div class="tab-divider"></div>
-      <button class="tab-btn" data-tab="register" id="tabRegister">Sign Up</button>
+      
     </div>
 
     <!-- 3D Flip Card -->
@@ -43,12 +43,12 @@
           <div class="card-inner">
             <!-- Logo -->
             <div class="card-logo">
-              <svg width="28" height="28" viewBox="0 0 40 40">
-                <circle cx="20" cy="20" r="20" fill="#9333ea" opacity=".15"/>
-                <ellipse cx="20" cy="14" rx="6" ry="10" fill="#9333ea" opacity=".7"/>
-                <ellipse cx="20" cy="26" rx="9" ry="7" fill="#9333ea"/>
-              </svg>
-              <span class="card-logo-text">ResinLux</span>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
+          <path d="M20 8C20 8 28 18 28 24C28 28.4 24.4 32 20 32C15.6 32 12 28.4 12 24C12 18 20 8 20 8Z" fill="white" opacity="0.9"/>
+          <circle cx="16" cy="23" r="3" fill="var(--secondary)" opacity="0.75"/>
+        </svg>
+              <span class="card-logo-text"><a href="/index.html">ResinLux</a></span>
             </div>
             <h4>Welcome Back</h4>
             <p class="card-sub">Sign in to your account</p>
@@ -108,118 +108,11 @@
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg>
               </a>
             </div>
-            <p class="switch-link">Don't have an account? <button class="switch-btn" id="goRegister">Sign Up</button></p>
+            <p class="switch-link">Don't have an account? <button class="switch-btn" id="goRegister"><a href="./register.html">Sign Up</a></button></p>
           </div>
         </div>
 
-        <!-- BACK: Register -->
-        <div class="card-face card-back">
-          <div class="card-inner">
-            <div class="card-logo">
-              <svg width="28" height="28" viewBox="0 0 40 40">
-                <circle cx="20" cy="20" r="20" fill="#9333ea" opacity=".15"/>
-                <ellipse cx="20" cy="14" rx="6" ry="10" fill="#9333ea" opacity=".7"/>
-                <ellipse cx="20" cy="26" rx="9" ry="7" fill="#9333ea"/>
-              </svg>
-              <span class="card-logo-text">ResinLux</span>
-            </div>
-            <h4>Create Account</h4>
-            <p class="card-sub">Join the ResinLux community</p>
-
-            <form id="registerForm" novalidate>
-              <div class="form-group">
-                <span class="input-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </span>
-                <input type="text" id="regFirstName" class="form-style" placeholder="First Name" autocomplete="off">
-                <span class="field-error" id="regFirstNameErr"></span>
-              </div>
-              <div class="form-group">
-                <span class="input-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </span>
-                <input type="text" id="regLastName" class="form-style" placeholder="Last Name" autocomplete="off">
-                <span class="field-error" id="regLastNameErr"></span>
-              </div>
-              <div class="form-group">
-                <span class="input-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </span>
-                <input type="email" id="regEmail" class="form-style" placeholder="Email Address" autocomplete="off">
-                <span class="field-error" id="regEmailErr"></span>
-              </div>
-              <div class="form-group">
-                <span class="input-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                </span>
-                <input type="password" id="regPass" class="form-style" placeholder="Password" autocomplete="off">
-                <button type="button" class="eye-btn" data-target="regPass">
-                  <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                  <svg class="eye-closed" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                </button>
-                <span class="field-error" id="regPassErr"></span>
-              </div>
-              <!-- Password strength -->
-              <div class="strength-wrap">
-                <div class="strength-bars">
-                  <div class="strength-bar" id="sb1"></div>
-                  <div class="strength-bar" id="sb2"></div>
-                  <div class="strength-bar" id="sb3"></div>
-                  <div class="strength-bar" id="sb4"></div>
-                </div>
-                <span class="strength-label" id="strengthLabel"></span>
-              </div>
-              <div class="form-group">
-                <span class="input-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-                </span>
-                <input type="password" id="regConfirm" class="form-style" placeholder="Confirm Password" autocomplete="off">
-                <button type="button" class="eye-btn" data-target="regConfirm">
-                  <svg class="eye-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                  <svg class="eye-closed" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                </button>
-                <span class="field-error" id="regConfirmErr"></span>
-              </div>
-              <label class="terms-label">
-                <input type="checkbox" id="termsCheck"> I agree to the <a href="#" class="link-text">Terms &amp; Privacy</a>
-              </label>
-              <span class="field-error" id="termsErr"></span>
-              <button type="submit" class="btn-auth">Create Account</button>
-            </form>
-
-            <div class="social-divider">or sign up with</div>
-            <div class="social-btns">
-              <button class="social-btn">
-                <svg width="16" height="16" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-                Google
-              </button>
-              <button class="social-btn">
-                <svg width="16" height="16" viewBox="0 0 814 1000"><path fill="currentColor" d="M788.1 340.9c-5.8 4.5-108.2 62.2-108.2 190.5 0 148.4 130.3 200.9 134.2 202.2-.6 3.2-20.7 71.9-68.7 141.9-42.8 61.6-87.5 123.1-155.5 123.1s-85.5-39.5-164-39.5c-76 0-103.7 40.8-165.9 40.8s-105-57.8-155.5-127.4C46 790.7 0 663 0 541.8c0-207.1 133.4-316.5 264.4-316.5 69.4 0 127.3 45.5 170.8 45.5 41.3 0 106.1-48.3 183.6-48.3zm-194.3-86.4c31.4-37.4 54.3-89.2 54.3-140.9 0-7.1-.6-14.3-1.9-20.1-51.6 2-112.3 34.4-149.2 75.8-28.5 32.4-55.1 84.2-55.1 136.7 0 7.8 1.3 15.6 1.9 18.1 3.2.6 8.4 1.3 13.6 1.3 46.5 0 102.5-30.8 136.4-70.9z"/></svg>
-                Apple
-              </button>
-            </div>
-            <div class="social-icons-row">
-              <a href="#" class="icon-btn" style="color:#1877f2" title="Facebook">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-              </a>
-              <a href="#" class="icon-btn" style="color:#e1306c" title="Instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              </a>
-              <a href="#" class="icon-btn" style="color:#e60023" title="Pinterest">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-              </a>
-              <a href="#" class="icon-btn" style="color:#ff0000" title="YouTube">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg>
-              </a>
-            </div>
-            <p class="switch-link">Already have an account? <button class="switch-btn" id="goLogin">Sign In</button></p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
+      
   <script src="./login.js"></script>
 </body>
 </html>
