@@ -31,7 +31,7 @@
   --sh-hov:         0 20px 56px rgba(124,58,237,0.22);
 
   --nav-h:          72px;
-  --r-sm:           8px;
+  --r-sm:           20px;
   --r-md:           16px;
   --r-lg:           24px;
   --r-xl:           32px;
@@ -145,7 +145,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 11px 26px;
+  padding: 8px 16px;
   border-radius: var(--r-sm);
   font-family: var(--ff-body);
   font-size: 0.88rem;
@@ -168,8 +168,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: var(--sh-md);
 }
 .btn-secondary {
-  background: var(--secondary);
-  color: #fff;
+  color: var(--secondary-dk);
   border-color: var(--secondary);
 }
 .btn-secondary:hover {
@@ -177,6 +176,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-color: var(--secondary-dk);
   transform: translateY(-2px);
   box-shadow: var(--sh-md);
+  color: white;
 }
 .btn-outline {
   background: transparent;
@@ -202,7 +202,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   width: 44px;
   height: 44px;
   border-radius: var(--r-sm);
-  border: 1px solid var(--border);
+  border: 1px solid var(--primary);
   background: transparent;
   color: var(--txt);
   transition: all var(--tr);
@@ -235,6 +235,32 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   height: 60px;
   box-shadow: var(--sh-sm);
 }
+/* .nav-link{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:600;
+    text-decoration:none;
+    transition:all .35s ease;
+}
+[data-theme="light"] .nav-link{
+    color:#475569;
+}
+
+[data-theme="light"] .nav-link:hover{
+    color:#C8973A;
+    background:#FFF8E7;
+}
+
+[data-theme="light"] .nav-link.active{
+    color:#C8973A;
+    background:#FFF3D6;
+    box-shadow:
+        0 8px 20px rgba(200,151,58,.18);
+} */
 .nav-container {
   display: flex;
   align-items: center;
@@ -244,7 +270,36 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding-inline: var(--pad);
   gap: 24px;
 }
+/* .nav-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.45rem 0.85rem;
+  border-radius:20%;
+  color: var(--secondary-dk);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  position: relative;
+}
 
+.nav-link:hover {
+  color:var(--primary);
+  background: rgba(200, 151, 58, 0.08);
+}
+
+.nav-link.active::after{
+    width:100%;
+    color: var(--primary);
+}
+.nav-link.active{
+    color:var(--primary);
+    background:#F8F2E7;
+    border-radius:10px;
+    border:1px solid var(--primary);
+}
+
+[data-theme="dark"] .nav-link.active{
+    background:#F8F2E7;
+    color:var(--primary);
+} */
 /* Brand */
 .nav-brand {
   display: flex;
@@ -274,29 +329,50 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .nav-item { position: relative; }
 
 /* Nav link base */
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  padding: 8px 14px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--txt-2);
-  border-radius: var(--r-sm);
-  cursor: pointer;
-  transition: all var(--tr);
-  white-space: nowrap;
-  border: none;
-  background: none;
-  font-family: var(--ff-body);
+.nav-link{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:10px 16px;
+    color:var(--txt-2);
+    text-decoration:none;
+    font-size:.9rem;
+    font-weight:500;
+    border-radius:20px;
+    border-left:4px solid transparent;
+    transition:.3s ease;
 }
-.nav-link:hover,
-.nav-link.active-link {
-  color: var(--primary);
-  background: var(--primary-lt);
+
+/* Hover */
+
+.nav-link:hover{
+    color:var(--primary);
+    background:var(--primary-lt);
+    border-left-color:var(--primary);
 }
+
+/* Active */
+
+.nav-link.active{
+    color:var(--primary);
+    background:var(--primary-lt);
+    border-left-color:var(--primary);
+    font-weight:600;
+}
+
+/* Dark */
+
 [data-theme="dark"] .nav-link:hover,
-[data-theme="dark"] .nav-link.active-link { background: rgba(124,58,237,0.15); }
+[data-theme="dark"] .nav-link.active{
+    background:white;
+}
+
+/* Dropdown */
+
+.dd-link.active{
+    color:var(--primary);
+    font-weight:600;
+}
 
 /* Arrow icon */
 .nav-arrow { width: 14px; height: 14px; transition: transform var(--tr); }
@@ -781,7 +857,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 .hero-img-wrap img {
   width: 100%;
-  height: 500px;
+  height: 400px;
   transition: transform 0.6s ease;
 }
 .hero-img-wrap:hover img { transform: scale(1.04); }
@@ -870,11 +946,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: var(--sh-sm);
   transition: all var(--tr-slow);
   animation-delay: var(--delay, 0s);
+   border-color: var(--primary);
 }
 .card:hover {
   transform: translateY(-8px);
   box-shadow: var(--sh-hov);
-  border-color: var(--primary);
+  border-color: var(--secondary);
 }
 .card-img { position: relative; overflow: hidden; }
 .card-img img {
@@ -908,7 +985,10 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border-radius: 100px;
 }
 
-.card-body { padding: 18px; }
+.card-body { padding: 18px; align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 .card-body h3 {
   font-family: var(--ff-display);
   font-size: 1.05rem;
@@ -998,9 +1078,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   border: 1px solid var(--border-card);
   padding: 16px;
   transition: all var(--tr);
+    border-color: var(--primary);
+     display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .value-card:hover {
-  border-color: var(--primary);
+
   box-shadow: var(--sh-sm);
   transform: translateY(-3px);
 }
@@ -1036,6 +1122,11 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: var(--sh-sm);
   transition: all var(--tr-slow);
   animation-delay: var(--delay, 0s);
+   border-color: var(--primary);
+   
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .process-step:hover {
   transform: translateY(-6px);
@@ -1118,6 +1209,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: all var(--tr-slow);
   position: relative;
   animation-delay: var(--delay, 0s);
+  border-color: var(--primary);
+  text-align: center;
 }
 .service-card:hover {
   transform: translateY(-8px);
@@ -1154,11 +1247,12 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-bottom: 8px;
 }
 .svc-body p { font-size: 0.85rem; color: var(--txt-muted); margin-bottom: 14px; line-height: 1.6; }
-.svc-list { margin-bottom: 18px; }
+.svc-list { margin-bottom: 18px;}
 .svc-list li {
   display: flex;
   align-items: center;
-  gap: 7px;
+  justify-content: center;
+  gap: 4px;
   font-size: 0.83rem;
   color: var(--txt-2);
   margin-bottom: 7px;
@@ -1175,6 +1269,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   transition: all var(--tr-slow);
   position: relative;
   animation-delay: var(--delay, 0s);
+  border-color: var(--primary);
+  text-align: center;
 }
 .workshop-card:hover {
   transform: translateY(-6px);
@@ -1292,6 +1388,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   box-shadow: var(--sh-sm);
   transition: all var(--tr-slow);
   animation-delay: var(--delay, 0s);
+  border-color: var(--primary);
 }
 .blog-card:hover {
   transform: translateY(-6px);

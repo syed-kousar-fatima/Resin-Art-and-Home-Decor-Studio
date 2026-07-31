@@ -13,6 +13,7 @@
 </head>
 <body>
 
+
 <!-- ========== NAVBAR ========== -->
 <header class="navbar" id="navbar">
   <div class="nav-container">
@@ -35,43 +36,31 @@
 
         <!-- Home — with dropdown -->
 <li class="nav-item nav-has-dropdown">
-  <a href="./index.html" class="nav-link">Home</a>
+  <a href="/index.html" class="nav-link">Home</a>
   <ul class="nav-dropdown" id="dd-home">
-    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
-    
+    <li><a href="/index.html" class="dd-link">Home 1</a></li>
+    <li><a href="../Home/home.html" class="dd-link">Home 2</a></li>
   </ul>
 </li>
- 
         <li class="nav-item">
-          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../About/about.html" class="nav-link ">About</a>
         </li>
-
         <!-- Services — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Services/service.html" class="nav-link">Services</a>
-          <ul class="nav-dropdown" id="dd-services">
-            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
-            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
-            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
-            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
-            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
-            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
-          </ul>
+          <a href="../Services/service.html" class="nav-link active">Services</a>
+          
         </li>
 
         <!-- Blog — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Blog/blog.html" class="nav-link">Blog</a>
-          <ul class="nav-dropdown" id="dd-blog">
-            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
-            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
-            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
-            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
-          </ul>
+          <a href="../Blog/blog.html" class="nav-link ">Blog</a>
         </li>
 
         <li class="nav-item">
           <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="../AdminDashboard/admin.html" class="nav-link">Dashboard</a>
         </li>
 
       </ul>
@@ -107,6 +96,7 @@
       <i data-lucide="x"></i>
     </button>
   </div>
+  
 
   <ul class="drawer-nav">
 
@@ -115,7 +105,8 @@
         <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
       </button>
       <ul class="drawer-sub" id="sub-home">
-        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+        <li><a href="./index.html" class="drawer-sub-link">Home 1</a></li>
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home 2</a></li>
        
       </ul>
     </li>
@@ -123,37 +114,18 @@
     <li class="drawer-item">
       <a href="../About/about.html" class="drawer-link">About</a>
     </li>
-
     <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-services">
-        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-services">
-        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
-        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
-        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
-        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
-        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
-        <li><a href="./interior.html" class="drawer-sub-link">Interior Installation</a></li>
-        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
-      </ul>
+      <a href="../Services/service.html" class="drawer-link">Services</a>
     </li>
-
-    <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
-        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-blog">
-        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
-        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
-        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
-        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
-        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
-      </ul>
+        <li class="drawer-item">
+      <a href="../Blog/blog.html" class="drawer-link">Blog</a>
     </li>
 
     <li class="drawer-item">
       <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+    <li class="drawer-item">
+      <a href="../AdminDashboard/admin.html" class="drawer-link">Dashboard</a>
     </li>
 
     <li class="drawer-divider"></li>
@@ -199,8 +171,8 @@
           </h1>
           <p class="hero-sub fade-up" data-delay="200">Transform your space with statement epoxy resin installations — river tables, feature walls, bar tops, counter surfaces, and sculptural panels that fuse art with architecture. Every project is site-measured, bespoke-designed, and professionally installed.</p>
           <div class="hero-actions fade-up" data-delay="300">
-            <a href="#enquire" class="btn-primary">Start a Project</a>
-            <a href="#projects" class="btn-ghost-light">View Our Work</a>
+            <a href="#enquire" class="btn btn-primary">Start a Project</a>
+            <a href="#projects" class="btn btn-secondary">View Our Work</a>
           </div>
           <div class="hero-stats fade-up" data-delay="400">
             <div class="hs-item"><strong>180+</strong><span>Installations Completed</span></div>
@@ -228,16 +200,16 @@
             <span class="section-tag">What We Do</span>
             <h2>Resin Art at an<br>Architectural Scale</h2>
             <p>Interior installations take resin art beyond the wall and into the fabric of your space. A river table becomes the centrepiece of your dining room. A resin feature wall transforms a reception lobby into an experience. A custom bar top turns a hospitality space into a brand statement.</p>
-            <p>At ResinLux Studio, we design and execute large-format epoxy resin installations for homes, restaurants, hotels, offices, retail spaces, and wellness centres. Every project begins with a free site visit and consultation, followed by a detailed design proposal before a single litre of resin is mixed.</p>
-            <ul class="about-points">
+            <p>At ResinCraft Studio, we design and execute large-format epoxy resin installations for homes, restaurants, hotels, offices, retail spaces, and wellness centres. Every project begins with a free site visit and consultation, followed by a detailed design proposal before a single litre of resin is mixed.</p>
+            <!-- <ul class="about-points">
               <li><div class="ap-dot"></div><span>Epoxy river tables in solid wood &amp; live-edge slabs</span></li>
               <li><div class="ap-dot"></div><span>Resin feature walls, panels &amp; murals</span></li>
               <li><div class="ap-dot ap-dot--teal"></div><span>Bar tops, counters &amp; kitchen surfaces</span></li>
               <li><div class="ap-dot ap-dot--teal"></div><span>Flooring, staircase inlays &amp; lobby features</span></li>
               <li><div class="ap-dot ap-dot--amber"></div><span>UV-resistant, heat-stable, food-safe finishes</span></li>
               <li><div class="ap-dot ap-dot--amber"></div><span>10-year structural guarantee on all installations</span></li>
-            </ul>
-            <a href="#enquire" class="btn-primary">Book a Site Visit</a>
+            </ul> -->
+            <a href="#enquire" class="btn btn-primary">Book a Site Visit</a>
           </div>
           <div class="about-right fade-right">
             <div class="about-model">
@@ -521,7 +493,7 @@
               </svg>
             </div>
             <h3>24-Carat Gold &amp; Metal Inclusions</h3>
-            <p>Gold leaf, copper powder, mica metallic pigments, and crushed quartz embedded within resin layers for texture, depth, and the distinctive ResinLux aesthetic of luxury and artistry.</p>
+            <p>Gold leaf, copper powder, mica metallic pigments, and crushed quartz embedded within resin layers for texture, depth, and the distinctive ResinCraft Studio aesthetic of luxury and artistry.</p>
           </div>
           <div class="mat-card fade-up" data-delay="300">
             <div class="mc-icon">
@@ -590,7 +562,7 @@
               <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> 3D visualisation</li>
               <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Gold leaf inclusions</li>
             </ul>
-            <a href="#enquire" class="btn-secondary">Get Residential Quote</a>
+            <a href="#enquire" class="btn btn-secondary">Get Residential Quote</a>
           </div>
 
           <div class="price-card price-card--featured fade-up" data-delay="100">
@@ -609,7 +581,7 @@
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 10-year structural guarantee</li>
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Dedicated project manager</li>
             </ul>
-            <a href="#enquire" class="btn-primary">Get Signature Quote</a>
+            <a href="#enquire" class="btn btn-primary">Get Signature Quote</a>
           </div>
 
           <div class="price-card fade-right" data-delay="200">
@@ -627,7 +599,7 @@
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Full snagging &amp; aftercare programme</li>
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 10-year structural guarantee</li>
             </ul>
-            <a href="#enquire" class="btn-secondary">Get Commercial Quote</a>
+            <a href="#enquire" class="btn btn-secondary">Get Commercial Quote</a>
           </div>
 
         </div>
@@ -645,8 +617,8 @@
       <div class="container">
         <div class="section-head section-head--light fade-up">
           <span class="section-tag section-tag--light">Client Projects</span>
-          <h2>Spaces Transformed by ResinLux</h2>
-          <p>Every project tells a story. Here are three clients whose spaces were permanently changed by a ResinLux installation.</p>
+          <h2>Spaces Transformed by ResinCraft Studio</h2>
+          <p>Every project tells a story. Here are three clients whose spaces were permanently changed by a ResinCraft Studio installation.</p>
         </div>
         <div class="stories-grid">
           <div class="story-card story-card--large fade-left" data-delay="0">
@@ -657,7 +629,7 @@
               <div class="stc-stars">
                 <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
               </div>
-              <blockquote>&ldquo;Our ResinLux river table is quite simply the most beautiful object in our home. The deep teal river running through the walnut slab is breathtaking from every angle. The installation team were meticulous — two days of careful work and the result is flawless. Every single visitor asks about it within five minutes of walking in.&rdquo;</blockquote>
+              <blockquote>&ldquo;Our ResinCraft Studio river table is quite simply the most beautiful object in our home. The deep teal river running through the walnut slab is breathtaking from every angle. The installation team were meticulous — two days of careful work and the result is flawless. Every single visitor asks about it within five minutes of walking in.&rdquo;</blockquote>
               <div class="stc-author">
                 <div class="stca-avatar" style="background:rgba(147,51,234,.15);color:var(--primary)">PH</div>
                 <div><strong>Patrick &amp; Helen Rose</strong><span>River Dining Table — Surrey</span></div>
@@ -680,168 +652,11 @@
             <div class="stc-stars">
               <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
             </div>
-            <blockquote>&ldquo;We asked ResinLux to create a feature wall for our new office reception with our brand purple and gold. What arrived was beyond anything we imagined — 5 metres wide, floor to ceiling, and utterly magnificent. It sets the tone for every client meeting from the moment they walk in.&rdquo;</blockquote>
+            <blockquote>&ldquo;We asked ResinCraft Studio to create a feature wall for our new office reception with our brand purple and gold. What arrived was beyond anything we imagined — 5 metres wide, floor to ceiling, and utterly magnificent. It sets the tone for every client meeting from the moment they walk in.&rdquo;</blockquote>
             <div class="stca-author" style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;margin-top:auto">
               <div class="stca-avatar" style="background:rgba(217,119,6,.15);color:var(--amber)">VK</div>
               <div><strong>Vanessa King</strong><span>Feature Wall — Vertex HQ, London</span></div>
               <span class="stca-pkg stca-pkg--amber">Commercial</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ SECTION 8: PROJECT ENQUIRY FORM ══ -->
-    <section class="s-order" id="enquire">
-      <div class="order-bg-anim" aria-hidden="true">
-        <div class="oba oba1"></div>
-        <div class="oba oba2"></div>
-        <div class="oba oba3"></div>
-      </div>
-      <div class="container">
-        <div class="order-inner">
-          <div class="order-left fade-left">
-            <span class="section-tag">Start Your Project</span>
-            <h2>Request a Free<br>Site Visit &amp; Quote</h2>
-            <p>Tell us about your space and vision. We’ll respond within 24 hours to schedule a free site visit — where the real conversation begins.</p>
-            <div class="order-reassurances">
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Free site visit, no obligation
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                3D visualisation before any commitment
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Residential &amp; commercial projects accepted
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                10-year structural guarantee on all work
-              </div>
-            </div>
-            <!-- Installation model -->
-            <div class="order-model" aria-hidden="true">
-              <svg viewBox="0 0 160 70" fill="none" xmlns="http://www.w3.org/2000/svg" width="160" height="70">
-                <!-- Mini wall panel -->
-                <rect x="4"   y="4"  width="60" height="62" rx="6" fill="var(--primary)"   opacity="0.12" stroke="var(--primary)"   stroke-width="1.5"/>
-                <path d="M4 30 Q18 22 34 30 Q50 38 64 28" stroke="var(--secondary)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
-                <path d="M4 42 Q20 34 38 42 Q54 50 64 40" stroke="var(--primary)" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
-                <!-- Mini table -->
-                <rect x="78" y="18" width="78" height="22" rx="4" fill="var(--text-muted)" opacity="0.15" stroke="var(--border)" stroke-width="1"/>
-                <path d="M94 18 Q106 23 118 18 Q130 13 142 18 L142 40 Q130 45 118 40 Q106 35 94 40Z" fill="var(--secondary)" opacity="0.5"/>
-                <rect x="86"  y="40" width="8" height="24" rx="3" fill="var(--text-muted)" opacity="0.2"/>
-                <rect x="144" y="40" width="8" height="24" rx="3" fill="var(--text-muted)" opacity="0.2"/>
-              </svg>
-            </div>
-          </div>
-
-          <div class="order-right fade-right">
-            <div class="order-form-card">
-              <h3>Installation Project Enquiry</h3>
-              <form id="instForm" novalidate>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="if-name">Full Name <span class="req">*</span></label>
-                    <input type="text" id="if-name" placeholder="e.g. Patrick Rose" autocomplete="name" />
-                    <span class="field-error" id="if-name-err"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="if-email">Email Address <span class="req">*</span></label>
-                    <input type="email" id="if-email" placeholder="you@example.com" autocomplete="email" />
-                    <span class="field-error" id="if-email-err"></span>
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="if-phone">Phone Number <span class="req">*</span></label>
-                    <input type="tel" id="if-phone" placeholder="+44 7700 000000" autocomplete="tel" />
-                    <span class="field-error" id="if-phone-err"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="if-type">Project Type <span class="req">*</span></label>
-                    <select id="if-type">
-                      <option value="">Select project type</option>
-                      <option>Epoxy River Table</option>
-                      <option>Resin Feature Wall</option>
-                      <option>Bar Top or Counter</option>
-                      <option>Resin Floor</option>
-                      <option>Staircase Inlay</option>
-                      <option>Office / Reception Panel</option>
-                      <option>Bathroom / Spa Surface</option>
-                      <option>Multiple / Full Fit-Out</option>
-                      <option>Not sure — advise me</option>
-                    </select>
-                    <span class="field-error" id="if-type-err"></span>
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="if-sector">Space Type <span class="req">*</span></label>
-                    <select id="if-sector">
-                      <option value="">Select space type</option>
-                      <option>Private Residence</option>
-                      <option>Restaurant or Bar</option>
-                      <option>Hotel or Hospitality</option>
-                      <option>Office or Commercial</option>
-                      <option>Retail or Showroom</option>
-                      <option>Spa or Wellness</option>
-                      <option>Other</option>
-                    </select>
-                    <span class="field-error" id="if-sector-err"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="if-budget">Approximate Budget</label>
-                    <select id="if-budget">
-                      <option value="">Select budget range</option>
-                      <option>Under £1,500</option>
-                      <option>£1,500 – £5,000</option>
-                      <option>£5,000 – £15,000</option>
-                      <option>£15,000 – £50,000</option>
-                      <option>£50,000+</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="if-location">Location / Postcode <span class="req">*</span></label>
-                    <input type="text" id="if-location" placeholder="e.g. London, SW1A 1AA" />
-                    <span class="field-error" id="if-location-err"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="if-timeline">Desired Completion Date</label>
-                    <input type="date" id="if-timeline" />
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="if-brief">Project Description <span class="req">*</span></label>
-                  <textarea id="if-brief" rows="4" placeholder="Describe your space, dimensions (if known), colour preferences, inspiration images, or any specific requirements…"></textarea>
-                  <span class="field-error" id="if-brief-err"></span>
-                </div>
-
-                <div class="form-check">
-                  <input type="checkbox" id="if-agree" />
-                  <label for="if-agree">I agree to ResinLux Studio contacting me about this project enquiry. <span class="req">*</span></label>
-                </div>
-                <span class="field-error" id="if-agree-err"></span>
-
-                <button type="submit" class="btn-primary btn-full">Submit Project Enquiry</button>
-                <p class="form-note">We respond within 24 hours to arrange your free site visit. No spam, no obligation.</p>
-              </form>
-
-              <div class="order-success" id="instSuccess" hidden>
-                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
-                <strong>Enquiry Received!</strong>
-                <p>Thank you! Our project team will be in touch within 24 hours to arrange your free site visit and design consultation.</p>
-                <a href="services.html" class="btn-secondary">Explore Other Services</a>
-              </div>
             </div>
           </div>
         </div>
@@ -931,37 +746,6 @@
   </div>
 </footer>
 
-
-<!-- ========== WHATSAPP WIDGET ========== -->
-<div class="wa-widget" id="waWidget">
-  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
-    <i data-lucide="message-circle" class="wa-ico-open"></i>
-    <i data-lucide="x" class="wa-ico-close"></i>
-  </button>
-  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
-    <div class="wa-head">
-      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
-      <div class="wa-info">
-        <strong>ResinCraft Studio</strong>
-        <span>Typically replies in minutes</span>
-      </div>
-      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
-    </div>
-    <div class="wa-body">
-      <div class="wa-bubble">
-        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
-        <p>How can we help you today?</p>
-        <small>Just now</small>
-      </div>
-    </div>
-    <div class="wa-foot">
-      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
-        <i data-lucide="message-circle"></i> Chat on WhatsApp
-      </a>
-      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
-    </div>
-  </div>
-</div>
 
 <script src="./interior.js"></script>
 </body>

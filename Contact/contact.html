@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="./contact.css">
 </head>
 <body>
-
 <!-- ========== NAVBAR ========== -->
 <header class="navbar" id="navbar">
   <div class="nav-container">
@@ -36,15 +35,13 @@
 <li class="nav-item nav-has-dropdown">
   <a href="/index.html" class="nav-link">Home</a>
   <ul class="nav-dropdown" id="dd-home">
-    <li><a href="./index.html" class="dd-link">Home 1</a></li>
+    <li><a href="/index.html" class="dd-link">Home 1</a></li>
     <li><a href="../Home/home.html" class="dd-link">Home 2</a></li>
   </ul>
 </li>
- 
         <li class="nav-item">
-          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../About/about.html" class="nav-link ">About</a>
         </li>
-
         <!-- Services — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
           <a href="../Services/service.html" class="nav-link">Services</a>
@@ -57,7 +54,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="../Contact/contact.html" class="nav-link active">Contact</a>
         </li>
         <li class="nav-item">
           <a href="../AdminDashboard/admin.html" class="nav-link">Dashboard</a>
@@ -143,7 +140,6 @@
 
   </ul>
 </aside>
-
  <!-- Background -->
   <div class="blob blob-1"></div>
   <div class="blob blob-2"></div>
@@ -163,23 +159,54 @@
       <canvas id="heroParticles"></canvas>
 
       <div class="container hero-content">
-        <p class="breadcrumb fade-down"><a href="index.html">Home</a> <span>/</span> Contact</p>
-        <h1 class="fade-up">Get In <span class="highlight">Touch</span></h1>
-        <p class="hero-sub fade-up delay-1">We’d love to hear from you. Reach out for custom orders, workshop bookings, collaborations, or simply to say hello.</p>
-        <div class="hero-stats fade-up delay-2">
-          <div class="stat">
-            <strong>24h</strong><span>Response Time</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <strong>5★</strong><span>Client Rating</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <strong>500+</strong><span>Happy Customers</span>
-          </div>
+    <!-- <p class="breadcrumb fade-down"><a href="index.html">Home</a> <span>/</span> Contact</p> -->
+
+    <span class="section-chip fade-down">Contact Us</span>
+
+    <h1 class="head fade-down">
+        Let's Create Something<br> <span class="highlight">Beautiful Together</span>
+    </h1>
+
+    <p class="hero-sub fade-up delay-1">
+        Whether you're looking for a custom resin masterpiece, interested in joining one of<br> our
+        hands-on workshops, or have questions about our collections,<br> we're here to help.
+        Connect with our team and let's bring your creative vision to life.
+    </p>
+
+    <div class="hero-features fade-up delay-2">
+        <span><i data-lucide="check-circle"></i> Custom Resin Artwork</span>
+        <span><i data-lucide="check-circle"></i> Workshop Bookings</span>
+        <span><i data-lucide="check-circle"></i> Bulk & Corporate Orders</span>
+    </div>
+
+    <div class="hero-stats fade-up delay-3">
+        <div class="stat">
+            <strong>24h</strong>
+            <span>Average Response</span>
         </div>
-      </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat">
+            <strong>500+</strong>
+            <span>Happy Customers</span>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat">
+            <strong>100+</strong>
+            <span>Creative Workshops</span>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat">
+            <strong>5★</strong>
+            <span>Customer Rating</span>
+        </div>
+    </div>
+</div>
     </section>
 
     <!-- ===== SECTION 2: CONTACT INFO CARDS ===== -->
@@ -190,9 +217,9 @@
       </div>
       <div class="container">
         <div class="section-header fade-up">
-          <span class="section-tag">Reach Us</span>
-          <h2>Contact <span class="highlight">Information</span></h2>
-          <p>Multiple ways to connect with the ResinLux studio team.</p>
+          <span class="sec-tag">Reach Us</span>
+          <h2 class="sec-title">Contact <span class="highlight">Information</span></h2>
+          <p>Multiple ways to connect with the ResinCraft Studio team.</p>
         </div>
         <div class="info-cards">
           <div class="info-card fade-left delay-0">
@@ -224,8 +251,8 @@
               </svg>
             </div>
             <h3>Email Us</h3>
-            <p>hello@resinlux.co.uk<br>orders@resinlux.co.uk<br>press@resinlux.co.uk</p>
-            <a href="mailto:hello@resinlux.co.uk" class="info-link">Send Email &rarr;</a>
+            <p>hello@ResinCraft Studio.co.uk<br>orders@ResinCraft Studio.co.uk<br>press@ResinCraft Studio.co.uk</p>
+            <a href="mailto:hello@ResinCraft Studio.co.uk" class="info-link">Send Email &rarr;</a>
           </div>
           <div class="info-card fade-right delay-3">
             <div class="info-icon">
@@ -271,7 +298,7 @@
         <!-- Map -->
         <div class="map-side fade-left">
           <div class="map-header">
-            <h2>Find <span class="highlight">Our Studio</span></h2>
+            <h2 class="sec-title">Find <span class="highlight">Our Studio</span></h2>
             <p>We’re located in the heart of London’s Creative Quarter.</p>
           </div>
           <div class="map-embed">
@@ -279,7 +306,7 @@
               src="https://www.openstreetmap.org/export/embed.html?bbox=-0.0927%2C51.5217%2C-0.0727%2C51.5317&layer=mapnik&marker=51.5267%2C-0.0827"
               allowfullscreen
               loading="lazy"
-              title="ResinLux Studio Location">
+              title="ResinCraft Studio  Location">
             </iframe>
             <div class="map-pin-label">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -288,7 +315,7 @@
           </div>
           <!-- Transport info -->
           <div class="transport-cards">
-            <div class="transport-card">
+            <!-- <div class="transport-card">
               <div class="t-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
               </div>
@@ -296,7 +323,7 @@
                 <strong>Tube</strong>
                 <span>Shoreditch High St — 5 min walk</span>
               </div>
-            </div>
+            </div> -->
             <div class="transport-card">
               <div class="t-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -422,8 +449,8 @@
         <!-- FAQ -->
         <div class="faq-col fade-left">
           <div class="section-header text-left">
-            <span class="section-tag">FAQ</span>
-            <h2>Common <span class="highlight">Questions</span></h2>
+            <span class="sec-tag">FAQ</span>
+            <h2 class="sec-title">Common <span class="highlight">Questions</span></h2>
             <p>Quick answers before you reach out.</p>
           </div>
           <div class="accordion" id="accordion">
@@ -463,6 +490,12 @@
               </button>
               <div class="acc-body">Workshop bookings are made via our Workshops page or by selecting “Workshop Booking” in the contact form. We run beginner, intermediate, and private group sessions weekly.</div>
             </div>
+            <div class="acc-item">
+              <button class="acc-btn">Can I visit the studio?
+                <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="acc-body">Absolutely. Studio visits are by appointment. You can use the contact form above to book a slot, or call us directly. Visits are available Tuesday through Saturday.</div>
+            </div>
           </div>
         </div>
 
@@ -471,14 +504,14 @@
           <div class="details-card">
             <!-- Studio SVG illustration -->
             <div class="studio-illustration">
-              <svg viewBox="0 0 280 180" xmlns="http://www.w3.org/2000/svg">
-                <!-- building -->
+              <svg viewBox="0 0 280 140" xmlns="http://www.w3.org/2000/svg">
+               
                 <rect x="40" y="60" width="200" height="110" rx="4" fill="#9333ea" opacity=".08"/>
                 <rect x="40" y="60" width="200" height="110" rx="4" fill="none" stroke="#9333ea" stroke-width="1.5" opacity=".3"/>
-                <!-- roof -->
+               
                 <polygon points="30,60 140,10 250,60" fill="#9333ea" opacity=".12"/>
                 <polygon points="30,60 140,10 250,60" fill="none" stroke="#9333ea" stroke-width="1.5" opacity=".4"/>
-                <!-- windows -->
+             
                 <rect x="65" y="80" width="40" height="35" rx="3" fill="#0891b2" opacity=".25"/>
                 <rect x="65" y="80" width="40" height="35" rx="3" fill="none" stroke="#0891b2" stroke-width="1" opacity=".5"/>
                 <line x1="85" y1="80" x2="85" y2="115" stroke="#0891b2" stroke-width="1" opacity=".5"/>
@@ -487,25 +520,25 @@
                 <rect x="120" y="80" width="40" height="35" rx="3" fill="none" stroke="#0891b2" stroke-width="1" opacity=".5"/>
                 <line x1="140" y1="80" x2="140" y2="115" stroke="#0891b2" stroke-width="1" opacity=".5"/>
                 <line x1="120" y1="97" x2="160" y2="97" stroke="#0891b2" stroke-width="1" opacity=".5"/>
-                <!-- door -->
+             
                 <rect x="155" y="110" width="36" height="60" rx="3" fill="#9333ea" opacity=".18"/>
                 <rect x="155" y="110" width="36" height="60" rx="3" fill="none" stroke="#9333ea" stroke-width="1.5" opacity=".5"/>
                 <circle cx="185" cy="140" r="3" fill="#9333ea" opacity=".5"/>
-                <!-- sign -->
+             
                 <rect x="95" y="35" width="90" height="18" rx="3" fill="#d97706" opacity=".15"/>
-                <text x="140" y="48" font-family="Poppins,sans-serif" font-size="8" font-weight="700" fill="#d97706" text-anchor="middle" opacity=".8">RESINLUX STUDIO</text>
-                <!-- resin drops -->
+                <text x="140" y="48" font-family="Poppins,sans-serif" font-size="8" font-weight="700" fill="#d97706" text-anchor="middle" opacity=".8">ResinCraft Studio </text>
+       
                 <ellipse cx="220" cy="45" rx="8" ry="12" fill="#9333ea" opacity=".25"/>
                 <ellipse cx="220" cy="52" rx="5" ry="5" fill="#9333ea" opacity=".4"/>
                 <ellipse cx="55" cy="42" rx="6" ry="9" fill="#0891b2" opacity=".25"/>
                 <ellipse cx="55" cy="47" rx="4" ry="4" fill="#0891b2" opacity=".4"/>
-                <!-- ground -->
+         
                 <line x1="20" y1="170" x2="260" y2="170" stroke="#9333ea" stroke-width="1" opacity=".2"/>
-                <!-- orbit rings -->
+             
                 <ellipse cx="140" cy="95" rx="120" ry="30" fill="none" stroke="#9333ea" stroke-width="0.8" stroke-dasharray="4 4" opacity=".15"/>
               </svg>
             </div>
-            <h3>ResinLux Studio</h3>
+            <h3>ResinCraft Studio </h3>
             <ul class="detail-list">
               <li>
                 <span class="dl-icon">
@@ -523,7 +556,7 @@
                 <span class="dl-icon">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </span>
-                <span>hello@resinlux.co.uk</span>
+                <span>hello@ResinCraft Studio.co.uk</span>
               </li>
               <li>
                 <span class="dl-icon">
@@ -538,7 +571,7 @@
               <span class="badge">Handmade</span>
               <span class="badge">Eco Resins</span>
             </div>
-            <a href="#mapForm" class="btn-primary-outline">Book a Studio Visit</a>
+            <!-- <a href="#mapForm" class="btn btn-primary-outline">Book a Studio Visit</a> -->
           </div>
         </div>
       </div>

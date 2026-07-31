@@ -15,6 +15,7 @@
 </head>
 <body>
 
+
 <!-- ========== NAVBAR ========== -->
 <header class="navbar" id="navbar">
   <div class="nav-container">
@@ -37,43 +38,31 @@
 
         <!-- Home — with dropdown -->
 <li class="nav-item nav-has-dropdown">
-  <a href="./index.html" class="nav-link">Home</a>
+  <a href="/index.html" class="nav-link">Home</a>
   <ul class="nav-dropdown" id="dd-home">
-    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
-    
+    <li><a href="/index.html" class="dd-link">Home 1</a></li>
+    <li><a href="../Home/home.html" class="dd-link">Home 2</a></li>
   </ul>
 </li>
- 
         <li class="nav-item">
-          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../About/about.html" class="nav-link ">About</a>
         </li>
-
         <!-- Services — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Services/service.html" class="nav-link">Services</a>
-          <ul class="nav-dropdown" id="dd-services">
-            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
-            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
-            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
-            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
-            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
-            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
-          </ul>
+          <a href="../Services/service.html" class="nav-link active">Services</a>
+          
         </li>
 
         <!-- Blog — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Blog/blog.html" class="nav-link">Blog</a>
-          <ul class="nav-dropdown" id="dd-blog">
-            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
-            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
-            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
-            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
-          </ul>
+          <a href="../Blog/blog.html" class="nav-link ">Blog</a>
         </li>
 
         <li class="nav-item">
           <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="../AdminDashboard/admin.html" class="nav-link">Dashboard</a>
         </li>
 
       </ul>
@@ -109,6 +98,7 @@
       <i data-lucide="x"></i>
     </button>
   </div>
+  
 
   <ul class="drawer-nav">
 
@@ -117,7 +107,8 @@
         <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
       </button>
       <ul class="drawer-sub" id="sub-home">
-        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+        <li><a href="./index.html" class="drawer-sub-link">Home 1</a></li>
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home 2</a></li>
        
       </ul>
     </li>
@@ -125,37 +116,18 @@
     <li class="drawer-item">
       <a href="../About/about.html" class="drawer-link">About</a>
     </li>
-
     <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-services">
-        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-services">
-        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
-        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
-        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
-        <li><a href="./corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
-        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
-        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
-        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
-      </ul>
+      <a href="../Services/service.html" class="drawer-link">Services</a>
     </li>
-
-    <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
-        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-blog">
-        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
-        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
-        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
-        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
-        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
-      </ul>
+        <li class="drawer-item">
+      <a href="../Blog/blog.html" class="drawer-link">Blog</a>
     </li>
 
     <li class="drawer-item">
       <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+    <li class="drawer-item">
+      <a href="../AdminDashboard/admin.html" class="drawer-link">Dashboard</a>
     </li>
 
     <li class="drawer-divider"></li>
@@ -202,8 +174,8 @@
           </h1>
           <p class="hero-sub fade-up" data-delay="200">Elevate your brand with handcrafted resin gifts that leave a lasting impression. From branded coaster sets to bespoke gift boxes — every piece is artisan-made, beautifully packaged, and unforgettable.</p>
           <div class="hero-actions fade-up" data-delay="300">
-            <a href="#enquire" class="btn-primary">Request a Quote</a>
-            <a href="#collection" class="btn-ghost-light">View Gift Collection</a>
+            <a href="#enquire" class="btn btn-primary">Request a Quote</a>
+            <a href="#collection" class="btn btn-secondary">View Gift Collection</a>
           </div>
           <div class="hero-stats fade-up" data-delay="400">
             <div class="hs-item"><strong>300+</strong><span>Corporate Clients</span></div>
@@ -230,17 +202,17 @@
           <div class="about-left fade-left">
             <span class="section-tag">Why Corporate Resin Gifts?</span>
             <h2>Gifts That Make Your<br>Brand Unforgettable</h2>
-            <p>Generic corporate gifts end up in drawers or bins. A handcrafted resin piece from ResinLux Studio becomes a conversation piece — displayed proudly on desks, shelves, and boardroom tables long after the occasion.</p>
+            <p>Generic corporate gifts end up in drawers or bins. A handcrafted resin piece from ResinCraft Studio becomes a conversation piece — displayed proudly on desks, shelves, and boardroom tables long after the occasion.</p>
             <p>We work directly with your marketing or HR team to design a collection that carries your brand identity — colours, logo, message — while delivering the quality and beauty that only artisan resin can achieve.</p>
-            <ul class="about-points">
+            <!-- <ul class="about-points">
               <li><div class="ap-dot"></div><span>Minimum order of just 10 units</span></li>
               <li><div class="ap-dot"></div><span>Custom colour matching to your brand palette</span></li>
               <li><div class="ap-dot ap-dot--teal"></div><span>Logo embedding, engraving &amp; personalisation</span></li>
               <li><div class="ap-dot ap-dot--teal"></div><span>Branded gift boxes &amp; tissue wrapping</span></li>
               <li><div class="ap-dot ap-dot--amber"></div><span>Bulk discount from 50+ units</span></li>
               <li><div class="ap-dot ap-dot--amber"></div><span>Nationwide delivery with tracking</span></li>
-            </ul>
-            <a href="#enquire" class="btn-primary">Get a Free Quote</a>
+            </ul> -->
+            <a href="#enquire" class="btn btn-primary">Get a Free Quote</a>
           </div>
           <div class="about-right fade-right">
             <div class="about-model">
@@ -615,7 +587,7 @@
               <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Printed branded box</li>
               <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Direct-to-recipient delivery</li>
             </ul>
-            <a href="#enquire" class="btn-secondary">Get Starter Quote</a>
+            <a href="#enquire" class="btn btn-secondary">Get Starter Quote</a>
           </div>
 
           <div class="price-card price-card--featured fade-up" data-delay="100">
@@ -634,7 +606,7 @@
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Physical sample before production</li>
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Dedicated account manager</li>
             </ul>
-            <a href="#enquire" class="btn-primary">Get Professional Quote</a>
+            <a href="#enquire" class="btn btn-primary">Get Professional Quote</a>
           </div>
 
           <div class="price-card fade-right" data-delay="200">
@@ -652,7 +624,7 @@
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Priority production slot</li>
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Ongoing gifting programme support</li>
             </ul>
-            <a href="#enquire" class="btn-secondary">Get Enterprise Quote</a>
+            <a href="#enquire" class="btn btn-secondary">Get Enterprise Quote</a>
           </div>
 
         </div>
@@ -682,7 +654,7 @@
               <div class="stc-stars">
                 <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
               </div>
-              <blockquote>&ldquo;We ordered 200 branded coaster sets for our annual client appreciation campaign. The quality absolutely floored us. Every client messaged to ask where we got them. ResinLux managed the entire process from brief to doorstep delivery in under 3 weeks — flawless execution and a team that really cares.&rdquo;</blockquote>
+              <blockquote>&ldquo;We ordered 200 branded coaster sets for our annual client appreciation campaign. The quality absolutely floored us. Every client messaged to ask where we got them. ResinCraft Studio managed the entire process from brief to doorstep delivery in under 3 weeks — flawless execution and a team that really cares.&rdquo;</blockquote>
               <div class="stc-author">
                 <div class="stca-avatar" style="background:rgba(147,51,234,.15);color:var(--primary)">JM</div>
                 <div><strong>James Morgan</strong><span>Head of Marketing — TechNova Ltd</span></div>
@@ -694,7 +666,7 @@
             <div class="stc-stars">
               <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
             </div>
-            <blockquote>&ldquo;The executive desk sets we gave our senior leadership team were extraordinary. The gold leaf accents, the colour-matched resin, and the branded box — it screamed premium from every angle. Will use ResinLux for all our annual awards going forward.&rdquo;</blockquote>
+            <blockquote>&ldquo;The executive desk sets we gave our senior leadership team were extraordinary. The gold leaf accents, the colour-matched resin, and the branded box — it screamed premium from every angle. Will use ResinCraft Studio for all our annual awards going forward.&rdquo;</blockquote>
             <div class="stc-author">
               <div class="stca-avatar" style="background:rgba(8,145,178,.15);color:var(--secondary)">SL</div>
               <div><strong>Sarah Lee</strong><span>People Director — Vertex Group</span></div>
@@ -705,7 +677,7 @@
             <div class="stc-stars">
               <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
             </div>
-            <blockquote>&ldquo;We used ResinLux for our product launch event — 100 personalised keepsakes for delegates. The process was incredibly smooth and the quality of each piece was identical. Several delegates posted their gifts on LinkedIn the same evening. Incredible brand value.&rdquo;</blockquote>
+            <blockquote>&ldquo;We used ResinCraft Studio for our product launch event — 100 personalised keepsakes for delegates. The process was incredibly smooth and the quality of each piece was identical. Several delegates posted their gifts on LinkedIn the same evening. Incredible brand value.&rdquo;</blockquote>
             <div class="stc-author">
               <div class="stca-avatar" style="background:rgba(217,119,6,.15);color:var(--amber)">RP</div>
               <div><strong>Rachel Pierce</strong><span>Brand Manager — Luminary Agency</span></div>
@@ -716,157 +688,6 @@
       </div>
     </section>
 
-    <!-- ══ SECTION 8: CORPORATE ENQUIRY FORM ══ -->
-    <section class="s-order" id="enquire">
-      <div class="order-bg-anim" aria-hidden="true">
-        <div class="oba oba1"></div>
-        <div class="oba oba2"></div>
-        <div class="oba oba3"></div>
-      </div>
-      <div class="container">
-        <div class="order-inner">
-          <div class="order-left fade-left">
-            <span class="section-tag">Get a Free Quote</span>
-            <h2>Start Your Corporate<br>Gifting Project</h2>
-            <p>Complete the form and we’ll send a tailored proposal within 24 hours — including product recommendations, pricing, and sample options.</p>
-            <div class="order-reassurances">
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Free consultation &amp; no-obligation quote
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Physical sample before full production
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Minimum order of just 10 units
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Dedicated account manager from day one
-              </div>
-            </div>
-            <div class="order-model" aria-hidden="true">
-              <svg viewBox="0 0 160 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="160" height="60">
-                <rect x="4"   y="8"  width="40" height="44" rx="6" fill="var(--primary)"   opacity="0.15" stroke="var(--primary)"   stroke-width="1.5"/>
-                <rect x="14"  y="2"  width="20" height="16" rx="4" fill="var(--primary)"   opacity="0.25" stroke="var(--primary)"   stroke-width="1.5"/>
-                <circle cx="24" cy="30" r="10" fill="var(--primary)"   opacity="0.4"/>
-                <rect x="58"  y="8"  width="40" height="44" rx="6" fill="var(--secondary)" opacity="0.15" stroke="var(--secondary)" stroke-width="1.5"/>
-                <rect x="68"  y="2"  width="20" height="16" rx="4" fill="var(--secondary)" opacity="0.25" stroke="var(--secondary)" stroke-width="1.5"/>
-                <circle cx="78" cy="30" r="10" fill="var(--secondary)" opacity="0.4"/>
-                <rect x="112" y="8"  width="40" height="44" rx="6" fill="var(--amber)"     opacity="0.15" stroke="var(--amber)"     stroke-width="1.5"/>
-                <rect x="122" y="2"  width="20" height="16" rx="4" fill="var(--amber)"     opacity="0.25" stroke="var(--amber)"     stroke-width="1.5"/>
-                <circle cx="132" cy="30" r="10" fill="var(--amber)"     opacity="0.4"/>
-              </svg>
-            </div>
-          </div>
-
-          <div class="order-right fade-right">
-            <div class="order-form-card">
-              <h3>Corporate Gifting Enquiry</h3>
-              <form id="corpForm" novalidate>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="cf-name">Full Name <span class="req">*</span></label>
-                    <input type="text" id="cf-name" placeholder="e.g. James Morgan" autocomplete="name" />
-                    <span class="field-error" id="cf-name-err"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="cf-email">Work Email <span class="req">*</span></label>
-                    <input type="email" id="cf-email" placeholder="james@company.com" autocomplete="email" />
-                    <span class="field-error" id="cf-email-err"></span>
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="cf-company">Company Name <span class="req">*</span></label>
-                    <input type="text" id="cf-company" placeholder="e.g. TechNova Ltd" />
-                    <span class="field-error" id="cf-company-err"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="cf-phone">Phone Number</label>
-                    <input type="tel" id="cf-phone" placeholder="+44 7700 000000" autocomplete="tel" />
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="cf-qty">Estimated Quantity <span class="req">*</span></label>
-                    <select id="cf-qty">
-                      <option value="">Select quantity</option>
-                      <option>10–24 units</option>
-                      <option>25–49 units</option>
-                      <option>50–100 units</option>
-                      <option>101–250 units</option>
-                      <option>251–500 units</option>
-                      <option>500+ units</option>
-                    </select>
-                    <span class="field-error" id="cf-qty-err"></span>
-                  </div>
-                  <div class="form-group">
-                    <label for="cf-product">Gift Type <span class="req">*</span></label>
-                    <select id="cf-product">
-                      <option value="">Select product</option>
-                      <option>Branded Coaster Sets</option>
-                      <option>Executive Desk Sets</option>
-                      <option>Branded Wall Art Panels</option>
-                      <option>Luxury Gift Hampers</option>
-                      <option>Resin Awards &amp; Trophies</option>
-                      <option>Conference &amp; Event Gifts</option>
-                      <option>Multiple / Advise Me</option>
-                    </select>
-                    <span class="field-error" id="cf-product-err"></span>
-                  </div>
-                </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="cf-budget">Approximate Budget</label>
-                    <select id="cf-budget">
-                      <option value="">Select budget</option>
-                      <option>Under £500</option>
-                      <option>£500 – £1,500</option>
-                      <option>£1,500 – £5,000</option>
-                      <option>£5,000 – £10,000</option>
-                      <option>£10,000+</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="cf-deadline">Required By Date</label>
-                    <input type="date" id="cf-deadline" />
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="cf-brief">Tell Us About Your Brief <span class="req">*</span></label>
-                  <textarea id="cf-brief" rows="4" placeholder="Describe your brand, occasion, recipient profile, colour preferences, logo details, or any specific requirements…"></textarea>
-                  <span class="field-error" id="cf-brief-err"></span>
-                </div>
-
-                <div class="form-check">
-                  <input type="checkbox" id="cf-agree" />
-                  <label for="cf-agree">I agree to ResinLux Studio contacting me regarding this enquiry. <span class="req">*</span></label>
-                </div>
-                <span class="field-error" id="cf-agree-err"></span>
-
-                <button type="submit" class="btn-primary btn-full">Submit Corporate Enquiry</button>
-                <p class="form-note">We respond within 24 hours with a tailored proposal. No spam, ever.</p>
-              </form>
-
-              <div class="order-success" id="corpSuccess" hidden>
-                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
-                <strong>Enquiry Received!</strong>
-                <p>Thank you, we’ve got your brief. Our corporate team will send a tailored proposal within 24 hours.</p>
-                <a href="services.html" class="btn-secondary">Explore Other Services</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
   </main>
 
@@ -951,37 +772,6 @@
   </div>
 </footer>
 
-
-<!-- ========== WHATSAPP WIDGET ========== -->
-<div class="wa-widget" id="waWidget">
-  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
-    <i data-lucide="message-circle" class="wa-ico-open"></i>
-    <i data-lucide="x" class="wa-ico-close"></i>
-  </button>
-  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
-    <div class="wa-head">
-      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
-      <div class="wa-info">
-        <strong>ResinCraft Studio</strong>
-        <span>Typically replies in minutes</span>
-      </div>
-      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
-    </div>
-    <div class="wa-body">
-      <div class="wa-bubble">
-        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
-        <p>How can we help you today?</p>
-        <small>Just now</small>
-      </div>
-    </div>
-    <div class="wa-foot">
-      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
-        <i data-lucide="message-circle"></i> Chat on WhatsApp
-      </a>
-      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
-    </div>
-  </div>
-</div>
 
 <script src="./corporate.js"></script>
 </body>

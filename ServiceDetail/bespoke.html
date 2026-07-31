@@ -37,43 +37,31 @@
 
         <!-- Home — with dropdown -->
 <li class="nav-item nav-has-dropdown">
-  <a href="./index.html" class="nav-link">Home</a>
+  <a href="/index.html" class="nav-link">Home</a>
   <ul class="nav-dropdown" id="dd-home">
-    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
-    
+    <li><a href="/index.html" class="dd-link">Home 1</a></li>
+    <li><a href="../Home/home.html" class="dd-link">Home 2</a></li>
   </ul>
 </li>
- 
         <li class="nav-item">
-          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../About/about.html" class="nav-link ">About</a>
         </li>
-
         <!-- Services — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Services/service.html" class="nav-link">Services</a>
-          <ul class="nav-dropdown" id="dd-services">
-            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
-            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
-            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
-            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
-            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
-            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
-          </ul>
+          <a href="../Services/service.html" class="nav-link active">Services</a>
+          
         </li>
 
         <!-- Blog — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Blog/blog.html" class="nav-link">Blog</a>
-          <ul class="nav-dropdown" id="dd-blog">
-            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
-            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
-            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
-            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
-          </ul>
+          <a href="../Blog/blog.html" class="nav-link ">Blog</a>
         </li>
 
         <li class="nav-item">
           <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="../AdminDashboard/admin.html" class="nav-link">Dashboard</a>
         </li>
 
       </ul>
@@ -109,6 +97,7 @@
       <i data-lucide="x"></i>
     </button>
   </div>
+  
 
   <ul class="drawer-nav">
 
@@ -117,7 +106,8 @@
         <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
       </button>
       <ul class="drawer-sub" id="sub-home">
-        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+        <li><a href="./index.html" class="drawer-sub-link">Home 1</a></li>
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home 2</a></li>
        
       </ul>
     </li>
@@ -125,37 +115,18 @@
     <li class="drawer-item">
       <a href="../About/about.html" class="drawer-link">About</a>
     </li>
-
     <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-services">
-        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-services">
-        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
-        <li><a href="./bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
-        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
-        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
-        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
-        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
-        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
-      </ul>
+      <a href="../Services/service.html" class="drawer-link">Services</a>
     </li>
-
-    <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
-        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-blog">
-        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
-        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
-        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
-        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
-        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
-      </ul>
+        <li class="drawer-item">
+      <a href="../Blog/blog.html" class="drawer-link">Blog</a>
     </li>
 
     <li class="drawer-item">
       <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+    <li class="drawer-item">
+      <a href="../AdminDashboard/admin.html" class="drawer-link">Dashboard</a>
     </li>
 
     <li class="drawer-divider"></li>
@@ -202,8 +173,8 @@
           </h1>
           <p class="hero-sub fade-up" data-delay="200">One-of-a-kind artworks handcrafted entirely around your vision. Every colour, texture, size, and detail is yours to decide — we bring it to life in premium epoxy resin.</p>
           <div class="hero-actions fade-up" data-delay="300">
-            <a href="#order" class="btn-primary">Start My Commission</a>
-            <a href="#gallery" class="btn-ghost-light">View Gallery</a>
+            <a href="#order" class="btn btn-primary">Start My Commission</a>
+            <a href="#gallery" class="btn btn-secondary">View Gallery</a>
           </div>
           <div class="hero-stats fade-up" data-delay="400">
             <div class="hs-item">
@@ -239,7 +210,7 @@
             <h2>Art Made Entirely<br>for You</h2>
             <p>A bespoke commission is the ultimate personalised artwork. Unlike ready-made pieces, every element of a bespoke resin work is designed from scratch to match your space, palette, style, and story.</p>
             <p>From a single abstract panel above your sofa to a full dining table set in ocean resin — we collaborate with you at every stage, sharing digital previews and colour samples before a single drop of epoxy is poured.</p>
-            <ul class="about-points">
+            <!-- <ul class="about-points">
               <li>
                 <div class="ap-dot"></div>
                 <span>No two pieces ever identical</span>
@@ -264,8 +235,8 @@
                 <div class="ap-dot ap-dot--amber"></div>
                 <span>Nationwide delivery &amp; installation</span>
               </li>
-            </ul>
-            <a href="#order" class="btn-primary">Start a Commission</a>
+            </ul> -->
+            <a href="#order" class="btn btn-primary">Start a Commission</a>
           </div>
           <div class="about-right fade-right">
             <div class="about-model">
@@ -663,7 +634,7 @@
               <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Gold leaf inclusions</li>
               <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Installation service</li>
             </ul>
-            <a href="#order" class="btn-secondary">Start Essential</a>
+            <a href="#order" class="btn btn-secondary">Start Essential</a>
           </div>
 
           <div class="price-card price-card--featured fade-up" data-delay="100">
@@ -685,7 +656,7 @@
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Real inclusions (quartz, leaf)</li>
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Certificate of authenticity</li>
             </ul>
-            <a href="#order" class="btn-primary">Start Signature</a>
+            <a href="#order" class="btn btn-primary">Start Signature</a>
           </div>
 
           <div class="price-card fade-right" data-delay="200">
@@ -706,7 +677,7 @@
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> 24-carat gold leaf &amp; crystals</li>
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Multi-panel &amp; furniture options</li>
             </ul>
-            <a href="#order" class="btn-secondary">Enquire Masterwork</a>
+            <a href="#order" class="btn btn-secondary">Enquire Masterwork</a>
           </div>
 
         </div>
@@ -736,7 +707,7 @@
               <div class="stc-stars">
                 <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
               </div>
-              <blockquote>&ldquo;The ocean panel above our fireplace is the most talked-about piece in our home. ResinLux guided us through every decision — the mockup was perfect and the real thing exceeded even that. We've already commissioned two more pieces.&rdquo;</blockquote>
+              <blockquote>&ldquo;The ocean panel above our fireplace is the most talked-about piece in our home. ResinCraft Studio guided us through every decision — the mockup was perfect and the real thing exceeded even that. We've already commissioned two more pieces.&rdquo;</blockquote>
               <div class="stc-author">
                 <div class="stca-avatar" style="background:rgba(147,51,234,.15);color:var(--primary)">SC</div>
                 <div>
@@ -779,111 +750,7 @@
       </div>
     </section>
 
-    <!-- ══ SECTION 8: ORDER / CTA ══ -->
-    <section class="s-order" id="order">
-      <div class="order-bg-anim" aria-hidden="true">
-        <div class="oba oba1"></div>
-        <div class="oba oba2"></div>
-        <div class="oba oba3"></div>
-      </div>
-      <div class="container">
-        <div class="order-inner">
-          <div class="order-left fade-left">
-            <span class="section-tag">Start Your Commission</span>
-            <h2>Ready to Create<br>Something Unique?</h2>
-            <p>Fill in the form and we’ll send you a personalised quote within 24 hours. Consultations are always free with no obligation.</p>
-            <div class="order-reassurances">
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Free consultation &amp; no-obligation quote
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Digital mockup before production
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Secure deposit payment, balance on completion
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                12-month craftsmanship guarantee
-              </div>
-            </div>
-            <!-- mini model -->
-            <div class="order-model" aria-hidden="true">
-              <svg viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="120" height="60">
-                <ellipse cx="22" cy="30" rx="16" ry="20" fill="var(--primary)" opacity="0.85"/>
-                <circle cx="28" cy="23" r="6" fill="white" opacity="0.25"/>
-                <ellipse cx="62" cy="28" rx="12" ry="16" fill="var(--secondary)" opacity="0.8"/>
-                <circle cx="67" cy="22" r="5" fill="white" opacity="0.25"/>
-                <ellipse cx="100" cy="32" rx="14" ry="18" fill="var(--amber)" opacity="0.85"/>
-                <circle cx="106" cy="25" r="6" fill="white" opacity="0.25"/>
-              </svg>
-            </div>
-          </div>
-          <div class="order-right fade-right">
-            <div class="order-form-card">
-              <h3>Commission Enquiry</h3>
-              <form id="orderForm" novalidate>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="of-name">Full Name *</label>
-                    <input type="text" id="of-name" placeholder="e.g. Sarah Wilson" autocomplete="name" required />
-                  </div>
-                  <div class="form-group">
-                    <label for="of-email">Email Address *</label>
-                    <input type="email" id="of-email" placeholder="you@example.com" autocomplete="email" required />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="of-phone">Phone (optional)</label>
-                    <input type="tel" id="of-phone" placeholder="+44 7700 000000" autocomplete="tel" />
-                  </div>
-                  <div class="form-group">
-                    <label for="of-package">Package *</label>
-                    <select id="of-package" required>
-                      <option value="">Select a package</option>
-                      <option>Essential (from £195)</option>
-                      <option>Signature (from £480)</option>
-                      <option>Masterwork (from £950)</option>
-                      <option>Not sure — advise me</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="of-style">Commission Style *</label>
-                  <select id="of-style" required>
-                    <option value="">Select a style</option>
-                    <option>Ocean / Wave</option>
-                    <option>Geode / Crystal</option>
-                    <option>Abstract</option>
-                    <option>Botanical / Floral</option>
-                    <option>River Table / Furniture</option>
-                    <option>Personalised Keepsake</option>
-                    <option>Other — I’ll describe</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label for="of-details">Tell us about your vision</label>
-                  <textarea id="of-details" rows="4" placeholder="Describe your space, colours, size requirements, occasion, or any inspiration..."></textarea>
-                </div>
-                <button type="submit" class="btn-primary btn-full">Send Commission Enquiry</button>
-                <p class="form-note">We respond within 24 hours. No spam. No obligation.</p>
-              </form>
-              <div class="order-success" id="orderSuccess" hidden>
-                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
-                <strong>Enquiry Received!</strong>
-                <p>Thank you. We’ll be in touch within 24 hours with your personalised quote and next steps.</p>
-                <a href="services.html" class="btn-secondary">Explore Other Services</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+   
   </main>
 
 
@@ -969,36 +836,6 @@
 </footer>
 
 
-<!-- ========== WHATSAPP WIDGET ========== -->
-<div class="wa-widget" id="waWidget">
-  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
-    <i data-lucide="message-circle" class="wa-ico-open"></i>
-    <i data-lucide="x" class="wa-ico-close"></i>
-  </button>
-  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
-    <div class="wa-head">
-      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
-      <div class="wa-info">
-        <strong>ResinCraft Studio</strong>
-        <span>Typically replies in minutes</span>
-      </div>
-      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
-    </div>
-    <div class="wa-body">
-      <div class="wa-bubble">
-        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
-        <p>How can we help you today?</p>
-        <small>Just now</small>
-      </div>
-    </div>
-    <div class="wa-foot">
-      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
-        <i data-lucide="message-circle"></i> Chat on WhatsApp
-      </a>
-      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
-    </div>
-  </div>
-</div>
 
 <script src="./bespoke.js"></script>
 </body>

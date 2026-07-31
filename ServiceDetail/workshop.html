@@ -37,43 +37,31 @@
 
         <!-- Home — with dropdown -->
 <li class="nav-item nav-has-dropdown">
-  <a href="./index.html" class="nav-link">Home</a>
+  <a href="/index.html" class="nav-link">Home</a>
   <ul class="nav-dropdown" id="dd-home">
-    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
-    
+    <li><a href="/index.html" class="dd-link">Home 1</a></li>
+    <li><a href="../Home/home.html" class="dd-link">Home 2</a></li>
   </ul>
 </li>
- 
         <li class="nav-item">
-          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../About/about.html" class="nav-link ">About</a>
         </li>
-
         <!-- Services — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Services/service.html" class="nav-link">Services</a>
-          <ul class="nav-dropdown" id="dd-services">
-            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
-            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
-            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
-            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
-            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
-            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
-          </ul>
+          <a href="../Services/service.html" class="nav-link active">Services</a>
+          
         </li>
 
         <!-- Blog — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Blog/blog.html" class="nav-link">Blog</a>
-          <ul class="nav-dropdown" id="dd-blog">
-            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
-            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
-            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
-            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
-          </ul>
+          <a href="../Blog/blog.html" class="nav-link ">Blog</a>
         </li>
 
         <li class="nav-item">
           <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="../AdminDashboard/admin.html" class="nav-link">Dashboard</a>
         </li>
 
       </ul>
@@ -109,6 +97,7 @@
       <i data-lucide="x"></i>
     </button>
   </div>
+  
 
   <ul class="drawer-nav">
 
@@ -117,7 +106,8 @@
         <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
       </button>
       <ul class="drawer-sub" id="sub-home">
-        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+        <li><a href="./index.html" class="drawer-sub-link">Home 1</a></li>
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home 2</a></li>
        
       </ul>
     </li>
@@ -125,37 +115,18 @@
     <li class="drawer-item">
       <a href="../About/about.html" class="drawer-link">About</a>
     </li>
-
     <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-services">
-        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-services">
-        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
-        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
-        <li><a href="./workshop.html" class="drawer-sub-link">Workshops</a></li>
-        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
-        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
-        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
-        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
-      </ul>
+      <a href="../Services/service.html" class="drawer-link">Services</a>
     </li>
-
-    <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
-        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-blog">
-        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
-        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
-        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
-        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
-        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
-      </ul>
+        <li class="drawer-item">
+      <a href="../Blog/blog.html" class="drawer-link">Blog</a>
     </li>
 
     <li class="drawer-item">
       <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+    <li class="drawer-item">
+      <a href="../AdminDashboard/admin.html" class="drawer-link">Dashboard</a>
     </li>
 
     <li class="drawer-divider"></li>
@@ -201,8 +172,8 @@
           </h1>
           <p class="hero-sub fade-up" data-delay="200">Learn the art of resin pouring in a relaxed, creative studio environment. From complete beginners to experienced crafters — our expert-led workshops guide you through every step and you leave with your own finished artwork.</p>
           <div class="hero-actions fade-up" data-delay="300">
-            <a href="#book" class="btn-primary">Book a Workshop</a>
-            <a href="#types" class="btn-ghost-light">View Workshop Types</a>
+            <a href="#book" class="btn btn-primary">Book a Workshop</a>
+            <a href="#types" class="btn btn-secondary">View Workshop Types</a>
           </div>
           <div class="hero-stats fade-up" data-delay="400">
             <div class="hs-item"><strong>2,400+</strong><span>Students Taught</span></div>
@@ -230,15 +201,15 @@
             <span class="section-tag">About Our Workshops</span>
             <h2>A Creative Experience<br>You'll Never Forget</h2>
             <p>Our workshops are more than just a craft class — they’re an immersive creative experience in a beautifully designed studio. You’ll learn professional techniques from our lead artisans, work with premium materials, and take home a piece of art you made yourself.</p>
-            <p>Whether you’re looking for a solo creative escape, a date night with a difference, a team building activity, or a unique hen or birthday celebration — ResinLux Workshops are designed to inspire, relax, and excite.</p>
-            <ul class="about-points">
+            <p>Whether you’re looking for a solo creative escape, a date night with a difference, a team building activity, or a unique hen or birthday celebration — ResinCraft Studio Workshops are designed to inspire, relax, and excite.</p>
+            <!-- <ul class="about-points">
               <li><div class="ap-dot"></div><span>All materials, tools &amp; aprons provided</span></li>
               <li><div class="ap-dot"></div><span>Take home your finished artwork same day</span></li>
               <li><div class="ap-dot ap-dot--teal"></div><span>Step-by-step expert guidance throughout</span></li>
               <li><div class="ap-dot ap-dot--teal"></div><span>Small groups (max 8) for personal attention</span></li>
               <li><div class="ap-dot ap-dot--amber"></div><span>Refreshments &amp; studio playlist included</span></li>
               <li><div class="ap-dot ap-dot--amber"></div><span>Private &amp; corporate bookings available</span></li>
-            </ul>
+            </ul> -->
             <a href="#book" class="btn-primary">Reserve Your Spot</a>
           </div>
           <div class="about-right fade-right">
@@ -635,7 +606,7 @@
               <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Gold leaf inclusions</li>
               <li class="pc-feat--muted"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="8" x2="12" y2="8"/></svg> Advanced techniques</li>
             </ul>
-            <a href="#book" class="btn-secondary">Book Solo</a>
+            <a href="#book" class=" btn btn-secondary">Book Solo</a>
           </div>
 
           <div class="price-card price-card--featured fade-up" data-delay="100">
@@ -680,7 +651,7 @@
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Dedicated event coordinator</li>
               <li><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 8 6 11 13 5"/></svg> Post-event photo gallery</li>
             </ul>
-            <a href="#book" class="btn-secondary">Enquire Corporate</a>
+            <a href="#book" class=" btn btn-secondary">Enquire Corporate</a>
           </div>
 
         </div>
@@ -753,120 +724,7 @@
       </div>
     </section>
 
-    <!-- ══ SECTION 8: BOOKING FORM ══ -->
-    <section class="s-order" id="book">
-      <div class="order-bg-anim" aria-hidden="true">
-        <div class="oba oba1"></div>
-        <div class="oba oba2"></div>
-        <div class="oba oba3"></div>
-      </div>
-      <div class="container">
-        <div class="order-inner">
-          <div class="order-left fade-left">
-            <span class="section-tag">Reserve Your Spot</span>
-            <h2>Book Your Workshop<br>Today</h2>
-            <p>Spaces fill up fast — especially weekends and evening sessions. Submit your booking request and we’ll confirm availability and send a payment link within 2 hours.</p>
-            <div class="order-reassurances">
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Free cancellation up to 72 hours before
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Gift vouchers available for all sessions
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Deposit to secure, balance on the day
-              </div>
-              <div class="or-item">
-                <svg viewBox="0 0 20 20" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="10" cy="10" r="9"/><polyline points="7 10 9 12 13 8"/></svg>
-                Private sessions available any day of the week
-              </div>
-            </div>
-            <!-- Workshop model -->
-            <div class="order-model" aria-hidden="true">
-              <svg viewBox="0 0 140 60" fill="none" xmlns="http://www.w3.org/2000/svg" width="140" height="60">
-                <!-- 3 mini canvas boards -->
-                <rect x="4"  y="10" width="36" height="44" rx="5" fill="var(--primary)"   opacity="0.18" stroke="var(--primary)"   stroke-width="1.5"/>
-                <path d="M6  30 Q14 20 22 28 Q30 36 40 26" stroke="var(--primary)"   stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
-                <rect x="52" y="10" width="36" height="44" rx="5" fill="var(--secondary)" opacity="0.18" stroke="var(--secondary)" stroke-width="1.5"/>
-                <path d="M54 32 Q62 18 70 26 Q78 34 88 22" stroke="var(--secondary)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
-                <rect x="100" y="10" width="36" height="44" rx="5" fill="var(--amber)"     opacity="0.18" stroke="var(--amber)"     stroke-width="1.5"/>
-                <path d="M102 28 Q110 16 120 24 Q128 32 136 20" stroke="var(--amber)"     stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
-              </svg>
-            </div>
-          </div>
-          <div class="order-right fade-right">
-            <div class="order-form-card">
-              <h3>Workshop Booking Request</h3>
-              <form id="bookForm" novalidate>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="bf-name">Full Name *</label>
-                    <input type="text" id="bf-name" placeholder="e.g. Sarah Wilson" autocomplete="name" required />
-                  </div>
-                  <div class="form-group">
-                    <label for="bf-email">Email Address *</label>
-                    <input type="email" id="bf-email" placeholder="you@example.com" autocomplete="email" required />
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="bf-phone">Phone Number</label>
-                    <input type="tel" id="bf-phone" placeholder="+44 7700 000000" autocomplete="tel" />
-                  </div>
-                  <div class="form-group">
-                    <label for="bf-guests">Number of Guests *</label>
-                    <select id="bf-guests" required>
-                      <option value="">Select guests</option>
-                      <option>Just me (1)</option>
-                      <option>2 people</option>
-                      <option>3–4 people</option>
-                      <option>5–8 people</option>
-                      <option>9–20 people (corporate)</option>
-                      <option>21+ people (large event)</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="bf-workshop">Workshop Type *</label>
-                    <select id="bf-workshop" required>
-                      <option value="">Choose a workshop</option>
-                      <option>Beginner Ocean Pour (£55)</option>
-                      <option>Geode &amp; Crystal Art (£75)</option>
-                      <option>Abstract Resin Painting (£65)</option>
-                      <option>Resin Jewellery Making (£62)</option>
-                      <option>Corporate Team Workshop</option>
-                      <option>Advanced Masterclass (£145)</option>
-                      <option>Not sure — advise me</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="bf-date">Preferred Date</label>
-                    <input type="date" id="bf-date" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="bf-notes">Additional Notes or Special Requests</label>
-                  <textarea id="bf-notes" rows="3" placeholder="e.g. birthday celebration, dietary requirements, accessibility needs, colour preferences…"></textarea>
-                </div>
-                <button type="submit" class="btn-primary btn-full">Request Workshop Booking</button>
-                <p class="form-note">We confirm within 2 hours. Free cancellation up to 72 hours before your session.</p>
-              </form>
-              <div class="order-success" id="bookSuccess" hidden>
-                <svg viewBox="0 0 48 48" fill="none" stroke="var(--primary)" stroke-width="2.5"><circle cx="24" cy="24" r="22"/><polyline points="14 24 20 30 34 18"/></svg>
-                <strong>Booking Request Received!</strong>
-                <p>Thank you! We’ll confirm availability and send your payment link within 2 hours. Get ready to create something amazing.</p>
-                <a href="services.html" class="btn-secondary">Explore Other Services</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+   
   </main>
 
 <!-- ========== FOOTER ========== -->
@@ -948,38 +806,6 @@
     </div>
   </div>
 </footer>
-
-
-<!-- ========== WHATSAPP WIDGET ========== -->
-<div class="wa-widget" id="waWidget">
-  <button class="wa-fab" id="waFab" aria-label="Open WhatsApp chat">
-    <i data-lucide="message-circle" class="wa-ico-open"></i>
-    <i data-lucide="x" class="wa-ico-close"></i>
-  </button>
-  <div class="wa-panel" id="waPanel" role="dialog" aria-label="WhatsApp chat">
-    <div class="wa-head">
-      <div class="wa-avatar"><i data-lucide="message-circle"></i></div>
-      <div class="wa-info">
-        <strong>ResinCraft Studio</strong>
-        <span>Typically replies in minutes</span>
-      </div>
-      <button class="wa-x" id="waPanelClose" aria-label="Close panel"><i data-lucide="x"></i></button>
-    </div>
-    <div class="wa-body">
-      <div class="wa-bubble">
-        <p>👋 Hi there! Welcome to ResinCraft Studio.</p>
-        <p>How can we help you today?</p>
-        <small>Just now</small>
-      </div>
-    </div>
-    <div class="wa-foot">
-      <a href="https://wa.me/442071234567?text=Hi! I'm interested in your resin art." target="_blank" rel="noopener" class="btn btn-wa">
-        <i data-lucide="message-circle"></i> Chat on WhatsApp
-      </a>
-      <button class="wa-dismiss-btn" id="waDismiss">Close &amp; dismiss widget</button>
-    </div>
-  </div>
-</div>
 
 <script src="./workshop.js"></script>
 </body>

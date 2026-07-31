@@ -12,12 +12,11 @@
   <link rel="stylesheet" href="./color.css">
 </head>
 <body>
-
-
+<!-- ========== NAVBAR ========== -->
 <header class="navbar" id="navbar">
   <div class="nav-container">
 
-    
+    <!-- Logo + Brand -->
     <a href="/index.html" class="nav-brand">
       <div class="nav-logo">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,43 +34,31 @@
 
         <!-- Home — with dropdown -->
 <li class="nav-item nav-has-dropdown">
-  <a href="./index.html" class="nav-link">Home</a>
+  <a href="/index.html" class="nav-link">Home</a>
   <ul class="nav-dropdown" id="dd-home">
-    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
-    
+    <li><a href="/index.html" class="dd-link">Home 1</a></li>
+    <li><a href="../Home/home.html" class="dd-link">Home 2</a></li>
   </ul>
 </li>
- 
         <li class="nav-item">
-          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../About/about.html" class="nav-link ">About</a>
         </li>
-
         <!-- Services — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
           <a href="../Services/service.html" class="nav-link">Services</a>
-          <ul class="nav-dropdown" id="dd-services">
-            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
-            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
-            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
-            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
-            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
-            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
-          </ul>
+          
         </li>
 
         <!-- Blog — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Blog/blog.html" class="nav-link">Blog</a>
-          <ul class="nav-dropdown" id="dd-blog">
-            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
-            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
-            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
-            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
-          </ul>
+          <a href="../Blog/blog.html" class="nav-link active">Blog</a>
         </li>
 
         <li class="nav-item">
           <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="../AdminDashboard/admin.html" class="nav-link">Dashboard</a>
         </li>
 
       </ul>
@@ -107,6 +94,7 @@
       <i data-lucide="x"></i>
     </button>
   </div>
+  
 
   <ul class="drawer-nav">
 
@@ -115,7 +103,8 @@
         <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
       </button>
       <ul class="drawer-sub" id="sub-home">
-        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+        <li><a href="./index.html" class="drawer-sub-link">Home 1</a></li>
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home 2</a></li>
        
       </ul>
     </li>
@@ -123,37 +112,18 @@
     <li class="drawer-item">
       <a href="../About/about.html" class="drawer-link">About</a>
     </li>
-
     <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-services">
-        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-services">
-        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
-        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
-        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
-        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
-        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
-        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
-        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
-      </ul>
+      <a href="../Services/service.html" class="drawer-link">Services</a>
     </li>
-
-    <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
-        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-blog">
-        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
-        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
-        <li><a href="./color.html" class="drawer-sub-link">Color Inspiration</a></li>
-        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
-        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
-      </ul>
+        <li class="drawer-item">
+      <a href="../Blog/blog.html" class="drawer-link">Blog</a>
     </li>
 
     <li class="drawer-item">
       <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+    <li class="drawer-item">
+      <a href="../AdminDashboard/admin.html" class="drawer-link">Dashboard</a>
     </li>
 
     <li class="drawer-divider"></li>
@@ -204,7 +174,7 @@
             <span class="tag tag--amber">8 min read</span>
           </div>
           <h1 class="ci-hero__title fade-up" style="--delay:0.2s">The Complete Guide to Colour<br>Inspiration for Resin Art</h1>
-          <p class="ci-hero__desc fade-up" style="--delay:0.3s">From reading the colour wheel to building seasonal palettes, understanding undertones, and pairing pigments like a professional — everything you need to make every pour a colour triumph.</p>
+          <p class="ci-hero__desc fade-up" style="--delay:0.3s">From reading the colour wheel to building seasonal palettes, understanding undertones, and pairing pigments like a professional  everything you need to make every pour a colour triumph.</p>
           <div class="ci-hero__meta fade-up" style="--delay:0.4s">
             <div class="meta-author">
               <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=48&q=80" alt="Author" class="meta-avatar" />
@@ -245,70 +215,46 @@
         <div class="bg-blob bg-blob--a"></div>
         <div class="bg-blob bg-blob--b"></div>
       </div>
+       <div class="rt-heading fade-up">
+        <span class="section-chip">Chapter 1</span>
+        <h2 class="sec-title">Understanding the colour wheel</h2>
+    </div>
       <div class="container ci-split">
         <!-- LEFT -->
         <div class="ci-split__text fade-right">
-          <span class="section-chip">Chapter 1</span>
-          <h2 class="section-title">Understanding the Colour Wheel</h2>
-          <p>The colour wheel is the single most powerful tool in every artist's kit. Understanding how colours relate to each other lets you build palettes that feel balanced, intentional, and emotionally resonant — never accidental.</p>
+          
           <ul class="tips-list">
             <li>
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Primary colours</strong> — Red, yellow, and blue are the building blocks. All other colours are derived from mixing these three.</div>
+              <div><strong>Primary colours</strong>  Red, yellow, and blue are the building blocks. All other colours are derived from mixing these three.</div>
             </li>
             <li>
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Complementary pairs</strong> — Colours directly opposite each other (purple &amp; yellow, teal &amp; orange) create maximum contrast and visual energy.</div>
+              <div><strong>Complementary pairs</strong>  Colours directly opposite each other (purple &amp; yellow, teal &amp; orange) create maximum contrast and visual energy.</div>
             </li>
             <li>
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Analogous harmony</strong> — Three to five colours sitting side by side (blue, blue-green, green) create serene, flowing compositions perfect for ocean pours.</div>
+              <div><strong>Analogous harmony</strong>  Three to five colours sitting side by side (blue, blue-green, green) create serene, flowing compositions perfect for ocean pours.</div>
             </li>
-            <li>
-              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Triadic balance</strong> — Three colours equally spaced (red, blue, yellow) produce vibrant, dynamic pieces with natural visual balance.</div>
-            </li>
-            <li>
-              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Warm vs. cool temperature</strong> — Warm colours (red, orange, amber) advance visually. Cool colours (blue, teal, violet) recede. Use this to create depth in layered resin pours.</div>
-            </li>
-            <li>
-              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Tints, tones &amp; shades</strong> — Adding white creates a tint (pastel), grey creates a tone (muted), and black creates a shade (deep). All three are available in resin without changing cure chemistry.</div>
-            </li>
+           
           </ul>
         </div>
-        <!-- RIGHT — Colour wheel SVG model -->
+        <!-- RIGHT  Colour wheel SVG model -->
         <div class="ci-split__model fade-left">
-          <svg viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="Colour wheel model">
-            <!-- Colour wheel segments -->
-            <circle cx="170" cy="170" r="110" fill="none" stroke="var(--border)" stroke-width="1"/>
-            <!-- 12 hue slices -->
-            <path d="M170 170 L170 60 A110 110 0 0 1 225 78 Z" fill="#ff4d4d" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L225 78 A110 110 0 0 1 267 120 Z" fill="#ff8c00" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L267 120 A110 110 0 0 1 280 170 Z" fill="#ffd700" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L280 170 A110 110 0 0 1 267 220 Z" fill="#9acd32" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L267 220 A110 110 0 0 1 225 262 Z" fill="#32cd32" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L225 262 A110 110 0 0 1 170 280 Z" fill="#00bfae" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L170 280 A110 110 0 0 1 115 262 Z" fill="#0891b2" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L115 262 A110 110 0 0 1 73 220 Z" fill="#4169e1" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L73 220 A110 110 0 0 1 60 170 Z" fill="#6a0dad" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L60 170 A110 110 0 0 1 73 120 Z" fill="#9333ea" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L73 120 A110 110 0 0 1 115 78 Z" fill="#c71585" opacity="0.7" class="wheel-seg"/>
-            <path d="M170 170 L115 78 A110 110 0 0 1 170 60 Z" fill="#dc143c" opacity="0.7" class="wheel-seg"/>
-            <!-- Inner white circle -->
-            <circle cx="170" cy="170" r="55" fill="var(--bg-card)" class="model-part"/>
-            <text x="170" y="166" text-anchor="middle" font-size="11" fill="var(--text-muted)" font-weight="600">COLOUR</text>
-            <text x="170" y="180" text-anchor="middle" font-size="11" fill="var(--text-muted)" font-weight="600">WHEEL</text>
-            <!-- Orbiting rings -->
-            <circle cx="170" cy="170" r="130" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.25" class="spin-slow"/>
-            <circle cx="170" cy="170" r="150" fill="none" stroke="var(--secondary)" stroke-width="1" stroke-dasharray="4 8" opacity="0.18" class="spin-slow" style="animation-direction:reverse;animation-duration:20s"/>
-            <!-- Floating swatches -->
-            <circle cx="60" cy="50" r="14" fill="var(--primary)" opacity="0.3" class="drop-float"/>
-            <circle cx="290" cy="70" r="10" fill="var(--secondary)" opacity="0.3" class="drop-float" style="animation-delay:.5s"/>
-            <circle cx="310" cy="270" r="12" fill="var(--amber)" opacity="0.3" class="drop-float" style="animation-delay:1s"/>
-            <circle cx="40" cy="280" r="9" fill="#dc143c" opacity="0.25" class="drop-float" style="animation-delay:1.5s"/>
-          </svg>
+            <ul class="tips-list">
+          <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Triadic balance</strong>  Three colours equally spaced (red, blue, yellow) produce vibrant, dynamic pieces with natural visual balance.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Warm vs. cool temperature</strong>  Warm colours (red, orange, amber) advance visually. Cool colours (blue, teal, violet) recede. Use this to create depth in layered resin pours.</div>
+            </li>
+            <li>
+              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+              <div><strong>Tints, tones &amp; shades</strong>  Adding white creates a tint (pastel), grey creates a tone (muted), and black creates a shade (deep). All three are available in resin without changing cure chemistry.</div>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
@@ -325,7 +271,7 @@
         <div class="section-header fade-up">
           <span class="section-chip section-chip--light">Chapter 2</span>
           <h2 class="section-title section-title--light">Signature Colour Palettes for Resin</h2>
-          <p class="section-sub section-sub--light">Six ready-to-use palette collections curated specifically for resin art — from ocean depths to golden desert sunsets.</p>
+          <p class="section-sub section-sub--light">Six ready-to-use palette collections curated specifically for resin art  from ocean depths to golden desert sunsets.</p>
         </div>
         <div class="carousel" id="paletteCarousel">
           <div class="carousel__track" id="paletteTrack">
@@ -401,7 +347,7 @@
                 </div>
                 <div class="palette-card__body">
                   <h3>Forest Botanicals</h3>
-                  <p>Deep emeralds, sage, and fresh greens paired with preserved botanical inclusions — dried ferns, flowers, and moss. Ideal for resin trays, serving boards, and nature-inspired wall art.</p>
+                  <p>Deep emeralds, sage, and fresh greens paired with preserved botanical inclusions  dried ferns, flowers, and moss. Ideal for resin trays, serving boards, and nature-inspired wall art.</p>
                   <div class="palette-card__hex">
                     <span>#166534</span><span>#16A34A</span><span>#86EFAC</span><span>#14532D</span>
                   </div>
@@ -489,7 +435,7 @@
                 <span style="background:#bae6fd" title="Sky Blue"></span>
                 <span style="background:#ddd6fe" title="Lilac"></span>
               </div>
-              <p>Light, airy, and optimistic. Spring palettes feature fresh pastels — mint, blush, lilac, and lemon — often combined with white pearl and silver mica for that dewy, just-rained freshness.</p>
+              <p>Light, airy, and optimistic. Spring palettes feature fresh pastels  mint, blush, lilac, and lemon  often combined with white pearl and silver mica for that dewy, just-rained freshness.</p>
               <ul class="season-tips">
                 <li>Pair mint with blush for bridal pieces</li>
                 <li>Add holographic glitter for morning-dew effect</li>
@@ -511,7 +457,7 @@
                 <span style="background:#4ade80" title="Tropical Green"></span>
                 <span style="background:#38bdf8" title="Clear Sky"></span>
               </div>
-              <p>Bold, saturated, and energetic. Summer demands vibrant teals, hot corals, and sunshine yellows. Think ocean waves, tropical birds, and golden sand — maximum colour impact.</p>
+              <p>Bold, saturated, and energetic. Summer demands vibrant teals, hot corals, and sunshine yellows. Think ocean waves, tropical birds, and golden sand  maximum colour impact.</p>
               <ul class="season-tips">
                 <li>Combine teal + orange for coastal art</li>
                 <li>Use fluorescent pigments for UV glow pieces</li>
@@ -613,7 +559,7 @@
               </svg>
             </div>
             <h3>Triadic Drama</h3>
-            <p>Three equally-spaced colours (purple, teal-green, amber) create maximum vibrancy. Always add white or black as a neutral buffer between the three — this prevents the palette from looking chaotic.</p>
+            <p>Three equally-spaced colours (purple, teal-green, amber) create maximum vibrancy. Always add white or black as a neutral buffer between the three  this prevents the palette from looking chaotic.</p>
           </div>
           <div class="pairing-card fade-up" style="--delay:0.3s">
             <div class="pairing-card__icon">
@@ -624,7 +570,7 @@
               </svg>
             </div>
             <h3>Neutral Anchoring</h3>
-            <p>Every palette benefits from at least one neutral — white, cream, grey, or black. Neutrals separate pigment sections, prevent bleed-muddying, and give the eye a place to rest in complex multi-colour compositions.</p>
+            <p>Every palette benefits from at least one neutral  white, cream, grey, or black. Neutrals separate pigment sections, prevent bleed-muddying, and give the eye a place to rest in complex multi-colour compositions.</p>
           </div>
           <div class="pairing-card fade-up" style="--delay:0.4s">
             <div class="pairing-card__icon">
@@ -654,95 +600,7 @@
     </section>
 
     <!-- ====== SECTION 6: COLOUR PSYCHOLOGY ====== -->
-    <section class="ci-psychology section-pad" id="psychology">
-      <div class="ci-psychology__bg-anim" aria-hidden="true">
-        <div class="bg-blob bg-blob--g"></div>
-        <div class="bg-blob bg-blob--h"></div>
-      </div>
-      <div class="container ci-split">
-        <!-- LEFT — psychology model -->
-        <div class="ci-split__model fade-right">
-          <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="Colour psychology model">
-            <!-- Brain outline -->
-            <ellipse cx="160" cy="180" rx="100" ry="110" fill="var(--primary)" opacity="0.06" class="pulse-shape"/>
-            <!-- Colour emotion circles radiating out -->
-            <circle cx="160" cy="80" r="22" fill="#dc143c" opacity="0.6" class="drop-float"/>
-            <text x="160" y="85" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">PASSION</text>
-            <circle cx="240" cy="130" r="20" fill="#d97706" opacity="0.6" class="drop-float" style="animation-delay:.3s"/>
-            <text x="240" y="135" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">ENERGY</text>
-            <circle cx="260" cy="210" r="18" fill="#16a34a" opacity="0.6" class="drop-float" style="animation-delay:.6s"/>
-            <text x="260" y="215" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">CALM</text>
-            <circle cx="210" cy="285" r="20" fill="#0891b2" opacity="0.6" class="drop-float" style="animation-delay:.9s"/>
-            <text x="210" y="290" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">TRUST</text>
-            <circle cx="110" cy="285" r="20" fill="#9333ea" opacity="0.6" class="drop-float" style="animation-delay:1.2s"/>
-            <text x="110" y="290" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">LUXURY</text>
-            <circle cx="60" cy="210" r="18" fill="#ec4899" opacity="0.6" class="drop-float" style="animation-delay:1.5s"/>
-            <text x="60" y="215" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">JOY</text>
-            <circle cx="78" cy="130" r="20" fill="#ffd700" opacity="0.6" class="drop-float" style="animation-delay:1.8s"/>
-            <text x="78" y="135" text-anchor="middle" font-size="8" fill="#333" font-weight="700">OPTIMISM</text>
-            <!-- Centre -->
-            <circle cx="160" cy="185" r="34" fill="var(--bg-card)" stroke="var(--primary)" stroke-width="2" opacity="0.9" class="model-part"/>
-            <text x="160" y="181" text-anchor="middle" font-size="9" fill="var(--text-muted)" font-weight="700">COLOUR</text>
-            <text x="160" y="194" text-anchor="middle" font-size="9" fill="var(--text-muted)" font-weight="700">EMOTION</text>
-            <!-- Connecting lines -->
-            <line x1="160" y1="151" x2="160" y2="102" stroke="var(--primary)" stroke-width="1" opacity="0.2" stroke-dasharray="3 3"/>
-            <line x1="191" y1="162" x2="222" y2="144" stroke="var(--amber)" stroke-width="1" opacity="0.2" stroke-dasharray="3 3"/>
-            <line x1="195" y1="195" x2="242" y2="206" stroke="#16a34a" stroke-width="1" opacity="0.2" stroke-dasharray="3 3"/>
-            <line x1="185" y1="216" x2="196" y2="265" stroke="var(--secondary)" stroke-width="1" opacity="0.2" stroke-dasharray="3 3"/>
-            <line x1="134" y1="216" x2="123" y2="265" stroke="var(--primary)" stroke-width="1" opacity="0.2" stroke-dasharray="3 3"/>
-            <line x1="124" y1="195" x2="77" y2="206" stroke="#ec4899" stroke-width="1" opacity="0.2" stroke-dasharray="3 3"/>
-            <line x1="128" y1="162" x2="96" y2="144" stroke="#ffd700" stroke-width="1" opacity="0.2" stroke-dasharray="3 3"/>
-            <!-- Orbit ring -->
-            <circle cx="160" cy="185" r="115" fill="none" stroke="var(--secondary)" stroke-width="1" stroke-dasharray="4 7" opacity="0.2" class="spin-slow" style="animation-duration:28s"/>
-          </svg>
-        </div>
-        <!-- RIGHT -->
-        <div class="ci-split__text fade-left">
-          <span class="section-chip">Chapter 5</span>
-          <h2 class="section-title">Colour Psychology in Art</h2>
-          <p>Colour is one of the most powerful emotional tools in art. Before you plan a palette, consider the feeling you want the piece to evoke — the buyer's emotional response should guide every colour choice.</p>
-          <div class="psych-list">
-            <div class="psych-item">
-              <div class="psych-dot" style="background:#dc143c"></div>
-              <div>
-                <strong>Red &amp; Crimson</strong> — Passion, energy, urgency. Use in statement art and bold modern interiors. Avoid in relaxation spaces.
-              </div>
-            </div>
-            <div class="psych-item">
-              <div class="psych-dot" style="background:#d97706"></div>
-              <div>
-                <strong>Orange &amp; Amber</strong> — Warmth, creativity, excitement. Ideal for social spaces, kitchens, and gift pieces meant to feel celebratory.
-              </div>
-            </div>
-            <div class="psych-item">
-              <div class="psych-dot" style="background:#fcd34d"></div>
-              <div>
-                <strong>Yellow &amp; Gold</strong> — Optimism, clarity, wealth. Gold mica elevates any piece into luxury. Pure yellow requires careful use — too much feels overwhelming.
-              </div>
-            </div>
-            <div class="psych-item">
-              <div class="psych-dot" style="background:#16a34a"></div>
-              <div>
-                <strong>Green</strong> — Balance, nature, renewal. Botanical greens pair beautifully with resin encapsulations and living-edge wood pieces.
-              </div>
-            </div>
-            <div class="psych-item">
-              <div class="psych-dot" style="background:#0891b2"></div>
-              <div>
-                <strong>Blue &amp; Teal</strong> — Trust, calm, depth. The single most universally loved colour family. Ocean blues consistently outsell all other colourways at ResinLux Studio.
-              </div>
-            </div>
-            <div class="psych-item">
-              <div class="psych-dot" style="background:#9333ea"></div>
-              <div>
-                <strong>Purple &amp; Violet</strong> — Luxury, spirituality, creativity. Our signature primary colour. Deep amethyst pieces with gold accents remain our highest-value commissions.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+   
     <!-- ====== SECTION 7: DARK VS LIGHT BASE GUIDE ====== -->
     <section class="ci-base section-pad" id="base-guide">
       <div class="ci-base__bg">
@@ -791,14 +649,14 @@
                 <li><span>✓</span> Best for ocean, botanical, and floral art</li>
                 <li><span>✓</span> Spring and summer palettes shine on white</li>
                 <li><span>✗</span> Metallics less dramatic than on dark base</li>
-                <li><span>✗</span> Ink bleeds more — harder to control edges</li>
+                <li><span>✗</span> Ink bleeds more  harder to control edges</li>
               </ul>
             </div>
           </div>
         </div>
         <div class="base-verdict fade-up" style="--delay:0.3s">
           <svg width="28" height="28" fill="none" stroke="var(--amber)" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <p><strong>Studio Tip:</strong> When in doubt, test a small sample board with both a dark and a light base before committing your full pigment pour. The same colours can look entirely different on each base — this 30-minute test saves hours of frustration.</p>
+          <p><strong>Studio Tip:</strong> When in doubt, test a small sample board with both a dark and a light base before committing your full pigment pour. The same colours can look entirely different on each base  this 30-minute test saves hours of frustration.</p>
         </div>
       </div>
     </section>

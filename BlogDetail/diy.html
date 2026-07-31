@@ -12,13 +12,12 @@
   <link rel="stylesheet" href="./diy.css">
 </head>
 <body>
-
 <!-- ========== NAVBAR ========== -->
 <header class="navbar" id="navbar">
   <div class="nav-container">
 
     <!-- Logo + Brand -->
-    <a href="./index.html" class="nav-brand">
+    <a href="/index.html" class="nav-brand">
       <div class="nav-logo">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
@@ -35,43 +34,31 @@
 
         <!-- Home — with dropdown -->
 <li class="nav-item nav-has-dropdown">
-  <a href="./index.html" class="nav-link">Home</a>
+  <a href="/index.html" class="nav-link">Home</a>
   <ul class="nav-dropdown" id="dd-home">
-    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
-    
+    <li><a href="/index.html" class="dd-link">Home 1</a></li>
+    <li><a href="../Home/home.html" class="dd-link">Home 2</a></li>
   </ul>
 </li>
- 
         <li class="nav-item">
-          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../About/about.html" class="nav-link ">About</a>
         </li>
-
         <!-- Services — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
           <a href="../Services/service.html" class="nav-link">Services</a>
-          <ul class="nav-dropdown" id="dd-services">
-            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
-            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
-            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
-            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
-            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
-            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
-          </ul>
+          
         </li>
 
         <!-- Blog — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Blog/blog.html" class="nav-link">Blog</a>
-          <ul class="nav-dropdown" id="dd-blog">
-            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
-            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
-            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
-            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
-          </ul>
+          <a href="../Blog/blog.html" class="nav-link active">Blog</a>
         </li>
 
         <li class="nav-item">
           <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="../AdminDashboard/admin.html" class="nav-link">Dashboard</a>
         </li>
 
       </ul>
@@ -107,6 +94,7 @@
       <i data-lucide="x"></i>
     </button>
   </div>
+  
 
   <ul class="drawer-nav">
 
@@ -115,7 +103,8 @@
         <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
       </button>
       <ul class="drawer-sub" id="sub-home">
-        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+        <li><a href="./index.html" class="drawer-sub-link">Home 1</a></li>
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home 2</a></li>
        
       </ul>
     </li>
@@ -123,37 +112,18 @@
     <li class="drawer-item">
       <a href="../About/about.html" class="drawer-link">About</a>
     </li>
-
     <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-services">
-        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-services">
-        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
-        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
-        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
-        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
-        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
-        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
-        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
-      </ul>
+      <a href="../Services/service.html" class="drawer-link">Services</a>
     </li>
-
-    <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
-        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-blog">
-        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
-        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
-        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
-        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
-        <li><a href="./diy.html" class="drawer-sub-link">DIY Guides</a></li>
-      </ul>
+        <li class="drawer-item">
+      <a href="../Blog/blog.html" class="drawer-link">Blog</a>
     </li>
 
     <li class="drawer-item">
       <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+    <li class="drawer-item">
+      <a href="../AdminDashboard/admin.html" class="drawer-link">Dashboard</a>
     </li>
 
     <li class="drawer-divider"></li>
@@ -245,12 +215,16 @@
         <div class="bg-blob bg-blob--a"></div>
         <div class="bg-blob bg-blob--b"></div>
       </div>
+       <div class="rt-heading fade-up">
+        <span class="section-chip">Chapter 1</span>
+        <h2 class="sec-title">Building Your First DIY Resin Kit</h2>
+    
+    </div>
       <div class="container dg-split">
         <!-- LEFT: text -->
         <div class="dg-split__text fade-right">
-          <span class="section-chip">Chapter 1</span>
-          <h2 class="section-title">Building Your First DIY Resin Kit</h2>
-          <p>Before you pour a single drop, assembling the right kit is everything. Trying to DIY with incomplete supplies leads to frustration and wasted material. These are the twelve essential items every first-time resin DIY artist needs — and exactly why each one earns its place on the worktop.</p>
+      
+         
           <ul class="tips-list">
             <li>
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -264,7 +238,13 @@
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               <div><strong>Silicone mixing cups &amp; stir sticks</strong> — Cured resin peels cleanly from silicone. This means cups and stir sticks are reusable indefinitely — essential for budget-conscious DIY.</div>
             </li>
-            <li>
+            
+          </ul>
+        </div>
+        <!-- RIGHT: DIY kit SVG model -->
+        <div class="dg-split__model fade-left">
+          <ul class="tips-list">
+<li>
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               <div><strong>Nitrile gloves (box of 100)</strong> — Resin is a skin sensitiser on repeated uncured contact. Gloves every single time, no exceptions, even for "just a quick drip."</div>
             </li>
@@ -276,49 +256,7 @@
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               <div><strong>Butane kitchen torch</strong> — Popping surface bubbles with a torch pass is faster and more effective than any other method. A small catering torch from a kitchen shop works perfectly.</div>
             </li>
-          </ul>
-        </div>
-        <!-- RIGHT: DIY kit SVG model -->
-        <div class="dg-split__model fade-left">
-          <svg viewBox="0 0 340 380" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="DIY kit model">
-            <!-- Workbench -->
-            <rect x="20" y="310" width="300" height="12" rx="4" fill="var(--secondary)" opacity="0.15"/>
-            <!-- Resin bottle A -->
-            <rect x="50" y="175" width="44" height="125" rx="8" fill="var(--primary)" opacity="0.13" class="model-part"/>
-            <rect x="58" y="163" width="28" height="18" rx="4" fill="var(--primary)" opacity="0.28" class="model-part"/>
-            <text x="72" y="245" text-anchor="middle" font-size="9" fill="var(--primary)" font-weight="700">PART A</text>
-            <!-- Resin bottle B -->
-            <rect x="108" y="185" width="44" height="115" rx="8" fill="var(--secondary)" opacity="0.13" class="model-part"/>
-            <rect x="116" y="173" width="28" height="18" rx="4" fill="var(--secondary)" opacity="0.28" class="model-part"/>
-            <text x="130" y="249" text-anchor="middle" font-size="9" fill="var(--secondary)" font-weight="700">PART B</text>
-            <!-- Scale -->
-            <rect x="168" y="260" width="80" height="40" rx="6" fill="var(--amber)" opacity="0.13" class="model-part"/>
-            <rect x="180" y="248" width="56" height="16" rx="3" fill="var(--amber)" opacity="0.22" class="model-part"/>
-            <text x="208" y="283" text-anchor="middle" font-size="8" fill="var(--amber)" font-weight="700">SCALE</text>
-            <text x="208" y="295" text-anchor="middle" font-size="10" fill="var(--amber)" font-weight="900">0.0g</text>
-            <!-- Coaster mould -->
-            <ellipse cx="260" cy="270" rx="28" ry="10" fill="var(--primary)" opacity="0.14" class="model-part"/>
-            <ellipse cx="260" cy="270" rx="28" ry="10" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.35"/>
-            <ellipse cx="260" cy="260" rx="28" ry="10" fill="var(--primary)" opacity="0.10" class="model-part"/>
-            <ellipse cx="260" cy="260" rx="28" ry="10" fill="none" stroke="var(--primary)" stroke-width="1.5" opacity="0.2"/>
-            <!-- Mixing cup -->
-            <path d="M168,185 L162,260 Q166,268 174,268 Q182,268 186,260 L180,185 Z" fill="var(--secondary)" opacity="0.15" class="model-part"/>
-            <line x1="168" y1="205" x2="180" y2="205" stroke="var(--secondary)" stroke-width="1.2" opacity="0.4"/>
-            <line x1="166" y1="225" x2="182" y2="225" stroke="var(--secondary)" stroke-width="1.2" opacity="0.4"/>
-            <line x1="164" y1="245" x2="184" y2="245" stroke="var(--secondary)" stroke-width="1.2" opacity="0.4"/>
-            <!-- Torch -->
-            <rect x="285" y="210" width="14" height="88" rx="5" fill="#888" opacity="0.18" class="model-part"/>
-            <ellipse cx="292" cy="208" rx="9" ry="5" fill="var(--amber)" opacity="0.28" class="model-part"/>
-            <path d="M287,200 Q292,186 297,200" fill="var(--amber)" opacity="0.45" class="drop-float"/>
-            <!-- Floating resin drops -->
-            <ellipse cx="80" cy="90" rx="16" ry="22" fill="var(--primary)" opacity="0.2" class="drop-float"/>
-            <ellipse cx="210" cy="75" rx="12" ry="17" fill="var(--secondary)" opacity="0.2" class="drop-float" style="animation-delay:.6s"/>
-            <ellipse cx="155" cy="45" rx="9" ry="13" fill="var(--amber)" opacity="0.28" class="drop-float" style="animation-delay:1.2s"/>
-            <!-- Orbit rings -->
-            <circle cx="170" cy="175" r="135" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.2" class="spin-slow"/>
-            <circle cx="170" cy="175" r="155" fill="none" stroke="var(--secondary)" stroke-width="1" stroke-dasharray="4 9" opacity="0.13" class="spin-slow" style="animation-direction:reverse;animation-duration:20s"/>
-          </svg>
-        </div>
+          </ul>    </div>
       </div>
     </section>
 
@@ -642,68 +580,7 @@
       </div>
     </section>
 
-    <!-- ====== SECTION 6: SAFETY GUIDE ====== -->
-    <section class="dg-safety section-pad" id="safety">
-      <div class="dg-safety__bg-anim" aria-hidden="true">
-        <div class="bg-blob bg-blob--g"></div>
-        <div class="bg-blob bg-blob--h"></div>
-      </div>
-      <div class="container dg-split">
-        <!-- LEFT: safety shield SVG -->
-        <div class="dg-split__model fade-right">
-          <svg viewBox="0 0 320 360" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="Safety model">
-            <!-- Shield -->
-            <path d="M160 30 L270 80 L270 190 Q270 280 160 330 Q50 280 50 190 L50 80 Z" fill="var(--primary)" opacity="0.07" class="model-part"/>
-            <path d="M160 30 L270 80 L270 190 Q270 280 160 330 Q50 280 50 190 L50 80 Z" fill="none" stroke="var(--primary)" stroke-width="2.5" opacity="0.35"/>
-            <!-- Tick / check inside shield -->
-            <path d="M110 180 L145 215 L212 145" fill="none" stroke="var(--primary)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
-            <!-- Glove icons floating -->
-            <ellipse cx="60" cy="70" rx="16" ry="22" fill="var(--secondary)" opacity="0.18" class="drop-float"/>
-            <ellipse cx="265" cy="80" rx="12" ry="17" fill="var(--amber)" opacity="0.18" class="drop-float" style="animation-delay:.5s"/>
-            <ellipse cx="280" cy="240" rx="10" ry="14" fill="var(--primary)" opacity="0.15" class="drop-float" style="animation-delay:1s"/>
-            <ellipse cx="38" cy="250" rx="11" ry="15" fill="var(--secondary)" opacity="0.15" class="drop-float" style="animation-delay:1.5s"/>
-            <!-- Orbit ring -->
-            <circle cx="160" cy="185" r="140" fill="none" stroke="var(--secondary)" stroke-width="1.5" stroke-dasharray="7 5" opacity="0.18" class="spin-slow"/>
-            <!-- Sparkles -->
-            <circle cx="50" cy="30" r="5" fill="var(--amber)" opacity="0.5" class="twinkle"/>
-            <circle cx="280" cy="40" r="4" fill="var(--primary)" opacity="0.5" class="twinkle" style="animation-delay:.4s"/>
-            <circle cx="300" cy="160" r="3" fill="var(--secondary)" opacity="0.5" class="twinkle" style="animation-delay:.8s"/>
-          </svg>
-        </div>
-        <!-- RIGHT: safety text -->
-        <div class="dg-split__text fade-left">
-          <span class="section-chip">Chapter 5</span>
-          <h2 class="section-title">DIY Safety: Protect Yourself at Home</h2>
-          <p>Home studios don't have the safety infrastructure of professional workshops, which makes personal protection even more important. These six safety rules are non-negotiable, regardless of how small the project.</p>
-          <ul class="tips-list">
-            <li>
-              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Always wear nitrile gloves</strong> — Uncured epoxy resin is a dermal sensitiser. Repeated skin contact without gloves can cause a permanent allergy that prevents you from ever working with resin again.</div>
-            </li>
-            <li>
-              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Open windows every session</strong> — Even low-VOC resins release vapours during mixing. Cross-ventilation (open window + door) is the minimum. An extractor fan is ideal.</div>
-            </li>
-            <li>
-              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Wear a respirator for long sessions</strong> — A simple dust mask does nothing for chemical vapours. For sessions over 30 minutes or in poorly ventilated rooms, an OV/P100 half-face respirator is essential.</div>
-            </li>
-            <li>
-              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Never leave hot resin unattended</strong> — Deep pours generate significant heat. A mixing cup of active resin left unattended on a wooden table can scorch or even ignite. Always pour flat immediately after mixing.</div>
-            </li>
-            <li>
-              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Keep children and pets out during work</strong> — Uncured resin is toxic to animals and young children who may touch surfaces or inhale vapours at floor level. Cure behind a closed door.</div>
-            </li>
-            <li>
-              <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Dispose of waste resin properly</strong> — Pour leftover mixed resin into a small silicone mould and allow it to cure fully before disposing as solid waste. Never pour liquid resin down a drain.</div>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+ 
 
     <!-- ====== SECTION 7: MATERIAL SHOPPING GUIDE ====== -->
     <section class="dg-shopping section-pad" id="shopping">

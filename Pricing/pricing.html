@@ -35,43 +35,33 @@
 
         <!-- Home — with dropdown -->
 <li class="nav-item nav-has-dropdown">
-  <a href="./index.html" class="nav-link">Home</a>
+  <a href="index.html" class="nav-link ">Home</a>
   <ul class="nav-dropdown" id="dd-home">
-    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
-    
+    <li><a href="/index.html" class="dd-link">Home 1</a></li>
+    <li><a href="../Home/home.html" class="dd-link">Home 2</a></li>
   </ul>
 </li>
  
         <li class="nav-item">
-          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="./About/about.html" class="nav-link">About</a>
         </li>
 
         <!-- Services — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Services/service.html" class="nav-link">Services</a>
-          <ul class="nav-dropdown" id="dd-services">
-            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
-            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
-            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
-            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
-            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
-            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
-          </ul>
+          <a href="./Services/service.html" class="nav-link">Services</a>
+          
         </li>
 
         <!-- Blog — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Blog/blog.html" class="nav-link">Blog</a>
-          <ul class="nav-dropdown" id="dd-blog">
-            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
-            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
-            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
-            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
-          </ul>
+          <a href="./Blog/blog.html" class="nav-link">Blog</a>
         </li>
 
         <li class="nav-item">
-          <a href="../Contact/contact.html" class="nav-link">Contact</a>
+          <a href="./Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="./AdminDashboard/admin.html" class="nav-link">Dashboard</a>
         </li>
 
       </ul>
@@ -107,6 +97,7 @@
       <i data-lucide="x"></i>
     </button>
   </div>
+  
 
   <ul class="drawer-nav">
 
@@ -115,51 +106,33 @@
         <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
       </button>
       <ul class="drawer-sub" id="sub-home">
-        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+        <li><a href="/index.html" class="drawer-sub-link">Home 1</a></li>
+        <li><a href="./Home/home.html" class="drawer-sub-link">Home 2</a></li>
        
       </ul>
     </li>
 
     <li class="drawer-item">
-      <a href="../About/about.html" class="drawer-link">About</a>
+      <a href="./About/about.html" class="drawer-link">About</a>
+    </li>
+    <li class="drawer-item">
+      <a href="./Services/service.html" class="drawer-link">Services</a>
+    </li>
+        <li class="drawer-item">
+      <a href="./Blog/blog.html" class="drawer-link">Blog</a>
     </li>
 
     <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-services">
-        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-services">
-        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
-        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
-        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
-        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
-        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
-        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
-        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
-      </ul>
+      <a href="./Contact/contact.html" class="drawer-link">Contact</a>
     </li>
-
     <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
-        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-blog">
-        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
-        <li><a href="../BlogDetail/resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
-        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
-        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
-        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
-      </ul>
-    </li>
-
-    <li class="drawer-item">
-      <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+      <a href="./AdminDashboard/admin.html" class="drawer-link">Dashboard</a>
     </li>
 
     <li class="drawer-divider"></li>
 
     <li class="drawer-item">
-      <a href="../LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
+      <a href="./LoginRegister/login.html" class="btn btn-primary drawer-full-btn">Login</a>
     </li>
 
     <li class="drawer-item">
@@ -350,7 +323,7 @@
         <div class="section-header fade-up">
           <span class="section-chip">What You Get</span>
           <h2 class="section-title">Everything Included in Every Plan</h2>
-          <p class="section-sub">A closer look at the features, resources, and studio access that make each ResinLux membership uniquely valuable.</p>
+          <p class="section-sub">A closer look at the features, resources, and studio access that make each ResinCraft Studio membership uniquely valuable.</p>
         </div>
 
         <!-- Feature carousel -->
@@ -396,7 +369,7 @@
                       </svg>
                     </div>
                     <h3>Live Q&amp;A Sessions</h3>
-                    <p>Monthly live video sessions with ResinLux lead artists. Ask real questions in real time, watch live pours, and get personalised technique feedback directly from professionals.</p>
+                    <p>Monthly live video sessions with ResinCraft Studio lead artists. Ask real questions in real time, watch live pours, and get personalised technique feedback directly from professionals.</p>
                     <ul>
                       <li>Starter: 1 session/month</li>
                       <li>Studio: 4 sessions/month</li>
@@ -434,7 +407,7 @@
                       </svg>
                     </div>
                     <h3>1-to-1 Artist Mentorship</h3>
-                    <p>Exclusive to Professional members: monthly one-on-one mentorship sessions with a dedicated ResinLux lead artist. Work on your portfolio, develop your signature style, and get honest critique that accelerates real growth.</p>
+                    <p>Exclusive to Professional members: monthly one-on-one mentorship sessions with a dedicated ResinCraft Studio lead artist. Work on your portfolio, develop your signature style, and get honest critique that accelerates real growth.</p>
                     <ul>
                       <li>Starter: Not included</li>
                       <li>Studio: Not included</li>
@@ -471,7 +444,7 @@
                       </svg>
                     </div>
                     <h3>Portfolio &amp; Gallery Listing</h3>
-                    <p>Professional members receive a dedicated portfolio page on the ResinLux website, plus inclusion in our rotating gallery display at the studio — seen by hundreds of clients, press, and collaborators every month.</p>
+                    <p>Professional members receive a dedicated portfolio page on the ResinCraft Studio website, plus inclusion in our rotating gallery display at the studio — seen by hundreds of clients, press, and collaborators every month.</p>
                     <ul>
                       <li>Starter: Not included</li>
                       <li>Studio: Not included</li>
@@ -698,7 +671,7 @@
                 <div class="form-group">
                   <label class="checkbox-label checkbox-label--agree">
                     <input type="checkbox" id="e-agree" name="agree" />
-                    I agree to ResinLux Studio contacting me about membership options. <span aria-hidden="true">*</span>
+                    I agree to ResinCraft Studio contacting me about membership options. <span aria-hidden="true">*</span>
                   </label>
                   <span class="form-error" id="err-agree"></span>
                 </div>

@@ -12,13 +12,12 @@
   <link rel="stylesheet" href="./resin.css">
 </head>
 <body>
-
 <!-- ========== NAVBAR ========== -->
 <header class="navbar" id="navbar">
   <div class="nav-container">
 
     <!-- Logo + Brand -->
-    <a href="./index.html" class="nav-brand">
+    <a href="/index.html" class="nav-brand">
       <div class="nav-logo">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="20" cy="20" r="20" fill="var(--primary)"/>
@@ -35,43 +34,31 @@
 
         <!-- Home — with dropdown -->
 <li class="nav-item nav-has-dropdown">
-  <a href="./index.html" class="nav-link">Home</a>
+  <a href="/index.html" class="nav-link">Home</a>
   <ul class="nav-dropdown" id="dd-home">
-    <li><a href="../Home/home.html" class="dd-link">Home</a></li>
-    
+    <li><a href="/index.html" class="dd-link">Home 1</a></li>
+    <li><a href="../Home/home.html" class="dd-link">Home 2</a></li>
   </ul>
 </li>
- 
         <li class="nav-item">
-          <a href="../About/about.html" class="nav-link">About</a>
+          <a href="../About/about.html" class="nav-link ">About</a>
         </li>
-
         <!-- Services — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
           <a href="../Services/service.html" class="nav-link">Services</a>
-          <ul class="nav-dropdown" id="dd-services">
-            <li><a href="../ServiceDetail/bespoke.html" class="dd-link">Bespoke Commissions</a></li>
-            <li><a href="../ServiceDetail/workshop.html" class="dd-link">Workshops</a></li>
-            <li><a href="../ServiceDetail/corporate.html" class="dd-link">Corporate Gifting</a></li>
-            <li><a href="../ServiceDetail/jewel.html" class="dd-link">Jewellery Design</a></li>
-            <li><a href="../ServiceDetail/interior.html" class="dd-link">Interior Installations</a></li>
-            <li><a href="../ServiceDetail/gifts.html" class="dd-link">Birthday &amp; Wedding Gifts</a></li>
-          </ul>
+          
         </li>
 
         <!-- Blog — click navigates, hover shows dropdown, no icon -->
         <li class="nav-item nav-has-dropdown">
-          <a href="../Blog/blog.html" class="nav-link">Blog</a>
-          <ul class="nav-dropdown" id="dd-blog">
-            <li><a href="../BlogDetail/resin.html" class="dd-link">Resin Tips &amp; Tricks</a></li>
-            <li><a href="../BlogDetail/color.html" class="dd-link">Color Inspiration</a></li>
-            <li><a href="../BlogDetail/behind.html" class="dd-link">Behind the Studio</a></li>
-            <li><a href="../BlogDetail/diy.html" class="dd-link">DIY Guides</a></li>
-          </ul>
+          <a href="../Blog/blog.html" class="nav-link active">Blog</a>
         </li>
 
         <li class="nav-item">
           <a href="../Contact/contact.html" class="nav-link">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a href="../AdminDashboard/admin.html" class="nav-link">Dashboard</a>
         </li>
 
       </ul>
@@ -107,6 +94,7 @@
       <i data-lucide="x"></i>
     </button>
   </div>
+  
 
   <ul class="drawer-nav">
 
@@ -115,7 +103,8 @@
         <span>Home</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
       </button>
       <ul class="drawer-sub" id="sub-home">
-        <li><a href="../Home/home.html" class="drawer-sub-link">Home</a></li>
+        <li><a href="./index.html" class="drawer-sub-link">Home 1</a></li>
+        <li><a href="../Home/home.html" class="drawer-sub-link">Home 2</a></li>
        
       </ul>
     </li>
@@ -123,37 +112,18 @@
     <li class="drawer-item">
       <a href="../About/about.html" class="drawer-link">About</a>
     </li>
-
     <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-services">
-        <span>Services</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-services">
-        <li><a href="../Services/service.html" class="drawer-sub-link">All Services</a></li>
-        <li><a href="../ServiceDetail/bespoke.html" class="drawer-sub-link">Bespoke Commissions</a></li>
-        <li><a href="../ServiceDetail/workshop.html" class="drawer-sub-link">Workshops</a></li>
-        <li><a href="../ServiceDetail/corporate.html" class="drawer-sub-link">Corporate Gifting</a></li>
-        <li><a href="../ServiceDetail/jewel.html" class="drawer-sub-link">Jewellery Design</a></li>
-        <li><a href="../ServiceDetail/interior.html" class="drawer-sub-link">Interior Installation</a></li>
-        <li><a href="../ServiceDetail/gifts.html" class="drawer-sub-link">Birthday & Wedding Gifts</a></li>
-      </ul>
+      <a href="../Services/service.html" class="drawer-link">Services</a>
     </li>
-
-    <li class="drawer-item">
-      <button class="drawer-link drawer-accordion" data-sub="sub-blog">
-        <span>Blog</span> <i data-lucide="chevron-down" class="acc-arrow"></i>
-      </button>
-      <ul class="drawer-sub" id="sub-blog">
-        <li><a href="../Blog/blog.html" class="drawer-sub-link">All Blog</a></li>
-        <li><a href="./resin.html" class="drawer-sub-link">Resin Tips &amp; Tricks</a></li>
-        <li><a href="../BlogDetail/color.html" class="drawer-sub-link">Color Inspiration</a></li>
-        <li><a href="../BlogDetail/behind.html" class="drawer-sub-link">Behind the Studio</a></li>
-        <li><a href="../BlogDetail/diy.html" class="drawer-sub-link">DIY Guides</a></li>
-      </ul>
+        <li class="drawer-item">
+      <a href="../Blog/blog.html" class="drawer-link">Blog</a>
     </li>
 
     <li class="drawer-item">
       <a href="../Contact/contact.html" class="drawer-link">Contact</a>
+    </li>
+    <li class="drawer-item">
+      <a href="../AdminDashboard/admin.html" class="drawer-link">Dashboard</a>
     </li>
 
     <li class="drawer-divider"></li>
@@ -204,7 +174,7 @@
             <span class="tag tag--secondary">Beginner Friendly</span>
             <span class="tag tag--amber">10 min read</span>
           </div>
-          <h1 class="rt-hero__title fade-up" style="--delay:0.2s">The Ultimate Guide to Resin Art:<br>Tips, Tricks &amp; Secrets</h1>
+          <h1 class="rt-hero__title fade-up" style="--delay:0.2s">The Ultimate Guide to Resin Art:Tips, Tricks &amp; Secrets</h1>
           <p class="rt-hero__desc fade-up" style="--delay:0.3s">Everything you need to know — from mixing ratios and bubble-free pours to pigment techniques, mould release, and finishing like a professional. Unlock stunning results every time.</p>
           <div class="rt-hero__meta fade-up" style="--delay:0.4s">
             <div class="meta-author">
@@ -246,11 +216,14 @@
         <div class="bg-blob bg-blob--a"></div>
         <div class="bg-blob bg-blob--b"></div>
       </div>
+       <div class="rt-heading fade-up">
+        <span class="section-chip">Chapter 1</span>
+        <h2 class="sec-title">Getting Started: What You Need to Know</h2>
+    </div>
+
       <div class="container rt-intro__grid">
         <div class="rt-intro__text fade-right">
-          <span class="section-chip">Chapter 1</span>
-          <h2 class="section-title">Getting Started: What You Need to Know</h2>
-          <p>Resin art may look complex, but with the right preparation it becomes intuitive and deeply rewarding. Before you open any bottle of resin, understanding the fundamentals will save you hours of frustration and wasted materials.</p>
+          <!-- <p>Resin art may look complex, but with the right preparation it becomes intuitive and deeply rewarding. Before you open any bottle of resin, understanding the fundamentals will save you hours of frustration and wasted materials.</p> -->
           <ul class="tips-list">
             <li>
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
@@ -264,7 +237,12 @@
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               <div><strong>Mix slowly for 3–5 minutes</strong> — Scrape the sides and bottom of the cup constantly. Unmixed resin pockets will never cure and leave soft sticky patches.</div>
             </li>
-            <li>
+           
+        </div>
+        <div class="rt-intro__model fade-left">
+          <!-- SVG: Resin kit model -->
+               <ul class="tips-list">
+                 <li>
               <svg width="20" height="20" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
               <div><strong>Always protect your workspace</strong> — Silicone mats or plastic sheeting protect surfaces. Resin is permanent on most materials once cured.</div>
             </li>
@@ -277,38 +255,8 @@
               <div><strong>Let it rest 5 minutes before pouring</strong> — After mixing, allow resin to sit. Large bubbles will rise and pop on their own before you add pigments.</div>
             </li>
           </ul>
-        </div>
-        <div class="rt-intro__model fade-left">
-          <!-- SVG: Resin kit model -->
-          <svg viewBox="0 0 340 380" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="Resin kit illustration">
-            <!-- Workbench -->
-            <rect x="20" y="300" width="300" height="14" rx="4" fill="var(--secondary)" opacity="0.18"/>
-            <!-- Resin bottle A -->
-            <rect x="60" y="180" width="44" height="110" rx="8" fill="var(--primary)" opacity="0.15" class="model-part"/>
-            <rect x="68" y="170" width="28" height="18" rx="4" fill="var(--primary)" opacity="0.3" class="model-part"/>
-            <text x="82" y="242" text-anchor="middle" font-size="10" fill="var(--primary)" font-weight="700">PART A</text>
-            <!-- Resin bottle B -->
-            <rect x="120" y="190" width="44" height="100" rx="8" fill="var(--secondary)" opacity="0.15" class="model-part"/>
-            <rect x="128" y="180" width="28" height="18" rx="4" fill="var(--secondary)" opacity="0.3" class="model-part"/>
-            <text x="142" y="244" text-anchor="middle" font-size="10" fill="var(--secondary)" font-weight="700">PART B</text>
-            <!-- Mixing cup -->
-            <path d="M185,200 L178,290 Q182,298 192,298 Q202,298 206,290 L199,200 Z" fill="var(--amber)" opacity="0.18" class="model-part"/>
-            <line x1="185" y1="220" x2="199" y2="220" stroke="var(--amber)" stroke-width="1.5" opacity="0.5"/>
-            <line x1="183" y1="240" x2="201" y2="240" stroke="var(--amber)" stroke-width="1.5" opacity="0.5"/>
-            <line x1="181" y1="260" x2="203" y2="260" stroke="var(--amber)" stroke-width="1.5" opacity="0.5"/>
-            <!-- Gloves -->
-            <ellipse cx="240" cy="260" rx="28" ry="20" fill="var(--primary)" opacity="0.12" class="model-part"/>
-            <path d="M215,250 Q220,230 238,228 Q255,226 260,250" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.4"/>
-            <!-- Stir stick -->
-            <line x1="270" y1="170" x2="258" y2="295" stroke="var(--secondary)" stroke-width="4" stroke-linecap="round" opacity="0.5"/>
-            <!-- Floating resin drops -->
-            <ellipse cx="100" cy="100" rx="18" ry="26" fill="var(--primary)" opacity="0.22" class="drop-float"/>
-            <ellipse cx="220" cy="80" rx="14" ry="20" fill="var(--secondary)" opacity="0.22" class="drop-float" style="animation-delay:.6s"/>
-            <ellipse cx="160" cy="50" rx="10" ry="14" fill="var(--amber)" opacity="0.3" class="drop-float" style="animation-delay:1.2s"/>
-            <!-- Orbiting ring -->
-            <circle cx="170" cy="130" r="70" fill="none" stroke="var(--primary)" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.25" class="spin-slow"/>
-            <circle cx="170" cy="130" r="50" fill="none" stroke="var(--secondary)" stroke-width="1" stroke-dasharray="4 8" opacity="0.2" class="spin-slow" style="animation-direction:reverse;animation-duration:18s"/>
-          </svg>
+
+               </ul>
         </div>
       </div>
     </section>
@@ -324,7 +272,7 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-chip section-chip--light">Chapter 2</span>
-          <h2 class="section-title section-title--light">Core Resin Techniques</h2>
+          <h2 class="sec-title sec-title--light">Core Resin Techniques</h2>
           <p class="section-sub section-sub--light">Master these six methods and you'll be able to create any style of resin art — from fluid cells to sharp geode lines.</p>
         </div>
         <div class="carousel" id="techniquesCarousel">
@@ -477,8 +425,8 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-chip">Chapter 3</span>
-          <h2 class="section-title">Achieving a Bubble-Free Finish</h2>
-          <p class="section-sub">Bubbles are the number-one enemy of flawless resin work. Here are the professional methods used in every ResinLux Studio pour.</p>
+          <h2 class="sec-title">Achieving a Bubble-Free Finish</h2>
+          <p class="section-sub">Bubbles are the number-one enemy of flawless resin work. Here are the professional methods used in every ResinCraft Studio pour.</p>
         </div>
         <div class="bubbles-grid">
           <div class="bubble-step fade-left" style="--delay:0s">
@@ -556,7 +504,7 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-chip section-chip--light">Chapter 4</span>
-          <h2 class="section-title section-title--light">Pigments, Dyes &amp; Colours</h2>
+          <h2 class="sec-title sec-title--light">Pigments, Dyes &amp; Colours</h2>
           <p class="section-sub section-sub--light">Colour is everything in resin art. Choosing the right colourant for each application separates amateur pours from professional work.</p>
         </div>
         <div class="pigment-grid">
@@ -638,7 +586,7 @@
         </div>
         <div class="rt-mistakes__content fade-left">
           <span class="section-chip">Chapter 5</span>
-          <h2 class="section-title">7 Common Mistakes &amp; How to Fix Them</h2>
+          <h2 class="sec-title">7 Common Mistakes &amp; How to Fix Them</h2>
           <div class="mistake-accordion" id="mistakeAccordion">
             <div class="mistake-item">
               <button class="mistake-item__btn" aria-expanded="false">
@@ -725,7 +673,7 @@
       <div class="container">
         <div class="section-header fade-up">
           <span class="section-chip section-chip--light">Chapter 6</span>
-          <h2 class="section-title section-title--light">Essential Tools &amp; Materials</h2>
+          <h2 class="sec-title sec-title--light">Essential Tools &amp; Materials</h2>
           <p class="section-sub section-sub--light">Build your resin toolkit strategically. Start with essentials and expand as your practice grows.</p>
         </div>
         <div class="tools-categories">
@@ -782,120 +730,7 @@
     </section>
 
     <!-- ====== SECTION 8: NEWSLETTER / COMMENTS FORM ====== -->
-    <section class="rt-form section-pad" id="subscribe">
-      <div class="rt-form__bg-anim" aria-hidden="true">
-        <div class="bg-blob bg-blob--j"></div>
-        <div class="bg-blob bg-blob--k"></div>
-      </div>
-      <div class="container rt-form__grid">
-        <div class="rt-form__left fade-right">
-          <svg viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg" class="model-svg" aria-label="Newsletter model">
-            <!-- Envelope body -->
-            <rect x="30" y="80" width="220" height="150" rx="12" fill="var(--primary)" opacity="0.1" class="model-part"/>
-            <rect x="30" y="80" width="220" height="150" rx="12" fill="none" stroke="var(--primary)" stroke-width="2.5" opacity="0.4"/>
-            <!-- Envelope flap -->
-            <path d="M30 80 L140 160 L250 80" fill="none" stroke="var(--primary)" stroke-width="2" opacity="0.4"/>
-            <!-- Lines of text -->
-            <line x1="70" y1="175" x2="210" y2="175" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
-            <line x1="70" y1="190" x2="180" y2="190" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round" opacity="0.2"/>
-            <line x1="70" y1="205" x2="160" y2="205" stroke="var(--secondary)" stroke-width="3" stroke-linecap="round" opacity="0.15"/>
-            <!-- Star sparkles -->
-            <circle cx="60" cy="50" r="5" fill="var(--amber)" opacity="0.5" class="twinkle"/>
-            <circle cx="220" cy="40" r="4" fill="var(--primary)" opacity="0.5" class="twinkle" style="animation-delay:.3s"/>
-            <circle cx="250" cy="120" r="3" fill="var(--secondary)" opacity="0.5" class="twinkle" style="animation-delay:.7s"/>
-            <circle cx="30" cy="200" r="4" fill="var(--amber)" opacity="0.4" class="twinkle" style="animation-delay:1s"/>
-            <!-- Drop decorations -->
-            <ellipse cx="80" cy="30" rx="8" ry="12" fill="var(--primary)" opacity="0.2" class="drop-float"/>
-            <ellipse cx="200" cy="20" rx="6" ry="9" fill="var(--secondary)" opacity="0.2" class="drop-float" style="animation-delay:.5s"/>
-            <!-- Orbiting ring -->
-            <circle cx="140" cy="155" r="100" fill="none" stroke="var(--secondary)" stroke-width="1" stroke-dasharray="5 7" opacity="0.2" class="spin-slow" style="animation-duration:22s"/>
-          </svg>
-          <div class="rt-form__left-copy">
-            <span class="section-chip">Stay Updated</span>
-            <h2 class="section-title">Get New Tips &amp; Tutorials First</h2>
-            <p>Join 12,000+ resin artists who get our weekly deep-dives, technique breakdowns, and exclusive subscriber-only guides delivered straight to their inbox.</p>
-            <ul class="form-perks">
-              <li>
-                <svg width="18" height="18" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Free Beginner's Checklist PDF
-              </li>
-              <li>
-                <svg width="18" height="18" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Weekly technique deep-dives
-              </li>
-              <li>
-                <svg width="18" height="18" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Early access to new tutorials
-              </li>
-              <li>
-                <svg width="18" height="18" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                Exclusive subscriber discounts
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="rt-form__right fade-left">
-          <div class="form-card" id="formCard">
-            <h3>Subscribe &amp; Ask a Question</h3>
-            <p class="form-card__sub">Have a specific technique question? Ask below and our team may feature it in the next tutorial.</p>
-            <form id="subscribeForm" novalidate>
-              <div class="form-group">
-                <label for="sub-name">Full Name <span aria-hidden="true">*</span></label>
-                <input type="text" id="sub-name" name="name" placeholder="Your name" autocomplete="name" />
-                <span class="form-error" id="err-name"></span>
-              </div>
-              <div class="form-group">
-                <label for="sub-email">Email Address <span aria-hidden="true">*</span></label>
-                <input type="email" id="sub-email" name="email" placeholder="your@email.com" autocomplete="email" />
-                <span class="form-error" id="err-email"></span>
-              </div>
-              <div class="form-group">
-                <label for="sub-level">Your Experience Level <span aria-hidden="true">*</span></label>
-                <select id="sub-level" name="level">
-                  <option value="">Select your level</option>
-                  <option value="beginner">Complete Beginner</option>
-                  <option value="hobbyist">Hobbyist (6–12 months)</option>
-                  <option value="intermediate">Intermediate (1–2 years)</option>
-                  <option value="advanced">Advanced (3+ years)</option>
-                  <option value="professional">Professional Artist</option>
-                </select>
-                <span class="form-error" id="err-level"></span>
-              </div>
-              <div class="form-group">
-                <label for="sub-topics">Topics of Interest</label>
-                <div class="checkbox-group">
-                  <label class="checkbox-label"><input type="checkbox" value="bubbles" /> Bubble-Free Techniques</label>
-                  <label class="checkbox-label"><input type="checkbox" value="pigments" /> Pigments &amp; Colour</label>
-                  <label class="checkbox-label"><input type="checkbox" value="moulds" /> Moulds &amp; Casting</label>
-                  <label class="checkbox-label"><input type="checkbox" value="finishing" /> Sanding &amp; Finishing</label>
-                  <label class="checkbox-label"><input type="checkbox" value="geode" /> Geode Art</label>
-                  <label class="checkbox-label"><input type="checkbox" value="wood" /> Resin &amp; Wood</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="sub-question">Your Question (optional)</label>
-                <textarea id="sub-question" name="question" rows="4" placeholder="e.g. How do I stop my cells from collapsing after torching?"></textarea>
-                <span class="form-hint">We feature the best questions in upcoming tutorials.</span>
-              </div>
-              <div class="form-group">
-                <label class="checkbox-label checkbox-label--agree">
-                  <input type="checkbox" id="sub-agree" name="agree" />
-                  I agree to receive emails from ResinLux Studio. I can unsubscribe at any time. <span aria-hidden="true">*</span>
-                </label>
-                <span class="form-error" id="err-agree"></span>
-              </div>
-              <button type="submit" class="btn btn--primary btn--full">Subscribe &amp; Send Question</button>
-            </form>
-            <div class="form-success" id="formSuccess" hidden>
-              <svg width="56" height="56" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
-              <h3>You're in!</h3>
-              <p>Thank you for subscribing. Check your inbox for your free Beginner's Checklist PDF. We'll feature your question in an upcoming tutorial if selected.</p>
-              <a href="blog.html" class="btn btn--secondary">Browse More Articles</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  
 
   </main>
 

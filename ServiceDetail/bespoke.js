@@ -492,3 +492,102 @@ function closeWaPanel() {
   });
 
 })();
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const navLinks = document.querySelectorAll(".nav-link");
+    const dropdownLinks = document.querySelectorAll(".dd-link");
+    const sections = document.querySelectorAll("section[id]");
+
+    /* -----------------------------
+       Current Page
+    ----------------------------- */
+
+    let currentPage = window.location.pathname.split("/").pop();
+
+    if (currentPage === "") {
+        currentPage = "service.html";
+    }
+
+    navLinks.forEach(link => {
+
+        const href = link.getAttribute("href").split("/").pop();
+
+        if (
+            href === currentPage ||
+            (
+                (currentPage === "home.html" || currentPage === "service.html") &&
+                href === "service.html"
+            )
+        ) {
+            link.classList.add("active");
+        }
+
+    });
+
+    dropdownLinks.forEach(link => {
+
+        const href = link.getAttribute("href").split("/").pop();
+
+        if (href === currentPage) {
+            link.classList.add("active");
+        }
+
+    });
+
+    /* -----------------------------
+       Scroll Spy
+    ----------------------------- */
+
+    function updateScrollSpy(){
+
+        let current = "";
+
+        const scrollPos = window.scrollY + 150;
+
+        sections.forEach(section=>{
+
+            const top = section.offsetTop;
+            const bottom = top + section.offsetHeight;
+
+            if(scrollPos >= top && scrollPos < bottom){
+                current = section.id;
+            }
+
+        });
+
+        if(current === "") return;
+
+        navLinks.forEach(link=>{
+
+            const href = link.getAttribute("href");
+
+            if(href.startsWith("#")){
+
+                if(href === "#" + current){
+
+                    link.classList.add("active");
+
+                }else{
+
+                    link.classList.remove("active");
+
+                }
+
+            }
+
+        });
+
+    }
+
+    if(sections.length){
+
+        window.addEventListener("scroll",updateScrollSpy,{
+            passive:true
+        });
+
+        updateScrollSpy();
+
+    }
+
+});
